@@ -1,6 +1,7 @@
 import { NavLink } from "react-router-dom";
 import PropTypes from "prop-types"
-// import { AiOutlineAppstoreAdd } from "react-icons/ai";
+import { AiOutlineAppstore } from "react-icons/ai";
+import { SlArrowLeft, SlArrowRight } from "react-icons/sl";
 const TopLayerOfDetails = ({ title }) => {
     return (
         <nav className="flex justify-between lg:px-32" id="product_details_top_layer">
@@ -16,8 +17,17 @@ const TopLayerOfDetails = ({ title }) => {
                 </li>
             </ul>
             <div>
-                {/* <NavLink to="/store"><AiOutlineAppstoreAdd /></NavLink> */}
-                <NavLink to="/store">Store</NavLink>
+                <ul className="flex gap-1 items-center text-lg">
+                    <li>
+                        <NavLink to="#"><SlArrowLeft /></NavLink>
+                    </li>
+                    <li>
+                        <NavLink to="/store"><AiOutlineAppstore /></NavLink>
+                    </li>
+                    <li>
+                        <NavLink to="#"><SlArrowRight /></NavLink>
+                    </li>
+                </ul>
             </div>
         </nav>
     );
