@@ -16,7 +16,7 @@ const ProductCard = () => {
               <div
                 onMouseOver={() => setOver5(true)}
                 onMouseOut={() => setOver5(false)}
-                className=" relative h-[200px] cursor-pointer mt-12 pt-5  my-auto mx-auto px-5"
+                className=" relative h-[200px] cursor-pointer mt-12 pt-5  my-auto mx-auto px-4"
               >
                 {!over & !over2 & !over3 & !over4 ? (
                   <img
