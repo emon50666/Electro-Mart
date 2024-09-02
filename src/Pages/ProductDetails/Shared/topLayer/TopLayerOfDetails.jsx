@@ -4,19 +4,19 @@ import { AiOutlineAppstore } from "react-icons/ai";
 import { SlArrowLeft, SlArrowRight } from "react-icons/sl";
 const TopLayerOfDetails = ({ title }) => {
     return (
-        <nav className="flex justify-between lg:px-32" id="product_details_top_layer">
+        <nav className="flex justify-between px-4 lg:px-32" id="product_details_top_layer">
             <ul className="flex gap-1 font-semibold font_open_sense">
                 <li>
                     <NavLink to="/">Home</NavLink> /
                 </li>
-                <li>
+                <li  className="hidden md:block">
                     <NavLink to="/">Category</NavLink> /
                 </li>
                 <li>
                     <NavLink to="#">{title}</NavLink>
                 </li>
             </ul>
-            <div>
+            <div className="hidden md:block">
                 <ul className="flex gap-1 items-center text-lg">
                     <li>
                         <NavLink to="#"><SlArrowLeft /></NavLink>
