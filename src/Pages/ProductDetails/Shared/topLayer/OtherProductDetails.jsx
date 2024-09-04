@@ -50,33 +50,7 @@ const OtherProductDetails = () => {
                         Buy now
                     </button>
                 </div>
-                <div className="my-5 flex items-center justify-between">
-                    <div className="flex">
-                        <div className="flex items-center space-x-1">
-                            <h1>
-                                <GoGitCompare />
-                            </h1>
-                            <h1>Compare</h1>
-                        </div>
-                        <div className="flex items-center pl-8 space-x-1">
-                            <h1>
-                                <GoHeart />
-                            </h1>
-                            <h1>Add to wishlist</h1>
-                        </div>
-                    </div>
-
-                    <div className="flex items-center ">
-                        <h1>Share:</h1>
-                        <div className=" flex space-x-2 ml-3">
-                            <LuFacebook />
-                            <FaXTwitter />
-                            <SlSocialLinkedin />
-                            <BsTelegram />
-                            <FaInstagram />
-                        </div>
-                    </div>
-                </div>
+                
                 <div className="flex items-center space-x-2 m-5 px-3 py-2 bg-slate-200 rounded-lg">
                     <FaRegEye />
                     <h1>{countView}</h1>
