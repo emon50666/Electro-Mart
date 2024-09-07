@@ -1,12 +1,5 @@
 import { FaRegStar } from "react-icons/fa";
 import { AiOutlineDollar } from "react-icons/ai";
-import { GoGitCompare } from "react-icons/go";
-import { GoHeart } from "react-icons/go";
-import { LuFacebook } from "react-icons/lu";
-import { FaXTwitter } from "react-icons/fa6";
-import { SlSocialLinkedin } from "react-icons/sl";
-import { BsTelegram } from "react-icons/bs";
-import { FaInstagram } from "react-icons/fa";
 import { FaRegEye } from "react-icons/fa";
 import { useState } from "react";
 
