@@ -1,11 +1,14 @@
+import MainProductDetails from "./Shared/topLayer/MainProductDetails";
 import TopLayerOfDetails from "./Shared/topLayer/TopLayerOfDetails";
 
 
 const ProductDetails = () => {
     const products = {
         images: [
-            { src: "image1.jpg" },
-            { src: "image2.jpg" }
+            'https://via.placeholder.com/150', 
+            'https://via.placeholder.com/150/0000FF',
+            'https://via.placeholder.com/150/008000',
+            'https://via.placeholder.com/150/FF0000'
         ],
         title: "Blender",
         rating: 4.8,
@@ -27,6 +30,8 @@ const ProductDetails = () => {
         <div>
             {/* top layer of details */}
             <TopLayerOfDetails title={products.title} />
+            {/* main details section */}
+            <MainProductDetails images={products.images}/>
 
         </div>
     );
