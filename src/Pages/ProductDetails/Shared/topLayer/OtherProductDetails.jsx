@@ -39,7 +39,15 @@ const OtherProductDetails = () => {
 
                 <div className="">
                     <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt beatae velit eum fuga repellat pariatur est dolorem consequuntur nostrum nam voluptatem, possimus recusandae eveniet at iure accusamus alias rerum odio harum, natus ut obcaecati sapiente exercitationem nihil! Veniam, quidem perspiciatis. Obcaecati doloremque earum corrupti temporibus natus. Sunt distinctio, nihil culpa, sapiente laborum in, debitis dolores magni veritatis temporibus nobis tempora recusandae voluptatibus rem asperiores laboriosam architecto quod doloribus accusantium sequi quis magnam quia deserunt? Necessitatibus, ratione. Quidem possimus unde distinctio voluptatem ipsam magni molestias hic veritatis animi impedit officiis illo corrupti similique aut sit nisi ipsum, deserunt expedita amet cumque?
+                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quae
+                        repellendus animi, mollitia beatae accusamus odit eius sapiente
+                        repudiandae culpa quasi alias! Sed excepturi alias molestiae iste,
+                        laboriosam sint nostrum eius illo minima explicabo asperiores quod
+                        voluptatibus vero aperiam accusamus quisquam consequatur. Adipisci,
+                        quaerat amet. Architecto similique exercitationem illo
+                        necessitatibus totam laborum cum provident ad iusto corrupti
+                        asperiores error, sint accusantium eius distinctio ea facere dolore
+                        aut perferendis.
                     </p>
                 </div>
                 <div className="space-x-2">
