@@ -124,7 +124,7 @@ const Navbar = () => {
             <div className="p-1 rounded-full  ">
               {
                 user ? <div className="relative inline-block">
-                  <img src={user?.photoURL} className="w-10 h-10 rounded-full border-2 border-blue-600 p-0.5" />
+                  <img title={user?.displayName} src={user?.photoURL} className="w-10 h-10 rounded-full border-2 border-blue-600 p-0.5" />
                   <span className="h-3 w-3 rounded-full border border-white bg-green-500 block absolute top-1 right-0"></span>
                 </div> :
                   <>
