@@ -17,6 +17,10 @@ import ProductDetails from "../Pages/ProductDetails/ProductDetails";
         {
             index: true,
             element: <Home />
+        },
+        {
+          path: "/productDetails",
+          element: <ProductDetails />
         }
       ],
       
@@ -29,10 +33,7 @@ import ProductDetails from "../Pages/ProductDetails/ProductDetails";
       path: '/register',
       element: <Register />
     },
-    {
-      path: "/productDetails",
-      element: <ProductDetails />
-    }
+ 
   ]);
 
 
