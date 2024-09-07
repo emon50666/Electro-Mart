@@ -6,7 +6,7 @@ import UserAuth from "../../Layout/useAuth";
 import { FaCartShopping } from "react-icons/fa6";
 import { IoGitCompareOutline } from "react-icons/io5";
 import { FaHeart } from "react-icons/fa";
-import { MdDashboardCustomize } from "react-icons/md";
+
 import { MdAccountCircle } from "react-icons/md";
 import MobileNavBar from "../Navbar/MobileNavBar";
 

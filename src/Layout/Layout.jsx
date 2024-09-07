@@ -10,7 +10,7 @@ const Layout = () => {
             <MenuBar ></MenuBar>
 
             <Outlet />
-            
+
             <Footer />
         </div>
     );
