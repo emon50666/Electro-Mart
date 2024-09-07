@@ -77,15 +77,15 @@ const ProductCard = () => {
                   />
                 )}
 
-
-              </div>
-              {over5 && (
+{over5 && (
                 <div className=" absolute right-0 top-0 bg-white shadow-lg px-3 mt-4 py-3 flex flex-col gap-3 mr-3">
                   <FaCodeCompare />
                   <FaSearch />
                   <GrFavorite />
                 </div>
               )}
+              </div>
+           
               <div className=" absolute  left-0 top-0  px-3 py-3 flex flex-col gap-3">
                 <p className=" bg-red-600 text-white px-2  rounded-full text-sm">
                   HOT

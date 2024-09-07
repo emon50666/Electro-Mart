@@ -134,35 +134,38 @@ const Navbar = () => {
                       <span className="h-3 w-3 rounded-full border border-white bg-green-500 block absolute top-1 right-0"></span>
                     </div>
                         :
-                        <div className="relative bg-orange-200/50 hover:bg-orange-300/50 cursor-pointer  rounded-full p-2">
-                          <MdAccountCircle className="text-lg text-orange-600 " />
-                          <span
-                            className="absolute -right-2 -top-3 rounded-full bg-orange-500  pt-[1px] pb-[4px] pl-1 pr-1  py-[1px] text-[10px]
-                text-white">Account</span>
-                        </div>
+                      <Link to={'/register'}>  <div className="relative bg-orange-200/50 hover:bg-orange-300/50 cursor-pointer  rounded-full p-2">
+                      <MdAccountCircle className="text-lg text-orange-600 " />
+                      <span
+                        className="absolute -right-2 -top-3 rounded-full bg-orange-500  pt-[1px] pb-[4px] pl-1 pr-1  py-[1px] text-[10px]
+            text-white">Account</span>
+                    </div></Link>
                     }
                   </>
               }
             </div>
           </div>
-          <ul
-            tabIndex={0}
-            className="menu menu-sm  font-semibold  right-0  dropdown-content bg-base-100 rounded-box z-[1]  w-48 shadow-md"
-          >
-          
-          <Link  className="hover:bg-orange-50 p-2  rounded-md hover:text-orange-500" ><li>
-             DashBoard
-            </li></Link>
-       
-            <Link className="hover:bg-orange-50 p-2 rounded-md hover:text-orange-500" ><li>
-             Profile
-            </li></Link>
-             <Link className="hover:bg-orange-50 p-2  rounded-md hover:text-orange-500" ><li>
-             Setting
-            </li></Link>
-           
-            <Link  to={'/register'}  className="hover:bg-orange-50 p-2  rounded-md hover:text-orange-500" > <button onClick={logOut} ><a>  Logout</a></button></Link>
-          </ul>
+     {
+      user ? 
+      <ul
+      tabIndex={0}
+      className="menu menu-sm  font-semibold  right-0  dropdown-content bg-base-100 rounded-box z-[1]  w-48 shadow-md"
+    >
+    
+    <Link  className="hover:bg-orange-50 p-2  rounded-md hover:text-orange-500" ><li>
+       DashBoard
+      </li></Link>
+ 
+      <Link className="hover:bg-orange-50 p-2 rounded-md hover:text-orange-500" ><li>
+       Profile
+      </li></Link>
+       <Link className="hover:bg-orange-50 p-2  rounded-md hover:text-orange-500" ><li>
+       Setting
+      </li></Link>
+     
+      <Link  to={'/register'}  className="hover:bg-orange-50 p-2  rounded-md hover:text-orange-500" > <button onClick={logOut} ><a>  Logout</a></button></Link>
+    </ul> : ''
+     }
         </div>
 
 

@@ -47,12 +47,12 @@ const Register = () => {
       toast.success("Account created successfully");
       navigate('/')
 
-
+      // Update the user state with the new profile information
+      setUser({ ...user, displayName: name, photoURL: data.data.display_url });
       // Update user profile with name and photo URL
       await updateUserProfile(name, data.data.display_url);
 
-      // Update the user state with the new profile information
-      setUser({ ...user, displayName: name, photoURL: data.data.display_url });
+
 
 
     } catch (error) {
