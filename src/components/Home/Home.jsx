@@ -1,12 +1,11 @@
-import ProductCard from "../ProductCard/ProductCard";
-import ProductReview from "../ProductReview/ProductReview";
+import Banner from "../Banner/Banner";
 
 
 const Home = () => {
     return (
-        <div className="   min-h-[80vh]">
-          <ProductCard/>
-          <ProductReview/>
+        <div className=" flex justify-center bg-[#F6F6F6] min-h-[80vh]">
+          <Banner ></Banner>
+         
         </div>
     );
 };
