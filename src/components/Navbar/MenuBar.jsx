@@ -9,7 +9,7 @@ const MenuBar = () => {
   };
 
   return (
-    <div className="navbar hidden lg:flex sm:hidden md:hidden ">
+    <div className="navbar hidden lg:flex sticky top-16 px-10 bg-base-100 z-50 sm:hidden md:hidden ">
       {/* All Category Hover Section */}
       <div
         className=" relative"
@@ -18,7 +18,7 @@ const MenuBar = () => {
       >
         {/* Toggle Button */}
         <div>
-          <button className="bg-[#F97316] pt-1 pb-1 pl-3 pr-3 flex items-center rounded-full text-white font-bold"> All Category <IoIosArrowUp className="items-center pt-1 text-2xl
+          <button className="bg-[#F97316] pt-1 pb-1 pl-3 pr-3  flex items-center rounded-full text-white font-bold"> All Category <IoIosArrowUp className="items-center pt-1 text-2xl
            font-bold"></IoIosArrowUp> </button>
         </div>
 
