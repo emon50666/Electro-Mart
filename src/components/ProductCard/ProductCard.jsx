@@ -159,7 +159,7 @@ const ProductCard = () => {
 
           {/* sell and new badge */}
           <div className="mt-3 capitalize absolute -top-4 inset-x-0 flex justify-between px-2">
-            <small className="bg-[rgb(67,142,68)] pt-2 pb-2 pl-1 pr-1 rounded-full font-bold text-white">
+            <small className="bg-teal-600 pt-2 pb-2 pl-1 pr-1 rounded-full font-bold text-white">
               New
             </small>
             <small className="bg-orange-500 pt-2 pb-2 pl-1 pr-1 rounded-full font-bold text-white">

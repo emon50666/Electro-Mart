@@ -1,3 +1,4 @@
+import ProductReview from "../../components/ProductReview/ProductReview";
 import MainProductDetails from "./Shared/topLayer/MainProductDetails";
 import TopLayerOfDetails from "./Shared/topLayer/TopLayerOfDetails";
 
@@ -11,7 +12,7 @@ const ProductDetails = () => {
             'https://i.ibb.co.com/gz47X1b/download-24.jpg'
         ],
         title: "Chick Jumper",
-        rating: 1,
+        rating: 3.5,
         description: "Keep those little legs warm and cosy in our Arctic Leggings! Featuring an all over arctic themed jacquard and two sweet poms poms on the drawstring. Made from our organic cotton and wool blend for a warm and snuggly legging. Pair with our Arctic Friends Jumper for a sweet winter outfit.",
         price: 275,
         discountPrice: 99,
@@ -32,6 +33,7 @@ const ProductDetails = () => {
             <TopLayerOfDetails title={products.title} />
             {/* main details section */}
             <MainProductDetails product={products} />
+            <ProductReview ></ProductReview>
 
 
             <br /><br /><br /><br /><br />
