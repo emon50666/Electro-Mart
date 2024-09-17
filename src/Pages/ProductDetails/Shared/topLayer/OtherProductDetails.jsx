@@ -101,7 +101,7 @@ const OtherProductDetails = ({ product }) => {
                 {/* Quantity & cart end */}
                 <div className="divider my-2 md:my-0 lg:my-auto"></div>
                 {/* Share & compare start */}
-                <div className="lg:my-5 flex flex-col lg:flex-row justify-between gap-y-1 ">
+                <div className="lg:my-5 flex flex-col xl:flex-row justify-between gap-y-1 ">
                     <div className="flex text-sm md:text-base lg:text-lg">
                         <div className="flex items-center hover:text-[#666666] space-x-1">
                             <div>
@@ -140,7 +140,7 @@ const OtherProductDetails = ({ product }) => {
                 {/* Share & compare end */}
             </div>
             <div className="divider my-2 md:my-0 lg:my-auto"></div>
-            <div className="flex items-center justify-center gap-x-1 mb-5 mx-2 px-2 lg:px-4 py-2 bg-slate-200 rounded-lg text-sm md:text-base">
+            <div className="flex items-center justify-center gap-x-1 mb-5 mx-2 px-2 xl:px-4 py-2 bg-slate-200 rounded-lg text-sm md:text-base">
                 <FaRegEye className="mt-1" />
                 <p>
                     {countView}
