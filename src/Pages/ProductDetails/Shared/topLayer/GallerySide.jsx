@@ -23,7 +23,7 @@ const GallerySide = ({ images }) => {
         <div>
             <div className="flex flex-col xl:flex-row-reverse w-full">
                 {/* Large Image Display (Swiper) */}
-                <div className="w-full lg:w-5/6">
+                <div className="w-full xl:w-5/6">
                     <Swiper
                         spaceBetween={30}
                         modules={[Pagination, Navigation]}
