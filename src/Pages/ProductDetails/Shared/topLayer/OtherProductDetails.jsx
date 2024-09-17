@@ -1,98 +1,156 @@
-import { FaRegStar } from "react-icons/fa";
-import { AiOutlineDollar } from "react-icons/ai";
 import { GoGitCompare } from "react-icons/go";
 import { GoHeart } from "react-icons/go";
 import { LuFacebook } from "react-icons/lu";
-import { FaXTwitter } from "react-icons/fa6";
+import { FaWhatsapp, FaXTwitter } from "react-icons/fa6";
 import { SlSocialLinkedin } from "react-icons/sl";
 import { BsTelegram } from "react-icons/bs";
-import { FaInstagram } from "react-icons/fa";
 import { FaRegEye } from "react-icons/fa";
 import { useState } from "react";
+import PropTypes from "prop-types"
+import toast from "react-hot-toast";
+import Rating from "react-rating";
+import {
+    TwitterShareButton, TelegramShareButton, LinkedinShareButton, FacebookShareButton, WhatsappShareButton
+} from "react-share";
 
-const OtherProductDetails = () => {
+const OtherProductDetails = ({ product }) => {
     const [countView, setCountView] = useState(10)
+    const [quantityCount, setQuantityCount] = useState(1)
+    const [disableBtn, setDisableBtn] = useState(false)
+    const shareUrl = window.location.href;
+    // console.log(product.availableItems);
+    const increaseCount = () => {
+        if (quantityCount === product.availableItems) {
+            toast.error("Stocks Out")
+            setDisableBtn(true)
+            return;
+        } else {
+            const increasedCount = quantityCount + 1;
+            setQuantityCount(increasedCount)
+        }
+    }
+    const decreaseCount = () => {
+        if (quantityCount > 0) {
+            const decreasedCount = quantityCount - 1;
+            setQuantityCount(decreasedCount)
+            setDisableBtn(false)
+        }
+    }
     return (
         <div >
-            <div className="">
+            <div className="lg:space-y-3">
+                {/* Title & Rating start */}
                 <div>
-                    <h1 className="text-4xl font-semibold">Basic Rib Legging</h1>
+                    <h3 className="text-xl md:text-2xl lg:text-3xl font-bold lg:font-semibold font_lexend">{product.title}</h3>
                     <div className="flex items-center space-x-4 py-1">
-                        <div className="flex items-start space-x-1">
-                            <FaRegStar />
-                            <FaRegStar />
-                            <FaRegStar />
-                            <FaRegStar />
-                            <FaRegStar />
-                        </div>
-                        <div>
-                            <h1>({ } customer reviews)</h1>
+                        <Rating
+                            initialRating={parseInt(product.rating)}
+                            emptySymbol={<img src="https://i.ibb.co.com/KN7rSQ6/empty-star-removebg-preview.png"
+                                className="icon h-4 md:h-5" />}
+                            fullSymbol={<img src="https://i.ibb.co.com/KGK6qQR/full.jpg" className="icon h-4 md:h-5" />}
+                            readonly
+                        />
+                        <div className="font_cabin text-[#767676]">
+                            <p>({ } customer reviews)</p>
                         </div>
                     </div>
                 </div>
-                <div className="text-4xl text-orange-500 items-center font-semibold py-3 flex">
-                    <h1>
-                        <AiOutlineDollar />
-                    </h1>
-                    <h1>50.00</h1>
+                {/* Title & Rating end */}
+                {/* Price & description start */}
+                <div className="text-xl lg:text-4xl text-orange-500 font-semibold flex items-center font_cabin">
+                    £
+                    <h3> {product.price}</h3>
                 </div>
 
-                <div className="">
+                <div className="font_cabin text-sm lg:text-base text-[#777777]">
                     <p>
-                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quae
-                        repellendus animi, mollitia beatae accusamus odit eius sapiente
-                        repudiandae culpa quasi alias! Sed excepturi alias molestiae iste,
-                        laboriosam sint nostrum eius illo minima explicabo asperiores quod
-                        voluptatibus vero aperiam accusamus quisquam consequatur. Adipisci,
-                        quaerat amet. Architecto similique exercitationem illo
-                        necessitatibus totam laborum cum provident ad iusto corrupti
-                        asperiores error, sint accusantium eius distinctio ea facere dolore
-                        aut perferendis.
+                        {product.description}
                     </p>
                 </div>
-                <div className="space-x-2">
-                    <button className="px-14 py-1 bg-orange-500 text-white font-semibold rounded-md">
-                        Add to cart
-                    </button>
-                    <button className="px-14 py-1 bg-orange-500 text-white font-semibold rounded-md">
-                        Buy now
-                    </button>
-                </div>
-                <div className="my-5 flex items-center justify-between">
-                    <div className="flex">
-                        <div className="flex items-center space-x-1">
-                            <h1>
-                                <GoGitCompare />
-                            </h1>
-                            <h1>Compare</h1>
+                {/* Price & description end */}
+                <div className="divider my-2 md:my-0 lg:my-auto"></div>
+                {/* Quantity & cart start */}
+                <div className="flex flex-col md:flex-row md:items-center justify-between gap-y-2">
+                    <div className="py-2 px-2 inline-block bg-white border border-gray-200 rounded-lg w-1/2 md:w-1/4">
+                        <div className="flex items-center justify-between gap-x-3.5">
+                            <button type="button"
+                                onClick={() => decreaseCount()}
+                                className="size-6 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-md border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 focus:outline-none focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none" tabIndex="-1" aria-label="Decrease" data-hs-input-number-decrement="">
+                                &minus;
+                            </button>
+                            <span>{quantityCount}</span>
+                            <button
+                                type="button"
+                                onClick={() => increaseCount()}
+                                disabled={disableBtn}
+                                className="size-6 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-md border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 focus:outline-none focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none">
+                                +
+                            </button>
                         </div>
-                        <div className="flex items-center pl-8 space-x-1">
-                            <h1>
-                                <GoHeart />
-                            </h1>
-                            <h1>Add to wishlist</h1>
-                        </div>
+                    </div>
+                    <div className="space-x-3 md:space-x-5">
+                        <button className="px-9 md:px-4 py-2 text-sm lg:text-base bg-orange-500 text-white font-semibold rounded-md hover:bg-teal-500 focus:bg-teal-600 focus:outline-none focus:ring-2 focus:ring-teal-300">
+                            Add to cart
+                        </button>
+                        <button className="px-9 md:px-4 py-2 text-sm lg:text-base bg-orange-500 text-white font-semibold rounded-md hover:bg-teal-500 focus:bg-teal-600 focus:outline-none focus:ring-2 focus:ring-teal-300">
+                            Buy now
+                        </button>
                     </div>
 
-                    <div className="flex items-center ">
-                        <h1>Share:</h1>
-                        <div className=" flex space-x-2 ml-3">
-                            <LuFacebook />
-                            <FaXTwitter />
-                            <SlSocialLinkedin />
-                            <BsTelegram />
-                            <FaInstagram />
+                </div>
+                {/* Quantity & cart end */}
+                <div className="divider my-2 md:my-0 lg:my-auto"></div>
+                {/* Share & compare start */}
+                <div className="lg:my-5 flex flex-col lg:flex-row justify-between gap-y-1 ">
+                    <div className="flex text-sm md:text-base lg:text-lg">
+                        <div className="flex items-center hover:text-[#666666] space-x-1">
+                            <div>
+                                <GoGitCompare />
+                            </div>
+                            <h3 className="font-medium font_cabin">Compare</h3>
+                        </div>
+                        <div className="flex items-center hover:text-[#666666] pl-8 space-x-1">
+                            <div>
+                                <GoHeart />
+                            </div>
+                            <h3 className="font-medium font_cabin">Add to wishlist</h3>
+                        </div>
+                    </div>
+                    <div className="flex items-center">
+                        <h3 className="font-medium font_cabin text-sm md:text-base lg:text-lg">Share:</h3>
+                        <div className="flex items-center space-x-2 ml-1 lg:text-xl text-[#666666]">
+                            <FacebookShareButton url={shareUrl}>
+                                <LuFacebook className="cursor-pointer" />
+                            </FacebookShareButton>
+                            <TwitterShareButton url={shareUrl}>
+                                <FaXTwitter className="cursor-pointer" />
+                            </TwitterShareButton>
+                            <LinkedinShareButton url={shareUrl}>
+                                <SlSocialLinkedin className="cursor-pointer" />
+                            </LinkedinShareButton>
+                            <TelegramShareButton url={shareUrl}>
+                                <BsTelegram className="cursor-pointer" />
+                            </TelegramShareButton>
+                            <WhatsappShareButton url={shareUrl}>
+                                <FaWhatsapp className="cursor-pointer" />
+                            </WhatsappShareButton>
                         </div>
                     </div>
                 </div>
-                <div className="flex items-center space-x-2 m-5 px-3 py-2 bg-slate-200 rounded-lg">
-                    <FaRegEye />
-                    <h1>{countView}</h1>
-                    <p>People Watching this product now!</p>
-                </div>
+                {/* Share & compare end */}
+            </div>
+            <div className="divider my-2 md:my-0 lg:my-auto"></div>
+            <div className="flex items-center justify-center gap-x-1 mb-5 mx-2 px-2 lg:px-4 py-2 bg-slate-200 rounded-lg text-sm md:text-base">
+                <FaRegEye className="mt-1" />
+                <p>
+                    {countView}
+                    {' '}People Watching this product now!
+                </p>
             </div>
         </div>
     );
 };
-
+OtherProductDetails.propTypes = {
+    product: PropTypes.object,
+}
 export default OtherProductDetails;
