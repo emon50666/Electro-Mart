@@ -14,7 +14,7 @@ import {
 } from "react-share";
 
 const OtherProductDetails = ({ product }) => {
-    const [countView, setCountView] = useState(10)
+    const [countView, setCountView] = useState(31)
     const [quantityCount, setQuantityCount] = useState(1)
     const [disableBtn, setDisableBtn] = useState(false)
     const shareUrl = window.location.href;
