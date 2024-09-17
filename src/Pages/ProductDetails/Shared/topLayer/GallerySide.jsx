@@ -26,9 +26,8 @@ const GallerySide = ({ images }) => {
                 <div className="w-full lg:w-5/6">
                     <Swiper
                         spaceBetween={30}
-                        navigation={true}
                         modules={[Pagination, Navigation]}
-                        className="mySwiper"
+                        className="mySwiper h-[300px] lg:h-[500px]"
                         onSwiper={(swiper) => (swiperRef.current = swiper)} // Get swiper instance
                         onSlideChange={(swiper) => setSelectedImage(images[swiper.activeIndex])} // Update selected image on slide change
                     >
@@ -37,7 +36,7 @@ const GallerySide = ({ images }) => {
                                 <img
                                     src={image}
                                     alt={`Slide ${index}`}
-                                    className="w-full lg:w-full lg:h-[500px] object-cover"
+                                    className="w-full h-full object-contain md:object-contain rounded-lg bg-gray-200 py-3 md:py-6 lg:py-10"
                                 />
                             </SwiperSlide>
                         ))}
@@ -51,7 +50,7 @@ const GallerySide = ({ images }) => {
                             key={index}
                             src={image}
                             alt={`Thumbnail ${index}`}
-                            className={`cursor-pointer w-24 h-24 object-cover ${selectedImage === image ? 'ring-2 ring-blue-500' : ''}`}
+                            className={`cursor-pointer w-1/5 lg:w-24 h-1/3 lg:h-24 object-cover ${selectedImage === image ? 'ring-2 ring-blue-500' : ''} rounded-lg`}
                             onClick={() => handleThumbnailClick(index)}
                         />
                     ))}
