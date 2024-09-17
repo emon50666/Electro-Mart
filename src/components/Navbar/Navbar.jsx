@@ -23,7 +23,7 @@ const Navbar = () => {
 
 
   return (
-    <div className="navbar bg-base-100  container mx-auto">
+    <div className="navbar bg-base-100  sticky top-0 z-40 md:px-10">
       <div className="navbar-start">
         <div className="lg:hidden">
           <button
@@ -71,7 +71,7 @@ const Navbar = () => {
 
       </div>
 
-      <div className={`fixed inset-y-0 right-0 z-50 w-64 transform bg-base-100 shadow-md p-4 transition-transform duration-300 ease-in-out ${isOpen ? "translate-x-0" : "translate-x-full"}`}>
+      <div className={`fixed inset-y-0 right-0 z-50 overflow-y-scroll  w-64 transform bg-base-100 shadow-md p-4 transition-transform duration-300 ease-in-out ${isOpen ? "translate-x-0" : "translate-x-full"}`}>
        <MobileNavBar ></MobileNavBar>
       </div>
 
