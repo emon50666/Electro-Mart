@@ -9,7 +9,7 @@ const MenuBar = () => {
   };
 
   return (
-    <div className="navbar hidden lg:flex sticky top-16 px-10 bg-base-100 z-50 sm:hidden md:hidden ">
+    <div className="navbar hidden lg:flex  px-10 bg-base-100  sm:hidden md:hidden ">
       {/* All Category Hover Section */}
       <div
         className=" relative"

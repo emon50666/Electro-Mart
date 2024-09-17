@@ -81,7 +81,7 @@ const ProductCard = () => {
         src="https://i.ibb.co.com/NV6YQnX/macbook-pro-14-space-gray-Custom-Mac-BD-cb6c821c-c249-4d9c-8278-1a307cbbdab7.webp" // Default image
         hoverSrc="https://i.ibb.co/3Y7tnwc/641dbb9b4ab9f.jpg" // Hover image
         alt="Product Image"
-        className=" w-full h-[200px] object-cover transition-transform duration-500 ease-in-out group-hover:scale-95"
+        className=" w-full h-[200px] object-cover transition-transform duration-1000 ease-in-out group-hover:scale-95"
       />
 
           {/* Hover icons */}
