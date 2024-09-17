@@ -101,7 +101,7 @@ const OtherProductDetails = ({ product }) => {
                 {/* Quantity & cart end */}
                 <div className="divider my-2 md:my-0 lg:my-auto"></div>
                 {/* Share & compare start */}
-                <div className="lg:my-5 flex flex-col lg:flex-row justify-between gap-y-1 ">
+                <div className="lg:my-5 flex flex-col xl:flex-row justify-between gap-y-1 ">
                     <div className="flex text-sm md:text-base lg:text-lg">
                         <div className="flex items-center hover:text-[#666666] space-x-1">
                             <div>

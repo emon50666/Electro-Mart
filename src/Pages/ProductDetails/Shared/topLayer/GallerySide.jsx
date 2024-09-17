@@ -21,7 +21,7 @@ const GallerySide = ({ images }) => {
 
     return (
         <div>
-            <div className="flex flex-col lg:flex-row-reverse w-full">
+            <div className="flex flex-col xl:flex-row-reverse w-full">
                 {/* Large Image Display (Swiper) */}
                 <div className="w-full lg:w-5/6">
                     <Swiper
@@ -36,7 +36,7 @@ const GallerySide = ({ images }) => {
                                 <img
                                     src={image}
                                     alt={`Slide ${index}`}
-                                    className="w-full h-full object-contain md:object-contain rounded-lg bg-gray-200 py-3 md:py-6 lg:py-10"
+                                    className="w-full h-full object-contain md:object-contain rounded-lg bg-gray-200 py-3 md:py-6 xl:py-10"
                                 />
                             </SwiperSlide>
                         ))}
@@ -44,7 +44,7 @@ const GallerySide = ({ images }) => {
                 </div>
 
                 {/* Thumbnail Gallery */}
-                <div className="w-full lg:w-1/6 flex flex-row lg:flex-col space-x-4 lg:space-x-0 lg:space-y-4 mt-4 lg:mt-0 lg:mr-1">
+                <div className="w-full xl:w-1/6 flex flex-row xl:flex-col space-x-4 xl:space-x-0 xl:space-y-4 mt-4 xl:mt-0 xl:mr-1">
                     {images.map((image, index) => (
                         <img
                             key={index}
