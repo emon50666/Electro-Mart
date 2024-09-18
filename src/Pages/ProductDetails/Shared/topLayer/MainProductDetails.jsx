@@ -4,7 +4,7 @@ import OtherProductDetails from "./OtherProductDetails";
 
 const MainProductDetails = ({ product }) => {
     return (
-        <div className="mt-10 md:flex justify-between lg:items-center px-4 lg:px-20 gap-x-8">
+        <div className="mt-10 md:flex justify-between lg:items-center px-4 lg:px-8 xl:px-20 gap-x-8">
             {/* image side */}
             <div className="w-full md:w-1/2 xl:w-3/5  md:h-auto">
                 <GallerySide images={product.images} />

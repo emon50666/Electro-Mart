@@ -5,25 +5,26 @@ import TopLayerOfDetails from "./Shared/topLayer/TopLayerOfDetails";
 const ProductDetails = () => {
     const products = {
         images: [
-            'https://i.ibb.co.com/C0SSGxf/download-27.jpg',
-            'https://i.ibb.co.com/vJPfVBs/download-26.jpg',
-            'https://i.ibb.co.com/F6fP180/download-25.jpg',
-            'https://i.ibb.co.com/gz47X1b/download-24.jpg'
+            'https://res.cloudinary.com/duv5fiurz/image/upload/v1726663730/download_24_eqjgcy.jpg',
+            'https://res.cloudinary.com/duv5fiurz/image/upload/v1726663729/download_25_pur9ua.jpg',
+            'https://res.cloudinary.com/duv5fiurz/image/upload/v1726663720/download_26_g3hatx.jpg',
+            'https://res.cloudinary.com/duv5fiurz/image/upload/v1726583000/kthyxn4kc4nuraey26ih.jpg'
         ],
-        title: "Chick Jumper",
-        rating: 1,
-        description: "Keep those little legs warm and cosy in our Arctic Leggings! Featuring an all over arctic themed jacquard and two sweet poms poms on the drawstring. Made from our organic cotton and wool blend for a warm and snuggly legging. Pair with our Arctic Friends Jumper for a sweet winter outfit.",
-        price: 275,
-        discountPrice: 99,
-        discountPercentage: 23,
+        title: "Blender Pro 3000",
+        rating: 4,
+        description: "High-performance blender with 3 speed settings and a 2-liter jug, ideal for smoothies and soups.",
+        price: 320,
+        discountPrice: 270,
+        discountPercentage: 15,
         addToCartIcon: "cart-icon.jpg",
         size: "2 liters",
-        availableItems: 8,
-        category: "kitchen instrument",
-        brandName: "KitchenPro",
-        addingDate: "2024-07-20",
-        onOffer: "no",
+        availableItems: 5,
+        category: "Kitchen Appliance",
+        brandName: "BlendMaster",
+        addingDate: "2024-06-15",
+        onOffer: "yes",
         isNew: "no"
+
     }
 
     return (
