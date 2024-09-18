@@ -6,7 +6,7 @@ import { FaHeadphones } from "react-icons/fa";
 
 const Feature = () => {
   return (
-    <div className="lg:p-20 p-5 text-black">
+    <div className="lg:p-20 p-2  text-black">
       <div className="lg:flex  ">
         <div>
           <img src={microsoft} className="lg:h-96" alt="" />
@@ -45,10 +45,12 @@ const Feature = () => {
           </div>
         </div>
       </div>
+      {/* ............. */}
+      
 
-      <div className=" lg:flex lg:justify-between lg:items-center mt-8 ">
+      <div className=" lg:flex lg:justify-between lg:items-center md:flex md:justify-between md:items-center  lg:space-y-0 md:space-y-0git  space-y-3 mt-8 ">
         <div
-          className="relative bg-no-repeat bg-cover bg-center h-[220px] w-[430px] flex flex-col justify-center items-start p-4 rounded-lg object-center  object-none"
+          className="relative bg-no-repeat bg-cover bg-center lg:h-[220px] h-[200px] lg:w-[430px] md:w-[240px] flex flex-col justify-center items-start p-4 rounded-lg object-center  object-none"
           style={{
             backgroundImage:
               "url(https://res.cloudinary.com/dqb5izi3a/image/upload/v1725859347/r8vgbb29wjulu9bia8iz.jpg)",
@@ -61,7 +63,7 @@ const Feature = () => {
           </button>
         </div>
         <div
-          className="relative bg-no-repeat bg-cover bg-center h-[220px] w-[430px] flex flex-col justify-center items-start p-4 rounded-lg object-center  object-none"
+          className="relative bg-no-repeat bg-cover bg-center lg:h-[220px] h-[200px] lg:w-[430px] md:w-[240px] flex flex-col justify-center items-start p-4 rounded-lg object-center  object-none"
           style={{
             backgroundImage:
               "url(https://res.cloudinary.com/dqb5izi3a/image/upload/v1725859366/dihobwauszw3l5nczaq0.jpg)",
@@ -74,7 +76,7 @@ const Feature = () => {
           </button>
         </div>
         <div
-          className="relative bg-no-repeat bg-cover bg-center h-[220px] w-[430px] flex flex-col justify-center items-start p-4 rounded-lg object-center  object-none"
+          className="relative bg-no-repeat bg-cover bg-center lg:h-[220px] h-[200px] lg:w-[430px] md:w-[240px] flex flex-col justify-center items-start p-4 rounded-lg object-center  object-none"
           style={{
             backgroundImage:
               "url(https://res.cloudinary.com/dqb5izi3a/image/upload/v1725859357/ciyjgjycpq6y7lqb3yt5.jpg)",
