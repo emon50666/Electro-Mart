@@ -8,33 +8,38 @@ import Home from "../components/Home/Home";
 import Login from "../components/Login/Login";
 import Register from "../components/Login/Register/Register";
 import ProductDetails from "../Pages/ProductDetails/ProductDetails";
-  const router = createBrowserRouter([
-    {
-      path: "/",
-      element: <Layout/>,
-      errorElement: <Error />,
-      children:[
-        {
-            index: true,
-            element: <Home />
-        },
-        {
-          path: "/productDetails",
-          element: <ProductDetails />
-        }
-      ],
-      
-    },
-    {
-      path: '/login',
-      element: <Login />
-    },
-    {
-      path: '/register',
-      element: <Register />
-    },
- 
-  ]);
+import ComparePage from "../Pages/ComparePage/ComparePage";
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Layout />,
+    errorElement: <Error />,
+    children: [
+      {
+        index: true,
+        element: <Home />
+      },
+      {
+        path: "/productDetails",
+        element: <ProductDetails />
+      },
+      {
+        path: "/comparePage",
+        element: <ComparePage />
+      }
+    ],
+
+  },
+  {
+    path: '/login',
+    element: <Login />
+  },
+  {
+    path: '/register',
+    element: <Register />
+  },
+
+]);
 
 
 
