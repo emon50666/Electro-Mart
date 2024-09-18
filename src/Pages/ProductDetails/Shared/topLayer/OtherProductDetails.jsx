@@ -61,7 +61,6 @@ const OtherProductDetails = ({ product }) => {
                     £
                     <h3> {product.price}</h3>
                 </div>
-
                 <div className="font_cabin text-sm lg:text-base text-[#777777]">
                     <p>
                         {product.description}
