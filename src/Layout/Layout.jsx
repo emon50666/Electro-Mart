@@ -5,7 +5,7 @@ import MenuBar from "../components/Navbar/MenuBar";
 
 const Layout = () => {
     return (
-        <div>
+        <div className="mx-w[2550px] mx-auto">
             <Navbar />
             <MenuBar ></MenuBar>
 

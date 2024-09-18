@@ -149,10 +149,10 @@ const Navbar = () => {
       user ? 
       <ul
       tabIndex={0}
-      className="menu menu-sm  font-semibold  right-0  dropdown-content bg-base-100 rounded-box z-[1]  w-48 shadow-md"
+      className="menu menu-sm  font-semibold - right-0  dropdown-content bg-white overflow-hidden rounded-box   w-48 shadow-md"
     >
     
-    <Link  className="hover:bg-orange-50 p-2  rounded-md hover:text-orange-500" ><li>
+    <Link  className="hover:bg-orange-50 p-2   rounded-md hover:text-orange-500" ><li>
        DashBoard
       </li></Link>
  

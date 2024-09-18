@@ -1,7 +1,7 @@
 import { Rating } from "@smastrom/react-rating";
 
 import "@smastrom/react-rating/style.css";
-import { useState } from "react";
+
 import ProgressBar from "@ramonak/react-progress-bar";
 const ProductReview = () => {
   const ratings = [
@@ -12,6 +12,7 @@ const ProductReview = () => {
       name: "xyz",
       email: "xudvg",
       date: "May 16, 2023",
+      
     },
     {
       "rating-text":
