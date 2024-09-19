@@ -1,4 +1,5 @@
 import Banner from "../Banner/Banner";
+import RelativeProducts from "../ProductCard/RelativeProducts";
 
 
 
@@ -10,6 +11,8 @@ const Home = () => {
          
          
         </div>
+        <RelativeProducts></RelativeProducts>
+
         
         </section>
     );
