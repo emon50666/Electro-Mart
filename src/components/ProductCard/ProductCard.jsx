@@ -132,7 +132,7 @@ const ProductCard = () => {
                   />
                   <div className="ml-4">
                     <div className="flex  gap-24">
-                      <h4 className="font-semibold text-sm mb-2">Apple MacBook 13</h4>
+                      <h4 className="font-semibold text-sm md:text-base mb-2">Apple MacBook 13</h4>
                       <IoMdCloseCircle className="text-2xl text-red-600"></IoMdCloseCircle>
 
                     </div>
