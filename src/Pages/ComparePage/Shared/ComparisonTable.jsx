@@ -16,19 +16,19 @@ const ComparisonTable = ({ products }) => {
                         <td className="hidden md:block"></td>
                         {products.map((product, index) => (
                             <td key={index} className="p-4 pt-0 border-b border-l border-r-0 font_cabin">
-                                <button className='flex items-center gap-x-1 text-sm mb-2 hover:bg-gray-200 hover:text-orange-500 hover:px-10 hover:font-medium rounded-sm transition-all'><RxCross1 /> <span>Remove</span></button>
+                                <button className='flex items-center gap-x-1 text-sm mb-2 p-1 hover:bg-gray-100 hover:text-orange-500 hover:px-10 hover:font-medium rounded-sm transition-all'><RxCross1 /> <span>Remove</span></button>
                                 <div className="flex flex-col items-center">
                                     <img
                                         src={product.images[0]}
                                         alt={product.title}
-                                        className="w-52 h-52 object-cover mb-2"
+                                        className="w-full h-[200px] rounded-md object-cover transition-transform duration-500 ease-in-out group-hover:scale-95"
                                     />
                                 </div>
                                 <p className='text-[#767676]'>{sliceTitle(product.title)}</p>
                                 <p className='text-orange-500'>£<span>{product.price}</span></p>
                                 <div className="flex flex-col md:flex-row md:justify-between mt-2 gap-y-1">
-                                    <button className="bg-orange-500 hover:bg-teal-500 transition-all text-white py-2 px-1 md:px-4 rounded-sm text-sm cursor-pointer">Add to Cart</button>
-                                    <Link to={"/productDetails"} className="text-center bg-orange-500 hover:bg-teal-500 transition-all text-white py-2 px-2 md:px-4 rounded-sm text-sm cursor-pointer">Details</Link>
+                                    <button className="bg-orange-500 hover:bg-teal-500 transition-all text-white py-2 px-1 md:px-4  text-sm rounded-md cursor-pointer">Add to Cart</button>
+                                    <Link to={"/productDetails"} className="text-center bg-orange-500 hover:bg-teal-500 transition-all text-white py-2 px-2 md:px-4 rounded-md text-sm cursor-pointer">Details</Link>
                                 </div>
 
                             </td>
