@@ -39,6 +39,7 @@ const Banner = () => {
 
 
        <ProductCard />
+    
        </div>
     );
 };

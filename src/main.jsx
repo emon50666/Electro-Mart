@@ -10,6 +10,7 @@ import {
 import AuthProvider from './AuthProvider/AuthProvider.jsx'
 import { Toaster } from 'react-hot-toast'
 
+
 const queryClient = new QueryClient()
 
 createRoot(document.getElementById('root')).render(
@@ -17,7 +18,11 @@ createRoot(document.getElementById('root')).render(
 
 <AuthProvider>
  <QueryClientProvider client={queryClient}>
+
  <RouterProvider router={router} />
+  
+
+
     </QueryClientProvider>
     <Toaster />
     </AuthProvider>
