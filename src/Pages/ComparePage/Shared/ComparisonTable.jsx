@@ -4,7 +4,6 @@ import { RxCross1 } from "react-icons/rx";
 import { Link } from 'react-router-dom';
 
 const ComparisonTable = ({ products }) => {
-    // Function to truncate title with ellipsis if it's longer than 20 characters
     const sliceTitle = (title) => {
         return title.length > 25 ? `${title.slice(0, 25)}...` : title;
     };
@@ -14,7 +13,7 @@ const ComparisonTable = ({ products }) => {
             <table className="md:min-w-[70vw] w-auto table-auto border-collapse border-r-0">
                 <tbody>
                     <tr>
-                        <td className="border-b hidden md:block"></td>
+                        <td className="hidden md:block"></td>
                         {products.map((product, index) => (
                             <td key={index} className="p-4 pt-0 border-b border-l border-r-0 font_cabin">
                                 <button className='flex items-center gap-x-1 text-sm mb-2 hover:bg-gray-200 hover:text-orange-500 hover:px-10 hover:font-medium rounded-sm transition-all'><RxCross1 /> <span>Remove</span></button>
@@ -36,7 +35,7 @@ const ComparisonTable = ({ products }) => {
                         ))}
                     </tr>
                     <tr>
-                        <td className="p-4 border-b border-r-0 font-semibold text-[#555] hidden md:block">Rating</td>
+                        <td className="p-4 border border-l-0 font-semibold text-[#555] hidden md:block">Rating</td>
                         {products.map((product, index) => (
                             <td key={index} className="p-4 border-b border-l border-r-0 font-medium text-[#767676]">
                                 <Rating
