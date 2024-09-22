@@ -45,12 +45,12 @@ const RelativeProducts = () => {
           // For devices with width >= 640px (tablet)
           640: {
             slidesPerView: 2,
-            spaceBetween: 20,
+            spaceBetween: 0,
           },
           // For devices with width >= 1024px (desktop)
           1024: {
             slidesPerView: 3,
-            spaceBetween: 30,
+            spaceBetween: 0,
           },
           // For large desktops
           1280: {
@@ -76,12 +76,12 @@ const RelativeProducts = () => {
                   alt="Product Image"
                   className={`transition-transform duration-300 ${
                     hoveredIndex === index ? "transform scale-110" : ""
-                  } rounded object-cover h-72 w-full p-5`} // Ensure the image covers and is centered
+                  } rounded object-cover h-[320px] w-64 ml-3 p-5`} // Ensure the image covers and is centered
                 />
 
                 {/* Icon display on hover */}
                 {hoveredIndex === index && (
-                  <div className="absolute inset-0 flex items-center justify-center mt-56 sm:mt-64 lg:mt-64 gap-2">
+                  <div className="absolute inset-0 flex items-center justify-center mt-56 md:ml-4 gap-2">
                     <button className="bg-white text-orange-500 p-2 rounded-full shadow-lg hover:bg-gray-100">
                       <FaShoppingCart />
                     </button>
