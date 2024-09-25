@@ -1,8 +1,14 @@
 import { FiShoppingCart } from "react-icons/fi";
 import { CiShop } from "react-icons/ci";
 import { CiSettings } from "react-icons/ci";
+import { useState } from "react";
 
 const StoresPage = () => {
+    const [showMore, setShowMore] = useState(false);
+
+  const handleReadMore = () => {
+    setShowMore(!showMore);
+  };
   return (
     <div className="lg:mx-52">
       <div className="flex lg:flex-row items-center bg-orange-500 p-5  rounded-md my-3">
@@ -35,7 +41,7 @@ const StoresPage = () => {
           />
         </div>
       </div>
-      <div className="space-y-2">
+      <div className="space-y-2 bg-slate-200 p-3 rounded-md">
         <h1 className="text-[18px] font-bold">
           Online Store of Household Appliances and Electronics
         </h1>
@@ -154,6 +160,30 @@ const StoresPage = () => {
         <p>The car parts and everything you may need for repairs and regular maintenance of your vehicle are listed in a convenient and comprehensive catalogue. The innovative search – by name, item ID or OEM number will help you to find automotive parts easily.</p>
         <p>You can choose whichever payment method is most convenient for you from among the various options. Have any questions? Our support service specialists are always on hand to help. Picking and buying car parts with us is an enjoyable experience!</p>
       </div>
+
+
+      <div className="container mx-auto mt-2 bg-slate-200 p-3 rounded-md mb-5">
+      <h2 className="text-[15px]  font-bold">Online store of household appliances and electronics</h2>
+      <p>
+        {showMore ? (
+          <>
+            Then the question arises: where’s the content? Not there yet? That’s not so bad, there’s dummy copy to the rescue. 
+            But worse, what if the fish doesn’t fit in the can, the foot’s too big for the boot? Or too small? Too short sentences, 
+            too many headings, images too large for the proposed design, or too small, or they fit in but it looks iffy for reasons. 
+            A client that’s unhappy for a reason is a problem, a client that’s unhappy though he or she can’t quite put a finger 
+            on it is worse. Chances are there wasn’t collaboration, communication, and...
+          </>
+        ) : (
+          "Then the question arises: where’s the content? Not there yet? That’s not so bad, there’s dummy copy to the rescue..."
+        )}
+      </p>
+      <button
+        onClick={handleReadMore}
+        className="mt-3 px-3 py-2 bg-white rounded hover:bg-gray-100"
+      >
+        {showMore ? "Show Less" : "Read More"}
+      </button>
+    </div>
     </div>
   );
 };
