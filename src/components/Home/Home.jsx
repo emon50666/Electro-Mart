@@ -1,5 +1,6 @@
-import StoresPage from "../../Pages/StoresPage/StoresPage";
+
 import Banner from "../Banner/Banner";
+
 
 
 
@@ -12,7 +13,7 @@ const Home = () => {
          
          
         </div>
-        <StoresPage></StoresPage>
+
         
         </section>
     );
