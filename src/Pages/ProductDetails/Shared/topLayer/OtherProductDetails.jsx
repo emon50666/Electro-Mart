@@ -45,8 +45,10 @@ const OtherProductDetails = ({ product }) => {
                     <div className="flex items-center space-x-4 py-1">
                         <Rating
                             initialRating={parseInt(product.rating)}
-                            emptySymbol={<img src="https://i.ibb.co.com/KN7rSQ6/empty-star-removebg-preview.png"
-                                className="icon h-4 md:h-5" />}
+                            emptySymbol={<img
+                                src="https://i.ibb.co.com/KN7rSQ6/empty-star-removebg-preview.png"
+                                className="icon h-4 md:h-5" />
+                            }
                             fullSymbol={<img src="https://i.ibb.co.com/KGK6qQR/full.jpg" className="icon h-4 md:h-5" />}
                             readonly
                         />
@@ -61,7 +63,6 @@ const OtherProductDetails = ({ product }) => {
                     £
                     <h3> {product.price}</h3>
                 </div>
-
                 <div className="font_cabin text-sm lg:text-base text-[#777777]">
                     <p>
                         {product.description}
