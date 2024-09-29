@@ -1,3 +1,4 @@
+
 import ProductCard from "../ProductCard/ProductCard";
 
 
@@ -39,6 +40,15 @@ const Banner = () => {
 
 
        <ProductCard />
+
+
+
+
+
+
+     
+
+
     
        </div>
     );

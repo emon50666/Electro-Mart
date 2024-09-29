@@ -45,7 +45,7 @@ const ProductCard = () => {
 
   return (
     <section className="mt-10 mb-10 bg-[#F6F6F6]">
-      <div className="grid md:grid-cols-4 gap-3  px-10">
+      <div className="grid md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 xxl:grid-cols-5 gap-3  px-10">
         <div className="relative p-3 hover:shadow-lg rounded-md bg-white group">
           <HoverImage
             src="https://i.ibb.co.com/NV6YQnX/macbook-pro-14-space-gray-Custom-Mac-BD-cb6c821c-c249-4d9c-8278-1a307cbbdab7.webp"
@@ -60,14 +60,22 @@ const ProductCard = () => {
             <FaEye className="text-lg text-orange-600" />
           </div>
 
-          <div className="mt-3 capitalize absolute -top-4 inset-x-0 flex justify-between px-2">
-            <small className="bg-[rgb(67,142,68)] pt-2 pb-2 pl-1 pr-1 rounded-full font-bold text-white">
-              New
-            </small>
-            <small className="bg-orange-500 pt-2 pb-2 pl-1 pr-1 rounded-full font-bold text-white">
+          <div className="mt-3 capitalize   text-end absolute -top-4 inset-x-0  px-2">
+      
+            <small className="bg-orange-500 px-2   py-[1px] text-sm rounded-full font-bold text-white">
               -10%
             </small>
+            
           </div>
+          <div className="mt-3 capitalize   absolute md:bottom-[333px] lg:bottom-[310px] inset-x-0  px-2">
+         <small className="bg-[rgb(67,142,68)] px-2   pb-[2px] text-sm  rounded-full font-bold text-white">
+              New
+            </small> <br />
+            <small className="bg-red-500 px-2   pb-[2px] text-sm  rounded-full font-bold text-white">
+              Hot
+            </small>
+        
+         </div>
 
           <div className="flex items-center justify-between">
             <div>

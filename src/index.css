@@ -23,3 +23,8 @@
 #product_details_top_layer a.active {
     color: #767695;
 }
+
+#magnify{
+    width: 800px;
+    height: 800px;
+}
