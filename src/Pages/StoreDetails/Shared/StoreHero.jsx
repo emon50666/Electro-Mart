@@ -8,7 +8,7 @@ const StoreHero = ({ store }) => {
             <div
                 className="min-h-[60vh] w-full relative rounded-2xl"
                 style={{
-                    backgroundImage: "url(https://res.cloudinary.com/duv5fiurz/image/upload/v1727700324/store-bg_bra6cg.png)",
+                    backgroundImage: `url(${store?.imageUrl})`,
                     backgroundRepeat: "no-repeat",
                     backgroundSize: "cover",
                     backgroundPosition: "center",
