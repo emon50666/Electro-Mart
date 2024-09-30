@@ -9,6 +9,7 @@ import Login from "../components/Login/Login";
 import Register from "../components/Login/Register/Register";
 import ProductDetails from "../Pages/ProductDetails/ProductDetails";
 import ComparePage from "../Pages/ComparePage/ComparePage";
+import StoresPage from "../Pages/StoresPage/StoresPage";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -26,6 +27,10 @@ const router = createBrowserRouter([
       {
         path: "/comparePage",
         element: <ComparePage />
+      },
+      {
+        path: "/storesPage",
+        element: <StoresPage />
       }
     ],
 
