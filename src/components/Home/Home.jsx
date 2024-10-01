@@ -1,5 +1,5 @@
 import Banner from "../Banner/Banner";
-import HomeFeatuer from "./Shared/HomeFeatuer";
+import HomeFeature from "./Shared/HomeFeature";
 
 
 
@@ -11,7 +11,7 @@ const Home = () => {
          
          
         </div>
-        <HomeFeatuer></HomeFeatuer>
+        <HomeFeature></HomeFeature>
         
         </section>
     );

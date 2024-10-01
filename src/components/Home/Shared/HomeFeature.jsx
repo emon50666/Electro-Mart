@@ -4,7 +4,7 @@ import { IoPencilOutline } from "react-icons/io5";
 import { BsFillMouseFill } from "react-icons/bs";
 import { FaHeadphones } from "react-icons/fa";
 
-const HomeFeatuer = () => {
+const HomeFeature = () => {
   return (
     <div className="lg:p-20 p-2  text-black font_open_sense">
       <div className="lg:flex  ">
@@ -92,4 +92,4 @@ const HomeFeatuer = () => {
   );
 };
 
-export default HomeFeatuer;
+export default HomeFeature;
