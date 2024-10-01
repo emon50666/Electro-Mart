@@ -19,7 +19,7 @@ const StoreAddress = ({ store }) => {
                 </div>
             </div>
             <h3 className="text-2xl font-semibold my-5 font_cabin">Facilities</h3>
-            <div className="flex flex-col md:flex-row md:items-center gap-y-1 md:gap-x-3">
+            <div className="flex flex-col md:flex-row xl:items-center gap-y-1 md:gap-x-3">
                 <div className="flex px-4 py-1 items-center bg-gray-200 text-[#7B828D] rounded-md text-sm font-medium gap-x-1 cursor-pointer hover:bg-gray-400 transition-all hover:text-gray-100">
                     <div><IoCartOutline /></div>
                     <h4>Store</h4>
