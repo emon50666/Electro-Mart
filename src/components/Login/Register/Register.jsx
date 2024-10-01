@@ -1,6 +1,6 @@
 import { useState } from "react";
 import animation from '../../../assets/images/animation.svg'
-import UserAuth from './../../../Layout/useAuth';
+import UserAuth from '../../../Hooks/useAuth';
 import toast from "react-hot-toast";
 import { ImSpinner3 } from "react-icons/im";
 import { useNavigate } from "react-router-dom";
