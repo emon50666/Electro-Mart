@@ -6,13 +6,13 @@ import { FaHeadphones } from "react-icons/fa";
 
 const Feature = () => {
   return (
-    <div className="lg:p-20 p-2  text-black">
+    <div className="lg:p-20 p-2  text-black font_open_sense">
       <div className="lg:flex  ">
         <div>
           <img src={microsoft} className="lg:h-96" alt="" />
         </div>
         <div className="space-y-6 lg:my-20">
-          <h1 className="text-5xl font-bold">Microsoft Accessories</h1>
+          <h1 className="text-5xl  font-bold">Microsoft Accessories</h1>
           <p>
             Personalize your Surface Pro with Microsoft branded accessories. In
             the presence of many colors for every taste.
