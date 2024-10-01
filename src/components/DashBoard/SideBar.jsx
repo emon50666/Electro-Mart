@@ -1,7 +1,7 @@
 import { useState } from "react";
 import AdminMenu from "./AdminMenu/AdminMenu";
-import { Link } from "react-router-dom";
-import logo_1 from '../../assets/images/logo_1.png'
+
+
 
 const SideBar = () => {
     const [isSideNavOpen, setIsSideNavOpen] = useState(false)
@@ -13,9 +13,9 @@ const SideBar = () => {
         <button
           title="Side navigation"
           type="button"
-          className={`visible fixed right-0 top-6 z-40 order-10 block h-10 w-10 self-center rounded bg-white opacity-100 lg:hidden ${
+          className={`visible fixed right-2 top-12 z-40 order-10 block h-10 w-10 self-center rounded  bg-orange-200 opacity-100 lg:hidden ${
             isSideNavOpen
-              ? "visible opacity-100 [&_span:nth-child(1)]:w-6 [&_span:nth-child(1)]:translate-y-0 [&_span:nth-child(1)]:rotate-45 [&_span:nth-child(3)]:w-0 [&_span:nth-child(2)]:-rotate-45 "
+              ? "visible opacity-100 [&_span:nth-child(1)]:w-6 [&_span:nth-child(1)]:translate-y-0 [&_span:nth-child(1)]:rotate-45 text-orange-500 [&_span:nth-child(3)]:w-0 [&_span:nth-child(2)]:-rotate-45 "
               : ""
           }`}
           aria-haspopup="menu"
@@ -50,10 +50,7 @@ const SideBar = () => {
           }`}
         >
        
-          <Link to={'/'}>
-          <img src={logo_1} alt=""  className="w-48 text-center mx-auto"/>
-          
-          </Link>
+         
           <nav
             aria-label="side navigation"
             className="flex-1 divide-y divide-slate-100 overflow-auto"
@@ -68,7 +65,7 @@ const SideBar = () => {
   
         {/*  <!-- Backdrop --> */}
         <div
-          className={`fixed top-0 bottom-0 left-0 right-0 z-30 bg-slate-900/20 transition-colors sm:hidden ${
+          className={`fixed top-0 mt-10 bottom-0 left-0  right-0 z-30 bg-slate-900/20 transition-colors sm:hidden ${
             isSideNavOpen ? "block" : "hidden"
           }`}
           onClick={() => setIsSideNavOpen(false)}
