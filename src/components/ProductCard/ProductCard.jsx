@@ -67,8 +67,13 @@ const ProductCard = () => {
             </small>
             
           </div>
+
+          <div className="mt-3 capitalize   absolute  bottom-[310px]  md:bottom-[333px] lg:bottom-[310px] inset-x-0  px-2">
+         <small className="bg-teal-500 px-2   pb-[2px] text-sm  rounded-full font-bold text-white">
+
           <div className="mt-3 capitalize   absolute md:bottom-[333px] lg:bottom-[310px] inset-x-0  px-2">
          <small className="bg-[rgb(67,142,68)] px-2   pb-[2px] text-sm  rounded-full font-bold text-white">
+
               New
             </small> <br />
             <small className="bg-red-500 px-2   pb-[2px] text-sm  rounded-full font-bold text-white">
