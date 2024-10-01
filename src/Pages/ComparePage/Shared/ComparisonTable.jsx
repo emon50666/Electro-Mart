@@ -35,7 +35,7 @@ const ComparisonTable = ({ products }) => {
                         ))}
                     </tr>
                     <tr>
-                        <td className="p-4 border border-l-0 font-semibold text-[#555] hidden md:block">Rating</td>
+                        <td className="p-4 border border-x-0 font-semibold text-[#555] hidden md:block">Rating</td>
                         {products.map((product, index) => (
                             <td key={index} className="p-4 border-b border-l border-r-0 font-medium text-[#767676]">
                                 <Rating
