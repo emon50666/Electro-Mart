@@ -7,7 +7,7 @@ const AdminMenu = () => {
   return (
     <div>
       <div>
-        <ul className="flex font-serif flex-1 flex-col gap-1 py-3">
+        <ul className="flex font-serif flex-1 flex-col mt-10 gap-1 py-3">
           <li className="px-3">
             <Link
               
