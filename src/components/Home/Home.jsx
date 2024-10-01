@@ -1,4 +1,5 @@
 import Banner from "../Banner/Banner";
+import HomeFeatuer from "./Shared/HomeFeatuer";
 
 
 
@@ -10,6 +11,7 @@ const Home = () => {
          
          
         </div>
+        <HomeFeatuer></HomeFeatuer>
         
         </section>
     );
