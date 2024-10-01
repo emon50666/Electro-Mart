@@ -2,7 +2,7 @@ import { useState } from "react";
 import logo_1 from '../../assets/images/logo_1.png'
 import { Link } from "react-router-dom";
 
-import UserAuth from "../../Layout/useAuth";
+import UserAuth from "../../Hooks/useAuth";
 import { FaCartShopping } from "react-icons/fa6";
 import { IoGitCompareOutline } from "react-icons/io5";
 import { FaHeart } from "react-icons/fa";
@@ -152,7 +152,7 @@ const Navbar = () => {
       className="menu menu-sm  font-semibold - right-0  dropdown-content bg-white overflow-hidden rounded-box   w-48 shadow-md"
     >
     
-    <Link  className="hover:bg-orange-50 p-2   rounded-md hover:text-orange-500" ><li>
+    <Link to={'/dashboard'} className="hover:bg-orange-50 p-2   rounded-md hover:text-orange-500" ><li>
        DashBoard
       </li></Link>
  

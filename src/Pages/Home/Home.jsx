@@ -1,4 +1,6 @@
-import Banner from "../Banner/Banner";
+
+import Banner from "../../components/Banner/Banner";
+
 
 
 
@@ -7,9 +9,11 @@ const Home = () => {
       <section>
         <div className=" flex justify-center bg-[#F6F6F6] min-h-[80vh]">
           <Banner ></Banner>
+          
          
          
         </div>
+
         
         </section>
     );
