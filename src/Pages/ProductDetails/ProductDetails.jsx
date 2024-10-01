@@ -1,33 +1,49 @@
+import ProductReview from "../../components/ProductReview/ProductReview";
+import MainProductDetails from "./Shared/topLayer/MainProductDetails";
 import TopLayerOfDetails from "./Shared/topLayer/TopLayerOfDetails";
 
 
 const ProductDetails = () => {
     const products = {
         images: [
-            { src: "image1.jpg" },
-            { src: "image2.jpg" }
+            'https://res.cloudinary.com/duv5fiurz/image/upload/v1726663730/download_24_eqjgcy.jpg',
+            'https://res.cloudinary.com/duv5fiurz/image/upload/v1726663729/download_25_pur9ua.jpg',
+            'https://res.cloudinary.com/duv5fiurz/image/upload/v1726663720/download_26_g3hatx.jpg',
+            'https://res.cloudinary.com/duv5fiurz/image/upload/v1726583000/kthyxn4kc4nuraey26ih.jpg'
         ],
-        title: "Blender",
-        rating: 4.8,
-        description: "Powerful blender with multiple speed settings, ideal for smoothies. Durable and easy to clean, perfect for daily use. Includes a safety lock feature and a two-year warranty.",
-        price: 129,
+        title: "Blender Pro 3000",
+        rating: 4,
+        description: "High-performance blender with 3 speed settings and a 2-liter jug, ideal for smoothies and soups.",
+        price: 320,
+        discountPrice: 270,
+        discountPercentage: 15,
+        title: "Chick Jumper",
+        rating: 3.5,
+        description: "Keep those little legs warm and cosy in our Arctic Leggings! Featuring an all over arctic themed jacquard and two sweet poms poms on the drawstring. Made from our organic cotton and wool blend for a warm and snuggly legging. Pair with our Arctic Friends Jumper for a sweet winter outfit.",
+        price: 275,
         discountPrice: 99,
         discountPercentage: 23,
         addToCartIcon: "cart-icon.jpg",
         size: "2 liters",
-        availableItems: 30,
-        category: "kitchen instrument",
-        brandName: "KitchenPro",
-        addingDate: "2024-07-20",
-        onOffer: "no",
+        availableItems: 5,
+        category: "Kitchen Appliance",
+        brandName: "BlendMaster",
+        addingDate: "2024-06-15",
+        onOffer: "yes",
         isNew: "no"
+
     }
 
     return (
-        <div>
+        <div className="space-y-9">
             {/* top layer of details */}
             <TopLayerOfDetails title={products.title} />
+            {/* main details section */}
+            <MainProductDetails product={products} />
+            <ProductReview ></ProductReview>
 
+
+            <br /><br /><br /><br /><br />
         </div>
     );
 };

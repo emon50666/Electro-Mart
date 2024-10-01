@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap');
 
 
 @tailwind base;
@@ -9,6 +11,20 @@
     font-family: "Open Sans", sans-serif
 }
 
+.font_cabin {
+    font-family: "Cabin", sans-serif;
+}
+
+.font_lexend {
+    font-family: "Lexend", sans-serif;
+
+}
+
 #product_details_top_layer a.active {
     color: #767695;
+}
+
+#magnify{
+    width: 800px;
+    height: 800px;
 }
