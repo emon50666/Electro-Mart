@@ -9,10 +9,22 @@ import Login from "../components/Login/Login";
 import Register from "../components/Login/Register/Register";
 import ProductDetails from "../Pages/ProductDetails/ProductDetails";
 import ComparePage from "../Pages/ComparePage/ComparePage";
+
+
+import StorPage from "../Pages/StorPage/StorPage";
+
+
+
 import DashboardLayout from "../Layout/DashBoardLayOut";
 import StoresPage from "../Pages/StoresPage/StoresPage";
 import ProductManage from "../components/DashBoard/ProductManage/ProductManage";
 import AddNewProduct from "../components/DashBoard/AddNewProduct/AddNewProduct";
+
+
+
+import StoreDetails from "../Pages/StoreDetails/StoreDetails";
+
+
 
 const router = createBrowserRouter([
   {
@@ -37,7 +49,20 @@ const router = createBrowserRouter([
         element: <StoresPage/>
       },
 
-      
+
+   
+        path: "/storeDetails",
+        element: <StoreDetails />
+      }
+
+      ,
+      {
+        path: "/storPage",
+        element:<StorPage></StorPage>
+      }
+
+
+
     ],
 
   },
