@@ -19,12 +19,7 @@ import DashboardLayout from "../Layout/DashBoardLayOut";
 import StoresPage from "../Pages/StoresPage/StoresPage";
 import ProductManage from "../components/DashBoard/ProductManage/ProductManage";
 import AddNewProduct from "../components/DashBoard/AddNewProduct/AddNewProduct";
-
-
-
 import StoreDetails from "../Pages/StoreDetails/StoreDetails";
-
-
 
 const router = createBrowserRouter([
   {
@@ -48,9 +43,7 @@ const router = createBrowserRouter([
         path: "/storesPage",
         element: <StoresPage/>
       },
-
-
-   
+         {
         path: "/storeDetails",
         element: <StoreDetails />
       }
@@ -60,9 +53,6 @@ const router = createBrowserRouter([
         path: "/storPage",
         element:<StorPage></StorPage>
       }
-
-
-
     ],
 
   },
@@ -93,8 +83,6 @@ const router = createBrowserRouter([
         ]
       },
 ]);
-
-
 
 
 
