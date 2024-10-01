@@ -13,6 +13,7 @@ const MainProductDetails = ({ product }) => {
             <div className="w-full md:w-1/2 xl:w-2/5 mt-5 md:mt-1 md:h-auto" >
                 <OtherProductDetails product={product} />
             </div>
+            
         </div>
     );
 };
