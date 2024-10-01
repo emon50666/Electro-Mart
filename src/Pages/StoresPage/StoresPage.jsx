@@ -10,26 +10,26 @@ const StoresPage = () => {
     setShowMore(!showMore);
   };
   return (
-    <div className="lg:mx-52">
-      <div className="flex flex-col lg:flex-row items-center bg-orange-500 p-5 rounded-md my-3">
+    <div className="container mx-auto px-1">
+      <div className="flex flex-col  lg:flex-row items-center bg-orange-500 p-5 rounded-md my-3">
   <div className="text-black lg:w-1/2">
     <h1 className="text-3xl font-semibold">Visit Our Stores</h1>
     <p className="mt-2 text-sm lg:text-base">
       You can receive an order from us, find many products with unique
       discounts, and also, if necessary, contact the service center.
     </p>
-    <div className="flex flex-col sm:flex-row sm:space-x-3 font-bold mt-4 space-y-3 sm:space-y-0">
-      <button className="py-4 lg:flex-none flex items-center bg-orange-400 px-4 rounded-md w-full sm:w-auto">
+    <div className="flex flex-col sm:flex-row sm:space-x-3  font-bold mt-4 space-y-3 sm:space-y-0">
+      <button className="py-4 lg:flex-none flex items-center bg-orange-400 px-2 rounded-md w-full sm:w-auto">
         <FiShoppingCart className="font-extrabold text-xl mr-2" />
-        <h6>Convenient store</h6>
+        Convenient store
       </button>
-      <button className="py-4 lg:flex-none flex items-center bg-orange-400 px-4 rounded-md w-full sm:w-auto">
+      <button className="py-4 lg:flex-none flex items-center bg-orange-400 px-2 rounded-md w-full sm:w-auto">
         <CiShop className="font-extrabold text-xl mr-2" />
-        <h6>Delivery point</h6>
+        Delivery point
       </button>
-      <button className="py-4 lg:flex-none flex items-center bg-orange-400 px-4 rounded-md w-full sm:w-auto">
+      <button className="py-4 lg:flex-none flex items-center bg-orange-400 px-2 rounded-md w-full sm:w-auto">
         <CiSettings className="font-extrabold text-xl mr-2" />
-        <h6>Service center</h6>
+        Service center
       </button>
     </div>
   </div>
