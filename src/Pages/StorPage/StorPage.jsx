@@ -54,7 +54,7 @@ const StorPage = () => {
   return (
     <div className="lg:px-10 md:px-5 px-2 font_cabin">
       <div className="flex flex-col lg:flex-row items-center  bg-teal-500 p-5 rounded-md my-3">
-        <div className="text-gray-300 lg:w-1/2">
+        <div className="text-slate-700 lg:w-1/2">
           <h1 className="text-3xl font-semibold">Visit Our Stores</h1>
           <p className="mt-2 text-sm font-medium lg:text-base">
             You can receive an order from us, find many products with unique
@@ -78,7 +78,7 @@ const StorPage = () => {
         <div className="mt-6 lg:mt-0 lg:ml-16">
           <img
             src="https://res.cloudinary.com/dqb5izi3a/image/upload/v1727279152/zdt2wfw5ugiwlltnv90t.png"
-            className="h-64 lg:w-96 md:w-96 w-full object-cover"
+            className="h-64 lg:w-96 md:w-96  w-full object-cover"
             alt="Store display"
           />
         </div>
@@ -106,13 +106,13 @@ const StorPage = () => {
           {stores.map((store, index) => (
             <div
               key={index}
-              className="bg-white shadow-lg rounded-lg overflow-hidden relative group"
+              className="bg-white my-5 shadow-lg rounded-lg overflow-hidden relative group"
             >
-              <div className="relative">
+              <div className="relative ">
                 <img
                   src={store.imageUrl}
                   alt={store.storeName}
-                  className="w-full h-64 object-cover transform transition-transform duration-500 group-hover:scale-110"
+                  className="w-full h-72  object-cover transform transition-transform duration-500 group-hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-black bg-opacity-40"></div>
               </div>
