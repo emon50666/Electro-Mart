@@ -20,6 +20,7 @@ import StoresPage from "../Pages/StoresPage/StoresPage";
 import ProductManage from "../components/DashBoard/ProductManage/ProductManage";
 import AddNewProduct from "../components/DashBoard/AddNewProduct/AddNewProduct";
 import StoreDetails from "../Pages/StoreDetails/StoreDetails";
+import Wishlist from "../Pages/Wishlist/Wishlist";
 
 const router = createBrowserRouter([
   {
@@ -38,6 +39,10 @@ const router = createBrowserRouter([
       {
         path: "/comparePage",
         element: <ComparePage />
+      },
+      {
+        path: "/wishlist",
+        element: <Wishlist />
       },
       {
         path: "/storesPage",
