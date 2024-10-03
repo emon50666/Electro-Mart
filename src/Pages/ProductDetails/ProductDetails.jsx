@@ -34,9 +34,7 @@ const ProductDetails = () => {
             <TopLayerOfDetails title={products.title} />
             {/* main details section */}
             <MainProductDetails product={products} />
-            {/* <ProductReview ></ProductReview> */}
-
-
+            <ProductReview />
             <br /><br /><br /><br /><br />
         </div>
     );
