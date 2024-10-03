@@ -44,7 +44,7 @@ const GallerySide = ({ images }) => {
                                 <img
                                     src={image}
                                     alt={`Slide ${index}`}
-                                    className="w-full h-full object-contain md:object-contain rounded-lg bg-gray-200 py-3 md:py-3 lg:py-10"
+                                    className="w-full  h-full object-contain md:object-contain rounded-lg bg-gray-200 py-3 md:py-3 lg:py-10"
                                 />
                                 <div>
                                 </div>
