@@ -16,7 +16,7 @@ const ComparisonTable = ({ products }) => {
                         <td className=""></td>
                         {products.map((product, index) => (
                             <td key={index} className="pt-0 border-b border-l border-r-0 font_cabin">
-                                <span className='p-4 w-56 md:w-auto block'>
+                                <span className='p-4 w-56 md:min-w-52 md:w-auto block'>
                                     <button className='flex items-center gap-x-1 text-sm mb-2 p-1 hover:bg-gray-100 hover:text-orange-500 hover:px-10 hover:font-medium rounded-sm transition-all'><RxCross1 /> <span>Remove</span></button>
                                     <div className="flex flex-col items-center">
                                         <img
@@ -43,7 +43,7 @@ const ComparisonTable = ({ products }) => {
                         <td className="p-4 border border-x-0 font-semibold text-[#555] ">Rating</td>
                         {products.map((product, index) => (
                             <td key={index} className="border-b border-l border-r-0 font-medium text-[#767676]">
-                                <span className='px-4 py-2 w-56 md:w-auto block'>
+                                <span className='px-4 py-2 w-56 md:w-52 block'>
                                     <Rating
                                         initialRating={parseInt(product.rating)}
                                         emptySymbol={
@@ -70,7 +70,7 @@ const ComparisonTable = ({ products }) => {
                         <td className="p-4 border-b border-r-0 font-semibold text-[#555] ">Brand</td>
                         {products.map((product, index) => (
                             <td key={index} className="border-b border-l border-r-0 font-medium text-[#767676]">
-                                <p className='p-4 w-56 md:w-auto'>{product.brandName}</p>
+                                <p className='p-4 w-56 md:w-52'>{product.brandName}</p>
                             </td>
                         ))}
                     </tr>
@@ -78,7 +78,7 @@ const ComparisonTable = ({ products }) => {
                         <td className="p-4 border-b border-r-0 font-semibold text-[#555] ">Available Items</td>
                         {products.map((product, index) => (
                             <td key={index} className="border-b border-l border-r-0 font-medium text-[#767676]">
-                                <p className='p-4 w-56 md:w-auto'>{product.availableItems}</p>
+                                <p className='p-4 w-56 md:w-52'>{product.availableItems}</p>
                             </td>
                         ))}
                     </tr>

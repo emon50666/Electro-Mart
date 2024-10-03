@@ -17,7 +17,6 @@ const ComparePage = () => {
             price: 320,
             discountPrice: 270,
             discountPercentage: 15,
-            addToCartIcon: "cart-icon.jpg",
             size: "2 liters",
             availableItems: 5,
             category: "Kitchen Appliance",
@@ -25,7 +24,6 @@ const ComparePage = () => {
             addingDate: "2024-06-15",
             onOffer: "yes",
             isNew: "no"
-
         },
         {
             images: [
