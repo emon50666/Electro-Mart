@@ -19,7 +19,7 @@ const HeaderDashboard = () => {
 
     return (
         <div>
-             <div className=" flex justify-between sticky top-0 z-50  bg-white border-b border-dashed border-gray-200  px-2">
+             <div className=" flex justify-between fixed w-full top-0 z-50  bg-white border-b border-dashed border-gray-200  px-2">
         <Link to={'/'}>
           <img src={logo_1} alt=""  className="w-48 text-center mx-auto"/>
           
