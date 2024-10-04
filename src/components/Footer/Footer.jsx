@@ -54,7 +54,7 @@ const Footer = () => {
       {/* ---------------------------------------------- */}
 
         <hr />
-        <footer className="footer text-[17px] text-base-content mx-3 lg:px-20 py-10">
+        <footer className="footer text-[17px] text-base-content  lg:px-20 py-10">
   <aside>
     <h1 className="text-3xl font-semibold">Electro Mart</h1>
     <p>
@@ -99,9 +99,9 @@ const Footer = () => {
   <nav>
     <h6 className="text-2xl font-semibold">Download App on Mobile:</h6>
     <h1>15% discount on your first purchase    </h1>
-    <div className="flex">
+    <div className="flex md:flex-col">
     <img src={img1} className="h-40" alt="" />
-    <img src={img2} className="h-40" alt="" />
+    <img src={img2} className="h-40 md:-mt-20" alt="" />
 
     </div>
    
