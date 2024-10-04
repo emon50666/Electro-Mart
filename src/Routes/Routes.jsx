@@ -23,6 +23,7 @@ import StoreDetails from "../Pages/StoreDetails/StoreDetails";
 import AllUser from "../components/DashBoard/AllUser/AllUser";
 import Order from "../components/DashBoard/Order/Order";
 import DashboardLayout from "../Layout/DashBoardLayout";
+import ProductPage from "../components/ProductPage";
 
 const router = createBrowserRouter([
   {
@@ -55,6 +56,10 @@ const router = createBrowserRouter([
       {
         path: "/storPage",
         element:<StorPage></StorPage>
+      },
+      {
+        path: 'productPage',
+        element: <ProductPage/>
       }
     ],
 
@@ -67,6 +72,7 @@ const router = createBrowserRouter([
     path: '/register',
     element: <Register />
   },
+
 
   
       // dashboard route
