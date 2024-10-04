@@ -1,7 +1,4 @@
-import {
-  createBrowserRouter,
-
-} from "react-router-dom";
+import { createBrowserRouter } from "react-router-dom";
 import Layout from "../Layout/Layout";
 import Error from "../Pages/Error/Error";
 import Home from "../Pages/Home/Home";
@@ -9,9 +6,14 @@ import Login from "../components/Login/Login";
 import Register from "../components/Login/Register/Register";
 import ProductDetails from "../Pages/ProductDetails/ProductDetails";
 import ComparePage from "../Pages/ComparePage/ComparePage";
-
-
 import StorPage from "../Pages/StorPage/StorPage";
+
+import DashboardLayout from "../Layout/DashBoardLayOut";
+import ProductManage from "../components/DashBoard/ProductManage/ProductManage";
+import AddNewProduct from "../components/DashBoard/AddNewProduct/AddNewProduct";
+import StoreDetails from "../Pages/StoreDetails/StoreDetails";
+import CheckoutPage from "../Pages/Checkout/CheckoutPage";
+
 
 
 
@@ -24,6 +26,7 @@ import AllUser from "../components/DashBoard/AllUser/AllUser";
 import Order from "../components/DashBoard/Order/Order";
 import DashboardLayout from "../Layout/DashBoardLayout";
 import ProductPage from "../components/ProductPage";
+
 
 const router = createBrowserRouter([
   {
@@ -45,9 +48,9 @@ const router = createBrowserRouter([
       },
       {
         path: "/storesPage",
-        element: <StoresPage/>
+        element: <StorPage />
       },
-         {
+      {
         path: "/storeDetails",
         element: <StoreDetails />
       }
@@ -55,11 +58,15 @@ const router = createBrowserRouter([
       ,
       {
         path: "/storPage",
+
+        element: <StorPage></StorPage>
+
         element:<StorPage></StorPage>
       },
       {
         path: 'productPage',
         element: <ProductPage/>
+
       }
     ],
 
@@ -72,6 +79,7 @@ const router = createBrowserRouter([
     path: '/register',
     element: <Register />
   },
+
 
 
   
@@ -97,8 +105,26 @@ const router = createBrowserRouter([
             element: <Order/>
           }
 
-        ]
+  // dashboard route
+  {
+    path: '/dashboard',
+    element: <DashboardLayout />,
+    children: [
+      {
+        path: "product",
+        element: <ProductManage />
       },
+      {
+        path: "addProduct",
+        element: <AddNewProduct />
+      },
+      {
+        path: "checkoutPage",
+        element: <CheckoutPage />
+      },
+
+    ]
+  },
 ]);
 
 

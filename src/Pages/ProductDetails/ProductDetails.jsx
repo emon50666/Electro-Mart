@@ -17,12 +17,6 @@ const ProductDetails = () => {
         price: 320,
         discountPrice: 270,
         discountPercentage: 15,
-        title: "Chick Jumper",
-        rating: 3.5,
-        description: "Keep those little legs warm and cosy in our Arctic Leggings! Featuring an all over arctic themed jacquard and two sweet poms poms on the drawstring. Made from our organic cotton and wool blend for a warm and snuggly legging. Pair with our Arctic Friends Jumper for a sweet winter outfit.",
-        price: 275,
-        discountPrice: 99,
-        discountPercentage: 23,
         addToCartIcon: "cart-icon.jpg",
         size: "2 liters",
         availableItems: 5,
@@ -40,9 +34,7 @@ const ProductDetails = () => {
             <TopLayerOfDetails title={products.title} />
             {/* main details section */}
             <MainProductDetails product={products} />
-            <ProductReview ></ProductReview>
-
-
+            <ProductReview />
             <br /><br /><br /><br /><br />
         </div>
     );
