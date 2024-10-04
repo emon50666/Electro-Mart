@@ -8,24 +8,23 @@ import ProductDetails from "../Pages/ProductDetails/ProductDetails";
 import ComparePage from "../Pages/ComparePage/ComparePage";
 import StorPage from "../Pages/StorPage/StorPage";
 
-import DashboardLayout from "../Layout/DashBoardLayOut";
+
 import ProductManage from "../components/DashBoard/ProductManage/ProductManage";
 import AddNewProduct from "../components/DashBoard/AddNewProduct/AddNewProduct";
 import StoreDetails from "../Pages/StoreDetails/StoreDetails";
 import CheckoutPage from "../Pages/Checkout/CheckoutPage";
-
-
-
-
-
-import StoresPage from "../Pages/StoresPage/StoresPage";
-import ProductManage from "../components/DashBoard/ProductManage/ProductManage";
-import AddNewProduct from "../components/DashBoard/AddNewProduct/AddNewProduct";
-import StoreDetails from "../Pages/StoreDetails/StoreDetails";
-import AllUser from "../components/DashBoard/AllUser/AllUser";
-import Order from "../components/DashBoard/Order/Order";
-import DashboardLayout from "../Layout/DashBoardLayout";
 import ProductPage from "../components/ProductPage";
+import DashboardLayout from './../Layout/DashBoardLayout';
+import AllUser from './../components/DashBoard/AllUser/AllUser';
+import Order from './../components/DashBoard/Order/Order';
+
+
+
+
+
+
+
+
 
 
 const router = createBrowserRouter([
@@ -61,7 +60,6 @@ const router = createBrowserRouter([
 
         element: <StorPage></StorPage>
 
-        element:<StorPage></StorPage>
       },
       {
         path: 'productPage',
@@ -103,25 +101,14 @@ const router = createBrowserRouter([
           {
             path: "Order-List",
             element: <Order/>
-          }
+          },
+          {
+            path: "checkoutPage",
+            element: <CheckoutPage />
+          },
 
-  // dashboard route
-  {
-    path: '/dashboard',
-    element: <DashboardLayout />,
-    children: [
-      {
-        path: "product",
-        element: <ProductManage />
-      },
-      {
-        path: "addProduct",
-        element: <AddNewProduct />
-      },
-      {
-        path: "checkoutPage",
-        element: <CheckoutPage />
-      },
+  
+    
 
     ]
   },
