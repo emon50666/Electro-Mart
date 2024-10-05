@@ -108,16 +108,36 @@ const Wishlist = () => {
       </thead>
       <tbody>
         {products.map((product, index) => (
-          <tr key={index} className="odd:bg-slate-50 ">
-            <td className="h-12 px-6 text-sm transition duration-300 border-t border-l first:border-l-0 border-slate-200">
-              <img src={product.images[0]} alt={product.title} className="lg:h-32 md:h-32 h-20 lg:w-24 md:w-24 w-16 py-3 object-cover" />
-            </td>
-            <td className="h-12 px-6 lg:text-[18px] md:text-[18px] text-[12px] font-semibold transition duration-300 border-t border-l first:border-l-0 border-slate-200">{product.title}</td>
-            <td className="h-12 px-6 lg:text-[18px] md:text-[18px] text-[12px] font-semibold transition duration-300 border-t border-l first:border-l-0 border-slate-200">{product.brandName}</td>
-            <td className="h-12 px-6 lg:text-[18px] md:text-[18px] text-[12px] font-semibold transition duration-300 border-t border-l first:border-l-0 border-slate-200">£{product.price}</td>
-            <td className="h-12 px-6 lg:text-[18px] md:text-[18px] text-[12px] font-semibold transition duration-300 border-t border-l first:border-l-0 border-slate-200">£{product.discountPrice}</td>
-            <td className="h-12 px-6 lg:text-[18px] md:text-[18px] text-[12px] font-semibold transition duration-300 border-t border-l first:border-l-0 border-slate-200">{product.availableItems}</td>
-          </tr>
+          <tr key={index} className="odd:bg-slate-50">
+          <td className="h-12 px-6 text-sm transition duration-300 border-t border-l first:border-l-0 border-slate-200">
+            <img
+              src={product.images[0]}
+              alt={product.title}
+              className="lg:h-32 md:h-32 h-20 lg:w-24 md:w-24 w-16 py-3 object-cover"
+            />
+          </td>
+          <td className="h-12 px-6 lg:text-[18px] md:text-[18px] text-[12px] font-semibold transition duration-300 border-t border-l first:border-l-0 border-slate-200">
+            {product.title}
+          </td>
+          <td className="h-12 px-6 lg:text-[18px] md:text-[18px] text-[12px] font-semibold transition duration-300 border-t border-l first:border-l-0 border-slate-200">
+            {product.brandName}
+          </td>
+          <td className="h-12 px-6 lg:text-[18px] md:text-[18px] text-[12px] font-semibold transition duration-300 border-t border-l first:border-l-0 border-slate-200">
+            £{product.price}
+          </td>
+          <td className="h-12 px-6 lg:text-[18px] md:text-[18px] text-[12px] font-semibold transition duration-300 border-t border-l first:border-l-0 border-slate-200">
+            £{product.discountPrice}
+          </td>
+          <td className="h-12 px-6 lg:text-[18px] md:text-[18px] text-[12px] font-semibold transition duration-300 border-t border-l first:border-l-0 border-slate-200">
+            {product.availableItems}
+          </td>
+          <td className="h-12 px-6">
+            <button className="border-2 text-black px-4 py-2 transition-all duration-300 ease-in-out transform hover:scale-105">
+              Buy Now
+            </button>
+          </td>
+        </tr>
+        
         ))}
       </tbody>
     </table>
