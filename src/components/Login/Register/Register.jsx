@@ -3,18 +3,24 @@ import { useState } from "react";
 import UserAuth from '../../../Hooks/useAuth';
 import toast from "react-hot-toast";
 import { ImSpinner3 } from "react-icons/im";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { sendPasswordResetEmail } from "firebase/auth";
 import auth from "../../../Firebase/Firebase";
+import { FaRegEye, FaRegEyeSlash } from "react-icons/fa";
 const Register = () => {
   const [isSignUp, setIsSignUp] = useState(true);
-  
+  const location = useLocation()
+  console.log(location)
+
+
+
 
   const navigate = useNavigate()
 
 
-  const { createUser, signIn, setUser, updateUserProfile, loading, setLoading,error,setError } = UserAuth()
+  const { createUser, signIn, setUser, updateUserProfile, loading, setLoading,error,setError ,showPassword,
+    setShowPassword} = UserAuth()
 
   // register form 
   const handelRegister = async e => {
@@ -76,6 +82,7 @@ const Register = () => {
       const user = result.user
       console.log(user)
       toast.success("Account created successfully");
+      navigate(location?.state ? location?.state : '/')
       navigate('/')
 
       // Update the user state with the new profile information
@@ -111,7 +118,8 @@ const Register = () => {
       // Login user
       const result = await signIn(email, password);
       toast.success("Login successfully");
-      navigate('/');
+      navigate(location?.state ? location?.state : '/')
+  
     } catch (error) {
       toast.error(error.message);
     }
@@ -276,10 +284,11 @@ const Register = () => {
                 <input
                  required
                   name="password"
-                  type="password"
+                  type=  {showPassword ? 'text' : "password"}
                   className="block w-full py-3   bg-gray-50 border  outline-none text-orange-500 rounded-lg px-11   focus:border-orange-500 "
                   placeholder="Password"
                 />
+                <p onClick={() => setShowPassword(!showPassword)} className="items-center text-base -ml-12"> {showPassword ? <FaRegEyeSlash></FaRegEyeSlash> : <FaRegEye></FaRegEye> } </p>
               </div>
 
 
@@ -319,19 +328,31 @@ const Register = () => {
         </div>
 
         <div className="relative flex items-center mt-4">
-          <span className="absolute">
-            <svg xmlns="http://www.w3.org/2000/svg" className="w-6 h-6 mx-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
-            </svg>
-          </span>
-          <input
-            type="password"
-            name="password"
-            required
-            className="block w-full py-3 bg-gray-50 border outline-none text-orange-500 rounded-lg px-11 focus:border-orange-500"
-            placeholder="Password"
-          />
-        </div>
+                <span className="absolute">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="w-6 h-6 mx-3 "
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"
+                    />
+                  </svg>
+                </span>
+                <input
+                 required
+                  name="password"
+                  type=  {showPassword ? 'text' : "password"}
+                  className="block w-full py-3   bg-gray-50 border  outline-none text-orange-500 rounded-lg px-11   focus:border-orange-500 "
+                  placeholder="Password"
+                />
+                <p onClick={() => setShowPassword(!showPassword)} className="items-center text-base -ml-12"> {showPassword ? <FaRegEyeSlash></FaRegEyeSlash> : <FaRegEye></FaRegEye> } </p>
+              </div>
 
         <p
           onClick={() => handleForgotPassword(document.querySelector('input[name="email"]').value)}
