@@ -14,7 +14,7 @@ const ProductCard = () => {
   };
 
   return (
-    <section className="pt-10 mb-10 bg-[#F6F6F6]">
+    <section className="pt-10 mb-10 pb-10  bg-[#F6F6F6]">
       <div className="grid md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 xxl:grid-cols-5 gap-3  px-10">
         <div className="relative p-3 hover:shadow-lg rounded-md bg-white group">
           <HoverImage

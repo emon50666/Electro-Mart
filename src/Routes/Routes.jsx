@@ -1,6 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 import Layout from "../Layout/Layout";
-import Error from "../Pages/Error/Error";
+
 import Home from "../Pages/Home/Home";
 import Login from "../components/Login/Login";
 import Register from "../components/Login/Register/Register";
@@ -15,6 +15,14 @@ import CheckoutPage from "../Pages/Checkout/CheckoutPage";
 import AllUser from "../components/DashBoard/AllUser/AllUser";
 import Order from "../components/DashBoard/Order/Order";
 import ProductPage from "../components/ProductPage";
+import ProductPage from "../components/ProductPage";
+import DashboardLayout from './../Layout/DashBoardLayout';
+import AllUser from './../components/DashBoard/AllUser/AllUser';
+import Order from './../components/DashBoard/Order/Order';
+import PrivateRoute from "../PrivateRoute/PrivateRoute";
+import Error from "../components/404/Error";
+import Profile from "../components/DashBoard/ProfilePage/Profile";
+
 
 
 
@@ -22,7 +30,7 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <Layout />,
-    errorElement: <Error />,
+    errorElement: <Error/>,
     children: [
       {
         index: true,
@@ -52,8 +60,16 @@ const router = createBrowserRouter([
       {
         path: 'productPage',
         element: <ProductPage />
-      }
-    ],
+      },
+      {
+        path: 'productPage',
+        element: <ProductPage/>
+      },
+      {
+        path: "checkoutPage",
+        element: <CheckoutPage />
+      },
+   ],
 
   },
   {
@@ -64,7 +80,7 @@ const router = createBrowserRouter([
     path: '/register',
     element: <Register />
   },
-
+  
   // dashboard route
   {
     path: '/dashboard',
@@ -93,6 +109,33 @@ const router = createBrowserRouter([
 
 
 
+  
+      // dashboard route
+      {
+        path:'/dashboard',
+        element: <PrivateRoute><DashboardLayout/></PrivateRoute>,
+        children:[
+          {
+            path: "product",
+            element: <PrivateRoute><ProductManage/></PrivateRoute>
+          },
+          {
+            path: "addProduct",
+            element: <PrivateRoute><AddNewProduct/></PrivateRoute>
+          },
+          {
+            path: "user",
+            element:<PrivateRoute> <AllUser/></PrivateRoute>
+          },
+          {
+            path: "Order-List",
+            element: <PrivateRoute><Order/></PrivateRoute>
+          },
+          {
+            path: "profile",
+            element: <PrivateRoute><Profile/></PrivateRoute>
+          },
+        
     ]
   },
 ]);

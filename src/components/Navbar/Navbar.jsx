@@ -9,7 +9,6 @@ import MobileNavBar from "../Navbar/MobileNavBar";
 import AddCart from "../AddToCart/AddCart";
 import { FaCartShopping } from "react-icons/fa6";
 
-
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const { user, logOut, loading } = UserAuth();
@@ -53,6 +52,7 @@ const Navbar = () => {
           <Link to={'/'}>
             <img src={logo_1} alt="Logo" />
           </Link>
+      
         </div>
       </div>
 
@@ -75,26 +75,59 @@ const Navbar = () => {
         <Link to={'/'}><img src={logo_1} alt="" /></Link>
       </div>
 
-      <div className="navbar-end gap-5">
-
-        <div className="hidden lg:flex space-x-3">
-          <button onClick={handleAddToCart} className="relative bg-orange-200/50 hover:bg-orange-300/50 cursor-pointer rounded-full p-2">
-            <FaCartShopping className="text-lg text-orange-600" />
-            <span className="absolute -right-2 -ml-1 -top-2 rounded-[100%] bg-orange-500 px-1 py-[1px] text-[10px] text-white">9+</span>
-          </button>
-          <Link to="/comparePage" className="relative bg-orange-200/50 hover:bg-orange-300/50 cursor-pointer rounded-full p-2">
-            <IoGitCompareOutline className="text-lg text-orange-600" />
-            <span className="absolute -right-2 -ml-1 -top-2 rounded-[100%] bg-orange-500 px-1 py-[1px] text-[10px] text-white">9+</span>
-          </Link>
-          <div className="relative bg-orange-200/50 hover:bg-orange-300/50 cursor-pointer rounded-full p-2">
-            <FaHeart className="text-lg text-orange-600" />
-            <span className="absolute -right-2 -ml-1 -top-2 rounded-[100%] bg-orange-500 px-1 py-[1px] text-[10px] text-white">9+</span>
+      <div className="navbar-end gap-5  ">
+      <div className="dropdown dropdown-end lg:hidden">
+          <div tabIndex={0} role="button" className="p-1 rounded-full">
+            {user ? (
+              <div className="relative inline-block">
+                <img title={user?.displayName} src={user?.photoURL} className="w-10 h-10 rounded-full border-2 border-blue-600 p-0.5" />
+                <span className="h-3 w-3 rounded-full border border-white bg-green-500 block absolute top-1 right-0"></span>
+              </div>
+            ) : loading ? (
+              <div className="relative inline-block">
+                <img src={user?.photoURL} className="w-10 h-10 rounded-full border-2 border-blue-600 p-0.5" />
+                <span className="h-3 w-3 rounded-full border border-white bg-green-500 block absolute top-1 right-0"></span>
+              </div>
+            ) : (
+              <Link to={'/register'}>
+                <div className="relative bg-orange-200/50 hover:bg-orange-300/50 cursor-pointer rounded-full p-2">
+                  <MdAccountCircle className="text-lg text-orange-600" />
+                  <span className="absolute -right-2 -top-3 rounded-full bg-orange-500 pt-[1px] pb-[4px] pl-1 pr-1 py-[1px] text-[10px] text-white">Account</span>
+                </div>
+              </Link>
+            )}
           </div>
         </div>
+          {user && (
+             <ul tabIndex={0} className={`menu menu-sm  font-semibold right-0 dropdown-content bg-white overflow-hidden rounded-box w-40 ${isOpen ? "translate-x-0" : "translate-y-0" }  border border-dashed border-orange-300 `}>
+              <Link to={'/dashboard'} className="hover:bg-orange-50 p-2 rounded-md hover:text-orange-500"><li>DashBoard</li></Link>
+              <Link className="hover:bg-orange-50 p-2 rounded-md hover:text-orange-500"><li>Profile</li></Link>
+              <Link className="hover:bg-orange-50 p-2 rounded-md hover:text-orange-500"><li>Setting</li></Link>
+              <Link to={'/register'} className="hover:bg-orange-50 p-2 rounded-md hover:text-orange-500">
+                <button onClick={logOut}><a>Logout</a></button>
+              </Link>
+            </ul>
+          )}
+        </div>
+        <div className="hidden lg:flex space-x-3 items-center mt-2">
+          {/* Cart Button */}
+<button onClick={handleAddToCart} className="relative bg-orange-200/50 hover:bg-orange-300/50 cursor-pointer rounded-full p-2 w-10 h-10 flex items-center justify-center">
+  <FaCartShopping className="text-lg text-orange-600" />
+  <span className="absolute -right-1 -top-1 rounded-full bg-orange-500 px-1 py-[1px] text-[10px] text-white">9+</span>
+</button>
 
+{/* Compare Link */}
+<Link to="/comparePage" className="relative bg-orange-200/50 hover:bg-orange-300/50 cursor-pointer rounded-full p-2 w-10 h-10 flex items-center justify-center">
+  <IoGitCompareOutline className="text-lg text-orange-600" />
+  <span className="absolute -right-1 -top-1 rounded-full bg-orange-500 px-1 py-[1px] text-[10px] text-white">9+</span>
+</Link>
 
-
-
+{/* Wishlist Button */}
+<div className="relative bg-orange-200/50 hover:bg-orange-300/50 cursor-pointer rounded-full p-2 w-10 h-10 flex items-center justify-center">
+  <FaHeart className="text-lg text-orange-600" />
+  <span className="absolute -right-1 -top-1 rounded-full bg-orange-500 px-1 py-[1px] text-[10px] text-white">9+</span>
+</div>
+        {/* menu icon  */}
         <div className="dropdown dropdown-end">
           <div tabIndex={0} role="button" className="p-1 rounded-full">
             {user ? (
@@ -117,7 +150,7 @@ const Navbar = () => {
             )}
           </div>
           {user && (
-            <ul tabIndex={0} className="menu menu-sm font-semibold right-0 dropdown-content bg-white overflow-hidden rounded-box w-48 shadow-md">
+                <ul tabIndex={0} className={`menu menu-sm  font-semibold right-0 dropdown-content bg-white overflow-hidden rounded-box w-40 ${isOpen ? "translate-x-0" : "translate-y-0" }  border border-dashed border-orange-300 `}>
               <Link to={'/dashboard'} className="hover:bg-orange-50 p-2 rounded-md hover:text-orange-500"><li>DashBoard</li></Link>
               <Link className="hover:bg-orange-50 p-2 rounded-md hover:text-orange-500"><li>Profile</li></Link>
               <Link className="hover:bg-orange-50 p-2 rounded-md hover:text-orange-500"><li>Setting</li></Link>
@@ -130,6 +163,8 @@ const Navbar = () => {
       </div>
       {cartOpen && <AddCart setCartOpen={setCartOpen} />}
     </div>
+     </div>
+  
   );
 };
 
