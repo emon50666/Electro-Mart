@@ -7,12 +7,14 @@ import Register from "../components/Login/Register/Register";
 import ProductDetails from "../Pages/ProductDetails/ProductDetails";
 import ComparePage from "../Pages/ComparePage/ComparePage";
 import StorPage from "../Pages/StorPage/StorPage";
-
-
+import DashboardLayout from "../Layout/DashBoardLayOut";
 import ProductManage from "../components/DashBoard/ProductManage/ProductManage";
 import AddNewProduct from "../components/DashBoard/AddNewProduct/AddNewProduct";
 import StoreDetails from "../Pages/StoreDetails/StoreDetails";
 import CheckoutPage from "../Pages/Checkout/CheckoutPage";
+import AllUser from "../components/DashBoard/AllUser/AllUser";
+import Order from "../components/DashBoard/Order/Order";
+import ProductPage from "../components/ProductPage";
 import ProductPage from "../components/ProductPage";
 import DashboardLayout from './../Layout/DashBoardLayout';
 import AllUser from './../components/DashBoard/AllUser/AllUser';
@@ -20,13 +22,6 @@ import Order from './../components/DashBoard/Order/Order';
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import Error from "../components/404/Error";
 import Profile from "../components/DashBoard/ProfilePage/Profile";
-
-
-
-
-
-
-
 
 
 
@@ -57,25 +52,24 @@ const router = createBrowserRouter([
         path: "/storeDetails",
         element: <StoreDetails />
       }
-
       ,
       {
         path: "/storPage",
-
         element: <StorPage></StorPage>
-
+      },
+      {
+        path: 'productPage',
+        element: <ProductPage />
       },
       {
         path: 'productPage',
         element: <ProductPage/>
-
       },
       {
         path: "checkoutPage",
         element: <CheckoutPage />
       },
-
-    ],
+   ],
 
   },
   {
@@ -86,6 +80,32 @@ const router = createBrowserRouter([
     path: '/register',
     element: <Register />
   },
+  
+  // dashboard route
+  {
+    path: '/dashboard',
+    element: <DashboardLayout />,
+    children: [
+      {
+        path: "productManage",
+        element: <ProductManage />
+      },
+      {
+        path: "addProduct",
+        element: <AddNewProduct />
+      },
+      {
+        path: "user",
+        element: <AllUser />
+      },
+      {
+        path: "Order-List",
+        element: <Order />
+      },
+      {
+        path: "checkoutPage",
+        element: <CheckoutPage />
+      },
 
 
 
@@ -116,9 +136,6 @@ const router = createBrowserRouter([
             element: <PrivateRoute><Profile/></PrivateRoute>
           },
         
-  
-    
-
     ]
   },
 ]);
