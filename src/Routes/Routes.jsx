@@ -7,25 +7,15 @@ import Register from "../components/Login/Register/Register";
 import ProductDetails from "../Pages/ProductDetails/ProductDetails";
 import ComparePage from "../Pages/ComparePage/ComparePage";
 import StorPage from "../Pages/StorPage/StorPage";
-
 import DashboardLayout from "../Layout/DashBoardLayOut";
 import ProductManage from "../components/DashBoard/ProductManage/ProductManage";
 import AddNewProduct from "../components/DashBoard/AddNewProduct/AddNewProduct";
 import StoreDetails from "../Pages/StoreDetails/StoreDetails";
 import CheckoutPage from "../Pages/Checkout/CheckoutPage";
-
-
-
-
-
-import StoresPage from "../Pages/StoresPage/StoresPage";
-import ProductManage from "../components/DashBoard/ProductManage/ProductManage";
-import AddNewProduct from "../components/DashBoard/AddNewProduct/AddNewProduct";
-import StoreDetails from "../Pages/StoreDetails/StoreDetails";
 import AllUser from "../components/DashBoard/AllUser/AllUser";
 import Order from "../components/DashBoard/Order/Order";
-import DashboardLayout from "../Layout/DashBoardLayout";
 import ProductPage from "../components/ProductPage";
+
 
 
 const router = createBrowserRouter([
@@ -54,19 +44,14 @@ const router = createBrowserRouter([
         path: "/storeDetails",
         element: <StoreDetails />
       }
-
       ,
       {
         path: "/storPage",
-
         element: <StorPage></StorPage>
-
-        element:<StorPage></StorPage>
       },
       {
         path: 'productPage',
-        element: <ProductPage/>
-
+        element: <ProductPage />
       }
     ],
 
@@ -80,38 +65,13 @@ const router = createBrowserRouter([
     element: <Register />
   },
 
-
-
-  
-      // dashboard route
-      {
-        path:'/dashboard',
-        element: <DashboardLayout/>,
-        children:[
-          {
-            path: "product",
-            element: <ProductManage/>
-          },
-          {
-            path: "addProduct",
-            element: <AddNewProduct/>
-          },
-          {
-            path: "user",
-            element: <AllUser/>
-          },
-          {
-            path: "Order-List",
-            element: <Order/>
-          }
-
   // dashboard route
   {
     path: '/dashboard',
     element: <DashboardLayout />,
     children: [
       {
-        path: "product",
+        path: "productManage",
         element: <ProductManage />
       },
       {
@@ -119,9 +79,19 @@ const router = createBrowserRouter([
         element: <AddNewProduct />
       },
       {
+        path: "user",
+        element: <AllUser />
+      },
+      {
+        path: "Order-List",
+        element: <Order />
+      },
+      {
         path: "checkoutPage",
         element: <CheckoutPage />
       },
+
+
 
     ]
   },

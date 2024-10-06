@@ -7,7 +7,7 @@ import { FaHeart } from "react-icons/fa";
 import { MdAccountCircle } from "react-icons/md";
 import MobileNavBar from "../Navbar/MobileNavBar";
 import AddCart from "../AddToCart/AddCart";
-import AddToCard from "../AddToCard/AddToCard";
+import { FaCartShopping } from "react-icons/fa6";
 
 
 const Navbar = () => {
@@ -90,23 +90,10 @@ const Navbar = () => {
             <FaHeart className="text-lg text-orange-600" />
             <span className="absolute -right-2 -ml-1 -top-2 rounded-[100%] bg-orange-500 px-1 py-[1px] text-[10px] text-white">9+</span>
           </div>
-
-
-
-        {/* menu icon  */}
-
-       <div className="hidden lg:flex space-x-3">
-       
-            <AddToCard/>
-        <div className="relative bg-orange-200/50 hover:bg-orange-300/50 cursor-pointer  rounded-full p-2">
-          <IoGitCompareOutline className="text-lg text-orange-600 " />
-          <span className="absolute -right-2 -ml-1 -top-2 rounded-[100%]  bg-orange-500 px-1 py-[1px] text-[10px] text-white">9+</span>
         </div>
-        <div className="relative bg-orange-200/50 hover:bg-orange-300/50 cursor-pointer  rounded-full p-2">
-          <FaHeart className="text-lg text-orange-600 " />
-          <span className="absolute -right-2 -ml-1 -top-2 rounded-[100%]  bg-orange-500 px-1 py-[1px] text-[10px] text-white">9+</span>
 
-        </div>
+
+
 
         <div className="dropdown dropdown-end">
           <div tabIndex={0} role="button" className="p-1 rounded-full">
