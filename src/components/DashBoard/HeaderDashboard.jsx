@@ -19,7 +19,7 @@ const HeaderDashboard = () => {
 
     return (
         <div>
-             <div className=" flex justify-between sticky top-0 z-50  bg-white border-b border-dashed border-gray-200  px-2">
+             <div className=" flex justify-between fixed w-full pt-1 top-0 z-50  bg-white border-b border-dashed border-gray-200  px-2">
         <Link to={'/'}>
           <img src={logo_1} alt=""  className="w-48 text-center mx-auto"/>
           
@@ -61,7 +61,7 @@ const HeaderDashboard = () => {
             {/* Dropdown Items */}
             <ul className="py-1 text-sm text-gray-700 text-left"> {/* Text aligned to the left */}
               <li>
-                <a href="/profile" className="block px-4 py-2 hover:bg-orange-50 hover:text-orange-500" >Profile</a>
+                <Link to={'profile'} className="block px-4 py-2 hover:bg-orange-50 hover:text-orange-500" >Profile</Link>
               </li>
               <li>
                 <a href="/settings" className="block px-4 py-2 hover:bg-orange-50 hover:text-orange-500">Settings</a>

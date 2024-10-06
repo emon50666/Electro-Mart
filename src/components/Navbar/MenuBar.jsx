@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { FaTimes } from "react-icons/fa";
 import { IoIosArrowUp } from "react-icons/io";
+import { Link } from "react-router-dom";
 const MenuBar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -39,7 +40,7 @@ const MenuBar = () => {
           {/* Menu Items */}
           <ul className="mt-8 space-y-4">
             <li className="py-2 hover:bg-gray-100">
-              <a>Item 1</a>
+             <Link to={'/productDetails'}>Product details</Link>
             </li>
             <li className="py-2 hover:bg-gray-100">
               <a>Item 2</a>

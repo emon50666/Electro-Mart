@@ -4,15 +4,8 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/swiper-bundle.css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
-
-
-
-
-
-
-
-// Install Swiper modules
 import { Navigation, Pagination } from 'swiper/modules';
+import Magnifier from 'react-magnifier';
 
 
 
@@ -41,16 +34,27 @@ const GallerySide = ({ images }) => {
                     >
                         {images.map((image, index) => (
                             <SwiperSlide key={index}>
-                                <img
+                                {/* <img
                                     src={image}
                                     alt={`Slide ${index}`}
-                                    className="w-full h-full object-contain md:object-contain rounded-lg bg-gray-200 py-3 md:py-3 lg:py-10"
+                                    className="w-full  h-full object-contain md:object-contain rounded-lg bg-gray-200 py-3 md:py-3 lg:py-10"
+                                /> */}
+                                <Magnifier
+                                    className="w-full h-full object-contain md:object-contain border-8 rounded-lg p-3 lg:p-16"
+                                    src={image} // Corrected image URL
+                                    width={`80%`} // Width of the image
+                                    height={`100%`}
+                                    mgWidth={300} // Width of the magnified area (square shape)
+                                    mgHeight={300} // Height of the magnified area (square shape)
+                                    mgShape={'square'} // Shape of the magnifier lens
+                                // Adjust the touch offset on Y-axis (optional)
                                 />
+
                                 <div>
                                 </div>
-            
-     
-                           
+
+
+
                             </SwiperSlide>
                         ))}
 
