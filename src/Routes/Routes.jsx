@@ -11,6 +11,9 @@ import DashboardLayout from "../Layout/DashBoardLayOut";
 import ProductManage from "../components/DashBoard/ProductManage/ProductManage";
 import AddNewProduct from "../components/DashBoard/AddNewProduct/AddNewProduct";
 import StoreDetails from "../Pages/StoreDetails/StoreDetails";
+
+import Wishlist from "../Pages/Wishlist/Wishlist";
+
 import CheckoutPage from "../Pages/Checkout/CheckoutPage";
 import AllUser from "../components/DashBoard/AllUser/AllUser";
 import Order from "../components/DashBoard/Order/Order";
@@ -22,6 +25,7 @@ import Order from './../components/DashBoard/Order/Order';
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import Error from "../components/404/Error";
 import Profile from "../components/DashBoard/ProfilePage/Profile";
+
 
 
 
@@ -43,6 +47,10 @@ const router = createBrowserRouter([
       {
         path: "/comparePage",
         element: <ComparePage />
+      },
+      {
+        path: "/wishlist",
+        element: <Wishlist />
       },
       {
         path: "/storesPage",

@@ -46,6 +46,57 @@ const Footer = () => {
           </ul>
         </nav>
 
+
+        <hr />
+        <footer className="footer text-[17px] text-base-content  lg:px-20 py-10">
+  <aside>
+    <h1 className="text-3xl font-semibold">Electro Mart</h1>
+    <p>
+    Condimentum adipiscing vel neque dis nam <br /> parturient orci at scelerisque.
+    </p>
+    <div className="">
+        <h1 className="text-2xl font-semibold">Subscribe us</h1>
+        <div className="mt-2 space-x-3">
+        <button className="text-[19px] p-2 rounded-full bg-blue-800 text-white"><FaFacebookF/></button>
+        <button className="text-[19px] p-2 rounded-full bg-black text-white"><FaXTwitter/></button>
+        <button className="text-[19px] p-2 rounded-full bg-blue-600 text-white"><FaLinkedinIn/></button>
+        <button className="text-[19px] p-2 rounded-full bg-blue-500 text-white"><FaTelegramPlane/></button>
+
+        </div>
+    </div>
+  </aside>
+  <nav>
+    <h6 className="text-2xl font-semibold">Categories</h6>
+    <a className="link link-hover">Smartphones</a>
+    <a className="link link-hover">Laptops</a>
+    <a className="link link-hover">Hardware</a>
+    <a className="link link-hover">Cameras</a>
+    <a className="link link-hover">Headphones</a>
+    <a className="link link-hover">Bathroom</a>
+  </nav>
+  <nav>
+    <h6 className="text-2xl font-semibold">Useful Links</h6>
+    <a className="link link-hover">Promotions</a>
+    <a className="link link-hover">Stores</a>
+    <a className="link link-hover">Our contacts</a>
+    <a className="link link-hover">Delivery & Return</a>
+    <a className="link link-hover">Outlet</a>
+  </nav>
+  <nav>
+    <h6 className="text-2xl font-semibold">Useful Links</h6>
+    <a className="link link-hover">Blog</a>
+    <a className="link link-hover">Our contacts</a>
+    <a className="link link-hover">Promotions</a>
+    <a className="link link-hover">Stores</a>
+    <a className="link link-hover">Delivery & Return</a>
+  </nav>
+  <nav>
+    <h6 className="text-2xl font-semibold">Download App on Mobile:</h6>
+    <h1>15% discount on your first purchase    </h1>
+    <div className="flex md:flex-col">
+    <img src={img1} className="h-40" alt="" />
+    <img src={img2} className="h-40 md:-mt-20" alt="" />
+
         <nav>
           <h6 className="text-xl md:text-2xl font-semibold">Useful Links</h6>
           <ul className="space-y-1">
@@ -67,6 +118,7 @@ const Footer = () => {
             <li><a className="link link-hover">Delivery & Return</a></li>
           </ul>
         </nav>
+
 
         <nav className="space-y-2">
           <h6 className="text-xl md:text-2xl font-semibold">Download App on Mobile:</h6>
