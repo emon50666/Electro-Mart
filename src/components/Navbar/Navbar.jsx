@@ -9,8 +9,6 @@ import MobileNavBar from "../Navbar/MobileNavBar";
 import AddCart from "../AddToCart/AddCart";
 import { FaCartShopping } from "react-icons/fa6";
 
-
-
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const { user, logOut, loading } = UserAuth();
@@ -99,6 +97,7 @@ const Navbar = () => {
               </Link>
             )}
           </div>
+        </div>
           {user && (
             <ul tabIndex={0} className={`menu menu-sm  font-semibold right-0 dropdown-content bg-white overflow-hidden rounded-box w-40 ${isOpen ? "translate-x-0" : "translate-y-0"}  border border-dashed border-orange-300 `}>
               <Link to={'/dashboard'} className="hover:bg-orange-50 p-2 rounded-md hover:text-orange-500"><li>DashBoard</li></Link>
@@ -175,7 +174,7 @@ const Navbar = () => {
         </div>
         {cartOpen && <AddCart setCartOpen={setCartOpen} />}
       </div>
-    </div>
+  
 
   );
 };

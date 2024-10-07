@@ -1,6 +1,6 @@
 import { Outlet } from "react-router-dom";
 import Navbar from "../components/Navbar/Navbar";
-import Footer from "../components/Footer/Footer";
+
 import MenuBar from "../components/Navbar/MenuBar";
 import BottomNavigation from "./BottomNavigation";
 
@@ -12,7 +12,7 @@ const Layout = () => {
 
             <Outlet />
              <BottomNavigation/>
-            <Footer />
+            
         </div>
     );
 };
