@@ -10,7 +10,6 @@ const AddNewProduct = () => {
   const navigate = useNavigate();
   const [galleryImages, setGalleryImages] = useState([]);
   const [image, setImage] = useState({ array: [] });
-  const [loading, setLoading] = useState('');
   const {
     register,
     handleSubmit,
@@ -64,7 +63,6 @@ const AddNewProduct = () => {
       formData.append("tags", `hello, medium, gist`);
       formData.append("upload_preset", "elector_mart_key");
       formData.append("api_key", "211491792754595");
-      setLoading("true");
       return axios.post('https://api.cloudinary.com/v1_1/duv5fiurz/image/upload', formData, {
         headers: { "X-Requested-With": "XMLHttpRequest" }
       })
@@ -79,7 +77,7 @@ const AddNewProduct = () => {
         });
     });
     axios.all(uploaded).then(() => {
-      setLoading("false");
+      // setLoading("false");
     });
 
     const productInfo = {
@@ -100,7 +98,7 @@ const AddNewProduct = () => {
     axiosPublic.post("/products", productInfo).then((res) => {
       if (res.data.insertedId) {
         toast.success(`${data.title} is added`);
-        // navigate("/productManage");
+        navigate("/productManage");
         reset();
       }
     })
