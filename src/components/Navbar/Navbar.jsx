@@ -122,36 +122,30 @@ const Navbar = () => {
             <span className="absolute -right-1 -top-1 rounded-full bg-orange-500 px-1 py-[1px] text-[10px] text-white">9+</span>
           </Link>
 
-          {/* Wishlist Button */}
-          <div className="relative bg-orange-200/50 hover:bg-orange-300/50 cursor-pointer rounded-full p-2 w-10 h-10 flex items-center justify-center">
-            <FaHeart className="text-lg text-orange-600" />
-            <span className="absolute -right-1 -top-1 rounded-full bg-orange-500 px-1 py-[1px] text-[10px] text-white">9+</span>
-          </div>
-
-
-
-
-
-          {/* menu icon  */}
-
-
-
-
-
-
-          <div className="dropdown dropdown-end">
-            <div tabIndex={0} role="button" className="p-1 rounded-full">
-              {user ? (
-                <div className="relative inline-block">
-                  <img title={user?.displayName} src={user?.photoURL} className="w-10 h-10 rounded-full border-2 border-blue-600 p-0.5" />
-                  <span className="h-3 w-3 rounded-full border border-white bg-green-500 block absolute top-1 right-0"></span>
-                </div>
-              ) : loading ? (
+{/* Wishlist Button */}
+<div className="relative bg-orange-200/50 hover:bg-orange-300/50 cursor-pointer rounded-full p-2 w-10 h-10 flex items-center justify-center">
+  <FaHeart className="text-lg text-orange-600" />
+  <span className="absolute -right-1 -top-1 rounded-full bg-orange-500 px-1 py-[1px] text-[10px] text-white">9+</span>
+</div>
+        {/* menu icon  */}
+        <div className="dropdown dropdown-end">
+          <div tabIndex={0} role="button" className="p-1 rounded-full">
+            {user ? (
+              <div className="relative inline-block">
+                <img title={user?.displayName} src={user?.photoURL} className="w-10 h-10 rounded-full border-2 border-blue-600 p-0.5" />
+                <span className="h-3 w-3 rounded-full border border-white bg-green-500 block absolute top-1 right-0"></span>
+              </div>
+            ) : loading ? (
+              <div className="relative inline-block">
+                <img src={user?.photoURL} className="w-10 h-10 rounded-full border-2 border-blue-600 p-0.5" />
+                <span className="h-3 w-3 rounded-full border border-white bg-green-500 block absolute top-1 right-0"></span>
+              </div>
+            ) : loading ? (
                 <div className="relative inline-block">
                   <img src={user?.photoURL} className="w-10 h-10 rounded-full border-2 border-blue-600 p-0.5" />
                   <span className="h-3 w-3 rounded-full border border-white bg-green-500 block absolute top-1 right-0"></span>
                 </div>
-              ) : (
+                ) : (
                 <Link to={'/register'}>
                   <div className="relative bg-orange-200/50 hover:bg-orange-300/50 cursor-pointer rounded-full p-2">
                     <MdAccountCircle className="text-lg text-orange-600" />
@@ -159,7 +153,7 @@ const Navbar = () => {
                   </div>
                 </Link>
               )}
-            </div>
+              </div>
             {user && (
               <ul tabIndex={0} className={`menu menu-sm  font-semibold right-0 dropdown-content bg-white overflow-hidden rounded-box w-40 ${isOpen ? "translate-x-0" : "translate-y-0"}  border border-dashed border-orange-300 `}>
                 <Link to={'/dashboard'} className="hover:bg-orange-50 p-2 rounded-md hover:text-orange-500"><li>DashBoard</li></Link>
@@ -171,10 +165,9 @@ const Navbar = () => {
               </ul>
             )}
           </div>
-        </div>
         {cartOpen && <AddCart setCartOpen={setCartOpen} />}
       </div>
-  
+    </div>
 
   );
 };

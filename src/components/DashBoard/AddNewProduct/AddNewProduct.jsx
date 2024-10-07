@@ -1,5 +1,3 @@
-
-
 import axios from 'axios';
 import { useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
@@ -7,13 +5,11 @@ import useAxiosPublic from '../../../Hooks/useAxiosPublic';
 import toast from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
 
-
 const AddNewProduct = () => {
   const axiosPublic = useAxiosPublic();
   const navigate = useNavigate();
   const [galleryImages, setGalleryImages] = useState([]);
   const [image, setImage] = useState({ array: [] });
-  const [loading, setLoading] = useState('');
   const {
     register,
     handleSubmit,
@@ -67,7 +63,6 @@ const AddNewProduct = () => {
       formData.append("tags", `hello, medium, gist`);
       formData.append("upload_preset", "elector_mart_key");
       formData.append("api_key", "211491792754595");
-      setLoading("true");
       return axios.post('https://api.cloudinary.com/v1_1/duv5fiurz/image/upload', formData, {
         headers: { "X-Requested-With": "XMLHttpRequest" }
       })
@@ -82,7 +77,7 @@ const AddNewProduct = () => {
         });
     });
     axios.all(uploaded).then(() => {
-      setLoading("false");
+      // setLoading("false");
     });
 
     const productInfo = {
@@ -103,7 +98,7 @@ const AddNewProduct = () => {
     axiosPublic.post("/products", productInfo).then((res) => {
       if (res.data.insertedId) {
         toast.success(`${data.title} is added`);
-        // navigate("/productManage");
+        navigate("/productManage");
         reset();
       }
     })
@@ -129,7 +124,11 @@ const AddNewProduct = () => {
               onChange={handleImageChange}
               className="mt-1 block w-full md:w-1/2 px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:border-blue-500 outline-none"
             />
-
+            {errors.gallery && (
+              <span className="text-sm text-red-600 font-semibold">
+                Fill This Field
+              </span>
+            )}
             <div className="mt-4 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 xl:grid-cols-6 2xl:grid-cols-6 gap-2">
               {galleryImages.map((image, index) => (
                 <div key={index} className="relative h-20 w-20 overflow-hidden rounded-lg border border-gray-300">
@@ -159,6 +158,11 @@ const AddNewProduct = () => {
                   {...register("title", { required: true })}
                   className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 outline-none"
                 />
+                {errors.title && (
+                  <span className="text-sm text-red-600 font-semibold">
+                    Fill This Field
+                  </span>
+                )}
               </div>
 
               {/* Product Price */}
@@ -170,6 +174,11 @@ const AddNewProduct = () => {
                   {...register("price", { required: true })}
                   className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:border-blue-500 outline-none"
                 />
+                {errors.price && (
+                  <span className="text-sm text-red-600 font-semibold">
+                    Fill This Field
+                  </span>
+                )}
               </div>
 
               {/* Discount Price */}
@@ -193,6 +202,11 @@ const AddNewProduct = () => {
                   {...register("brand", { required: true })}
                   className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:border-blue-500 outline-none"
                 />
+                {errors.brand && (
+                  <span className="text-sm text-red-600 font-semibold">
+                    Fill This Field
+                  </span>
+                )}
               </div>
 
               {/* Product Category */}
@@ -212,6 +226,11 @@ const AddNewProduct = () => {
                   <option value="headphones">Headphones</option>
                   <option value="television">Television</option>
                 </select>
+                {errors.category && (
+                  <span className="text-sm text-red-600 font-semibold">
+                    Fill This Field
+                  </span>
+                )}
               </div>
 
               {/* quantity */}
@@ -223,6 +242,11 @@ const AddNewProduct = () => {
                   {...register("quantity", { required: true })}
                   className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:border-blue-500 outline-none"
                 />
+                {errors.quantity && (
+                  <span className="text-sm text-red-600 font-semibold">
+                    Fill This Field
+                  </span>
+                )}
               </div>
               {/* Add Date */}
               <div>
@@ -248,6 +272,11 @@ const AddNewProduct = () => {
                   <option value="yes">Yes</option>
                   <option value="no">No</option>
                 </select>
+                {errors.isHot && (
+                  <span className="text-sm text-red-600 font-semibold">
+                    Fill This Field
+                  </span>
+                )}
               </div>
 
               {/* is hot */}
@@ -262,6 +291,11 @@ const AddNewProduct = () => {
                   <option value="yes">Yes</option>
                   <option value="no">No</option>
                 </select>
+                {errors.isNew && (
+                  <span className="text-sm text-red-600 font-semibold">
+                    Fill This Field
+                  </span>
+                )}
               </div>
 
               {/* Offer percent */}
@@ -273,6 +307,7 @@ const AddNewProduct = () => {
                   className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:border-blue-500 outline-none"
                 >
                   <option value="">Select a Percentage</option>
+                  <option value="">0</option>
                   <option value="5">5%</option>
                   <option value="10">10%</option>
                   <option value="15">15%</option>
@@ -280,6 +315,11 @@ const AddNewProduct = () => {
                   <option value="25">25%</option>
                   <option value="30">30%</option>
                 </select>
+                {errors.discountPercentage && (
+                  <span className="text-sm text-red-600 font-semibold">
+                    Fill This Field
+                  </span>
+                )}
               </div>
             </div>
 
@@ -292,6 +332,11 @@ const AddNewProduct = () => {
                 {...register("shortDescription", { required: true })}
                 className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:border-blue-500 outline-none"
               ></textarea>
+              {errors.shortDescription && (
+                <span className="text-sm text-red-600 font-semibold">
+                  Fill This Field
+                </span>
+              )}
             </div>
 
             {/* Full Description */}
@@ -303,6 +348,11 @@ const AddNewProduct = () => {
                 {...register("fullDescription", { required: true })}
                 className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:border-blue-500 outline-none"
               ></textarea>
+              {errors.fullDescription && (
+                <span className="text-sm text-red-600 font-semibold">
+                  Fill This Field
+                </span>
+              )}
             </div>
           </div>
 

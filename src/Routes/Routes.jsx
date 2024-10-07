@@ -11,10 +11,6 @@ import StorPage from "../Pages/StorPage/StorPage";
 import ProductManage from "../components/DashBoard/ProductManage/ProductManage";
 import AddNewProduct from "../components/DashBoard/AddNewProduct/AddNewProduct";
 import StoreDetails from "../Pages/StoreDetails/StoreDetails";
-
-import Wishlist from "../Pages/Wishlist/Wishlist";
-
-import CheckoutPage from "../Pages/Checkout/CheckoutPage";
 import AllUser from "../components/DashBoard/AllUser/AllUser";
 import Order from "../components/DashBoard/Order/Order";
 import ProductPage from "../components/ProductPage";
@@ -24,7 +20,10 @@ import DashboardLayout from './../Layout/DashBoardLayout';
 
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import Error from "../components/404/Error";
+import Wishlist from "../Pages/Wishlist/Wishlist";
 import Profile from "../components/DashBoard/ProfilePage/Profile";
+
+
 
 
 
@@ -34,7 +33,7 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <Layout />,
-    errorElement: <Error/>,
+    errorElement: <Error />,
     children: [
       {
         index: true,
@@ -59,8 +58,7 @@ const router = createBrowserRouter([
       {
         path: "/storeDetails",
         element: <StoreDetails />
-      }
-      ,
+      },
       {
         path: "/storPage",
         element: <StorPage></StorPage>
@@ -68,16 +66,9 @@ const router = createBrowserRouter([
       {
         path: 'productPage',
         element: <ProductPage />
-      },
-      {
-        path: 'productPage',
-        element: <ProductPage/>
-      },
-      {
-        path: "checkoutPage",
-        element: <CheckoutPage />
-      },
-   ],
+
+      }
+    ],
 
   },
   {
@@ -120,7 +111,8 @@ const router = createBrowserRouter([
           },
         
     ]
-  },
+  }
+
 ]);
 
 
