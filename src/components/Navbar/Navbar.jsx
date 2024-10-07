@@ -8,6 +8,7 @@ import { MdAccountCircle } from "react-icons/md";
 import MobileNavBar from "../Navbar/MobileNavBar";
 import AddCart from "../AddToCart/AddCart";
 import AddToCard from "../AddToCard/AddToCard";
+import { FaCartShopping } from "react-icons/fa6";
 
 
 const Navbar = () => {
@@ -91,57 +92,58 @@ const Navbar = () => {
             <span className="absolute -right-2 -ml-1 -top-2 rounded-[100%] bg-orange-500 px-1 py-[1px] text-[10px] text-white">9+</span>
           </div>
 
-
+        </div>
 
         {/* menu icon  */}
 
-       <div className="hidden lg:flex space-x-3">
-       
-            <AddToCard/>
-        <div className="relative bg-orange-200/50 hover:bg-orange-300/50 cursor-pointer  rounded-full p-2">
-          <IoGitCompareOutline className="text-lg text-orange-600 " />
-          <span className="absolute -right-2 -ml-1 -top-2 rounded-[100%]  bg-orange-500 px-1 py-[1px] text-[10px] text-white">9+</span>
-        </div>
-        <div className="relative bg-orange-200/50 hover:bg-orange-300/50 cursor-pointer  rounded-full p-2">
-          <FaHeart className="text-lg text-orange-600 " />
-          <span className="absolute -right-2 -ml-1 -top-2 rounded-[100%]  bg-orange-500 px-1 py-[1px] text-[10px] text-white">9+</span>
+        <div className="hidden lg:flex space-x-3">
 
-        </div>
+          <AddToCard />
+          <div className="relative bg-orange-200/50 hover:bg-orange-300/50 cursor-pointer  rounded-full p-2">
+            <IoGitCompareOutline className="text-lg text-orange-600 " />
+            <span className="absolute -right-2 -ml-1 -top-2 rounded-[100%]  bg-orange-500 px-1 py-[1px] text-[10px] text-white">9+</span>
+          </div>
+          <div className="relative bg-orange-200/50 hover:bg-orange-300/50 cursor-pointer  rounded-full p-2">
+            <FaHeart className="text-lg text-orange-600 " />
+            <span className="absolute -right-2 -ml-1 -top-2 rounded-[100%]  bg-orange-500 px-1 py-[1px] text-[10px] text-white">9+</span>
 
-        <div className="dropdown dropdown-end">
-          <div tabIndex={0} role="button" className="p-1 rounded-full">
-            {user ? (
-              <div className="relative inline-block">
-                <img title={user?.displayName} src={user?.photoURL} className="w-10 h-10 rounded-full border-2 border-blue-600 p-0.5" />
-                <span className="h-3 w-3 rounded-full border border-white bg-green-500 block absolute top-1 right-0"></span>
-              </div>
-            ) : loading ? (
-              <div className="relative inline-block">
-                <img src={user?.photoURL} className="w-10 h-10 rounded-full border-2 border-blue-600 p-0.5" />
-                <span className="h-3 w-3 rounded-full border border-white bg-green-500 block absolute top-1 right-0"></span>
-              </div>
-            ) : (
-              <Link to={'/register'}>
-                <div className="relative bg-orange-200/50 hover:bg-orange-300/50 cursor-pointer rounded-full p-2">
-                  <MdAccountCircle className="text-lg text-orange-600" />
-                  <span className="absolute -right-2 -top-3 rounded-full bg-orange-500 pt-[1px] pb-[4px] pl-1 pr-1 py-[1px] text-[10px] text-white">Account</span>
+          </div>
+
+          <div className="dropdown dropdown-end">
+            <div tabIndex={0} role="button" className="p-1 rounded-full">
+              {user ? (
+                <div className="relative inline-block">
+                  <img title={user?.displayName} src={user?.photoURL} className="w-10 h-10 rounded-full border-2 border-blue-600 p-0.5" />
+                  <span className="h-3 w-3 rounded-full border border-white bg-green-500 block absolute top-1 right-0"></span>
                 </div>
-              </Link>
+              ) : loading ? (
+                <div className="relative inline-block">
+                  <img src={user?.photoURL} className="w-10 h-10 rounded-full border-2 border-blue-600 p-0.5" />
+                  <span className="h-3 w-3 rounded-full border border-white bg-green-500 block absolute top-1 right-0"></span>
+                </div>
+              ) : (
+                <Link to={'/register'}>
+                  <div className="relative bg-orange-200/50 hover:bg-orange-300/50 cursor-pointer rounded-full p-2">
+                    <MdAccountCircle className="text-lg text-orange-600" />
+                    <span className="absolute -right-2 -top-3 rounded-full bg-orange-500 pt-[1px] pb-[4px] pl-1 pr-1 py-[1px] text-[10px] text-white">Account</span>
+                  </div>
+                </Link>
+              )}
+            </div>
+            {user && (
+              <ul tabIndex={0} className="menu menu-sm font-semibold right-0 dropdown-content bg-white overflow-hidden rounded-box w-48 shadow-md">
+                <Link to={'/dashboard'} className="hover:bg-orange-50 p-2 rounded-md hover:text-orange-500"><li>DashBoard</li></Link>
+                <Link className="hover:bg-orange-50 p-2 rounded-md hover:text-orange-500"><li>Profile</li></Link>
+                <Link className="hover:bg-orange-50 p-2 rounded-md hover:text-orange-500"><li>Setting</li></Link>
+                <Link to={'/register'} className="hover:bg-orange-50 p-2 rounded-md hover:text-orange-500">
+                  <button onClick={logOut}><a>Logout</a></button>
+                </Link>
+              </ul>
             )}
           </div>
-          {user && (
-            <ul tabIndex={0} className="menu menu-sm font-semibold right-0 dropdown-content bg-white overflow-hidden rounded-box w-48 shadow-md">
-              <Link to={'/dashboard'} className="hover:bg-orange-50 p-2 rounded-md hover:text-orange-500"><li>DashBoard</li></Link>
-              <Link className="hover:bg-orange-50 p-2 rounded-md hover:text-orange-500"><li>Profile</li></Link>
-              <Link className="hover:bg-orange-50 p-2 rounded-md hover:text-orange-500"><li>Setting</li></Link>
-              <Link to={'/register'} className="hover:bg-orange-50 p-2 rounded-md hover:text-orange-500">
-                <button onClick={logOut}><a>Logout</a></button>
-              </Link>
-            </ul>
-          )}
         </div>
+        {cartOpen && <AddCart setCartOpen={setCartOpen} />}
       </div>
-      {cartOpen && <AddCart setCartOpen={setCartOpen} />}
     </div>
   );
 };
