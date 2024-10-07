@@ -7,24 +7,16 @@ import Register from "../components/Login/Register/Register";
 import ProductDetails from "../Pages/ProductDetails/ProductDetails";
 import ComparePage from "../Pages/ComparePage/ComparePage";
 import StorPage from "../Pages/StorPage/StorPage";
-import DashboardLayout from "../Layout/DashBoardLayOut";
 import ProductManage from "../components/DashBoard/ProductManage/ProductManage";
 import AddNewProduct from "../components/DashBoard/AddNewProduct/AddNewProduct";
 import StoreDetails from "../Pages/StoreDetails/StoreDetails";
-
-import Wishlist from "../Pages/Wishlist/Wishlist";
-
-import CheckoutPage from "../Pages/Checkout/CheckoutPage";
 import AllUser from "../components/DashBoard/AllUser/AllUser";
 import Order from "../components/DashBoard/Order/Order";
 import ProductPage from "../components/ProductPage";
-import ProductPage from "../components/ProductPage";
-import DashboardLayout from './../Layout/DashBoardLayout';
-import AllUser from './../components/DashBoard/AllUser/AllUser';
-import Order from './../components/DashBoard/Order/Order';
-import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import Error from "../components/404/Error";
-import Profile from "../components/DashBoard/ProfilePage/Profile";
+import Wishlist from "../Pages/Wishlist/Wishlist";
+import DashboardLayout from "../Layout/DashBoardLayout";
+
 
 
 
@@ -34,7 +26,7 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <Layout />,
-    errorElement: <Error/>,
+    errorElement: <Error />,
     children: [
       {
         index: true,
@@ -59,8 +51,7 @@ const router = createBrowserRouter([
       {
         path: "/storeDetails",
         element: <StoreDetails />
-      }
-      ,
+      },
       {
         path: "/storPage",
         element: <StorPage></StorPage>
@@ -68,16 +59,9 @@ const router = createBrowserRouter([
       {
         path: 'productPage',
         element: <ProductPage />
-      },
-      {
-        path: 'productPage',
-        element: <ProductPage/>
-      },
-      {
-        path: "checkoutPage",
-        element: <CheckoutPage />
-      },
-   ],
+
+      }
+    ],
 
   },
   {
@@ -88,7 +72,10 @@ const router = createBrowserRouter([
     path: '/register',
     element: <Register />
   },
-  
+
+
+
+
   // dashboard route
   {
     path: '/dashboard',
@@ -109,43 +96,10 @@ const router = createBrowserRouter([
       {
         path: "Order-List",
         element: <Order />
-      },
-      {
-        path: "checkoutPage",
-        element: <CheckoutPage />
-      },
-
-
-
-  
-      // dashboard route
-      {
-        path:'/dashboard',
-        element: <PrivateRoute><DashboardLayout/></PrivateRoute>,
-        children:[
-          {
-            path: "product",
-            element: <PrivateRoute><ProductManage/></PrivateRoute>
-          },
-          {
-            path: "addProduct",
-            element: <PrivateRoute><AddNewProduct/></PrivateRoute>
-          },
-          {
-            path: "user",
-            element:<PrivateRoute> <AllUser/></PrivateRoute>
-          },
-          {
-            path: "Order-List",
-            element: <PrivateRoute><Order/></PrivateRoute>
-          },
-          {
-            path: "profile",
-            element: <PrivateRoute><Profile/></PrivateRoute>
-          },
-        
+      }
     ]
-  },
+  }
+
 ]);
 
 

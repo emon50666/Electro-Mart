@@ -28,10 +28,10 @@ const ComparisonTable = ({ products }) => {
                                     <p className='text-[#767676]'>{sliceTitle(product.title)}</p>
                                     <p className='text-orange-500'>£<span>{product.price}</span></p>
                                     <div className="flex flex-col md:flex-row md:justify-between mt-2 gap-y-1">
-                                        <button className="bg-orange-500 hover:bg-teal-500 transition-all text-white py-2 px-1 md:px-4 text-sm rounded-md cursor-pointer">
+                                        <button className="bg-orange-500 hover:bg-teal-500 focus:ring-2 focus:ring-teal-300 hover:ring-2 hover:ring-teal-300 transition-all text-white py-2 px-1 md:px-4 text-sm rounded-md cursor-pointer">
                                             Add to Cart
                                         </button>
-                                        <Link to={"/productDetails"} className="text-center bg-orange-500 hover:bg-teal-500 transition-all text-white py-2 px-2 md:px-4 rounded-md text-sm cursor-pointer">
+                                        <Link to={"/productDetails"} className="text-center bg-orange-500 hover:bg-teal-500 focus:ring-2 focus:ring-teal-300 hover:ring-2 hover:ring-teal-300 transition-all text-white py-2 px-2 md:px-4 rounded-md text-sm cursor-pointer">
                                             Details
                                         </Link>
                                     </div>
