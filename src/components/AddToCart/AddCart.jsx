@@ -1,29 +1,18 @@
 import { useState, useEffect } from "react";
-import { FaMinus, FaPlus } from "react-icons/fa6";
+
 import { IoMdCloseCircle } from "react-icons/io";
 import PropType from "prop-types";
 import { Link } from "react-router-dom";
 
 const AddCart = ({ setCartOpen }) => {
-    const [quantity, setQuantity] = useState(0);
+
     const [isOpen, setIsOpen] = useState(false);
 
     useEffect(() => {
         setIsOpen(true);
     }, []);
 
-    const handleIncrement = () => {
-        if (quantity < 10) {
-            setQuantity(quantity + 1);
-        }
-    };
-
-    const handleDecrement = () => {
-        if (quantity > 0) {
-            setQuantity(quantity - 1);
-        }
-    };
-
+   
     const handleCloseCart = () => {
         // Close the sidebar smoothly before unmounting
         setIsOpen(false);
@@ -62,22 +51,7 @@ const AddCart = ({ setCartOpen }) => {
                             </h4>
                             <IoMdCloseCircle className="text-2xl text-red-600"></IoMdCloseCircle>
                         </div>
-                        <div className="flex items-center space-x-4">
-                            <button
-                                className="p-2 border w-8 h-10 rounded-md"
-                                onClick={handleDecrement}
-                                disabled={quantity <= 0}
-                            >
-                                <FaMinus />
-                            </button>
-                            <span className="border p-2 w-8 h-10 rounded-md">{quantity}</span>
-                            <button
-                                className="border p-2 w-8 h-10 rounded-md"
-                                onClick={handleIncrement}
-                            >
-                                <FaPlus />
-                            </button>
-                        </div>
+                     
                         <p className="text-sm text-gray-500 mt-2">$1000</p>
                     </div>
                 </div>
