@@ -5,9 +5,9 @@ import TopLayerOfDetails from "./Shared/topLayer/TopLayerOfDetails";
 
 
 const ProductDetails = () => {
-    const packages = useLoaderData();
+    const products = useLoaderData();
     const { id } = useParams();
-    const productDetails = packages.find((pack) => pack._id == id);
+    const productDetails = products.find((pack) => pack._id == id);
     console.log(productDetails);
 
     return (

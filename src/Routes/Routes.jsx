@@ -22,6 +22,8 @@ import Error from "../components/404/Error";
 import Wishlist from "../Pages/Wishlist/Wishlist";
 import Profile from "../components/DashBoard/ProfilePage/Profile";
 import ManageProduct from "../components/DashBoard/ManageProduct/ManageProduct";
+import UpdateProduct from "../Pages/UpdateProduct/UpdateProduct";
+import AddToPromotion from "../Pages/AddToPromotion/AddToPromotion";
 
 
 
@@ -93,6 +95,16 @@ const router = createBrowserRouter([
       {
         path: "manageProduct",
         element: <PrivateRoute><ManageProduct /></PrivateRoute>
+      },
+      {
+        path: "updateProduct/:id",
+        element: <PrivateRoute><UpdateProduct /></PrivateRoute>,
+        loader: () => fetch(`${import.meta.env.VITE_API_URL}/products`),
+      },
+      {
+        path: "makePromotion/:id",
+        element: <PrivateRoute><AddToPromotion /></PrivateRoute>,
+        loader: () => fetch(`${import.meta.env.VITE_API_URL}/products`),
       },
       {
         path: "addProduct",

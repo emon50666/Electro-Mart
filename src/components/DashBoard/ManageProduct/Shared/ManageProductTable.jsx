@@ -31,7 +31,7 @@ const ManageProductTable = () => {
         });
     };
     return (
-        <div className="container mx-auto px-4 py-6 font_cabin">
+        <div className="container mx-auto px-4 py-6 font_lexend">
             <div className="overflow-x-auto">
                 <table className="table">
                     <thead className="uppercase text-white font-bold">
@@ -57,7 +57,7 @@ const ManageProductTable = () => {
                                         className="h-20 w-20 object-cover"
                                     />
                                 </td>
-                                <td className="text-xs md:text-lg">{product.title}</td>
+                                <td className="text-xs md:text-lg"><span className="w-36 md:w-auto block">{product.title}</span></td>
                                 <td className="text-center text-xs md:text-lg text-orange-500">£ {product.price}</td>
                                 <td className="text-center text-xs md:text-lg">
                                     <Link
@@ -76,15 +76,17 @@ const ManageProductTable = () => {
                                 </td>
                                 <td>
                                     <Link
-                                        to={`/updateProduct/${product._id}`}
+                                        to={`/dashboard/updateProduct/${product._id}`}
                                         className="btn bg-blue-500 hover:bg-blue-600 text-white text-sm md:text-2xl">
                                         <FaPencil />
                                     </Link>
                                 </td>
                                 <td>
-                                    <button className="bg-green-500 hover:bg-green-600 text-white py-1 px-2 rounded">
+                                    <Link
+                                        to={`/dashboard/makePromotion/${product._id}`}
+                                        className="btn bg-green-500 hover:bg-green-600 text-white py-1 px-2 rounded">
                                         Add Promotion
-                                    </button>
+                                    </Link>
                                 </td>
                             </tr>
                         ))}
