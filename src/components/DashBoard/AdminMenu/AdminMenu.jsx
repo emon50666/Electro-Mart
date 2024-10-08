@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { IoHomeOutline, IoAddCircleOutline ,IoStorefrontOutline } from "react-icons/io5";
+import { IoHomeOutline, IoAddCircleOutline, IoStorefrontOutline } from "react-icons/io5";
 import { HiOutlineShoppingBag } from "react-icons/hi2";
 import { FaRegUser } from "react-icons/fa";
 
@@ -11,7 +11,6 @@ const AdminMenu = () => {
         <ul className="flex font-serif flex-1 flex-col mt-10 text-gray-400 gap-1 py-3">
           <li className="px-3">
             <Link
-              
               className="flex mt-1 items-center gap-3 rounded p-3  transition-colors hover:bg-[#22292F] hover:text-orange-500 focus:bg-orange-50 aria-[current=page]:bg-orange-50 aria-[current=page]:text-orange-500  "
             >
               <div className="flex   items-center self-center">
@@ -41,9 +40,8 @@ const AdminMenu = () => {
             <ul className="absolute  w-full text-gray-400  top-full hidden group-hover:block bg-[#22292F] shadow-lg rounded-lg p-2">
               <li className="px-3 ">
                 <Link
-                  to="/all-products"
-                  className=" block py-2 px-4 text-sm font-medium  hover:bg-[#22292F] hover:text-orange-500"  > All Products </Link>
-
+                  to="manageProduct"
+                  className=" block py-2 px-4 text-sm font-medium  hover:bg-[#22292F] hover:text-orange-500">Manage Product</Link>
               </li>
               <li className="px-3">
                 <Link
@@ -59,7 +57,7 @@ const AdminMenu = () => {
 
           <li className="px-3">
             <Link
-             
+
               className="flex  items-center gap-3 rounded p-3  transition-colors hover:bg-[#22292F] hover:text-orange-500 focus:bg-orange-50 aria-[current=page]:bg-orange-50 aria-[current=page]:text-orange-500  "
             >
               <div className="flex   font-semibold text-[16px] items-center self-center">
@@ -71,10 +69,10 @@ const AdminMenu = () => {
             </Link>
           </li>
 
-          
+
           <li className="px-3">
             <Link
-               className="flex  items-center gap-3 rounded p-3  transition-colors hover:bg-[#22292F] hover:text-orange-500 focus:bg-orange-50 aria-[current=page]:bg-orange-50 aria-[current=page]:text-orange-500  "
+              className="flex  items-center gap-3 rounded p-3  transition-colors hover:bg-[#22292F] hover:text-orange-500 focus:bg-orange-50 aria-[current=page]:bg-orange-50 aria-[current=page]:text-orange-500  "
             >
               <div className="flex   font-semibold text-[16px] items-center self-center">
                 <FaRegUser></FaRegUser>
@@ -86,7 +84,7 @@ const AdminMenu = () => {
           </li>
           <li className="px-3">
             <Link
-               className="flex  items-center gap-3 rounded p-3  transition-colors hover:bg-[#22292F] hover:text-orange-500 focus:bg-orange-50 aria-[current=page]:bg-orange-50 aria-[current=page]:text-orange-500 "
+              className="flex  items-center gap-3 rounded p-3  transition-colors hover:bg-[#22292F] hover:text-orange-500 focus:bg-orange-50 aria-[current=page]:bg-orange-50 aria-[current=page]:text-orange-500 "
             >
               <div className="flex   font-semibold text-[16px] items-center self-center">
                 <IoStorefrontOutline ></IoStorefrontOutline>

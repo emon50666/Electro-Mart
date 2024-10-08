@@ -18,9 +18,8 @@ const OtherProductDetails = ({ product }) => {
     const [quantityCount, setQuantityCount] = useState(1)
     const [disableBtn, setDisableBtn] = useState(false)
     const shareUrl = window.location.href;
-    // console.log(product.availableItems);
     const increaseCount = () => {
-        if (quantityCount === product.availableItems) {
+        if (quantityCount === parseInt(product?.quantity)) {
             toast.error("Stocks Out")
             setDisableBtn(true)
             return;
@@ -41,19 +40,24 @@ const OtherProductDetails = ({ product }) => {
             <div className="lg:space-y-3">
                 {/* Title & Rating start */}
                 <div>
-                    <h3 className="text-xl md:text-2xl lg:text-3xl font-bold lg:font-semibold font_lexend">{product.title}</h3>
-                    <div className="flex items-center space-x-4 py-1">
-                        <Rating
-                            initialRating={parseInt(product.rating)}
-                            emptySymbol={<img
-                                src="https://i.ibb.co.com/KN7rSQ6/empty-star-removebg-preview.png"
-                                className="icon h-4 md:h-5" />
-                            }
-                            fullSymbol={<img src="https://i.ibb.co.com/KGK6qQR/full.jpg" className="icon h-4 md:h-5" />}
-                            readonly
-                        />
-                        <div className="font_cabin text-[#767676]">
-                            <p>({ } customer reviews)</p>
+                    <h3 className="text-xl md:text-2xl lg:text-3xl font-bold lg:font-semibold font_lexend">{product?.title}</h3>
+                    <div className="flex items-center justify-between mt-3">
+                        <div className="flex items-center space-x-4 py-1">
+                            <Rating
+                                initialRating={parseInt(product?.rating) || 1}
+                                emptySymbol={<img
+                                    src="https://i.ibb.co.com/KN7rSQ6/empty-star-removebg-preview.png"
+                                    className="icon h-4 md:h-5" />
+                                }
+                                fullSymbol={<img src="https://i.ibb.co.com/KGK6qQR/full.jpg" className="icon h-4 md:h-5" />}
+                                readonly
+                            />
+                            <div className="font_cabin text-[#767676]">
+                                <p>({ } customer reviews)</p>
+                            </div>
+                        </div>
+                        <div className="font_cabin text-[#767676] border-2  px-4">
+                            <p>{product?.quantity} item available</p>
                         </div>
                     </div>
                 </div>
@@ -61,11 +65,11 @@ const OtherProductDetails = ({ product }) => {
                 {/* Price & description start */}
                 <div className="text-xl lg:text-4xl text-orange-500 font-semibold flex items-center font_cabin">
                     £
-                    <h3> {product.price}</h3>
+                    <h3> {product?.price}</h3>
                 </div>
                 <div className="font_cabin text-sm lg:text-base text-[#777777]">
                     <p>
-                        {product.description}
+                        {product?.shortDescription}
                     </p>
                 </div>
                 {/* Price & description end */}

@@ -11,7 +11,7 @@ const useProduct = () => {
             return result.data;
         },
     });
-    return [products, refetch];
+    return {products, refetch};
 };
 
 export default useProduct;
