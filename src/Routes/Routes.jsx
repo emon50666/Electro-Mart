@@ -8,7 +8,6 @@ import ProductDetails from "../Pages/ProductDetails/ProductDetails";
 import ComparePage from "../Pages/ComparePage/ComparePage";
 import StorPage from "../Pages/StorPage/StorPage";
 
-import ProductManage from "../components/DashBoard/ProductManage/ProductManage";
 import AddNewProduct from "../components/DashBoard/AddNewProduct/AddNewProduct";
 import StoreDetails from "../Pages/StoreDetails/StoreDetails";
 import AllUser from "../components/DashBoard/AllUser/AllUser";
@@ -22,6 +21,9 @@ import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import Error from "../components/404/Error";
 import Wishlist from "../Pages/Wishlist/Wishlist";
 import Profile from "../components/DashBoard/ProfilePage/Profile";
+import ManageProduct from "../components/DashBoard/ManageProduct/ManageProduct";
+import UpdateProduct from "../Pages/UpdateProduct/UpdateProduct";
+import AddToPromotion from "../Pages/AddToPromotion/AddToPromotion";
 
 
 
@@ -40,8 +42,9 @@ const router = createBrowserRouter([
         element: <Home />
       },
       {
-        path: "/productDetails",
-        element: <ProductDetails />
+        path: "/productDetails/:id",
+        element: <ProductDetails />,
+        loader: () => fetch(`${import.meta.env.VITE_API_URL}/products`),
       },
       {
         path: "/comparePage",
@@ -79,37 +82,47 @@ const router = createBrowserRouter([
     path: '/register',
     element: <Register />
   },
-  
- 
 
 
-  
-      // dashboard route
+
+
+
+  // dashboard route
+  {
+    path: '/dashboard',
+    element: <PrivateRoute><DashboardLayout /></PrivateRoute>,
+    children: [
       {
-        path:'/dashboard',
-        element: <PrivateRoute><DashboardLayout/></PrivateRoute>,
-        children:[
-          {
-            path: "product",
-            element: <PrivateRoute><ProductManage/></PrivateRoute>
-          },
-          {
-            path: "addProduct",
-            element: <PrivateRoute><AddNewProduct/></PrivateRoute>
-          },
-          {
-            path: "user",
-            element:<PrivateRoute> <AllUser/></PrivateRoute>
-          },
-          {
-            path: "Order-List",
-            element: <PrivateRoute><Order/></PrivateRoute>
-          },
-          {
-            path: "profile",
-            element: <PrivateRoute><Profile/></PrivateRoute>
-          },
-        
+        path: "manageProduct",
+        element: <PrivateRoute><ManageProduct /></PrivateRoute>
+      },
+      {
+        path: "updateProduct/:id",
+        element: <PrivateRoute><UpdateProduct /></PrivateRoute>,
+        loader: () => fetch(`${import.meta.env.VITE_API_URL}/products`),
+      },
+      {
+        path: "makePromotion/:id",
+        element: <PrivateRoute><AddToPromotion /></PrivateRoute>,
+        loader: () => fetch(`${import.meta.env.VITE_API_URL}/products`),
+      },
+      {
+        path: "addProduct",
+        element: <PrivateRoute><AddNewProduct /></PrivateRoute>
+      },
+      {
+        path: "user",
+        element: <PrivateRoute> <AllUser /></PrivateRoute>
+      },
+      {
+        path: "Order-List",
+        element: <PrivateRoute><Order /></PrivateRoute>
+      },
+      {
+        path: "profile",
+        element: <PrivateRoute><Profile /></PrivateRoute>
+      },
+
     ]
   }
 

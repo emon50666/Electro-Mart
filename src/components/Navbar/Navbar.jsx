@@ -116,18 +116,18 @@ const Navbar = () => {
               9+
             </span>
           </div>
-          <Link to={'/wishlist'} className="relative bg-orange-200/50 hover:bg-orange-300/50 cursor-pointer  rounded-full p-2">
+          <Link to={'/comparePage'} className="relative bg-orange-200/50 hover:bg-orange-300/50 cursor-pointer  rounded-full p-2">
             <IoGitCompareOutline className="text-lg text-orange-600 " />
             <span className="absolute -right-2 -ml-1 -top-2 rounded-[100%]  bg-orange-500 px-1 py-[1px] text-[10px] text-white">
               9+
             </span>
           </Link>
-          <div className="relative bg-orange-200/50 hover:bg-orange-300/50 cursor-pointer  rounded-full p-2">
+          <Link to={'/wishlist'} className="relative bg-orange-200/50 hover:bg-orange-300/50 cursor-pointer  rounded-full p-2">
             <FaHeart className="text-lg text-orange-600 " />
             <span className="absolute -right-2 -ml-1 -top-2 rounded-[100%]  bg-orange-500 px-1 py-[1px] text-[10px] text-white">
               9+
             </span>
-          </div>
+          </Link>
         </div>
         {cartOpen && <AddCart setCartOpen={setCartOpen} />}
 

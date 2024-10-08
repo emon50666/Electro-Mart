@@ -55,55 +55,61 @@ const AddNewProduct = () => {
   };
 
   const onSubmit = async (data) => {
-    // console.log(data);
-    const imgGallery = Array.from(data.gallery);
-    const uploaded = imgGallery.map(file => {
-      const formData = new FormData();
-      formData.append("file", file);
-      formData.append("tags", `hello, medium, gist`);
-      formData.append("upload_preset", "elector_mart_key");
-      formData.append("api_key", "211491792754595");
-      return axios.post('https://api.cloudinary.com/v1_1/duv5fiurz/image/upload', formData, {
-        headers: { "X-Requested-With": "XMLHttpRequest" }
-      })
-        .then(res => {
+    try {
+      const imgGallery = Array.from(data.gallery);
+      const uploaded = imgGallery.map(file => {
+        const formData = new FormData();
+        formData.append("file", file);
+        formData.append("tags", `hello, medium, gist`);
+        formData.append("upload_preset", "elector_mart_key");
+        formData.append("api_key", "211491792754595");
+  
+        return axios.post('https://api.cloudinary.com/v1_1/duv5fiurz/image/upload', formData, {
+          headers: { "X-Requested-With": "XMLHttpRequest" }
+        }).then(res => {
           const imgData = res.data;
           const imgUrl = imgData.secure_url;
           let specificImage = image.array;
           specificImage.push(imgUrl);
           const newArr = { ...image, specificImage };
           setImage(newArr);
-          // console.log(image.array);
         });
-    });
-    axios.all(uploaded).then(() => {
-      // setLoading("false");
-    });
-
-    const productInfo = {
-      title: data.title,
-      shortDescription: data.shortDescription,
-      fullDescription: data.fullDescription,
-      images: image.array,
-      quantity: data.quantity,
-      brand: data.brand,
-      category: data.category,
-      isHot: data.isHot,
-      isNew: data.isNew,
-      discountPercentage: data.discountPercentage,
-      discountPrice: data.discountPrice,
-      price: data.price,
-      addDate: data.addDate,
-    }
-    axiosPublic.post("/products", productInfo).then((res) => {
-      if (res.data.insertedId) {
+      });
+      await axios.all(uploaded);
+  
+      // Create product info object with the uploaded images
+      const productInfo = {
+        title: data.title,
+        shortDescription: data.shortDescription,
+        fullDescription: data.fullDescription,
+        images: image.array, 
+        quantity: data.quantity,
+        brand: data.brand,
+        category: data.category,
+        isHot: data.isHot,
+        isNew: data.isNew,
+        discountPercentage: data.discountPercentage,
+        discountPrice: data.discountPrice,
+        price: data.price,
+        addDate: data.addDate,
+      };
+  
+      // Submit the product info to your API
+      const response = await axiosPublic.post("/products", productInfo);
+      
+      if (response.data.insertedId) {
         toast.success(`${data.title} is added`);
-        navigate("/productManage");
-        reset();
+        // navigate("/dashboard/manageProduct");
+        navigate("#");
+        reset(); // Reset the form after successful submission
       }
-    })
-    console.log(productInfo);
+  
+    } catch (error) {
+      console.error("Error uploading product:", error);
+      toast.error("Failed to upload product. Please try again.");
+    }
   };
+  
 
   return (
     <div className="bg-gray-50 pt-12 pb-4 sm:px-6">
@@ -307,7 +313,7 @@ const AddNewProduct = () => {
                   className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:border-blue-500 outline-none"
                 >
                   <option value="">Select a Percentage</option>
-                  <option value="">0</option>
+                  <option value="1">0</option>
                   <option value="5">5%</option>
                   <option value="10">10%</option>
                   <option value="15">15%</option>

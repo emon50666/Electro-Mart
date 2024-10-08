@@ -5,7 +5,6 @@ import PropTypes from "prop-types";
 const PrivateRoute = ({children}) => {
     const {user,loading} = UserAuth();
     const location = useLocation()
-    console.log(location.pathname)
 
     if(loading){
         <div className="justify-center mx-auto text-center min-h-min">
