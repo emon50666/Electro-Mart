@@ -8,15 +8,18 @@ import AddCart from "../AddToCart/AddCart";
 import { Link } from "react-router-dom";
 import PropType from "prop-types";
 import useAxiosPublic from "../../Hooks/useAxiosPublic";
+import useAddToCart from "../../Hooks/useAddToCart";
 
 const ProductCard = ({ product, refetch }) => {
+  const handleAddCart = useAddToCart();
   const axiosPublic = useAxiosPublic();
   const [isHovered, setIsHovered] = useState(false);
   const [cartOpen, setCartOpen] = useState(false);
   const handleAddToCart = () => {
+    handleAddCart(product)
     setCartOpen(true);
   };
-
+  // console.log(user?.email);
   const handleViewCount = (_id) => {
     let currentView = product?.view || 0;
     const updateView = currentView + 1;
