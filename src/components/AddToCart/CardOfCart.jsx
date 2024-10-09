@@ -25,7 +25,6 @@ const CardOfCart = ({ cart }) => {
                 axiosPublic.delete(`/carts/${id}`)
                     .then((res) => {
                         if (res.data.deletedCount) {
-                            Swal.fire("Deleted!", "Your file has been deleted.", "success");
                             refetch();
                         }
                     })
@@ -36,8 +35,7 @@ const CardOfCart = ({ cart }) => {
         });
     }
     return (
-        <Link
-            to={`/productDetails/${product._id}`}
+        <div
             className="flex items-center mb-4 px-3 py-1 hover:bg-gray-100">
             <img
                 src={product?.images[0]}
@@ -46,7 +44,7 @@ const CardOfCart = ({ cart }) => {
             />
             <div className="ml-4">
                 <div className="flex gap-24">
-                    <h4 className="font-semibold text-sm md:text-base mb-2">
+                    <h4 className="font-semibold text-sm md:text-base mb-1">
                         {product?.title.slice(0, 25)}...
                     </h4>
                     <button
@@ -55,10 +53,14 @@ const CardOfCart = ({ cart }) => {
                         <IoMdCloseCircle className="text-xl text-red-500 hover:text-red-600"></IoMdCloseCircle>
                     </button>
                 </div>
-
-                <p className="text-orange-500 mt-2">£{product?.price}</p>
+                <p className="text-orange-500">£{product?.price}</p>
+                <div className='mt-2'>
+                    <Link to={`/productDetails/${product._id}`} className='bg-gray-200 px-4 rounded-sm hover:bg-gray-300 transition-all'>
+                        View Details
+                    </Link>
+                </div>
             </div>
-        </Link>
+        </div>
     );
 };
 CardOfCart.propTypes = {

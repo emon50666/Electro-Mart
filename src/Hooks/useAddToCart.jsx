@@ -6,26 +6,32 @@ import useCart from "./useCart";
 const useAddToCart = () => {
     const { user } = UserAuth();
     const axiosPublic = useAxiosPublic();
-    const { carts } = useCart();
+    const { carts, refetch } = useCart();
 
     const handleAddCart = (product) => {
-        const cartItem = carts.find(cart => cart?.mainProductId === product?._id);
+        // Check if the product is already in the cart for this user
+        const cartItem = carts.find(cart => cart?.mainProductId === product?._id && cart?.adderMail === user?.email);
+
         if (cartItem) {
-            toast("Already added to cart");
+            toast.error("Already added to cart");
             return;
         }
+
         const cartProductInfo = {
             mainProductId: product._id,
             adderMail: user?.email,
         };
+
         axiosPublic.post("/carts", cartProductInfo)
             .then(res => {
                 if (res.data.insertedId) {
                     toast.success("Added to cart");
+                    refetch()
                 }
             })
             .catch(err => {
-                console.log(`Error adding to cart: ${err}`);
+                console.error(`Error adding to cart: ${err}`);
+                toast.error("Failed to add to cart");
             });
     };
 
