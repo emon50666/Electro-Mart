@@ -7,28 +7,30 @@ import HoverImage from "react-hover-image/build";
 import AddCart from "../AddToCart/AddCart";
 import { Link } from "react-router-dom";
 import PropType from "prop-types";
-// import useAxiosPublic from "../../Hooks/useAxiosPublic";
+import useAxiosPublic from "../../Hooks/useAxiosPublic";
 
-const ProductCard = ({ product }) => {
-  // const axiosPublic = useAxiosPublic();
+const ProductCard = ({ product, refetch }) => {
+  const axiosPublic = useAxiosPublic();
   const [isHovered, setIsHovered] = useState(false);
   const [cartOpen, setCartOpen] = useState(false);
   const handleAddToCart = () => {
     setCartOpen(true);
   };
 
-  const handleViewCount = (id) => {
-
-    console.log(id);
-    // const viewInfo = { view }
-    // axiosPublic.patch(`/products/${id}`, viewInfo).then((res) => {
-    //   // console.log(res.data);
-    //   if (res.data.modifiedCount) {
-    //     // toast.success(`{viewInfo}`);
-    //   }
-    // });
-
-  }
+  const handleViewCount = (_id) => {
+    let currentView = product?.view || 0;
+    const updateView = currentView + 1;
+    const viewInfo = { view: updateView };
+    axiosPublic.patch(`/products/${_id}`, viewInfo)
+      .then((res) => {
+        if (res.data.modifiedCount) {
+          refetch();
+        }
+      })
+      .catch(err => {
+        console.log(`Error = ${err}`);
+      })
+  };
   return (
     <div
       className="pt-10 mb-10 pb-10  bg-[#F6F6F6]">
@@ -124,6 +126,7 @@ const ProductCard = ({ product }) => {
 };
 ProductCard.propTypes = {
   product: PropType.object,
+  refetch: PropType.func,
 }
 
 export default ProductCard;
