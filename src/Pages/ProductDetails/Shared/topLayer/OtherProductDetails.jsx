@@ -14,7 +14,6 @@ import {
 } from "react-share";
 
 const OtherProductDetails = ({ product }) => {
-    const [countView, setCountView] = useState(31)
     const [quantityCount, setQuantityCount] = useState(1)
     const [disableBtn, setDisableBtn] = useState(false)
     const shareUrl = window.location.href;
@@ -44,7 +43,7 @@ const OtherProductDetails = ({ product }) => {
                     <div className="flex items-center justify-between mt-3">
                         <div className="flex items-center space-x-4 py-1">
                             <Rating
-                                initialRating={parseInt(product?.rating) || 1}
+                                initialRating={parseInt(product?.rating) || 0}
                                 emptySymbol={<img
                                     src="https://i.ibb.co.com/KN7rSQ6/empty-star-removebg-preview.png"
                                     className="icon h-4 md:h-5" />
@@ -57,7 +56,7 @@ const OtherProductDetails = ({ product }) => {
                             </div>
                         </div>
                         <div className="font_cabin text-[#767676] border-2  px-4">
-                            <p>{product?.quantity} item available</p>
+                            {product.quantity <= 0 ? <p>Stock Out</p> : <p>{product?.quantity} item available</p>}
                         </div>
                     </div>
                 </div>
@@ -148,7 +147,7 @@ const OtherProductDetails = ({ product }) => {
             <div className="flex items-center justify-center gap-x-1 mb-5 mx-2 px-2 xl:px-4 py-2 bg-slate-200 rounded-lg text-sm md:text-base">
                 <FaRegEye className="mt-1" />
                 <p>
-                    {countView}
+                    {product?.view || 0}
                     {' '}People Watching this product now!
                 </p>
             </div>
