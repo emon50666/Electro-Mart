@@ -6,7 +6,6 @@ import useCart from "../../Hooks/useCart";
 import CardOfCart from "./CardOfCart";
 
 const AddCart = ({ setCartOpen }) => {
-    // const { user } = UserAuth()
     const { theUserCarts } = useCart();
     const [isOpen, setIsOpen] = useState(false);
 

@@ -9,9 +9,11 @@ import { Link } from "react-router-dom";
 import PropType from "prop-types";
 import useAxiosPublic from "../../Hooks/useAxiosPublic";
 import useAddToCart from "../../Hooks/useAddToCart";
+import useAddToCompare from "../../Hooks/useAddToCompare";
 
 const ProductCard = ({ product, refetch }) => {
   const handleAddCart = useAddToCart();
+  const handleAddCompare = useAddToCompare();;
   const axiosPublic = useAxiosPublic();
   const [isHovered, setIsHovered] = useState(false);
   const [cartOpen, setCartOpen] = useState(false);
@@ -34,6 +36,10 @@ const ProductCard = ({ product, refetch }) => {
         console.log(`Error = ${err}`);
       })
   };
+
+  const handleAddToCompare = () => {
+    handleAddCompare(product)
+  }
   return (
     <div
       className="pt-10 mb-10 pb-10  bg-[#F6F6F6]">
@@ -55,8 +61,12 @@ const ProductCard = ({ product, refetch }) => {
 
 
         <div className="absolute top-1/3 right-4 transform -translate-y-1/2 translate-x-full group-hover:translate-x-0 group-hover:opacity-100 opacity-0 group-hover:pointer-events-auto pointer-events-none transition-all duration-300 ease-in-out bg-white p-2 rounded-md border shadow-lg flex flex-col space-y-4">
-          <FaHeart className="text-lg text-orange-600" />
-          <IoGitCompareOutline className="text-lg text-orange-600" />
+          <button>
+            <FaHeart className="text-lg text-orange-600" />
+          </button>
+          <button onClick={handleAddToCompare}>
+            <IoGitCompareOutline className="text-lg text-orange-600" />
+          </button>
           <Link to={`/productDetails/${product._id}`} onClick={() => handleViewCount(product._id)}>
             <FaEye className="text-lg text-orange-600" />
           </Link>
