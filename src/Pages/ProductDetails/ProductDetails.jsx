@@ -3,6 +3,7 @@ import ProductReview from "../../components/ProductReview/ProductReview";
 import MainProductDetails from "./Shared/topLayer/MainProductDetails";
 import TopLayerOfDetails from "./Shared/topLayer/TopLayerOfDetails";
 import { Helmet } from "react-helmet";
+import RelativeProducts from "../../components/ProductCard/RelativeProducts";
 
 
 const ProductDetails = () => {
@@ -22,6 +23,7 @@ const ProductDetails = () => {
             <MainProductDetails product={productDetails} />
             <ProductReview />
             <br /><br /><br /><br /><br />
+            <RelativeProducts/>
         </div>
     );
 };
