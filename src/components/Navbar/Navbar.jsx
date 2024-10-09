@@ -1,4 +1,4 @@
-import { useState } from "react";
+import {  useState } from "react";
 import logo_1 from "../../assets/images/logo_1.png";
 import { Link } from "react-router-dom";
 
@@ -14,9 +14,13 @@ import { MdAccountCircle } from "react-icons/md";
 import MobileNavBar from "../Navbar/MobileNavBar";
 import AddCart from "../AddToCart/AddCart";
 
+import SearchBar from "./SearchBar";
+
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [cartOpen, setCartOpen] = useState(false);
+
+
   const handleAddToCart = () => {
     setCartOpen(true);
   };
@@ -26,8 +30,6 @@ const Navbar = () => {
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
-
-
 
 
 
@@ -93,19 +95,9 @@ const Navbar = () => {
         <MobileNavBar></MobileNavBar>
       </div>
 
-      {/* search bar */}
 
-      <div className="hidden lg:flex lg:-mr-16 ">
-        <input
-          type="search"
-          placeholder="Search Products..."
-          className="border-l border-t border-b border-orange-400 w-96 pt-2 pb-2 px-2 py-2 border-dashed rounded-l-full focus:outline-dashed outline-orange-400 focus:ring-0"
-        />
-
-        <button className="relative right-12 bg-orange-500 rounded-l-none border-b border-orange-500 border-t-border-orange-500 flex text-white   pt-[8px]  pr-3 pb-[9px] pl-5  rounded-r-full focus:outline-none focus:ring-0">
-          Search
-        </button>
-      </div>
+            <SearchBar/>
+   
 
       <div className="  lg:hidden ">
         <Link to={"/"}>

@@ -32,8 +32,10 @@ const ProductCard = ({ product }) => {
   return (
     <div
       className="pt-10 mb-10 pb-10  bg-[#F6F6F6]">
-      <div className="relative p-3 hover:shadow-lg rounded-md bg-white group">
-        {product.images.length > 1 && <HoverImage
+    
+     <div className="relative p-3 hover:shadow-lg rounded-md bg-white group">
+     <Link to={`/productDetails/${product._id}`}>
+     {product.images.length > 1 && <HoverImage
           src={product.images[0]}
           hoverSrc={product.images[1]}
           alt="Product Image"
@@ -47,6 +49,7 @@ const ProductCard = ({ product }) => {
           className="w-full h-[200px] object-cover transition-transform duration-500 ease-in-out group-hover:scale-95"
         />}
 
+     </Link>
 
 
         <div className="absolute top-1/3 right-4 transform -translate-y-1/2 translate-x-full group-hover:translate-x-0 group-hover:opacity-100 opacity-0 group-hover:pointer-events-auto pointer-events-none transition-all duration-300 ease-in-out bg-white p-2 rounded-md border shadow-lg flex flex-col space-y-4">
@@ -76,7 +79,7 @@ const ProductCard = ({ product }) => {
 
         <div className="flex items-center justify-between">
           <div>
-            <h4 className="font-semibold text-base capitalize">{product?.title.slice(0, 17)} [...]</h4>
+            <Link to={`/productDetails/${product._id}`}><h4 className="font-semibold text-base capitalize">{product?.title.slice(0, 10)} [...]</h4></Link>
             <small className="text-gray-400 text-md capitalize font-semibold">{product?.brand}</small>
           </div>
           <span className="flex items-center gap-1 font-semibold mb-4">
@@ -119,6 +122,7 @@ const ProductCard = ({ product }) => {
         </button>
         {cartOpen && <AddCart setCartOpen={setCartOpen} />}
       </div>
+ 
     </div>
   );
 };
