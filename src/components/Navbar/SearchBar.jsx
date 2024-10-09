@@ -3,6 +3,7 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 
 
+
 const SearchBar = () => {
   const [search, setSearch] = useState('');
   const [searchResults, setSearchResults] = useState([]);
@@ -49,6 +50,7 @@ const SearchBar = () => {
         </button>
       </form>
 
+    
       {/* Search Results */}
       {searchResults.length > 0 && (
         <div className="absolute top-full  left-1/2 transform mt-2  -translate-x-1/2 w-[600px] max-h-80 bg-white shadow-lg rounded-lg overflow-auto p-4 z-50">
@@ -62,7 +64,7 @@ const SearchBar = () => {
                 />
                 <div>
                   <h3 className="text-sm font-semibold">
-                    <Link to={`/product/${product.id}`}>{product.title}</Link>
+                    <Link to={`/productDetails/${product._id}`}>{product.title}</Link>
                   </h3>
                   <p className="text-blue-500 font-medium">${product.price}</p>
                 </div>

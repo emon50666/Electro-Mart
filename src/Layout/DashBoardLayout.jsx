@@ -21,7 +21,7 @@ const DashboardLayout = () => {
                     <SideBar></SideBar>
                 </div>
                 {/* outlet dynamic content */}
-                <div className="flex-1 md:ml-64 shadow-lg   pt-2">
+                <div className="flex-1 lg:ml-64 overflow-x-scroll  shadow-lg   pt-2">
                     <Outlet></Outlet>
                 </div>
             </div>
