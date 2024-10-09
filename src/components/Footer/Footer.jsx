@@ -6,7 +6,7 @@ import { FaTelegramPlane } from "react-icons/fa";
 const Footer = () => {
     return (
         <div>
-            <footer className="footer grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-6 px-4 sm:px-6 lg:px-20 py-0 md:py-10 mb-20">
+            <footer className="footer grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-6 px-4 sm:px-6 lg:px-20 py-0 md:py-10 mb-20 lg:mb-4">
                 <aside className="">
                     <h1 className="text-2xl sm:text-3xl lg:text-4xl font-semibold">Electro Mart</h1>
                     <p className="text-sm sm:text-base lg:text-lg">
