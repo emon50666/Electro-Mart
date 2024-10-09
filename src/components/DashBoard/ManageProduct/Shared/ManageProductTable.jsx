@@ -31,7 +31,7 @@ const ManageProductTable = () => {
         });
     };
     return (
-        <div className="container mx-auto px-4 py-6 font_lexend">
+        <div className="px-4 py-6 font_lexend">
             <div className="overflow-x-auto">
                 <table className="table">
                     <thead className="uppercase text-white font-bold">
@@ -57,7 +57,7 @@ const ManageProductTable = () => {
                                         className="h-20 w-20 object-cover"
                                     />
                                 </td>
-                                <td className="text-xs md:text-lg"><span className="w-36 md:w-auto block">{product.title}</span></td>
+                                <td className="text-xs md:text-lg"><span className="w-36 md:w-52 xl:w-auto block">{product.title}</span></td>
                                 <td className="text-center text-xs md:text-lg text-orange-500">£ {product.price}</td>
                                 <td className="text-center text-xs md:text-lg">
                                     <Link

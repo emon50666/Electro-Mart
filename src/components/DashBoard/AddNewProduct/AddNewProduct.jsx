@@ -28,6 +28,7 @@ const AddNewProduct = () => {
   const price = watch('price');
   const discountPercentage = watch('discountPercentage');
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const calculateDiscountPrice = () => {
     if (price && discountPercentage) {
       const discountAmount = (price * discountPercentage) / 100;
@@ -40,7 +41,7 @@ const AddNewProduct = () => {
   useEffect(() => {
     const discountPrice = calculateDiscountPrice();
     setValue('discountPrice', discountPrice);
-  }, [price, discountPercentage, setValue]);
+  }, [price, discountPercentage, setValue, calculateDiscountPrice]);
 
   const handleImageChange = (e) => {
     const files = Array.from(e.target.files);
@@ -63,7 +64,7 @@ const AddNewProduct = () => {
         formData.append("tags", `hello, medium, gist`);
         formData.append("upload_preset", "elector_mart_key");
         formData.append("api_key", "211491792754595");
-  
+
         return axios.post('https://api.cloudinary.com/v1_1/duv5fiurz/image/upload', formData, {
           headers: { "X-Requested-With": "XMLHttpRequest" }
         }).then(res => {
@@ -76,40 +77,40 @@ const AddNewProduct = () => {
         });
       });
       await axios.all(uploaded);
-  
+
       // Create product info object with the uploaded images
       const productInfo = {
         title: data.title,
         shortDescription: data.shortDescription,
         fullDescription: data.fullDescription,
-        images: image.array, 
-        quantity: data.quantity,
+        images: image.array,
+        quantity: parseInt(data.quantity),
         brand: data.brand,
         category: data.category,
         isHot: data.isHot,
         isNew: data.isNew,
-        discountPercentage: data.discountPercentage,
+        discountPercentage: parseInt(data.discountPercentage),
         discountPrice: data.discountPrice,
-        price: data.price,
+        price: parseInt(data.price),
         addDate: data.addDate,
       };
-  
+
       // Submit the product info to your API
       const response = await axiosPublic.post("/products", productInfo);
-      
+
       if (response.data.insertedId) {
         toast.success(`${data.title} is added`);
-        // navigate("/dashboard/manageProduct");
-        navigate("#");
+        navigate("/dashboard/manageProduct");
+        // navigate("#");
         reset(); // Reset the form after successful submission
       }
-  
+
     } catch (error) {
       console.error("Error uploading product:", error);
       toast.error("Failed to upload product. Please try again.");
     }
   };
-  
+
 
   return (
     <div className="bg-gray-50 pt-12 pb-4 sm:px-6">
@@ -313,7 +314,7 @@ const AddNewProduct = () => {
                   className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:border-blue-500 outline-none"
                 >
                   <option value="">Select a Percentage</option>
-                  <option value="1">0</option>
+                  <option value="0">0</option>
                   <option value="5">5%</option>
                   <option value="10">10%</option>
                   <option value="15">15%</option>
