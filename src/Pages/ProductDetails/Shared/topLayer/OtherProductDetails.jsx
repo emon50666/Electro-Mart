@@ -12,12 +12,18 @@ import Rating from "react-rating";
 import {
     TwitterShareButton, TelegramShareButton, LinkedinShareButton, FacebookShareButton, WhatsappShareButton
 } from "react-share";
+import useAddToCart from "../../../../Hooks/useAddToCart";
+import AddCart from "../../../../components/AddToCart/AddCart";
+import useAddToCompare from "../../../../Hooks/useAddToCompare";
 
 const OtherProductDetails = ({ product }) => {
-    const [countView, setCountView] = useState(31)
+    const handleAddCart = useAddToCart();
+    const handleAddCompare = useAddToCompare();
     const [quantityCount, setQuantityCount] = useState(1)
     const [disableBtn, setDisableBtn] = useState(false)
     const shareUrl = window.location.href;
+    const [cartOpen, setCartOpen] = useState(false);
+
     const increaseCount = () => {
         if (quantityCount === parseInt(product?.quantity)) {
             toast.error("Stocks Out")
@@ -35,6 +41,14 @@ const OtherProductDetails = ({ product }) => {
             setDisableBtn(false)
         }
     }
+
+    const handleAddToCart = () => {
+        handleAddCart(product)
+        setCartOpen(true);
+    }
+    const handleAddToCompare = () => {
+        handleAddCompare(product)
+    }
     return (
         <div >
             <div className="lg:space-y-3">
@@ -44,7 +58,7 @@ const OtherProductDetails = ({ product }) => {
                     <div className="flex items-center justify-between mt-3">
                         <div className="flex items-center space-x-4 py-1">
                             <Rating
-                                initialRating={parseInt(product?.rating) || 1}
+                                initialRating={parseInt(product?.rating) || 0}
                                 emptySymbol={<img
                                     src="https://i.ibb.co.com/KN7rSQ6/empty-star-removebg-preview.png"
                                     className="icon h-4 md:h-5" />
@@ -57,7 +71,7 @@ const OtherProductDetails = ({ product }) => {
                             </div>
                         </div>
                         <div className="font_cabin text-[#767676] border-2  px-4">
-                            <p>{product?.quantity} item available</p>
+                            {product.quantity <= 0 ? <p>Stock Out</p> : <p>{product?.quantity} item available</p>}
                         </div>
                     </div>
                 </div>
@@ -94,7 +108,9 @@ const OtherProductDetails = ({ product }) => {
                         </div>
                     </div>
                     <div className="space-x-3 md:space-x-5">
-                        <button className="px-9 md:px-4 py-2 text-sm lg:text-base bg-orange-500 text-white font-semibold rounded-md hover:bg-teal-500 focus:bg-teal-600 focus:outline-none focus:ring-2 focus:ring-teal-300">
+                        <button
+                            onClick={handleAddToCart}
+                            className="px-9 md:px-4 py-2 text-sm lg:text-base bg-orange-500 text-white font-semibold rounded-md hover:bg-teal-500 focus:bg-teal-600 focus:outline-none focus:ring-2 focus:ring-teal-300">
                             Add to cart
                         </button>
                         <button className="px-9 md:px-4 py-2 text-sm lg:text-base bg-orange-500 text-white font-semibold rounded-md hover:bg-teal-500 focus:bg-teal-600 focus:outline-none focus:ring-2 focus:ring-teal-300">
@@ -108,12 +124,12 @@ const OtherProductDetails = ({ product }) => {
                 {/* Share & compare start */}
                 <div className="lg:my-5 flex flex-col xl:flex-row justify-between gap-y-1 ">
                     <div className="flex text-sm md:text-base lg:text-lg">
-                        <div className="flex items-center hover:text-[#666666] space-x-1">
+                        <button onClick={handleAddToCompare} className="flex items-center hover:text-[#666666] space-x-1">
                             <div>
                                 <GoGitCompare />
                             </div>
                             <h3 className="font-medium font_cabin">Compare</h3>
-                        </div>
+                        </button>
                         <div className="flex items-center hover:text-[#666666] pl-8 space-x-1">
                             <div>
                                 <GoHeart />
@@ -148,10 +164,11 @@ const OtherProductDetails = ({ product }) => {
             <div className="flex items-center justify-center gap-x-1 mb-5 mx-2 px-2 xl:px-4 py-2 bg-slate-200 rounded-lg text-sm md:text-base">
                 <FaRegEye className="mt-1" />
                 <p>
-                    {countView}
+                    {product?.view || 0}
                     {' '}People Watching this product now!
                 </p>
             </div>
+            {cartOpen && <AddCart setCartOpen={setCartOpen} />}
         </div>
     );
 };

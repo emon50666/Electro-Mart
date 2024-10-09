@@ -7,27 +7,38 @@ import HoverImage from "react-hover-image/build";
 import AddCart from "../AddToCart/AddCart";
 import { Link } from "react-router-dom";
 import PropType from "prop-types";
-// import useAxiosPublic from "../../Hooks/useAxiosPublic";
+import useAxiosPublic from "../../Hooks/useAxiosPublic";
+import useAddToCart from "../../Hooks/useAddToCart";
+import useAddToCompare from "../../Hooks/useAddToCompare";
 
-const ProductCard = ({ product }) => {
-  // const axiosPublic = useAxiosPublic();
+const ProductCard = ({ product, refetch }) => {
+  const handleAddCart = useAddToCart();
+  const handleAddCompare = useAddToCompare();;
+  const axiosPublic = useAxiosPublic();
   const [isHovered, setIsHovered] = useState(false);
   const [cartOpen, setCartOpen] = useState(false);
   const handleAddToCart = () => {
+    handleAddCart(product)
     setCartOpen(true);
   };
+  // console.log(user?.email);
+  const handleViewCount = (_id) => {
+    let currentView = product?.view || 0;
+    const updateView = currentView + 1;
+    const viewInfo = { view: updateView };
+    axiosPublic.patch(`/products/${_id}`, viewInfo)
+      .then((res) => {
+        if (res.data.modifiedCount) {
+          refetch();
+        }
+      })
+      .catch(err => {
+        console.log(`Error = ${err}`);
+      })
+  };
 
-  const handleViewCount = (id) => {
-
-    console.log(id);
-    // const viewInfo = { view }
-    // axiosPublic.patch(`/products/${id}`, viewInfo).then((res) => {
-    //   // console.log(res.data);
-    //   if (res.data.modifiedCount) {
-    //     // toast.success(`{viewInfo}`);
-    //   }
-    // });
-
+  const handleAddToCompare = () => {
+    handleAddCompare(product)
   }
   return (
     <div
@@ -53,8 +64,12 @@ const ProductCard = ({ product }) => {
 
 
         <div className="absolute top-1/3 right-4 transform -translate-y-1/2 translate-x-full group-hover:translate-x-0 group-hover:opacity-100 opacity-0 group-hover:pointer-events-auto pointer-events-none transition-all duration-300 ease-in-out bg-white p-2 rounded-md border shadow-lg flex flex-col space-y-4">
-          <FaHeart className="text-lg text-orange-600" />
-          <IoGitCompareOutline className="text-lg text-orange-600" />
+          <button>
+            <FaHeart className="text-lg text-orange-600" />
+          </button>
+          <button onClick={handleAddToCompare}>
+            <IoGitCompareOutline className="text-lg text-orange-600" />
+          </button>
           <Link to={`/productDetails/${product._id}`} onClick={() => handleViewCount(product._id)}>
             <FaEye className="text-lg text-orange-600" />
           </Link>
@@ -128,6 +143,7 @@ const ProductCard = ({ product }) => {
 };
 ProductCard.propTypes = {
   product: PropType.object,
+  refetch: PropType.func,
 }
 
 export default ProductCard;

@@ -13,10 +13,15 @@ import { FaHeart } from "react-icons/fa";
 import { MdAccountCircle } from "react-icons/md";
 import MobileNavBar from "../Navbar/MobileNavBar";
 import AddCart from "../AddToCart/AddCart";
+import useCart from "../../Hooks/useCart";
+import useCompare from "../../Hooks/useCompare";
 
 import SearchBar from "./SearchBar";
 
 const Navbar = () => {
+  const { user, logOut, loading } = UserAuth();
+  const { theUserCarts } = useCart();
+  const { theUserCompares } = useCompare();
   const [isOpen, setIsOpen] = useState(false);
   const [cartOpen, setCartOpen] = useState(false);
 
@@ -25,7 +30,6 @@ const Navbar = () => {
     setCartOpen(true);
   };
 
-  const { user, logOut, loading } = UserAuth();
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -88,9 +92,8 @@ const Navbar = () => {
       </div>
 
       <div
-        className={`fixed inset-y-0 right-0 z-50 overflow-y-scroll  w-64 transform bg-base-100 shadow-md p-4 transition-transform duration-300 ease-in-out ${
-          isOpen ? "translate-x-0" : "translate-x-full"
-        }`}
+        className={`fixed inset-y-0 right-0 z-50 overflow-y-scroll  w-64 transform bg-base-100 shadow-md p-4 transition-transform duration-300 ease-in-out ${isOpen ? "translate-x-0" : "translate-x-full"
+          }`}
       >
         <MobileNavBar></MobileNavBar>
       </div>
@@ -110,17 +113,17 @@ const Navbar = () => {
 
         <div className="hidden lg:flex space-x-3">
           <div
-           onClick={handleAddToCart}
-          className="relative bg-orange-200/50 hover:bg-orange-300/50 cursor-pointer  rounded-full p-2">
+            onClick={handleAddToCart}
+            className="relative bg-orange-200/50 hover:bg-orange-300/50 cursor-pointer  rounded-full p-2">
             <FaCartShopping className="text-lg text-orange-600 " />
             <span className="absolute -right-2 -ml-1 -top-2 rounded-[100%]  bg-orange-500 px-1 py-[1px] text-[10px] text-white">
-              9+
+              {theUserCarts.length}+
             </span>
           </div>
           <Link to={'/comparePage'} className="relative bg-orange-200/50 hover:bg-orange-300/50 cursor-pointer  rounded-full p-2">
             <IoGitCompareOutline className="text-lg text-orange-600 " />
             <span className="absolute -right-2 -ml-1 -top-2 rounded-[100%]  bg-orange-500 px-1 py-[1px] text-[10px] text-white">
-              9+
+              {theUserCompares.length}+
             </span>
           </Link>
           <Link to={'/wishlist'} className="relative bg-orange-200/50 hover:bg-orange-300/50 cursor-pointer  rounded-full p-2">

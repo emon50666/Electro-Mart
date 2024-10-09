@@ -24,6 +24,7 @@ import Profile from "../components/DashBoard/ProfilePage/Profile";
 import ManageProduct from "../components/DashBoard/ManageProduct/ManageProduct";
 import UpdateProduct from "../Pages/UpdateProduct/UpdateProduct";
 import AddToPromotion from "../Pages/AddToPromotion/AddToPromotion";
+import ManageCart from "../Pages/ManageCart/ManageCart";
 
 
 
@@ -95,6 +96,10 @@ const router = createBrowserRouter([
       {
         path: "manageProduct",
         element: <PrivateRoute><ManageProduct /></PrivateRoute>
+      },
+      {
+        path: "manageCart",
+        element: <PrivateRoute><ManageCart /></PrivateRoute>
       },
       {
         path: "updateProduct/:id",
