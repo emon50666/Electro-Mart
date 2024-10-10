@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { CiHeart } from "react-icons/ci";
+import { FaHeart, FaShoppingCart, FaTable } from "react-icons/fa";
 import { DiGitCompare } from "react-icons/di";
 import { useState } from "react";
 import { FaTableCellsLarge } from "react-icons/fa6";
@@ -48,14 +48,14 @@ const Wishlist = () => {
     <div className="">
       <div className="font_lexend min-h-[30vh] h-auto md:min-h-[40vh] lg:min-h-[50vh] bg-[url('https://res.cloudinary.com/duv5fiurz/image/upload/v1726674456/page-title-shop_ue5dxm.jpg')] bg-cover bg-center flex flex-col items-center justify-center">
         <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-7xl text-white font-semibold">
-          Compare
+          Wishlist
         </h2>
         <div className="flex gap-x-1 gap-y-0 md:mt-2 text-white text-sm">
           <Link to="/" className="cursor-pointer hover:text-orange-500">
             Home
           </Link>
           <span>/</span>
-          <p>Compare</p>
+          <p>Wishlist</p>
         </div>
       </div>
 
@@ -65,13 +65,14 @@ const Wishlist = () => {
       <div className="join lg:mt-5 md:mt-5 mt-2 ">
       <button
               onClick={() => handleFormat("card")}
-              className="btn join-item"
+              className="btn join-item text-xl"
             >
-              <FaTableCellsLarge />
+              <FaTable />
+
             </button>
             <button
               onClick={() => handleFormat("table")}
-              className="btn join-item"
+              className="btn join-item text-2xl"
             >
               <MdTableRows />
             </button>
@@ -90,6 +91,8 @@ const Wishlist = () => {
           <th scope="col" className="h-12 px-6 lg:text-[18px] md:text-[18px] text-[12px] font-semibold  border-l first:border-l-0 text-slate-700 bg-slate-100">Price</th>
           <th scope="col" className="h-12 px-6 lg:text-[18px] md:text-[18px] text-[12px] font-semibold  border-l first:border-l-0 text-slate-700 bg-slate-100">Discount Price</th>
           <th scope="col" className="h-12 px-6 lg:text-[18px] md:text-[18px] text-[12px] font-semibold  border-l first:border-l-0 text-slate-700 bg-slate-100">Available Items</th>
+          <th scope="col" className="h-12 px-6 lg:text-[18px] md:text-[18px] text-[12px] font-semibold  border-l first:border-l-0 text-slate-700 bg-slate-100">Add Cart</th>
+          <th scope="col" className="h-12 px-6 lg:text-[18px] md:text-[18px] text-[12px] font-semibold  border-l first:border-l-0 text-slate-700 bg-slate-100">Add Compare</th>
         </tr>
       </thead>
       <tbody>
@@ -102,26 +105,32 @@ const Wishlist = () => {
               className="lg:h-32 md:h-32 h-20 lg:w-24 md:w-24 w-16 py-3 object-cover"
             />
           </td>
-          <td className="h-12 px-6 lg:text-[18px] md:text-[18px] text-[12px] font-semibold transition duration-300 border-t border-l first:border-l-0 border-slate-200">
+          <td className="h-12 px-6 lg:text-[18px] md:text-[18px] text-[12px]  text-center transition duration-300 border-t border-l first:border-l-0 border-slate-200">
             {product.title}
           </td>
-          <td className="h-12 px-6 lg:text-[18px] md:text-[18px] text-[12px] font-semibold transition duration-300 border-t border-l first:border-l-0 border-slate-200">
+          <td className="h-12 px-6 lg:text-[18px] md:text-[18px] text-[12px]  text-center transition duration-300 border-t border-l first:border-l-0 border-slate-200">
             {product.brandName}
           </td>
-          <td className="h-12 px-6 lg:text-[18px] md:text-[18px] text-[12px] font-semibold transition duration-300 border-t border-l first:border-l-0 border-slate-200">
+          <td className="h-12 px-6 lg:text-[18px] md:text-[18px] text-[12px]  text-center transition duration-300 border-t border-l first:border-l-0 border-slate-200">
             £{product.price}
           </td>
-          <td className="h-12 px-6 lg:text-[18px] md:text-[18px] text-[12px] font-semibold transition duration-300 border-t border-l first:border-l-0 border-slate-200">
+          <td className="h-12 px-6 lg:text-[18px] md:text-[18px] text-[12px]  text-center transition duration-300 border-t border-l first:border-l-0 border-slate-200">
             £{product.discountPrice}
           </td>
-          <td className="h-12 px-6 lg:text-[18px] md:text-[18px] text-[12px] font-semibold transition duration-300 border-t border-l first:border-l-0 border-slate-200">
+          <td className="h-12 px-6 lg:text-[18px] md:text-[18px] text-[12px]  text-center transition duration-300 border-t border-l first:border-l-0 border-slate-200">
             {product.availableItems}
           </td>
           <td className="h-12 px-6">
-            <button className="border-2 text-black px-4 py-2 transition-all duration-300 ease-in-out transform hover:scale-105">
-              Buy Now
+            <button className="border-2 text-orange-500 text-2xl px-4 py-2 text-center transition-all duration-300 ease-in-out transform hover:scale-105">
+            <FaShoppingCart />
             </button>
           </td>
+          <td className="h-12 px-6">
+            <button className="border-2 text-orange-500 text-2xl px-4 py-2 text-center transition-all duration-300 ease-in-out transform hover:scale-105">
+            <DiGitCompare />
+            </button>
+          </td>
+         
         </tr>
         
         ))}
@@ -136,7 +145,7 @@ const Wishlist = () => {
        {products.map((product, index) => (
          <div
            key={index}
-           className="card bg-base-100 w-full sm:w-80 lg:w-96 relative group overflow-hidden"
+           className="card bg-base-100 w-full sm:w-80 lg:w-96 relative group border-2 overflow-hidden"
          >
            <figure className="px-4 sm:px-6 md:px-10 pt-10">
              <img
@@ -160,14 +169,16 @@ const Wishlist = () => {
            </p>
 
            {/* Buttons (hidden by default, shown on hover, positioned after description) */}
-           <div className="flex items-center justify-between text-sm sm:text-xl px-4 sm:px-6 md:px-10 mt-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-             <button>
-               <CiHeart />
+           <div className="flex items-center justify-between text-sm sm:text-xl mb-2  px-4 sm:px-6 md:px-10 mt-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+             <button className="text-2xl text-orange-500">
+             <FaShoppingCart />
+
+
              </button>
              <button className="bg-orange-500 text-xs sm:text-sm lg:text-base px-3 sm:px-5 py-1 sm:py-2 text-white">
                Buy Now
              </button>
-             <button>
+             <button className="text-2xl text-orange-500">
                <DiGitCompare />
              </button>
            </div>
