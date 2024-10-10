@@ -10,7 +10,7 @@ const MenuBar = () => {
   };
 
   return (
-    <div className="navbar hidden lg:flex  px-10 bg-base-100  sm:hidden md:hidden ">
+    <div className="navbar hidden lg:flex  fixed z-30  px-10 bg-[#030c35]  sm:hidden md:hidden ">
       {/* All Category Hover Section */}
       <div
         className=" relative"
@@ -55,7 +55,7 @@ const MenuBar = () => {
 {/* lg menu */}
 
 <div>
-<ul className="menu menu-horizontal px-1">
+<ul className="menu menu-horizontal text-gray-200 font-semibold px-1">
       <li><a>Item 1</a></li>
       <li>
         <details>

@@ -135,7 +135,7 @@ const Navbar = () => {
         </div>
         {cartOpen && <AddCart setCartOpen={setCartOpen} />}
 
-        <div className="dropdown dropdown-end">
+        <div className="dropdown dropdown-end z-[99]">
           <div tabIndex={0} role="button" className="  ">
             <div className="p-1 rounded-full  ">
               {user ? (
