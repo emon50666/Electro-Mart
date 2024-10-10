@@ -5,14 +5,18 @@ import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import useAxiosPublic from '../../../Hooks/useAxiosPublic';
 import useCompare from '../../../Hooks/useCompare';
+import useAddToCart from '../../../Hooks/useAddToCart';
+import UserAuth from '../../../Hooks/useAuth';
 
 const ComparisonTable = ({ compares }) => {
+    const { user } = UserAuth()
     const axiosPublic = useAxiosPublic();
+    const handleAddCart = useAddToCart();
     const { refetch } = useCompare();
     const sliceTitle = (title) => {
         return title.length > 25 ? `${title.slice(0, 25)}...` : title;
     };
-
+    console.log(user);
     const handleDeleteCompare = (id) => {
         Swal.fire({
             title: "Are you sure?",
@@ -36,6 +40,13 @@ const ComparisonTable = ({ compares }) => {
             }
         });
     }
+
+    const handleAddToCart = (productId) => {
+        const newPro = {
+            _id: productId,
+        }
+        handleAddCart(newPro)
+    }
     return (
         <div className="overflow-x-auto ml-0 md:ml-10 xl:ml-32">
             <table className="md:min-w-[70vw] w-full md:w-auto border-collapse border-r-0">
@@ -58,7 +69,9 @@ const ComparisonTable = ({ compares }) => {
                                     <p className='text-[#767676]'>{sliceTitle(product?.title)}</p>
                                     <p className='text-orange-500'>£<span>{product?.price}</span></p>
                                     <div className="flex flex-col md:flex-row md:justify-between mt-2 gap-y-1">
-                                        <button className="bg-orange-500 hover:bg-teal-500 focus:ring-2 focus:ring-teal-300 hover:ring-2 hover:ring-teal-300 transition-all text-white py-2 px-1 md:px-4 text-sm rounded-md cursor-pointer">
+                                        <button
+                                            onClick={() => handleAddToCart(product?.mainProductId)}
+                                            className="bg-orange-500 hover:bg-teal-500 focus:ring-2 focus:ring-teal-300 hover:ring-2 hover:ring-teal-300 transition-all text-white py-2 px-1 md:px-4 text-sm rounded-md cursor-pointer">
                                             Add to Cart
                                         </button>
                                         <Link to={`/productDetails/${product?.mainProductId}`} className="text-center bg-orange-500 hover:bg-teal-500 focus:ring-2 focus:ring-teal-300 hover:ring-2 hover:ring-teal-300 transition-all text-white py-2 px-2 md:px-4 rounded-md text-sm cursor-pointer">
