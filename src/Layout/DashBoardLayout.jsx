@@ -9,7 +9,12 @@ const DashboardLayout = () => {
 
     return (
         <>
+
+
+
             <HeaderDashboard />
+
+
             <div className=" min-h-screen md:flex bg-[#EEEEEE]/30 ">
                 {/* side bar */}
                 <div>

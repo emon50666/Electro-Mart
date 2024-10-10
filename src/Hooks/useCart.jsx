@@ -13,7 +13,7 @@ const useCart = () => {
             return result.data;
         },
     });
-    const theUserCarts = carts.filter(cart => cart?.adderMail == user?.email)
+    const theUserCarts = carts?.filter(cart => cart?.adderMail == user?.email)
     return { carts, theUserCarts, refetch };
 };
 
