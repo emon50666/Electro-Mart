@@ -22,21 +22,7 @@ const Wishlist = () => {
       availableItems: 5,
       brandName: "BlendMaster",
     },
-    {
-      images: [
-        "https://res.cloudinary.com/duv5fiurz/image/upload/v1726667541/download_28_kayepw.jpg",
-        "https://i.ibb.co.com/sample-image6.jpg",
-      ],
-      title: "Stainless Steel Knife Set",
-      rating: 4,
-      description:
-        "8-piece knife set with ultra-sharp stainless steel blades and ergonomic handles.",
-      price: 80,
-      discountPrice: 65,
-      discountPercentage: 18,
-      availableItems: 20,
-      brandName: "SharpEdge",
-    },
+   
     {
       images: [
         "https://res.cloudinary.com/duv5fiurz/image/upload/v1726667567/download_29_neozxh.jpg",
