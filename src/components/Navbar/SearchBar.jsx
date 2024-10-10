@@ -1,44 +1,47 @@
-import { useState, useEffect } from "react";
-import axios from "axios";
+import { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
-
-
+import useProduct from "../../Hooks/useProduct";
 
 const SearchBar = () => {
+  const { products } = useProduct();
   const [search, setSearch] = useState('');
-  const [searchResults, setSearchResults] = useState([]);
+  const [showResults, setShowResults] = useState(true);
+  const searchRef = useRef(null); 
 
-
-
-  // Handle search and fetch results from API
   useEffect(() => {
-    const searchData = async () => {
-      if (search) {
-        try {
-          const res = await axios.get(`${import.meta.env.VITE_API_URL}/products?search=${search}`);
-          setSearchResults(res.data); // Assuming res.data is an array of products
-        } catch (error) {
-          console.error("Error fetching search results", error);
-        }
-      } else {
-        setSearchResults([]); // Clear results if search is empty
+    const handleClickOutside = (event) => {
+      if (searchRef.current && !searchRef.current.contains(event.target)) {
+        setShowResults(false); 
       }
     };
-    searchData();
-  }, [search]);
 
-  const handleSearch = (e) => {
-    e.preventDefault();
-    const text = e.target.search.value;
-    setSearch(text);
-  };
+    document.addEventListener('mousedown', handleClickOutside);
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
+
+  // Filtered products based on the search input
+  const filteredProducts = products.filter((product) => {
+    const searchTerm = search.toLocaleLowerCase();
+    return (
+      product.title.toLocaleLowerCase().includes(searchTerm) || 
+      product.brand.toLocaleLowerCase().includes(searchTerm) ||
+      product.category.toLocaleLowerCase().includes(searchTerm)
+    );
+  });
 
   return (
     <div className="navbar bg-base-100 sticky top-0 z-40 md:px-10">
-      {/* Your existing navbar code */}
-      
       {/* Search form */}
-      <form onSubmit={handleSearch} className="hidden lg:flex lg:-mr-16">
+      <form 
+        onChange={(e) => {
+          setSearch(e.target.value.toLocaleLowerCase());
+          setShowResults(true); // Show results as the user types
+        }} 
+        className="hidden lg:flex lg:-mr-16"
+      >
         <input
           type="text"
           name="search"
@@ -50,30 +53,43 @@ const SearchBar = () => {
         </button>
       </form>
 
-    
-      {/* Search Results */}
-      {searchResults.length > 0 && (
-        <div className="absolute top-full  left-1/2 transform mt-2  -translate-x-1/2 w-[600px] max-h-80 bg-white shadow-lg rounded-lg overflow-auto p-4 z-50">
-          <div className="grid grid-cols-2 gap-4 pt-16">
-            {searchResults.map((product) => (
-              <div key={product.id} className="flex items-center space-x-3">
-                <img
-                  src={product.images[0]} // Assuming your API returns image URL as 'image'
-                  alt={product.title}
-                  className="w-12 h-12 object-cover"
-                />
-                <div>
-                  <h3 className="text-sm font-semibold">
-                    <Link to={`/productDetails/${product._id}`}>{product.title}</Link>
-                  </h3>
-                  <p className="text-blue-500 font-medium">${product.price}</p>
-                </div>
-              </div>
-            ))}
+      {/* Conditionally Render Search Results */}
+      {search && showResults && (
+        <div 
+          id="search_id"
+          ref={searchRef} // Reference for clicking outside detection
+          className="absolute top-14 left-1/2 transform mt-2 -translate-x-1/2 w-[600px] max-h-80 bg-gray-200 shadow-lg rounded-lg overflow-auto p-4 z-50"
+        >
+          <div className="grid grid-cols-2 gap-4 w-full">
+            {filteredProducts.length > 0 ? (
+              filteredProducts.map((product) => (
+                <Link
+                  to={`/productDetails/${product?._id}`}
+                  key={product.id}
+                  className="flex items-center pt-7 space-x-3 bg-white rounded-md px-2"
+                >
+                  <img
+                    src={product.images[0]} // Assuming your API returns image URL as 'images[0]'
+                    alt={product.title}
+                    className="w-12 h-12 object-cover"
+                  />
+                  <div>
+                    <h3 className="text-sm font-semibold">
+                      {product.title.slice(0, 50)}..
+                    </h3>
+                    <p className="text-blue-500 font-medium">${product.price}</p>
+                  </div>
+                </Link>
+              ))
+            ) : (
+              <div className="col-span-2 text-center  ">
+              <p className="inline font-bold text-slate-600 m-auto">Product Not Matched</p>
+            </div>
+            
+            )}
           </div>
         </div>
       )}
-
     </div>
   );
 };

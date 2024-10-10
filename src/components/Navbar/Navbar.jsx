@@ -1,21 +1,16 @@
-import {  useState } from "react";
+import { useState } from "react";
 import logo_1 from "../../assets/images/logo_1.png";
 import { Link } from "react-router-dom";
 
-
 import UserAuth from "../../Hooks/useAuth";
 import { FaCartShopping } from "react-icons/fa6";
-
 import { IoGitCompareOutline } from "react-icons/io5";
 import { FaHeart } from "react-icons/fa";
-
-
 import { MdAccountCircle } from "react-icons/md";
 import MobileNavBar from "../Navbar/MobileNavBar";
 import AddCart from "../AddToCart/AddCart";
 import useCart from "../../Hooks/useCart";
 import useCompare from "../../Hooks/useCompare";
-
 import SearchBar from "./SearchBar";
 
 const Navbar = () => {
@@ -25,32 +20,20 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [cartOpen, setCartOpen] = useState(false);
 
-
   const handleAddToCart = () => {
     setCartOpen(true);
   };
-
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
 
-
-
-
-
-
-
-
-
   return (
-    <div className="navbar bg-base-100  sticky top-0 z-40 md:px-10">
+    <div className="navbar bg-base-100 sticky top-0 z-40 md:px-10">
       <div className="navbar-start">
+        {/* Mobile menu button */}
         <div className="lg:hidden">
-          <button
-            onClick={toggleMenu}
-            className="btn btn-ghost"
-          >
+          <button onClick={toggleMenu} className="btn btn-ghost">
             {!isOpen ? (
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -92,120 +75,114 @@ const Navbar = () => {
       </div>
 
       <div
-        className={`fixed inset-y-0 right-0 z-50 overflow-y-scroll  w-64 transform bg-base-100 shadow-md p-4 transition-transform duration-300 ease-in-out ${isOpen ? "translate-x-0" : "translate-x-full"
+        className={`fixed inset-y-0 right-0 z-50 overflow-y-scroll w-64 transform bg-base-100 shadow-md p-4 transition-transform duration-300 ease-in-out ${isOpen ? "translate-x-0" : "translate-x-full"
           }`}
       >
         <MobileNavBar></MobileNavBar>
       </div>
 
+      {/* Center the SearchBar */}
+      <div className="hidden lg:flex flex-1 justify-center">
+        <SearchBar />
+      </div>
 
-            <SearchBar/>
-   
-
-      <div className="  lg:hidden ">
+      <div className="lg:hidden ">
         <Link to={"/"}>
-          <img src={logo_1} alt="" />{" "}
+          <img src={logo_1} alt="" />
         </Link>
       </div>
 
       <div className="navbar-end gap-5">
-        {/* menu icon  */}
-
         <div className="hidden lg:flex space-x-3">
           <div
             onClick={handleAddToCart}
-            className="relative bg-orange-200/50 hover:bg-orange-300/50 cursor-pointer  rounded-full p-2">
-            <FaCartShopping className="text-lg text-orange-600 " />
-            <span className="absolute -right-2 -ml-1 -top-2 rounded-[100%]  bg-orange-500 px-1 py-[1px] text-[10px] text-white">
-              {theUserCarts.length}+
-            </span>
+            className="relative bg-orange-200/50 hover:bg-orange-300/50 cursor-pointer rounded-full p-2"
+          >
+            <FaCartShopping className="text-lg text-orange-600" />
+
+            {
+              theUserCarts.length > 0 && (
+                <span className="absolute -right-2 -ml-1 -top-2 rounded-full bg-orange-500 px-1 py-[1px] text-[10px] text-white">
+                  {theUserCarts.length + '+'}
+                </span>
+              )
+            }
+
           </div>
-          <Link to={'/comparePage'} className="relative bg-orange-200/50 hover:bg-orange-300/50 cursor-pointer  rounded-full p-2">
-            <IoGitCompareOutline className="text-lg text-orange-600 " />
-            <span className="absolute -right-2 -ml-1 -top-2 rounded-[100%]  bg-orange-500 px-1 py-[1px] text-[10px] text-white">
-              {theUserCompares.length}+
-            </span>
+          <Link to={'/comparePage'} className="relative bg-orange-200/50 hover:bg-orange-300/50 cursor-pointer rounded-full p-2">
+            <IoGitCompareOutline className="text-lg text-orange-600" />
+           
+            {
+                theUserCompares.length > 0 && (
+                  <span className="absolute -right-2 -ml-1 -top-2 rounded-full bg-orange-500 px-1 py-[1px] text-[10px] text-white">
+                     { theUserCompares.length + '+' }
+                  </span>
+                
+                )
+              }
           </Link>
-          <Link to={'/wishlist'} className="relative bg-orange-200/50 hover:bg-orange-300/50 cursor-pointer  rounded-full p-2">
-            <FaHeart className="text-lg text-orange-600 " />
-            <span className="absolute -right-2 -ml-1 -top-2 rounded-[100%]  bg-orange-500 px-1 py-[1px] text-[10px] text-white">
+          <Link to={'/wishlist'} className="relative bg-orange-200/50 hover:bg-orange-300/50 cursor-pointer rounded-full p-2">
+            <FaHeart className="text-lg text-orange-600" />
+            <span className="absolute -right-2 -ml-1 -top-2 rounded-full bg-orange-500 px-1 py-[1px] text-[10px] text-white">
               9+
             </span>
           </Link>
         </div>
+
         {cartOpen && <AddCart setCartOpen={setCartOpen} />}
 
-        <div className="dropdown dropdown-end z-[99]">
-          <div tabIndex={0} role="button" className="  ">
-            <div className="p-1 rounded-full  ">
-              {user ? (
-                <div className="relative inline-block">
-                  <img
-                    title={user?.displayName}
-                    src={user?.photoURL}
-                    className="w-10 h-10 rounded-full border-2 border-blue-600 p-0.5"
-                  />
-                  <span className="h-3 w-3 rounded-full border border-white bg-green-500 block absolute top-1 right-0"></span>
-                </div>
-              ) : (
-                <>
-                  {loading ? (
-                    <div className="relative inline-block">
-                      <img
-                        src={user?.photoURL}
-                        className="w-10 h-10 rounded-full border-2 border-blue-600 p-0.5"
-                      />
-                      <span className="h-3 w-3 rounded-full border border-white bg-green-500 block absolute top-1 right-0"></span>
+        <div className="dropdown dropdown-end">
+          <div tabIndex={0} role="button" className="p-1 rounded-full">
+            {user ? (
+              <div className="relative inline-block">
+                <img
+                  title={user?.displayName}
+                  src={user?.photoURL}
+                  className="w-10 h-10 rounded-full border-2 border-blue-600 p-0.5"
+                />
+                <span className="h-3 w-3 rounded-full border border-white bg-green-500 block absolute top-1 right-0"></span>
+              </div>
+            ) : (
+              <>
+                {loading ? (
+                  <div className="relative inline-block">
+                    <img
+                      src={user?.photoURL}
+                      className="w-10 h-10 rounded-full border-2 border-blue-600 p-0.5"
+                    />
+                    <span className="h-3 w-3 rounded-full border border-white bg-green-500 block absolute top-1 right-0"></span>
+                  </div>
+                ) : (
+                  <Link to={"/register"}>
+                    <div className="relative bg-orange-200/50 hover:bg-orange-300/50 cursor-pointer rounded-full p-2">
+                      <MdAccountCircle className="text-lg text-orange-600" />
+                      <span className="absolute -right-2 -top-3 rounded-full bg-orange-500 pt-[1px] pb-[4px] pl-1 pr-1 py-[1px] text-[10px] text-white">
+                        Account
+                      </span>
                     </div>
-                  ) : (
-                    <Link to={"/register"}>
-                      {" "}
-                      <div className="relative bg-orange-200/50 hover:bg-orange-300/50 cursor-pointer  rounded-full p-2">
-                        <MdAccountCircle className="text-lg text-orange-600 " />
-                        <span
-                          className="absolute -right-2 -top-3 rounded-full bg-orange-500  pt-[1px] pb-[4px] pl-1 pr-1  py-[1px] text-[10px]
-            text-white"
-                        >
-                          Account
-                        </span>
-                      </div>
-                    </Link>
-                  )}
-                </>
-              )}
-            </div>
+                  </Link>
+                )}
+              </>
+            )}
           </div>
-          {user ? (
+          {user && (
             <ul
               tabIndex={0}
-              className="menu menu-sm  font-semibold - right-0  dropdown-content bg-white overflow-hidden rounded-box   w-48 shadow-md"
+              className="menu menu-sm font-semibold right-0 dropdown-content bg-white overflow-hidden rounded-box w-48 shadow-md"
             >
-              <Link
-                to={"/dashboard"}
-                className="hover:bg-orange-50 p-2   rounded-md hover:text-orange-500"
-              >
+              <Link to={"/dashboard"} className="hover:bg-orange-50 p-2 rounded-md hover:text-orange-500">
                 <li>DashBoard</li>
               </Link>
-
               <Link className="hover:bg-orange-50 p-2 rounded-md hover:text-orange-500">
                 <li>Profile</li>
               </Link>
-              <Link className="hover:bg-orange-50 p-2  rounded-md hover:text-orange-500">
+              <Link className="hover:bg-orange-50 p-2 rounded-md hover:text-orange-500">
                 <li>Setting</li>
               </Link>
-
-              <Link
-                to={"/register"}
-                className="hover:bg-orange-50 p-2  rounded-md hover:text-orange-500"
-              >
-                {" "}
-                <button onClick={logOut}>
-                  <a> Logout</a>
-                </button>
+              <Link to={"/register"} className="hover:bg-orange-50 p-2 rounded-md hover:text-orange-500">
+                <button onClick={logOut}>Logout</button>
               </Link>
             </ul>
-          ) : (
-            ""
           )}
         </div>
       </div>

@@ -48,14 +48,14 @@ const CardOfCart = ({ cart }) => {
                         {product?.title.slice(0, 25)}...
                     </h4>
                     <button
-                        onClick={() => handleDeleteCart(cart._id)}
+                        onClick={() => handleDeleteCart(cart?._id)}
                         className='p-0 m-0'>
                         <IoMdCloseCircle className="text-xl text-red-500 hover:text-red-600"></IoMdCloseCircle>
                     </button>
                 </div>
                 <p className="text-orange-500">£{product?.price}</p>
                 <div className='mt-2'>
-                    <Link to={`/productDetails/${product._id}`} className='bg-gray-200 px-4 rounded-sm hover:bg-gray-300 transition-all'>
+                    <Link to={`/productDetails/${product?._id}`} className='bg-gray-200 px-4 rounded-sm hover:bg-gray-300 transition-all'>
                         View Details
                     </Link>
                 </div>
