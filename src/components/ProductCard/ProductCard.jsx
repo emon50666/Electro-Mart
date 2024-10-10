@@ -42,7 +42,7 @@ const ProductCard = ({ product, refetch }) => {
   }
   return (
     <div
-      className="pt-10 mb-10 pb-10  bg-[#F6F6F6]">
+      className="   pt-4 pb-3  bg-[#F6F6F6]">
     
      <div className="relative p-3 hover:shadow-lg rounded-md bg-white group">
      <Link to={`/productDetails/${product._id}`}>
@@ -81,7 +81,7 @@ const ProductCard = ({ product, refetch }) => {
             -{product?.discountPercentage}%
           </small>
         </div>}
-        <div className="mt-3 capitalize   absolute bottom-[310px]  md:bottom-[333px] lg:bottom-[310px] inset-x-0  px-2">
+        <div className="mt-3 capitalize   absolute bottom-[310px]  md:bottom-[320px] lg:bottom-[310px] inset-x-0  px-2">
           {product?.isNew === "yes" && <small className="bg-teal-500 px-2   pb-[2px] text-sm  rounded-full font-bold text-white">
             New
           </small>

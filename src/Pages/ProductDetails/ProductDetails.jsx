@@ -24,6 +24,7 @@ const ProductDetails = () => {
             <ProductReview />
             <RelativeProducts category={product?.category} />
             <br /><br /><br /><br /><br />
+            <RelativeProducts/>
         </div>
     );
 };

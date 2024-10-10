@@ -2,6 +2,7 @@ import { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
 import useProduct from "../../Hooks/useProduct";
 
+
 const SearchBar = () => {
   const { products } = useProduct();
   const [search, setSearch] = useState('');
@@ -43,6 +44,7 @@ const SearchBar = () => {
         </button>
       </form>
 
+
       {/* Conditionally Render Search Results */}
       {search && showResults && (
         <div 
@@ -77,6 +79,7 @@ const SearchBar = () => {
                   </div>
                 </Link>
               ))}
+
           </div>
         </div>
       )}
