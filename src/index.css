@@ -24,7 +24,19 @@
     color: #767695;
 }
 
-#magnify{
+#magnify {
     width: 800px;
     height: 800px;
+}
+
+#search_id::-webkit-scrollbar {
+    display: none;
+}
+
+#search_id {
+    scrollbar-width: none;
+}
+
+#search_id {
+    -ms-overflow-style: none;
 }

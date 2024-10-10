@@ -3,13 +3,14 @@ import ProductReview from "../../components/ProductReview/ProductReview";
 import MainProductDetails from "./Shared/topLayer/MainProductDetails";
 import TopLayerOfDetails from "./Shared/topLayer/TopLayerOfDetails";
 import { Helmet } from "react-helmet";
+import RelativeProducts from "../../components/ProductCard/RelativeProducts";
 
 
 const ProductDetails = () => {
     const products = useLoaderData();
     const { id } = useParams();
-    const productDetails = products.find((pack) => pack._id == id);
-    // console.log(productDetails);
+    const product = products.find((pack) => pack._id == id);
+    console.log(product);
 
     return (
         <div className="space-y-9">
@@ -17,10 +18,11 @@ const ProductDetails = () => {
                 <title>Details | Elector Mart</title>
             </Helmet>
             {/* top layer of details */}
-            <TopLayerOfDetails title={productDetails.title} />
+            <TopLayerOfDetails title={product.title} />
             {/* main details section */}
-            <MainProductDetails product={productDetails} />
+            <MainProductDetails product={product} />
             <ProductReview />
+            <RelativeProducts category={product?.category} />
             <br /><br /><br /><br /><br />
         </div>
     );
