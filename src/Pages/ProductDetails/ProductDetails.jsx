@@ -1,5 +1,4 @@
 import { useLoaderData, useParams } from "react-router-dom";
-import ProductReview from "../../components/ProductReview/ProductReview";
 import MainProductDetails from "./Shared/topLayer/MainProductDetails";
 import TopLayerOfDetails from "./Shared/topLayer/TopLayerOfDetails";
 import { Helmet } from "react-helmet";
@@ -18,13 +17,14 @@ const ProductDetails = () => {
                 <title>Details | Elector Mart</title>
             </Helmet>
             {/* top layer of details */}
-            <TopLayerOfDetails title={product.title} id={product?._id} />
+            <div className="mt-20">
+                <TopLayerOfDetails title={product.title} id={product?._id} />
+            </div>
             {/* main details section */}
             <MainProductDetails product={product} />
-            <ProductReview />
             <RelativeProducts category={product?.category} productId={product?._id} />
             <br /><br /><br /><br /><br />
-            <RelativeProducts />
+            {/* <RelativeProducts /> */}
         </div>
     );
 };

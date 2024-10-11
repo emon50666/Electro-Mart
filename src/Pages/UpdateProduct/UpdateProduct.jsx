@@ -162,8 +162,8 @@ const UpdateProduct = () => {
 
     return (
         <div className="bg-gray-50 pt-12 pb-4 sm:px-6">
-            <div className='flex justify-between items-center bg-white mt-10 mb-4 lg:my-5 px-7 py-3'>
-                <h3 className='text-lg font-semibold'>Change as you need</h3>
+            <div className='flex justify-between items-center bg-slate-200 mt-10 mb-4 lg:my-5 px-7 py-3'>
+                <h3 className='text-lg font-semibold'>Go to Manage Product</h3>
                 <Link
                     to={`/dashboard/manageProduct`}
                     className='btn bg-slate-500 text-white lg:text-xl'
