@@ -15,7 +15,7 @@ const Wishlist = () => {
   console.log(products)
 
 
-  const [format, setFormat] = useState("table");
+  const [format, setFormat] = useState("card");
   
 
   const handleFormat = (formatStyle) => {

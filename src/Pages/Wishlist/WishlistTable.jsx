@@ -1,12 +1,21 @@
 import { FaShoppingCart } from "react-icons/fa";
 import useProduct from "../../Hooks/useProduct";
 import { DiGitCompare } from "react-icons/di";
-import { TbDetails } from "react-icons/tb";
+import { BsEye } from "react-icons/bs";
 import PropType from "prop-types";
+import { Link } from "react-router-dom";
+import { useState } from "react";
+import useAddToCart from "../../Hooks/useAddToCart";
 
 const WishlistTable = ({wishProduct}) => {
     console.log(wishProduct)
     const { products } = useProduct();
+    const [, setCartOpen] = useState(false);
+    const handleAddCart = useAddToCart();
+    const handleAddToCart = () => {
+        handleAddCart(product)
+        setCartOpen(true);
+      };
     const product = products.find((pack) => pack?._id == wishProduct?.mainProductId);
     console.log(product)
     return (       
@@ -31,16 +40,18 @@ const WishlistTable = ({wishProduct}) => {
             £{product?.discountPrice}
           </td>
           <td className="h-12 px-6 lg:text-[18px] md:text-[18px] text-[12px]  text-center transition duration-300 border-t border-l first:border-l-0 border-slate-200">
-            {product?.quant}
+           {
+            product?.quantity <= 0 ? "Stock Out" : <>{ product?.quantity }</>
+           }
           </td>
           <td className="h-12 px-6">
-            <button className="border-2 text-orange-500 text-2xl px-4 py-2 text-center transition-all duration-300 ease-in-out transform hover:scale-105">
-            <TbDetails />
+            <Link to={`/productDetails/${product?._id}`}><button className="border-2 text-orange-500 text-2xl px-4 py-2 text-center transition-all duration-300 ease-in-out transform hover:scale-105">
+            <BsEye />
 
-            </button>
+            </button></Link>
           </td>
           <td className="h-12 px-6">
-            <button className="border-2 text-orange-500 text-2xl px-4 py-2 text-center transition-all duration-300 ease-in-out transform hover:scale-105">
+            <button onClick={handleAddToCart} className="border-2 text-orange-500 text-2xl px-4 py-2 text-center transition-all duration-300 ease-in-out transform hover:scale-105">
             <FaShoppingCart />
             </button>
           </td>
