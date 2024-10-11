@@ -19,7 +19,7 @@ const ComparePage = () => {
                 </div>
             )}
 
-            <div className="flex justify-center items-center min-h-[50vh]">
+            <div className="flex justify-center items-center mt-10  min-h-[50vh]">
                 {theUserCompares.length > 0 ? (
                     // If there are products to compare, show the comparison table
                     <ComparisonTable compares={theUserCompares} />
