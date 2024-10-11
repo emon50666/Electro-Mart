@@ -36,9 +36,10 @@ const UpdateProductForm = () => {
             toast("Empty Input");
             return;
         }
+        const lowerCat = data.category.toLowerCase();
 
         const updateFormInfo = {
-            newCategory: data.category,
+            newCategory: lowerCat,
             newDiscount: data.discount
         }
 
@@ -98,8 +99,8 @@ const UpdateProductForm = () => {
                     transition-opacity duration-300 ${isModalOpen ? 'opacity-100' : 'opacity-0'}`}
                 >
                     <div
-                        className={`bg-white p-5 rounded-md w-full max-w-2xl mx-4 
-                        transform transition-transform duration-300 ${isModalOpen ? 'scale-100' : 'scale-90'}`}
+                        className={`lg:mt-16 lg:ml-40 bg-white p-5 rounded-md w-full max-w-2xl mx-4 
+                        transform transition-transform duration-300 ${isModalOpen ? 'scale-100' : 'scale-90'} max-h-[80vh] overflow-y-auto`}
                     >
                         <h2 className='text-xl font-semibold mb-4'>Add New Category & Discount</h2>
 
@@ -111,7 +112,7 @@ const UpdateProductForm = () => {
                                     <h3 className='font-bold mb-3'>Category List</h3>
                                     {categories.length > 0 && <h3 className='font-bold mb-3'>Remove</h3>}
                                 </div>
-                                <div id="categoryListId" className="max-h-[60vh] overflow-y-auto">
+                                <div id="categoryListId" className="max-h-[30vh] lg:max-h-[60vh] overflow-y-auto">
                                     {categories.length > 0 ? (
                                         <ul className='space-y-2'>
                                             {categories.map((item, index) => (

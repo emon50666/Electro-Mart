@@ -17,13 +17,14 @@ const ProductDetails = () => {
                 <title>Details | Elector Mart</title>
             </Helmet>
             {/* top layer of details */}
-            <TopLayerOfDetails title={product.title} id={product?._id}/>
+            <div className="mt-20">
+                <TopLayerOfDetails title={product.title} id={product?._id} />
+            </div>
             {/* main details section */}
             <MainProductDetails product={product} />
-            
             <RelativeProducts category={product?.category} productId={product?._id} />
             <br /><br /><br /><br /><br />
-            <RelativeProducts/>
+            {/* <RelativeProducts /> */}
         </div>
     );
 };
