@@ -17,11 +17,13 @@ import useCart from "../../Hooks/useCart";
 import useCompare from "../../Hooks/useCompare";
 
 import SearchBar from "./SearchBar";
+import useWishlist from "../../Hooks/useWishlist";
 
 const Navbar = () => {
   const { user, logOut, loading } = UserAuth();
   const { theUserCarts } = useCart();
   const { theUserCompares } = useCompare();
+  const { theUserWishlist } = useWishlist()
   const [isOpen, setIsOpen] = useState(false);
   const [cartOpen, setCartOpen] = useState(false);
 
@@ -129,7 +131,7 @@ const Navbar = () => {
           <Link to={'/wishlist'} className="relative bg-orange-200/50 hover:bg-orange-300/50 cursor-pointer  rounded-full p-2">
             <FaHeart className="text-lg text-orange-600 " />
             <span className="absolute -right-2 -ml-1 -top-2 rounded-[100%]  bg-orange-500 px-1 py-[1px] text-[10px] text-white">
-              9+
+              {theUserWishlist.length}+
             </span>
           </Link>
         </div>

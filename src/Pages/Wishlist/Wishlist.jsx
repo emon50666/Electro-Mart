@@ -6,6 +6,7 @@ import { MdTableRows } from "react-icons/md";
 import useProduct from "../../Hooks/useProduct";
 import WishlistTable from "./WishlistTable";
 import useWishlist from "../../Hooks/useWishlist";
+import WishlistCart from "./WishlistCart";
 
 const Wishlist = () => {
   const { products } = useProduct();
@@ -91,25 +92,31 @@ const Wishlist = () => {
                   scope="col"
                   className="h-12 px-6 lg:text-[18px] md:text-[18px] text-[12px] font-semibold  border-l first:border-l-0 text-slate-700 bg-slate-100"
                 >
-                  Discount Price
+                  Discount 
                 </th>
                 <th
                   scope="col"
                   className="h-12 px-6 lg:text-[18px] md:text-[18px] text-[12px] font-semibold  border-l first:border-l-0 text-slate-700 bg-slate-100"
                 >
-                  Available Items
+                  Quantity
                 </th>
                 <th
                   scope="col"
                   className="h-12 px-6 lg:text-[18px] md:text-[18px] text-[12px] font-semibold  border-l first:border-l-0 text-slate-700 bg-slate-100"
                 >
-                  Add Cart
+                 Details
                 </th>
                 <th
                   scope="col"
                   className="h-12 px-6 lg:text-[18px] md:text-[18px] text-[12px] font-semibold  border-l first:border-l-0 text-slate-700 bg-slate-100"
                 >
-                  Add Compare
+                   Cart
+                </th>
+                <th
+                  scope="col"
+                  className="h-12 px-6 lg:text-[18px] md:text-[18px] text-[12px] font-semibold  border-l first:border-l-0 text-slate-700 bg-slate-100"
+                >
+                   Compare
                 </th>
               </tr>
             </thead>
@@ -122,46 +129,7 @@ const Wishlist = () => {
 
       {format === "card" && (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 lg:gap-4 md:gap-10 px-5">
-          {products.map((product, index) => (
-            <div
-              key={index}
-              className="card bg-base-100 w-full sm:w-80 lg:w-96 relative group border-2 overflow-hidden"
-            >
-              <figure className="px-4 sm:px-6 md:px-10 pt-10">
-                <img
-                  src={product.images[0]}
-                  alt={product.title}
-                  className="h-48 sm:h-64 md:h-72 md:w-64  lg:w-full w-52 sm:w-64 transition-transform duration-500 group-hover:scale-105"
-                />
-              </figure>
-              <div className="card-body items-center text-center">
-                <h2 className="card-title text-xs sm:text-sm lg:text-lg">
-                  {product.title}
-                </h2>
-                <p className="text-orange-500 text-xs sm:text-sm lg:text-base">
-                  £{product.price}
-                </p>
-              </div>
-
-              {/* Description (hidden by default, shown on hover) */}
-              <p className="-mt-7 px-4 sm:px-6 md:px-10 text-xs sm:text-sm lg:text-base text-center opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                {product.description}
-              </p>
-
-              {/* Buttons (hidden by default, shown on hover, positioned after description) */}
-              <div className="flex items-center justify-between text-sm sm:text-xl mb-2  px-4 sm:px-6 md:px-10 mt-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                <button className="text-2xl text-orange-500">
-                  <FaShoppingCart />
-                </button>
-                <button className="bg-orange-500 text-xs sm:text-sm lg:text-base px-3 sm:px-5 py-1 sm:py-2 text-white">
-                  Buy Now
-                </button>
-                <button className="text-2xl text-orange-500">
-                  <DiGitCompare />
-                </button>
-              </div>
-            </div>
-          ))}
+           {theUserWishlist.map((wishProduct, index) => <WishlistCart key={index} wishProduct={wishProduct} />           )}
         </div>
       )}
     </div>
