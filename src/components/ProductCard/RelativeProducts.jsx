@@ -1,23 +1,17 @@
 import HoverImage from "react-hover-image"; // Correct import
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination, Navigation } from 'swiper/modules';
-import { FaShoppingCart, FaHeart } from "react-icons/fa";
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import useProduct from "../../Hooks/useProduct";
-import { useState } from "react";
 import PropType from "prop-types"
-import { GoGitCompare } from "react-icons/go";
-import useAddToCompare from "../../Hooks/useAddToCompare";
-import useAddToCart from "../../Hooks/useAddToCart";
+
 import { Link } from "react-router-dom";
 
 const RelativeProducts = ({ category, productId }) => {
   const { products } = useProduct();
-  const handleAddCompare = useAddToCompare()
-  const handleAddCart = useAddToCart()
-  const [hoveredIndex, setHoveredIndex] = useState(null);
+ 
 
   // Function to render rating stars dynamically
   const renderRating = (rating) => {
@@ -31,14 +25,7 @@ const RelativeProducts = ({ category, productId }) => {
     }
     return stars;
   };
-  const handleAddToCart = (product) => {
-    handleAddCart(product)
-  }
-
-  const handleAddToCompare = (product) => {
-    handleAddCompare(product)
-  }
-
+ 
   return (
     <div className="relative-products-container px-4">
       <Swiper
@@ -61,7 +48,7 @@ const RelativeProducts = ({ category, productId }) => {
             spaceBetween: 40,
           },
         }}
-        centeredSlides={true}
+        centeredSlides={false}
         pagination={{
           type: 'fraction',
         }}
@@ -75,9 +62,8 @@ const RelativeProducts = ({ category, productId }) => {
               <SwiperSlide className="h-full">
                 {/* Added a fixed height to the slide container */}
                 <div
-                  className="relative my-10 w-full sm:w-64 lg:w-72 group border-2 border-slate-300 py-5 rounded-md h-[400px]" // Set a fixed height for uniformity
-                  onMouseEnter={() => setHoveredIndex(index)}
-                  onMouseLeave={() => setHoveredIndex(null)}
+                  className="relative my-10 w-full sm:w-64 lg:w-72 group border-2 border-slate-300 py-5 rounded-md " // Set a fixed height for uniformity
+                  
                 >
                   <div className="relative h-[200px]"> {/* Fixed height for the image container */}
                     {product.images.length > 1 ? (
@@ -85,33 +71,21 @@ const RelativeProducts = ({ category, productId }) => {
                         src={product.images[0]}
                         hoverSrc={product.images[1]}
                         alt="Product Image"
-                        className="w-full h-full object-contain transition-transform duration-500 ease-in-out transform group-hover:scale-95"
+                        className="w-full h-[200px]  object-contain transition-transform duration-500 ease-in-out transform group-hover:scale-95"
                       /></Link>
                     ) : (
                       <Link to={`/productDetails/${product?._id}`}> <img
                         src={product.images[0]}
                         alt="Product Image"
-                        className="w-full h-full object-contain transition-transform duration-500 ease-in-out transform group-hover:scale-95"
+                        className="w-full h-[200px] object-contain transition-transform duration-500 ease-in-out transform group-hover:scale-95"
                       />
                       </Link>
                     )}
                   </div>
 
-                  {/* Icons container moved under the image */}
-                  <div className={`flex justify-center gap-2 mt-4 transition-opacity duration-300 ${hoveredIndex === index ? "opacity-100" : "opacity-0"}`}>
-                    <button onClick={() => handleAddToCart(product)} className="bg-white text-orange-500 p-2 rounded-full shadow-lg hover:bg-gray-100 transition-colors">
-                      <FaShoppingCart />
-                    </button>
-                    <button onClick={() => handleAddToCompare(product)} className="bg-white text-orange-500 p-2 rounded-full shadow-lg hover:bg-gray-100 transition-colors">
-                      <GoGitCompare />
-                    </button>
-                    <button className="bg-white text-orange-500 p-2 rounded-full shadow-lg hover:bg-gray-100 transition-colors">
-                      <FaHeart />
-                    </button>
-                  </div>
-
+                 
                   {/* Product Details */}
-                  <h1 className="mt-3 text-lg text-center font-medium">{product.title}</h1>
+                  <h1 className="mt-3 text-lg text-center font-medium">{product.title.slice(0,22) }...</h1>
 
                   {/* Rating */}
                   <div className="rating mt-2 flex justify-center">

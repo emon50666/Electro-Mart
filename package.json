@@ -13,6 +13,7 @@
     "@chakra-ui/react": "^2.8.2",
     "@emotion/react": "^11.13.3",
     "@emotion/styled": "^11.13.0",
+    "@phntms/react-share": "^1.0.2-rc1",
     "@ramonak/react-progress-bar": "^5.3.0",
     "@smastrom/react-rating": "^1.5.0",
     "@tanstack/react-query": "^5.53.1",
