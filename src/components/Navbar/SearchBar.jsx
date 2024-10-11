@@ -26,7 +26,11 @@ const SearchBar = () => {
   const filteredProducts = products.filter((product) => {
     const searchTerm = search.toLocaleLowerCase();
     return (
+
+      product.title.toLocaleLowerCase().includes(searchTerm) || 
+
       product.title.toLocaleLowerCase().includes(searchTerm) ||
+
       product.brand.toLocaleLowerCase().includes(searchTerm) ||
       product.category.toLocaleLowerCase().includes(searchTerm)
     );
@@ -83,8 +87,14 @@ const SearchBar = () => {
               ))
             ) : (
               <div className="col-span-2 text-center  ">
+
+              <p className="inline font-bold text-slate-600 m-auto">Product Not Matched</p>
+            </div>
+            
+
                 <p className="inline font-bold text-slate-600 m-auto">Product Not Matched</p>
               </div>
+
 
             )}
           </div>

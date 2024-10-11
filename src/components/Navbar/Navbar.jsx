@@ -99,15 +99,27 @@ const Navbar = () => {
             className="relative bg-orange-200/50 hover:bg-orange-300/50 cursor-pointer rounded-full p-2"
           >
             <FaCartShopping className="text-lg text-orange-600" />
-            <span className="absolute -right-2 -ml-1 -top-2 rounded-full bg-orange-500 px-1 py-[1px] text-[10px] text-white">
-              {theUserCarts.length}+
-            </span>
+
+            {
+              theUserCarts.length > 0 && (
+                <span className="absolute -right-2 -ml-1 -top-2 rounded-full bg-orange-500 px-1 py-[1px] text-[10px] text-white">
+                  {theUserCarts.length + '+'}
+                </span>
+              )
+            }
+
           </div>
           <Link to={'/comparePage'} className="relative bg-orange-200/50 hover:bg-orange-300/50 cursor-pointer rounded-full p-2">
             <IoGitCompareOutline className="text-lg text-orange-600" />
-            <span className="absolute -right-2 -ml-1 -top-2 rounded-full bg-orange-500 px-1 py-[1px] text-[10px] text-white">
-              {theUserCompares.length}+
-            </span>
+           
+            {
+                theUserCompares.length > 0 && (
+                  <span className="absolute -right-2 -ml-1 -top-2 rounded-full bg-orange-500 px-1 py-[1px] text-[10px] text-white">
+                     { theUserCompares.length + '+' }
+                  </span>
+                
+                )
+              }
           </Link>
           <Link to={'/wishlist'} className="relative bg-orange-200/50 hover:bg-orange-300/50 cursor-pointer rounded-full p-2">
             <FaHeart className="text-lg text-orange-600" />

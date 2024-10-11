@@ -1,5 +1,8 @@
 import { useState } from "react";
-import AdminMenu from "./AdminMenu/AdminMenu";
+import AdminMenu from "./SideBarMenu/AdminMenu";
+import MemberMenu from "./SideBarMenu/MemberMenu";
+
+
 
 
 
@@ -44,18 +47,19 @@ const SideBar = () => {
       <aside
         id="nav-menu-1"
         aria-label="Side navigation"
-        className={`fixed top-0 bottom-0 left-0 z-40 flex w-64 flex-col border-r border-r-slate-200 bg-white transition-transform lg:translate-x-0 ${isSideNavOpen ? "translate-x-0" : " -translate-x-full"
+        className={`fixed top-0 bottom-0 bg-[#1E293B]  min-h-screen left-0 z-40 flex w-64 flex-col border-r border-r-slate-200 transition-transform lg:translate-x-0 ${isSideNavOpen ? "translate-x-0" : " -translate-x-full"
           }`}
       >
 
 
         <nav
           aria-label="side navigation"
-          className="flex-1 divide-y divide-slate-100 overflow-auto"
+          className="flex-1  divide-y divide-slate-100 overflow-auto"
         >
 
           {/* admin menu */}
-          <AdminMenu />
+          <AdminMenu/>
+          <MemberMenu/>
 
         </nav>
 

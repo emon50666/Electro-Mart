@@ -1,8 +1,6 @@
 import { useState } from "react";
-
 import UserAuth from '../../../Hooks/useAuth';
 import toast from "react-hot-toast";
-import { ImSpinner3 } from "react-icons/im";
 import { useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { sendPasswordResetEmail } from "firebase/auth";
@@ -19,7 +17,7 @@ const Register = () => {
   const navigate = useNavigate()
 
 
-  const { createUser, signIn, setUser, updateUserProfile, loading, setLoading,error,setError ,showPassword,
+  const { createUser, signIn, setUser, updateUserProfile, setLoading,error,setError ,showPassword,
     setShowPassword} = UserAuth()
 
   // register form 
@@ -294,11 +292,8 @@ const Register = () => {
 
 
               <div className="mt-6">
-                <button className="w-full px-6 py-3 tracking-wide text-white capitalize transition-colors duration-300 transform  bg-orange-500 rounded-md font-bold text-base focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-50" disabled={loading}>
-                  {
-                    loading ? <ImSpinner3 className="items-center text-center text-lg animate-spin  m-auto justify-center"></ImSpinner3>  : 'Register'
-                  }
-
+                <button className="w-full px-6 py-3 tracking-wide text-white capitalize transition-colors duration-300 transform  bg-orange-500 rounded-md font-bold text-base focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-50">
+                  Register
                 </button>
               </div>
             </form>
@@ -362,8 +357,8 @@ const Register = () => {
         </p>
 
         <div className="mt-6">
-          <button className="w-full px-6 py-3 tracking-wide text-white capitalize transition-colors duration-300 transform bg-orange-500 rounded-md font-bold text-base focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-50" disabled={loading}>
-            {loading ? <ImSpinner3 className="items-center text-center text-lg animate-spin m-auto justify-center"></ImSpinner3> : 'Login'}
+          <button className="w-full px-6 py-3 tracking-wide text-white capitalize transition-colors duration-300 transform bg-orange-500 rounded-md font-bold text-base focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-50" >
+            Login
           </button>
         </div>
       </form>
