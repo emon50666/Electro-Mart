@@ -20,7 +20,7 @@ const ProductDetails = () => {
             {/* top layer of details */}
             <TopLayerOfDetails title={productDetails.title} />
             {/* main details section */}
-            <MainProductDetails product={productDetails} />
+            <MainProductDetails product={productDetails}  />
             <ProductReview />
             <br /><br /><br /><br /><br />
             <RelativeProducts/>
