@@ -1,4 +1,4 @@
-import { useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import useProduct from "../../Hooks/useProduct";
 import { useForm } from "react-hook-form";
 import useAxiosPublic from "../../Hooks/useAxiosPublic";
@@ -6,6 +6,7 @@ import useCategories from "../../Hooks/useCategories";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import toast from "react-hot-toast";
+import { FaStepBackward } from "react-icons/fa";
 
 const UpdateProduct = () => {
     const { products } = useProduct();
@@ -70,12 +71,21 @@ const UpdateProduct = () => {
         setValue("discountPrice", discountPrice);
     }, [price, discountPercentage, setValue, calculateDiscountPrice]);
 
+    // Prevent default form submission when interacting with image inputs
+    const handleKeyDown = (e) => {
+        if (e.key === "Enter") {
+            e.preventDefault();
+        }
+    };
+
+    // Handle image upload preview
     const handleImageChange = (e) => {
         const files = Array.from(e.target.files);
         const imagesArray = files.map((file) => URL.createObjectURL(file));
         setGalleryImages((prevImages) => [...prevImages, ...imagesArray]);
     };
 
+    // Handle image removal
     const removeImage = (indexToRemove) => {
         const removedImage = galleryImages[indexToRemove];
         // Add removed image to the list of removed images
@@ -94,33 +104,36 @@ const UpdateProduct = () => {
     const onSubmit = async (data) => {
         try {
             const imgGallery = Array.from(data.gallery || []);
+            const uploadedImageUrls = [];
+
+            // Handle asynchronous image uploads
             const uploaded = imgGallery.map((file) => {
                 const formData = new FormData();
                 formData.append("file", file);
                 formData.append("upload_preset", "elector_mart_key");
                 formData.append("api_key", "211491792754595");
 
+                // Return a promise that resolves to the secure_url of the uploaded image
                 return axios.post('https://api.cloudinary.com/v1_1/duv5fiurz/image/upload', formData, {
                     headers: { "X-Requested-With": "XMLHttpRequest" }
                 }).then(res => {
-                    const imgUrl = res.data.secure_url;
-                    let specificImage = image.array;
-                    specificImage.push(imgUrl);
-                    setImage({ array: specificImage });
+                    return res.data.secure_url; // Return image URL
                 });
             });
 
-            await axios.all(uploaded);
+            // Await all uploads and store the resulting URLs in an array
+            const imageUrls = await axios.all(uploaded);
+            uploadedImageUrls.push(...imageUrls);
 
-            // Filter out removed images
-            const finalImages = image.array.filter(img => !removedImages.includes(img));
+            // Merge newly uploaded images with existing ones
+            const finalImages = [...image.array, ...uploadedImageUrls].filter(img => !removedImages.includes(img));
 
-            // Create product info object with the existing and uploaded images
+            // Create the product info object with all images
             const productInfo = {
                 title: data.title,
                 shortDescription: data.shortDescription,
                 fullDescription: data.fullDescription,
-                images: finalImages, // Include all images (existing, uploaded, excluding removed)
+                images: finalImages, // Include all images (existing + newly uploaded - removed)
                 quantity: parseInt(data.quantity),
                 brand: data.brand,
                 category: data.category,
@@ -132,6 +145,7 @@ const UpdateProduct = () => {
                 addDate: data.addDate,
             };
 
+            // Send the updated product information to the backend
             const response = await axiosPublic.put(`/products/${id}`, productInfo);
 
             if (response.data.modifiedCount > 0) {
@@ -148,9 +162,18 @@ const UpdateProduct = () => {
 
     return (
         <div className="bg-gray-50 pt-12 pb-4 sm:px-6">
+            <div className='flex justify-between items-center bg-white mt-10 mb-4 lg:my-5 px-7 py-3'>
+                <h3 className='text-lg font-semibold'>Change as you need</h3>
+                <Link
+                    to={`/dashboard/manageProduct`}
+                    className='btn bg-slate-500 text-white lg:text-xl'
+                >
+                    <FaStepBackward />
+                </Link>
+            </div>
             <div className="bg-white p-4 rounded-lg shadow-md w-full">
                 <h2 className="text-2xl mb-4 font-bold text-gray-800 text-center">Update Product</h2>
-                <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+                <form onSubmit={handleSubmit(onSubmit)} onKeyDown={handleKeyDown} className="space-y-6">
                     {/* Product Gallery Images */}
                     <div className='p-2 md:p-8 border-2 border-gray-400'>
                         <label htmlFor="productGallery" className="block text-sm font-medium text-gray-700">
@@ -174,6 +197,7 @@ const UpdateProduct = () => {
                                     <img src={image} alt={`Product ${index + 1}`} className="w-full h-full" />
                                     <button
                                         onClick={() => removeImage(index)}
+                                        type="button"  // Ensure this is not treated as a form submit button
                                         className="absolute top-1 right-1 focus:outline-none text-xs"
                                     >
                                         ✖
@@ -398,7 +422,7 @@ const UpdateProduct = () => {
                             type="submit"
                             className="px-6 py-2 text-white bg-teal-500 rounded-md hover:bg-teal-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500"
                         >
-                            Publish
+                            Update
                         </button>
                     </div>
                 </form>

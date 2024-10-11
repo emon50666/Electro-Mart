@@ -42,7 +42,7 @@ const SearchBar = () => {
       <form
         onChange={(e) => {
           setSearch(e.target.value.toLocaleLowerCase());
-          setShowResults(true); // Show results as the user types
+          setShowResults(true); 
         }}
         className="hidden lg:flex lg:-mr-16"
       >
