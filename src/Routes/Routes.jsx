@@ -45,11 +45,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/comparePage",
-        element: <ComparePage />
+        element: <PrivateRoute><ComparePage /></PrivateRoute>
       },
       {
         path: "/wishlist",
-        element: <Wishlist />
+        element: <PrivateRoute><Wishlist /></PrivateRoute>
       },
       {
         path: "/storesPage",
