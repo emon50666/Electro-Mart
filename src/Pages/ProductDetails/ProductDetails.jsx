@@ -22,7 +22,7 @@ const ProductDetails = () => {
             {/* main details section */}
             <MainProductDetails product={product} />
             <ProductReview />
-            <RelativeProducts category={product?.category} />
+            <RelativeProducts category={product?.category} productId={product?._id} />
             <br /><br /><br /><br /><br />
             <RelativeProducts/>
         </div>

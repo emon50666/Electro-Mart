@@ -6,12 +6,12 @@ const SearchBar = () => {
   const { products } = useProduct();
   const [search, setSearch] = useState('');
   const [showResults, setShowResults] = useState(true);
-  const searchRef = useRef(null); 
+  const searchRef = useRef(null);
 
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (searchRef.current && !searchRef.current.contains(event.target)) {
-        setShowResults(false); 
+        setShowResults(false);
       }
     };
 
@@ -26,7 +26,11 @@ const SearchBar = () => {
   const filteredProducts = products.filter((product) => {
     const searchTerm = search.toLocaleLowerCase();
     return (
+
       product.title.toLocaleLowerCase().includes(searchTerm) || 
+
+      product.title.toLocaleLowerCase().includes(searchTerm) ||
+
       product.brand.toLocaleLowerCase().includes(searchTerm) ||
       product.category.toLocaleLowerCase().includes(searchTerm)
     );
@@ -35,11 +39,11 @@ const SearchBar = () => {
   return (
     <div className="navbar bg-base-100 sticky top-0 z-40 md:px-10">
       {/* Search form */}
-      <form 
+      <form
         onChange={(e) => {
           setSearch(e.target.value.toLocaleLowerCase());
           setShowResults(true); // Show results as the user types
-        }} 
+        }}
         className="hidden lg:flex lg:-mr-16"
       >
         <input
@@ -55,7 +59,7 @@ const SearchBar = () => {
 
       {/* Conditionally Render Search Results */}
       {search && showResults && (
-        <div 
+        <div
           id="search_id"
           ref={searchRef} // Reference for clicking outside detection
           className="absolute top-14 left-1/2 transform mt-2 -translate-x-1/2 w-[600px] max-h-80 bg-gray-200 shadow-lg rounded-lg overflow-auto p-4 z-50"
@@ -83,9 +87,15 @@ const SearchBar = () => {
               ))
             ) : (
               <div className="col-span-2 text-center  ">
+
               <p className="inline font-bold text-slate-600 m-auto">Product Not Matched</p>
             </div>
             
+
+                <p className="inline font-bold text-slate-600 m-auto">Product Not Matched</p>
+              </div>
+
+
             )}
           </div>
         </div>

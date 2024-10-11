@@ -29,14 +29,18 @@
     height: 800px;
 }
 
-#search_id::-webkit-scrollbar {
+#search_id::-webkit-scrollbar,
+#categoryListId::-webkit-scrollbar {
     display: none;
 }
 
-#search_id {
+#search_id,
+#categoryListId {
     scrollbar-width: none;
 }
 
-#search_id {
+#search_id,
+#categoryListId {
     -ms-overflow-style: none;
 }
+
