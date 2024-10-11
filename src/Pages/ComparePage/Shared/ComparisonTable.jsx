@@ -2,7 +2,6 @@ import PropTypes from 'prop-types';
 import Rating from 'react-rating';
 import { RxCross1 } from "react-icons/rx";
 import { Link } from 'react-router-dom';
-import Swal from 'sweetalert2';
 import useAxiosPublic from '../../../Hooks/useAxiosPublic';
 import useCompare from '../../../Hooks/useCompare';
 import useAddToCart from '../../../Hooks/useAddToCart';
@@ -18,27 +17,16 @@ const ComparisonTable = ({ compares }) => {
     };
     console.log(user);
     const handleDeleteCompare = (id) => {
-        Swal.fire({
-            title: "Are you sure?",
-            text: "You won't be able to revert this!",
-            icon: "warning",
-            showCancelButton: true,
-            confirmButtonColor: "#3085d6",
-            cancelButtonColor: "#d33",
-            confirmButtonText: "Yes, delete it!",
-        }).then((result) => {
-            if (result.isConfirmed) {
-                axiosPublic.delete(`/compares/${id}`)
-                    .then((res) => {
-                        if (res.data.deletedCount) {
-                            refetch();
-                        }
-                    })
-                    .catch(err => {
-                        console.log(err);
-                    })
-            }
-        });
+
+        axiosPublic.delete(`/compares/${id}`)
+            .then((res) => {
+                if (res.data.deletedCount) {
+                    refetch();
+                }
+            })
+            .catch(err => {
+                console.log(err);
+            })
     }
 
     const handleAddToCart = (productId) => {
