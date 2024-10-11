@@ -58,7 +58,7 @@ const ManageProductTable = () => {
                                         className="h-16 w-16  object-cover"
                                     />
                                 </td>
-                                <td className="text-xs md:text-lg"><span className="w-36 md:w-52 text-sm xl:w-auto block">{product.title.slice(0-45 ) + ['...']}</span></td>
+                                <td className="text-xs md:text-lg"><span className="w-36 md:w-52 text-sm xl:w-auto block">{product.title.slice(0,45 ) + ['...']}</span></td>
                                 <td className="text-center  md:text-lg text-orange-500">£ {product.price}</td>
                                 <td className="text-center text-xs md:text-lg">
                                     <Link

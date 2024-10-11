@@ -3,7 +3,7 @@ import ManageProductTable from "./Shared/ManageProductTable";
 
 const ManageProduct = () => {
     return (
-        <div className="container mx-auto pt-12 pb-4 sm:px-6">
+        <div id="manageProductId" className="container mx-auto pt-12 pb-4 sm:px-6">
             <Helmet>
                 <title>Manage Product | Elector Mart</title>
             </Helmet>
