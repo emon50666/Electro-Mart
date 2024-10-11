@@ -84,7 +84,7 @@ const UpdateProductForm = () => {
             <div className='flex justify-between items-center bg-white mt-10 mb-4 lg:my-5 px-7 py-3'>
                 <h3 className='text-lg font-semibold'>Add New Category & Discount</h3>
                 <button
-                    className='btn bg-slate-500 text-white lg:text-xl'
+                    className='btn bg-black hover:bg-blue-500 text-white lg:text-xl'
                     onClick={openModal}
                 >
                     <MdAddCard />
@@ -171,14 +171,14 @@ const UpdateProductForm = () => {
                                     <div className='flex justify-end space-x-3'>
                                         <button
                                             type='button'
-                                            className='btn bg-gray-500 text-white px-4 py-2 rounded-md'
+                                            className='btn bg-black hover:bg-blue-500 text-white px-4 py-2 rounded-md'
                                             onClick={closeModal}
                                         >
                                             Cancel
                                         </button>
                                         <button
                                             type='submit'
-                                            className='btn bg-blue-500 text-white px-4 py-2 rounded-md'
+                                            className='btn bg-blue-500 hover:bg-black text-white px-4 py-2 rounded-md'
                                         >
                                             Submit
                                         </button>

@@ -27,7 +27,7 @@ const SearchBar = () => {
     const searchTerm = search.toLocaleLowerCase();
     return (
 
-      product.title.toLocaleLowerCase().includes(searchTerm) || 
+      product.title.toLocaleLowerCase().includes(searchTerm) ||
 
       product.title.toLocaleLowerCase().includes(searchTerm) ||
 
@@ -62,9 +62,9 @@ const SearchBar = () => {
         <div
           id="search_id"
           ref={searchRef} // Reference for clicking outside detection
-          className="absolute top-14 left-1/2 transform mt-2 -translate-x-1/2 w-[600px] max-h-80 bg-gray-200 shadow-lg rounded-lg overflow-auto p-4 z-50"
+          className="absolute top-14  left-1/2 transform mt-2 -translate-x-1/2 w-[600px] max-h-80 bg-gray-200 shadow-lg rounded-lg overflow-auto p-4 z-50"
         >
-          <div className="grid grid-cols-2 gap-4 w-full">
+          <div className="grid grid-cols-2 mt-32 gap-4 w-full">
             {filteredProducts.length > 0 ? (
               filteredProducts.map((product) => (
                 <Link
@@ -86,14 +86,16 @@ const SearchBar = () => {
                 </Link>
               ))
             ) : (
-              <div className="col-span-2 text-center  ">
+              <>
+                <div className="col-span-2 text-center  ">
 
-              <p className="inline font-bold text-slate-600 m-auto">Product Not Matched</p>
-            </div>
-            
+                  <p className="inline font-bold text-slate-600 m-auto">Product Not Matched</p>
+                </div>
 
-                <p className="inline font-bold text-slate-600 m-auto">Product Not Matched</p>
-              </div>
+
+              
+
+              </>
 
 
             )}

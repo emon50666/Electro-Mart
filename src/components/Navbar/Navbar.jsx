@@ -29,7 +29,7 @@ const Navbar = () => {
   };
 
   return (
-    <div className="navbar bg-base-100 sticky top-0 z-40 md:px-10">
+    <div className="navbar bg-base-100 sticky top-0 z-20 md:px-10">
       <div className="navbar-start">
         {/* Mobile menu button */}
         <div className="lg:hidden">
@@ -131,7 +131,7 @@ const Navbar = () => {
 
         {cartOpen && <AddCart setCartOpen={setCartOpen} />}
 
-        <div className="dropdown dropdown-end">
+        <div className="dropdown dropdown-end z-50">
           <div tabIndex={0} role="button" className="p-1 rounded-full">
             {user ? (
               <div className="relative inline-block">
