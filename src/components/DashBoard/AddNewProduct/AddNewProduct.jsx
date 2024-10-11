@@ -118,10 +118,10 @@ const AddNewProduct = () => {
     <div className="bg-gray-50 pt-12 pb-4 sm:px-6">
       <UpdateProductForm />
       <div className="bg-white p-4 rounded-lg shadow-md w-full">
-        <h2 className="text-2xl mb-4 font-bold text-gray-800 text-center">Add New Product</h2>
+        <h2 className="text-2xl mb-4 font-bold text-gray-800 ">Add New Product</h2>
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
           {/* Product Gallery Images */}
-          <div className='p-2 md:p-8 border-2 border-gray-400'>
+          <div className='p-2 md:p-8 border rounded-md border-gray-300'>
             <label htmlFor="productGallery" className="block text-sm font-medium text-gray-700">
               Product Gallery Images
             </label>
@@ -132,7 +132,7 @@ const AddNewProduct = () => {
               multiple
               {...register("gallery", { required: true })}
               onChange={handleImageChange}
-              className="mt-1 block w-full md:w-1/2 px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:border-blue-500 outline-none"
+              className="mt-1 block w-full md:w-1/2 px-4 py-2 border-dashed border border-gray-200 rounded-lg shadow-sm focus:border-blue-500 outline-none"
             />
             {errors.gallery && (
               <span className="text-sm text-red-600 font-semibold">
@@ -157,7 +157,7 @@ const AddNewProduct = () => {
           </div>
 
           {/* Other Info Input */}
-          <div className='p-2 md:p-8 border-2 border-gray-400'>
+          <div className='p-2 md:p-8 border rounded-md border-gray-300'>
             <div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
               {/* Product Title */}
               <div>

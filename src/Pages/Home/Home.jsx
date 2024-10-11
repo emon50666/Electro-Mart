@@ -1,6 +1,8 @@
 import { Helmet } from "react-helmet";
 import Banner from "../../components/Banner/Banner";
 import HomeOffers from "./Shared/HomeOffers";
+import Popular from "../../components/PopularCategory/Popular";
+import BenifetService from "../../components/PopularCategory/BenifetService/BenifetService";
 
 
 
@@ -14,6 +16,8 @@ const Home = () => {
       <div className=" flex justify-center min-h-[80vh]">
         <Banner ></Banner>
       </div>
+      <BenifetService/>
+       <Popular/>
       <HomeOffers />
 
       <br /><br /><br /><br /><br /><br />

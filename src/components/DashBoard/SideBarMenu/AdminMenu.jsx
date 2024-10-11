@@ -7,7 +7,7 @@ import { FaRegUser } from "react-icons/fa";
 const AdminMenu = () => {
   return (
     <div className="">
-      <div className="bg-[#1E293B]  min-h-screen">
+      <div className="">
         <ul className="flex font-serif flex-1 flex-col mt-10 text-gray-400 gap-1 py-3">
           <li className="px-3">
             <Link
@@ -94,6 +94,7 @@ const AdminMenu = () => {
               </Link>
             </Link>
           </li>
+          
         </ul>
       </div>
     </div>
