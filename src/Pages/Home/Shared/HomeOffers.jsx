@@ -11,7 +11,7 @@ const HomeOffers = () => {
             {/* preview cards */}
 
             <div className="flex xl:grid-cols-5 2xl:grid-cols-6 lg:grid lg:grid-cols-5 md:grid-cols-3 sm:grid-cols-1 gap-6 overflow-x-auto lg:overflow-hidden snap-x snap-mandatory">
-                {products.slice(0, 6).map((product) => {
+                {products.slice(0, 5).map((product) => {
                     return <>
                         {(product?.isHot === "yes" || product?.isNew === "yes" || product?.discountPercentage > 1) && (
                             <ProductCard product={product} refetch={refetch} />
