@@ -77,3 +77,16 @@
     color: #00796b;
     transition: color 0.3s ease;
 }
+
+
+  
+  
+  .swiper-button-prev:after {
+    font-size: 20px !important;
+    color: white;
+  }
+  
+  .swiper-button-next::after {
+    font-size: 20px !important;
+    color: white;
+  }
