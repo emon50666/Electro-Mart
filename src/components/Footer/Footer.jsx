@@ -4,7 +4,7 @@ import { Link } from "react-router-dom"; // Import Link from react-router-dom
 import FooterCategoryList from "./Shared/FooterCategoryList";
 
 const Footer = () => {
-    return (
+    return ( 
         <div className="px-4 pt-16 md:px-4 lg:px-8 bg-[#222222]  font_inter">
             <div className="grid  row-gap-10 mb-8 grid-cols-1 md:grid-cols-6 md:text-sm  lg:grid-cols-6 xl:grid-cols-6">
                 <div className="md:max-w-md col-span-1 md:col-span-2 ">
@@ -96,6 +96,13 @@ const Footer = () => {
                     </p>
                     <ul className="mt-2 space-y-1 md:space-y-2 text-md">
                         <li>
+                           <Link to="/" className="text-white underline-hover">
+                                Shop
+                            </Link>
+                        </li>
+                        <li>
+                            <Link to="/storesPage" className="text-white underline-hover">
+                                Store
                             <Link to="/" className="text-gray-400 underline-hover">
                                 Media
                             </Link>

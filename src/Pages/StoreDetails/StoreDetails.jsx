@@ -1,29 +1,17 @@
+import { useParams } from "react-router-dom";
 import Map from "./Shared/Map";
 import ServiceHour from "./Shared/ServiceHour";
 import StoreAddress from "./Shared/StoreAddress";
 import StoreHero from "./Shared/StoreHero";
+import useStores from "../../Hooks/useStores";
 
 const StoreDetails = () => {
-
-    const oneStore = {
-        storeName: "Gizmo World",
-        location: "321 Innovation Blvd, Seattle, WA",
-        number: "+1-555-321-4321",
-        workHours: [
-            { day: "Monday", hours: "10:00a.m.-7:00p.m." },
-            { day: "Tuesday", hours: "10:00a.m.-7:00p.m." },
-            { day: "Wednesday", hours: "10:00a.m.-7:00p.m." },
-            { day: "Thursday", hours: "10:00a.m.-7:00p.m." },
-            { day: "Friday", hours: "10:00a.m.-7:00p.m." },
-            { day: "Saturday", hours: "11:00a.m.-5:00p.m." },
-            { day: "Sunday", hours: "Closed" }
-        ],
-        shortDetails: "A one-stop shop for tech enthusiasts, offering a mix of gadgets, gaming consoles, VR devices, and drones. Also hosts tech workshops and demos.",
-        imageUrl: "https://res.cloudinary.com/duv5fiurz/image/upload/v1727700324/store-bg_bra6cg.png"
-    };
+    const { id } = useParams();
+    const { stores } = useStores();
+    const oneStore = stores.find(store => store?._id === id)
 
     return (
-        <div className="lg:px-10 mx-auto space-y-10 font_cabin bg-gray-100 py-14">
+        <div className="lg:px-10 mx-auto space-y-10 font_cabin bg-gray-100 py-14 lg:pt-28">
             {/* Store Hero Section */}
             <StoreHero store={oneStore} />
             <div className="grid grid-cols-1 md:grid-cols-4 xl:grid-cols-3 gap-8 md:gap-x-3">

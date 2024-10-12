@@ -2,55 +2,14 @@ import { FiShoppingCart } from "react-icons/fi";
 import { CiShop } from "react-icons/ci";
 import { CiSettings } from "react-icons/ci";
 import { useState } from "react";
+import useStores from "../../Hooks/useStores";
+import { Link } from "react-router-dom";
 const StorPage = () => {
+  const { stores } = useStores();
   const [showMore, setShowMore] = useState(false);
-
   const handleReadMore = () => {
     setShowMore(!showMore);
   };
-  const stores = [
-    {
-      storeName: "Broadway Store",
-      location: "123 Main St, New York, NY",
-      number: "+1-555-123-1234",
-      workHours: "Mon-Fri: 9am-6pm, Sat: 10am-4pm, Sun: Closed",
-      shortDetails:
-        "Specializes in the latest electronic gadgets like smartphones, laptops, and smart home devices. Also offers tech support and repairs.",
-      imageUrl:
-        "https://res.cloudinary.com/dqb5izi3a/image/upload/v1727284467/qktix1clruss0aa2pcwr.jpg",
-    },
-    {
-      storeName: "Valencia Store",
-      location: "456 Circuit Lane, San Francisco, CA",
-      number: "+1-555-567-5678",
-      workHours: "Mon-Sat: 8am-8pm, Sun: 10am-6pm",
-      shortDetails:
-        "Sells electrical components like circuit boards, wires, and tools for DIY electronics projects. Offers custom electronic solutions for businesses.",
-      imageUrl:
-        "https://res.cloudinary.com/dqb5izi3a/image/upload/v1727284092/jeqyb8lergur1exys1b6.jpg",
-    },
-    {
-      storeName: "Emeryville Store",
-      location: "789 Voltage Ave, Austin, TX",
-      number: "+1-555-987-9876",
-      workHours: "Mon-Fri: 9am-9pm, Sat-Sun: 10am-7pm",
-      shortDetails:
-        "Provides a wide range of home appliances, including refrigerators, washing machines, and air conditioners. Also offers installation and maintenance services.",
-      imageUrl:
-        "https://res.cloudinary.com/dqb5izi3a/image/upload/v1727284458/cuozpzh0yfdn6ebhiw2u.jpg",
-    },
-    {
-      storeName: "Alameda Store",
-      location: "789 Voltage Ave, Austin, TX",
-      number: "+1-555-987-9876",
-      workHours: "Mon-Fri: 9am-9pm, Sat-Sun: 10am-7pm",
-      shortDetails:
-        "Provides a wide range of home appliances, including refrigerators, washing machines, and air conditioners. Also offers installation and maintenance services.",
-      imageUrl:
-        "https://res.cloudinary.com/dqb5izi3a/image/upload/v1727284478/i876aib3qf8upksm9ncs.jpg",
-    },
-  ];
-
   return (
     <div className="lg:px-10 md:px-5 px-2 font_cabin">
       <div className="flex flex-col lg:flex-row items-center  bg-teal-500 p-5 rounded-md my-3">
@@ -110,19 +69,21 @@ const StorPage = () => {
             >
               <div className="relative ">
                 <img
-                  src={store.imageUrl}
-                  alt={store.storeName}
+                  src={store.image}
+                  alt={store.shopName}
                   className="w-full h-72  object-cover transform transition-transform duration-500 group-hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-black bg-opacity-40"></div>
               </div>
               <div className="absolute bottom-4 left-4">
-                <h2 className="text-white text-lg sm:text-xl font-semibold">
-                  {store.storeName}
+                <h2 className="text-white text-lg sm:text-xl font-semibold mb-3">
+                  {store.shopName}
                 </h2>
-                <button className="mt-2 bg-orange-500 text-white py-2 px-4 rounded hover:bg-orange-600">
+                <Link
+                  to={`/storeDetails/${store?._id}`}
+                  className="mt-3 bg-orange-500 text-white py-2 px-4 rounded hover:bg-orange-600">
                   View Store
-                </button>
+                </Link>
               </div>
             </div>
           ))}
