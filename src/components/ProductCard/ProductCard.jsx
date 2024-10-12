@@ -52,24 +52,26 @@ const ProductCard = ({ product, refetch }) => {
   return (
     <div
       className="   pt-4 pb-3  bg-[#F6F6F6]">
-    
-     <div className="relative p-3 hover:shadow-lg rounded-md bg-white group">
-     <Link to={`/productDetails/${product._id}`}>
-     {product.images.length > 1 && <HoverImage
-          src={product.images[0]}
-          hoverSrc={product.images[1]}
-          alt="Product Image"
-          className="w-full h-[200px] object-cover transition-transform duration-500 ease-in-out group-hover:scale-95"
-        />}
+
+      <div className="relative p-3 hover:shadow-lg rounded-md bg-white group">
+        <Link to={`/productDetails/${product._id}`}>
+          {product.images.length > 1 && <HoverImage
+            src={product.images[0]}
+            hoverSrc={product.images[1]}
+            alt="Product Image"
+            onClick={() => handleViewCount(product._id)}
+            className="w-full h-[200px] object-cover transition-transform duration-500 ease-in-out group-hover:scale-95"
+          />}
 
 
-        {product.images.length <= 1 && <img
-          src={product.images[0]}
-          alt="Product Image"
-          className="w-full h-[200px] object-cover transition-transform duration-500 ease-in-out group-hover:scale-95"
-        />}
+          {product.images.length <= 1 && <img
+            src={product.images[0]}
+            alt="Product Image"
+            onClick={() => handleViewCount(product._id)}
+            className="w-full h-[200px] object-cover transition-transform duration-500 ease-in-out group-hover:scale-95"
+          />}
 
-     </Link>
+        </Link>
 
 
         <div className="absolute top-1/3 right-4 transform -translate-y-1/2 translate-x-full group-hover:translate-x-0 group-hover:opacity-100 opacity-0 group-hover:pointer-events-auto pointer-events-none transition-all duration-300 ease-in-out bg-white p-2 rounded-md border shadow-lg flex flex-col space-y-4">
@@ -146,7 +148,7 @@ const ProductCard = ({ product, refetch }) => {
         </button>
         {cartOpen && <AddCart setCartOpen={setCartOpen} />}
       </div>
- 
+
     </div>
   );
 };

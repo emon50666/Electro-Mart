@@ -1,7 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import useAxiosPublic from "./useAxiosPublic";
 
-
 const useProduct = () => {
     const axiosPublic = useAxiosPublic();
     const { data: products = [], refetch } = useQuery({

@@ -6,13 +6,14 @@ import Footer from "../components/Footer/Footer";
 
 const Layout = () => {
     return (
-        <div className="mx-w[2550px] mx-auto">
+        <div  className="mx-w[2550px] mx-auto">
             <Navbar />
             <MenuBar />
-            <Outlet />
+            <div className="min-h-[70vh]">
+                <Outlet />
+            </div>
             <BottomNavigation />
             <Footer />
-
         </div>
     );
 };

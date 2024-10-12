@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-
 import PropType from "prop-types";
 import { Link } from "react-router-dom";
 import useCart from "../../Hooks/useCart";
@@ -38,7 +37,9 @@ const AddCart = ({ setCartOpen }) => {
                 </button>
                 <h2 className="font-semibold text-xl mb-4 pb-2 border-b">Cart Details</h2>
                 {theUserCarts.map((cart, idx) => <CardOfCart key={idx} cart={cart} />)}
-                <div className="space-y-3">
+               {
+                theUserCarts.length > 0 && (
+                    <div className="space-y-3">
                     <Link to={'/dashboard/manageCart'} className="btn py-2 px-4 w-full border border-orange-500 hover:text-white text-orange-500 hover:bg-orange-500 font-semibold rounded-md">
                         View Cart
                     </Link>
@@ -46,7 +47,9 @@ const AddCart = ({ setCartOpen }) => {
                         Checkout
                     </Link>
 
-                </div>
+                </div> 
+                ) 
+               }
             </div>
         </div>
     );

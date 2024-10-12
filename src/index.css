@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap');
@@ -6,6 +7,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.font_inter {
+    font-family: "Inter", sans-serif;
+}
 
 .font_open_sense {
     font-family: "Open Sans", sans-serif
@@ -24,7 +29,51 @@
     color: #767695;
 }
 
-#magnify{
+#magnify {
     width: 800px;
     height: 800px;
+}
+
+#search_id::-webkit-scrollbar,
+#categoryListId::-webkit-scrollbar {
+    display: none;
+}
+
+#search_id,
+#categoryListId {
+    scrollbar-width: none;
+}
+
+#search_id,
+#categoryListId {
+    -ms-overflow-style: none;
+}
+
+
+
+.underline-hover {
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+}
+
+.underline-hover::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #00796b;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+}
+
+.underline-hover:hover::before {
+    transform: translateX(0);
+}
+
+.underline-hover:hover {
+    color: #00796b;
+    transition: color 0.3s ease;
 }

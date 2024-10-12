@@ -7,16 +7,11 @@ import Register from "../components/Login/Register/Register";
 import ProductDetails from "../Pages/ProductDetails/ProductDetails";
 import ComparePage from "../Pages/ComparePage/ComparePage";
 import StorPage from "../Pages/StorPage/StorPage";
-
 import AddNewProduct from "../components/DashBoard/AddNewProduct/AddNewProduct";
 import StoreDetails from "../Pages/StoreDetails/StoreDetails";
 import AllUser from "../components/DashBoard/AllUser/AllUser";
 import Order from "../components/DashBoard/Order/Order";
-import ProductPage from "../components/ProductPage";
-
 import DashboardLayout from './../Layout/DashBoardLayout';
-
-
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import Error from "../components/404/Error";
 import Wishlist from "../Pages/Wishlist/Wishlist";
@@ -25,6 +20,7 @@ import ManageProduct from "../components/DashBoard/ManageProduct/ManageProduct";
 import UpdateProduct from "../Pages/UpdateProduct/UpdateProduct";
 import AddToPromotion from "../Pages/AddToPromotion/AddToPromotion";
 import ManageCart from "../Pages/ManageCart/ManageCart";
+import MemberDashBoard from "../components/DashBoard/MemberDashboard/MemberDashBoard";
 
 
 
@@ -49,11 +45,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/comparePage",
-        element: <ComparePage />
+        element: <PrivateRoute><ComparePage /></PrivateRoute>
       },
       {
         path: "/wishlist",
-        element: <Wishlist />
+        element: <PrivateRoute><Wishlist /></PrivateRoute>
       },
       {
         path: "/storesPage",
@@ -67,11 +63,8 @@ const router = createBrowserRouter([
         path: "/storPage",
         element: <StorPage></StorPage>
       },
-      {
-        path: 'productPage',
-        element: <ProductPage />
-
-      }
+     
+      
     ],
 
   },
@@ -104,7 +97,6 @@ const router = createBrowserRouter([
       {
         path: "updateProduct/:id",
         element: <PrivateRoute><UpdateProduct /></PrivateRoute>,
-        loader: () => fetch(`${import.meta.env.VITE_API_URL}/products`),
       },
       {
         path: "makePromotion/:id",
@@ -127,6 +119,10 @@ const router = createBrowserRouter([
         path: "profile",
         element: <PrivateRoute><Profile /></PrivateRoute>
       },
+      {
+        path: 'my-account',
+        element: <MemberDashBoard/>
+      }
 
     ]
   }
