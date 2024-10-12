@@ -24,7 +24,7 @@ const FooterCategoryList = () => {
                             <Link
                                 to="/"
                                 className="text-white underline-hover"
-                                onClick={handleCategoryClick} 
+                                onClick={handleCategoryClick}
                             >
                                 {cat.newCategory}
                             </Link>
@@ -35,9 +35,10 @@ const FooterCategoryList = () => {
             <button
                 onClick={handleShowAll}
                 className="text-white lg:text-base xl:text-lg"
+            >
                 {showAll ? "Show Less" : "All Categories"}
             </button>
-        </div>
+        </div >
     );
 };
 

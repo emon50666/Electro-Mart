@@ -92,7 +92,7 @@ const WishlistTable = ({wishProduct}) => {
             </button>
           </td>
           <td className="h-12 px-6">
-            <button onClick={() => handleDeleteWishlist(product?._id)} className="border-2 text-orange-500 text-2xl px-4 py-2 text-center transition-all duration-300 ease-in-out transform hover:scale-105">
+            <button onClick={() => handleDeleteWishlist(wishProduct?._id)} className="border-2 text-orange-500 text-2xl px-4 py-2 text-center transition-all duration-300 ease-in-out transform hover:scale-105">
             <MdDeleteForever />
 
             </button>
