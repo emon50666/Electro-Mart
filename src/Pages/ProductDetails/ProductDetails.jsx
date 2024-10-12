@@ -21,13 +21,8 @@ const ProductDetails = () => {
                 <TopLayerOfDetails title={product.title} id={product?._id} />
             </div>
             {/* main details section */}
-
-            <MainProductDetails product={productDetails}  />
-            <ProductReview />
-
             <MainProductDetails product={product} />
             <RelativeProducts category={product?.category} productId={product?._id} />
-
             <br /><br /><br /><br /><br />
             {/* <RelativeProducts /> */}
         </div>
