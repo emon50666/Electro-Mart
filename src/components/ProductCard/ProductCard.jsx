@@ -114,16 +114,16 @@ const ProductCard = ({ product, refetch }) => {
         </div>
 
         {product?.discountPrice == product?.price ? <div className="flex gap-2">
-          <p className="font-bold text-orange-500">{product?.price}</p>
+          <p className="font-bold text-orange-500"> ৳ {product?.price}</p>
         </div>
           :
           product?.discountPrice > 1 ? <div className="flex gap-2">
-            <span className="line-through text-gray-400 font-semibold">{product?.price}</span>
+            <span className="line-through text-gray-400 font-semibold"> ৳{product?.price}</span>
             <p className="font-bold text-orange-500">{product?.discountPrice}</p>
           </div>
             :
             <div className="flex gap-2">
-              <p className="font-bold text-orange-500">{product?.price}</p>
+              <p className="font-bold text-orange-500"> {product?.price}</p>
             </div>
         }
 
