@@ -97,12 +97,12 @@ const Footer = () => {
                     <ul className="mt-2 space-y-1 md:space-y-2 text-lg">
                         <li>
                             <Link to="/" className="text-white underline-hover">
-                                Media
+                                Shop
                             </Link>
                         </li>
                         <li>
-                            <Link to="/" className="text-white underline-hover">
-                                Brochure
+                            <Link to="/storesPage" className="text-white underline-hover">
+                                Store
                             </Link>
                         </li>
                         <li>

@@ -21,6 +21,9 @@ import UpdateProduct from "../Pages/UpdateProduct/UpdateProduct";
 import AddToPromotion from "../Pages/AddToPromotion/AddToPromotion";
 import ManageCart from "../Pages/ManageCart/ManageCart";
 import MemberDashBoard from "../components/DashBoard/MemberDashboard/MemberDashBoard";
+import AddNewStore from "../components/DashBoard/AddNewStore/AddNewStore";
+import UpdateStore from "../components/DashBoard/UpdateStore/UpdateStore";
+import ManageStore from "../components/DashBoard/ManageStore/ManageStore";
 
 
 
@@ -59,12 +62,6 @@ const router = createBrowserRouter([
         path: "/storeDetails",
         element: <StoreDetails />
       },
-      {
-        path: "/storPage",
-        element: <StorPage></StorPage>
-      },
-     
-      
     ],
 
   },
@@ -91,12 +88,20 @@ const router = createBrowserRouter([
         element: <PrivateRoute><ManageProduct /></PrivateRoute>
       },
       {
+        path: "manageStore",
+        element: <PrivateRoute><ManageStore /></PrivateRoute>
+      },
+      {
         path: "manageCart",
         element: <PrivateRoute><ManageCart /></PrivateRoute>
       },
       {
         path: "updateProduct/:id",
         element: <PrivateRoute><UpdateProduct /></PrivateRoute>,
+      },
+      {
+        path: "updateStore/:id",
+        element: <PrivateRoute><UpdateStore /></PrivateRoute>,
       },
       {
         path: "makePromotion/:id",
@@ -106,6 +111,10 @@ const router = createBrowserRouter([
       {
         path: "addProduct",
         element: <PrivateRoute><AddNewProduct /></PrivateRoute>
+      },
+      {
+        path: "addStore",
+        element: <PrivateRoute><AddNewStore /></PrivateRoute>
       },
       {
         path: "user",
@@ -121,7 +130,7 @@ const router = createBrowserRouter([
       },
       {
         path: 'my-account',
-        element: <MemberDashBoard/>
+        element: <MemberDashBoard />
       }
 
     ]

@@ -6,18 +6,15 @@ const FooterCategoryList = () => {
     const { categories } = useCategories();
     const [showAll, setShowAll] = useState(false);
 
-    // Toggle show/hide categories
     const handleShowAll = () => {
         setShowAll(!showAll);
     };
 
-    // Collapse list when a category is clicked
     const handleCategoryClick = () => {
         setShowAll(false);
     };
 
     const visibleCategories = showAll ? categories : categories.slice(0, 5);
-
     return (
         <div>
             <ul>

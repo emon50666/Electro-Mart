@@ -89,7 +89,7 @@ const AdminMenu = () => {
               <div className="flex   font-semibold text-[16px] items-center self-center">
                 <IoStorefrontOutline ></IoStorefrontOutline>
               </div>
-              <Link to={'/'} className="flex  font-semibold text-[16px] w-full flex-1 flex-col items-start justify-center gap-0 overflow-hidden truncate text-sm">
+              <Link to={'addStore'} className="flex  font-semibold text-[16px] w-full flex-1 flex-col items-start justify-center gap-0 overflow-hidden truncate text-sm">
                 Add Store
               </Link>
             </Link>
