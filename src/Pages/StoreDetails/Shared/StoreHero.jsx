@@ -8,7 +8,7 @@ const StoreHero = ({ store }) => {
             <div
                 className="min-h-[60vh] w-full relative rounded-2xl"
                 style={{
-                    backgroundImage: `url(${store?.imageUrl})`,
+                    backgroundImage: `url(${store?.image})`,
                     backgroundRepeat: "no-repeat",
                     backgroundSize: "cover",
                     backgroundPosition: "center",
@@ -19,10 +19,10 @@ const StoreHero = ({ store }) => {
                 <div className="hero-content text-white text-left absolute bottom-2  md:bottom-5 md:left-5">
                     <div className="max-w-md">
                         <p className="font-medium text-sm md:text-base lg:text-lg">
-                            {store.location}
+                            {store?.shopAddress}
                         </p>
                         <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold">
-                            {store.storeName}
+                            {store?.shopName}
                         </h1>
                     </div>
                 </div>

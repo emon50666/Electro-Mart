@@ -10,12 +10,12 @@ const StoreAddress = ({ store }) => {
                 {/* location */}
                 <div className="flex items-center gap-x-2">
                     <div className="p-2 rounded-full bg-blue-600 text-gray-200"><IoLocation className="" /></div>
-                    <h4 className="text-[#7B828D]">{store?.location}</h4>
+                    <h4 className="text-[#7B828D]">{store?.shopAddress}</h4>
                 </div>
                 {/* contact */}
                 <div className="flex items-center gap-x-2">
                     <div className="p-2 rounded-full bg-blue-600 text-gray-200"><LuPhone className="" /></div>
-                    <h4 className="text-[#7B828D]">{store?.number}</h4>
+                    <h4 className="text-[#7B828D]">{store?.shopContactNumber}</h4>
                 </div>
             </div>
             <h3 className="text-2xl font-semibold my-5 font_cabin">Facilities</h3>
@@ -34,7 +34,7 @@ const StoreAddress = ({ store }) => {
                 </div>
             </div>
             <h3 className="text-2xl font-semibold mt-5 mb-1 font_cabin">About Shop</h3>
-            <p className="text-gray-500">{store?.shortDetails}</p>
+            <p className="text-gray-500">{store?.shortDescription}</p>
         </div>
     );
 };
