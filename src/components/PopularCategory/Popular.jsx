@@ -32,7 +32,7 @@ const Popular = () => {
   return (
     <div className="px-4 py-8">
   {/* Grid Layout on larger screens, Horizontal Scroll on Mobile */}
-  <div className="flex lg:grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 gap-6 overflow-x-auto lg:overflow-hidden no-scrollbar">
+  <div className="flex lg:grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 gap-10 overflow-x-auto lg:overflow-hidden no-scrollbar">
     {products.map((product) => (
       <div
         key={product.id}

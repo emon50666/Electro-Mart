@@ -9,16 +9,18 @@ const HomeOffers = () => {
                 <h3 className="text-2xl mb-5 font-bold">The Best Offers</h3>
             </div>
             {/* preview cards */}
+            <div className="flex lg:grid lg:grid-cols-5 gap-3 md:grid-cols-3 sm:grid-cols-1 overflow-x-auto lg:overflow-hidden no-scrollbar snap-x snap-mandatory">
+  {products.slice(0, 5).map((product, idx) => (
+    <>
+      {(product?.isHot === "yes" || product?.isNew === "yes" || product?.discountPercentage > 1) && (
+        <div key={idx} className="snap-start flex-shrink-0 w-full sm:w-auto">
+          <ProductCard product={product} refetch={refetch} />
+        </div>
+      )}
+    </>
+  ))}
+</div>
 
-            <div className="flex  lg:grid lg:grid-cols-5 md:grid-cols-3 sm:grid-cols-1 gap-6 overflow-x-auto lg:overflow-hidden snap-x snap-mandatory">
-                {products.slice(0, 5).map((product) => {
-                    return <>
-                        {(product?.isHot === "yes" || product?.isNew === "yes" || product?.discountPercentage > 1) && (
-                            <ProductCard product={product} refetch={refetch} />
-                        )}
-                    </>
-                })}
-            </div>
 
         </div>
     );
