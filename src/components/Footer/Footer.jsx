@@ -1,6 +1,7 @@
 import { FaFacebookF, FaInstagram, FaTelegramPlane } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import { Link } from "react-router-dom"; // Import Link from react-router-dom
+import FooterCategoryList from "./Shared/FooterCategoryList";
 
 const Footer = () => {
     return (
@@ -86,26 +87,7 @@ const Footer = () => {
                         Category
                     </p>
                     <ul className="mt-2 space-y-1 md:space-y-2 text-lg">
-                        <li>
-                            <Link to="/" className="text-white underline-hover">
-                                News
-                            </Link>
-                        </li>
-                        <li>
-                            <Link to="/" className="text-white underline-hover">
-                                World
-                            </Link>
-                        </li>
-                        <li>
-                            <Link to="/" className="text-white underline-hover">
-                                Games
-                            </Link>
-                        </li>
-                        <li>
-                            <Link to="/" className="text-white underline-hover">
-                                References
-                            </Link>
-                        </li>
+                        <FooterCategoryList />
                     </ul>
                 </div>
                 <div className="col-span-1">
