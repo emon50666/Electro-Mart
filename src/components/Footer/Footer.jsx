@@ -1,73 +1,186 @@
-import { FaFacebookF } from "react-icons/fa6";
+import { FaFacebookF, FaInstagram, FaTelegramPlane } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
-import { FaLinkedinIn } from "react-icons/fa";
-import { FaTelegramPlane } from "react-icons/fa";
+import { Link } from "react-router-dom"; // Import Link from react-router-dom
 
 const Footer = () => {
     return (
-        <div>
-            <footer className="footer grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-6 px-4 sm:px-6 lg:px-20 py-0 md:py-10 mb-20 lg:mb-4">
-                <aside className="">
-                    <h1 className="text-2xl sm:text-3xl lg:text-4xl font-semibold">Electro Mart</h1>
-                    <p className="text-sm sm:text-base lg:text-lg">
-                        Condimentum adipiscing vel neque dis nam <br /> parturient orci at scelerisque.
-                    </p>
+        <div className="px-4 pt-16 md:px-24 lg:px-8 bg-[#222222] text-white font_inter">
+            <div className="grid gap-16 row-gap-10 mb-8 lg:grid-cols-6">
+                <div className="md:max-w-md lg:col-span-2">
+                    <h2 className="font-bold text-5xl">Elector <span className="text-orange-500">Mart</span></h2>
+                    <div className="mt-6 lg:max-w-sm">
+                        <p className="text-lg text-[#B3B3B3]">
+                            Call us 24/7
+                        </p>
+                        <p className="font-semibold text-3xl text-white">
+                            +880 15 xxxx xxxx
+                        </p>
+                    </div>
+                    <div className="mt-6 lg:max-w-sm">
+                        <p className="text-lg text-white">
+                            36/2 M.M Ali Road, Chattogram, Bangladesh
+                        </p>
+                        <p className="text-lg text-white underline">
+                            electro@mart.com
+                        </p>
+                    </div>
+                    <div className="mt-6 lg:max-w-sm">
+                        <ul className="flex mt-5 gap-x-5">
+                            <li>
+                                <Link to="#" className="text-white hover:text-[#00796b]">
+                                    <FaFacebookF className="text-xl" />
+                                </Link>
+                            </li>
+                            <li>
+                                <Link to="#" className="text-white hover:text-[#00796b]">
+                                    <FaXTwitter className="text-xl" />
+                                </Link>
+                            </li>
+                            <li>
+                                <Link to="#" className="text-white hover:text-[#00796b]">
+                                    <FaInstagram className="text-xl" />
+                                </Link>
+                            </li>
+                            <li>
+                                <Link to="#" className="text-white hover:text-[#00796b]">
+                                    <FaTelegramPlane className="text-xl" />
+                                </Link>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div className="grid grid-cols-2 gap-5 row-gap-8 lg:col-span-4 md:grid-cols-4">
                     <div>
-                        <h1 className="text-lg sm:text-xl lg:text-2xl font-semibold">Subscribe us</h1>
-                        <div className="mt-2 space-x-3 ">
-                            <button className="text-[16px] sm:text-[19px] p-2 rounded-full bg-blue-800 text-white"><FaFacebookF /></button>
-                            <button className="text-[16px] sm:text-[19px] p-2 rounded-full bg-black text-white"><FaXTwitter /></button>
-                            <button className="text-[16px] sm:text-[19px] p-2 rounded-full bg-blue-600 text-white"><FaLinkedinIn /></button>
-                            <button className="text-[16px] sm:text-[19px] p-2 rounded-full bg-blue-500 text-white"><FaTelegramPlane /></button>
-                        </div>
+                        <p className="font-semibold text-xl tracking-wide text-[#818181]">
+                            Our Story
+                        </p>
+                        <ul className="mt-2 space-y-2 text-lg">
+                            <li>
+                                <Link to="/" className="text-white underline-hover">
+                                    Web
+                                </Link>
+                            </li>
+                            <li>
+                                <Link to="/" className="text-white underline-hover">
+                                    eCommerce
+                                </Link>
+                            </li>
+                            <li>
+                                <Link to="/" className="text-white underline-hover">
+                                    Business
+                                </Link>
+                            </li>
+                            <li>
+                                <Link to="/" className="text-white underline-hover">
+                                    Entertainment
+                                </Link>
+                            </li>
+                            <li>
+                                <Link to="/" className="text-white underline-hover">
+                                    Portfolio
+                                </Link>
+                            </li>
+                        </ul>
                     </div>
-                </aside>
-
-                <nav className="space-y-2">
-                    <h6 className="text-lg sm:text-xl lg:text-2xl font-semibold">Categories</h6>
-                    <a className="link link-hover text-sm sm:text-base lg:text-lg">Smartphones</a>
-                    <a className="link link-hover text-sm sm:text-base lg:text-lg">Laptops</a>
-                    <a className="link link-hover text-sm sm:text-base lg:text-lg">Hardware</a>
-                    <a className="link link-hover text-sm sm:text-base lg:text-lg">Cameras</a>
-                    <a className="link link-hover text-sm sm:text-base lg:text-lg">Headphones</a>
-                    <a className="link link-hover text-sm sm:text-base lg:text-lg">Bathroom</a>
-                </nav>
-
-                <nav className="space-y-2">
-                    <h6 className="text-lg sm:text-xl lg:text-2xl font-semibold">Useful Links</h6>
-                    <a className="link link-hover text-sm sm:text-base lg:text-lg">Promotions</a>
-                    <a className="link link-hover text-sm sm:text-base lg:text-lg">Stores</a>
-                    <a className="link link-hover text-sm sm:text-base lg:text-lg">Our contacts</a>
-                    <a className="link link-hover text-sm sm:text-base lg:text-lg">Delivery & Return</a>
-                    <a className="link link-hover text-sm sm:text-base lg:text-lg">Outlet</a>
-                </nav>
-
-                <nav className="space-y-2">
-                    <h6 className="text-lg sm:text-xl lg:text-2xl font-semibold">Useful Links</h6>
-                    <a className="link link-hover text-sm sm:text-base lg:text-lg">Blog</a>
-                    <a className="link link-hover text-sm sm:text-base lg:text-lg">Our contacts</a>
-                    <a className="link link-hover text-sm sm:text-base lg:text-lg">Promotions</a>
-                    <a className="link link-hover text-sm sm:text-base lg:text-lg">Stores</a>
-                    <a className="link link-hover text-sm sm:text-base lg:text-lg">Delivery & Return</a>
-                </nav>
-
-                <nav className="space-y-2">
-                    <h6 className="text-lg font-semibold">Download App on Mobile:</h6>
-                    <h1 className="text-sm sm:text-base lg:text-lg">15% discount on your first purchase</h1>
-                    <div className="flex space-x-2 md:space-x-0 md:flex-col md:items-start">
-                        <img
-                            src={`https://res.cloudinary.com/duv5fiurz/image/upload/v1728326107/google_play_button_wgbqub_kfnlf6.png`}
-                            className="w-24 lg:w-32"
-                            alt="Google Play"
-                        />
-                        <img
-                            src={`https://res.cloudinary.com/duv5fiurz/image/upload/v1728326107/images_gadmv1_utqpyp.png`}
-                            className="w-24 lg:w-32"
-                            alt="App Store"
-                        />
+                    <div>
+                        <p className="font-semibold text-xl tracking-wide text-[#818181]">
+                            Category
+                        </p>
+                        <ul className="mt-2 space-y-2 text-lg">
+                            <li>
+                                <Link to="/" className="text-white underline-hover">
+                                    News
+                                </Link>
+                            </li>
+                            <li>
+                                <Link to="/" className="text-white underline-hover">
+                                    World
+                                </Link>
+                            </li>
+                            <li>
+                                <Link to="/" className="text-white underline-hover">
+                                    Games
+                                </Link>
+                            </li>
+                            <li>
+                                <Link to="/" className="text-white underline-hover">
+                                    References
+                                </Link>
+                            </li>
+                        </ul>
                     </div>
-                </nav>
-            </footer>
+                    <div>
+                        <p className="font-semibold text-xl tracking-wide text-[#818181]">
+                            Quick Links
+                        </p>
+                        <ul className="mt-2 space-y-2 text-lg">
+                            <li>
+                                <Link to="/" className="text-white underline-hover">
+                                    Media
+                                </Link>
+                            </li>
+                            <li>
+                                <Link to="/" className="text-white underline-hover">
+                                    Brochure
+                                </Link>
+                            </li>
+                            <li>
+                                <Link to="/" className="text-white underline-hover">
+                                    Nonprofit
+                                </Link>
+                            </li>
+                            <li>
+                                <Link to="/" className="text-white underline-hover">
+                                    Educational
+                                </Link>
+                            </li>
+                            <li>
+                                <Link to="/" className="text-white underline-hover">
+                                    Projects
+                                </Link>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <p className="font-semibold text-xl tracking-wide text-[#818181]">
+                            Contact Us
+                        </p>
+                        <ul className="mt-2 space-y-2 text-lg">
+                            <li>
+                                <Link to="/" className="text-white underline-hover">
+                                    Infopreneur
+                                </Link>
+                            </li>
+                            <li>
+                                <Link to="/" className="text-white underline-hover">
+                                    Personal
+                                </Link>
+                            </li>
+                            <li>
+                                <Link to="/" className="text-white underline-hover">
+                                    Wiki
+                                </Link>
+                            </li>
+                            <li>
+                                <Link to="/" className="text-white underline-hover">
+                                    Forum
+                                </Link>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div className="flex flex-col justify-between pt-5 pb-10 border-t sm:flex-row">
+                <p className="text-lg">
+                    Copyright © 2024 Electro Mart. Created by Elector Team
+                </p>
+                <div className="flex items-center mt-4 space-x-4 sm:mt-0">
+                    <p className="text-lg">
+                        We using safe payment for
+                    </p>
+
+                </div>
+            </div>
         </div>
     );
 };
