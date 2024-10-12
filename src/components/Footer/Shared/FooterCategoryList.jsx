@@ -8,7 +8,7 @@ const FooterCategoryList = () => {
     const handleShowAll = () => {
         setShowAll(!showAll);
     };
-    const visibleCategories = showAll ? categories : categories.slice(0, 6);
+    const visibleCategories = showAll ? categories : categories.slice(0, 5);
 
     return (
         <div>
@@ -23,8 +23,6 @@ const FooterCategoryList = () => {
                     )
                 ))}
             </ul>
-
-            {/* Button to toggle between showing all or limited categories */}
             <button
                 onClick={handleShowAll}
                 className="text-white"
