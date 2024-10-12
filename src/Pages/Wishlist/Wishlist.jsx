@@ -36,9 +36,9 @@ const Wishlist = () => {
         </div>
       </div>
 
-      <div className="flex lg:flex-row md:flex-row flex-col items-center justify-between pr-10">
+      <div className="flex lg:flex-row md:flex-row flex-col items-center justify-between px-20 pr-10">
         <h3 className="lg:text-2xl md:text-2xl font-semibold px-10 mt-3">
-          Your products wishlist
+          Your  wishlist products
         </h3>
 
         <div className="join lg:mt-5 md:mt-5 mt-2 ">
@@ -118,6 +118,12 @@ const Wishlist = () => {
                 >
                    Compare
                 </th>
+                <th
+                  scope="col"
+                  className="h-12 px-6 lg:text-[18px] md:text-[18px] text-[12px] font-semibold  border-l first:border-l-0 text-slate-700 bg-slate-100"
+                >
+                   Delete
+                </th>
               </tr>
             </thead>
             <tbody>
@@ -128,7 +134,7 @@ const Wishlist = () => {
       )}
 
       {format === "card" && (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 lg:gap-4 md:gap-10 px-5">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 lg:gap-4 md:gap-10 px-20 mt-3">
            {theUserWishlist.map((wishProduct, index) => <WishlistCart key={index} wishProduct={wishProduct} />           )}
         </div>
       )}
