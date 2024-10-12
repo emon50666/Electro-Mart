@@ -19,10 +19,6 @@ const ProductCard = ({ product, refetch }) => {
   const axiosPublic = useAxiosPublic();
   const [isHovered, setIsHovered] = useState(false);
   const [cartOpen, setCartOpen] = useState(false);
-  const handleAddToCart = () => {
-    handleAddCart(product)
-    setCartOpen(true);
-  };
   // console.log(user?.email);
   const handleViewCount = (_id) => {
     let currentView = product?.view || 0;
@@ -40,15 +36,17 @@ const ProductCard = ({ product, refetch }) => {
   };
 
 
-
-
+  const handleAddToCart = () => {
+    handleAddCart(product)
+    setCartOpen(true);
+  };
   const handleAddToCompare = () => {
     handleAddCompare(product)
   }
   const handleAddToWishlist = () => {
     handleAddWishlist(product)
   }
-  
+
   return (
     <div
       className="   pt-4 pb-3  bg-[#F6F6F6]">
