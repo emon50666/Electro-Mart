@@ -12,11 +12,11 @@ const FooterCategoryList = () => {
 
     return (
         <div>
-            <ul>
+            <ul className=''>
                 {visibleCategories.map((cat, idx) => (
                     cat?.newCategory !== "" && (
                         <li key={idx}>
-                            <Link to="/" className="text-white underline-hover">
+                            <Link to="/" className="text-gray-400 underline-hover">
                                 {cat.newCategory}
                             </Link>
                         </li>
@@ -25,7 +25,7 @@ const FooterCategoryList = () => {
             </ul>
             <button
                 onClick={handleShowAll}
-                className="text-white"
+                className="text-gray-400"
             >
                 {showAll ? "Show Less" : "All Categories"}
             </button>
