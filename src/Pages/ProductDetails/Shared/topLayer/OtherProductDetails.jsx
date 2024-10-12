@@ -15,10 +15,12 @@ import {
 import useAddToCart from "../../../../Hooks/useAddToCart";
 import AddCart from "../../../../components/AddToCart/AddCart";
 import useAddToCompare from "../../../../Hooks/useAddToCompare";
+import useAddToWishlist from "../../../../Hooks/useAddToWishlist";
 
 const OtherProductDetails = ({ product }) => {
     const handleAddCart = useAddToCart();
     const handleAddCompare = useAddToCompare();
+    const handleAddWishlist = useAddToWishlist();
     const [quantityCount, setQuantityCount] = useState(1)
     const [disableBtn, setDisableBtn] = useState(false)
     const shareUrl = window.location.href;
@@ -48,6 +50,9 @@ const OtherProductDetails = ({ product }) => {
     }
     const handleAddToCompare = () => {
         handleAddCompare(product)
+    }
+    const handleAddToWishlist = () =>{
+        handleAddWishlist(product)
     }
     return (
         <div >
@@ -130,12 +135,12 @@ const OtherProductDetails = ({ product }) => {
                             </div>
                             <h3 className="font-medium font_cabin">Compare</h3>
                         </button>
-                        <div className="flex items-center hover:text-[#666666] pl-8 space-x-1">
+                        <button onClick={handleAddToWishlist}  className="flex items-center hover:text-[#666666] pl-8 space-x-1">
                             <div>
                                 <GoHeart />
                             </div>
                             <h3 className="font-medium font_cabin">Add to wishlist</h3>
-                        </div>
+                        </button>
                     </div>
                     <div className="flex items-center">
                         <h3 className="font-medium font_cabin text-sm md:text-base lg:text-lg">Share:</h3>
