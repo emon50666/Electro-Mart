@@ -150,11 +150,11 @@ const Footer = () => {
                     </ul>
                 </div>
             </div>
-            <div className="flex flex-col justify-between pt-5 pb-10 border-t sm:flex-row">
+            <div className="flex flex-col justify-between pt-5 pb-10 border-t lg:flex-row mb-7 lg:mb-auto gap-y-2">
                 <p className="text-lg">
                     Copyright © 2024 Electro Mart. Created by Elector Team
                 </p>
-                <div className="flex flex-col md:flow-row md:items-center mt-4 space-x-4 sm:mt-0 mb-7 md:mb-auto">
+                <div className="flex flex-col md:flex-row md:items-center mt-4 space-x-4 sm:mt-0">
                     <p className="text-lg">
                         We using safe payment for
                     </p>
