@@ -56,9 +56,9 @@ const Wishlist = () => {
         </div>
       </div>
       {format === "table" && (
-        <div className="w-full overflow-x-auto mt-10 lg:px-20 ">
+        <div className="w-full overflow-x-auto lg:px-20 ">
           <table
-            className="w-full text-left border border-separate rounded border-slate-200"
+            className="w-full text-left border border-separate rounded border-slate-200 my-16"
             cellSpacing="0"
           >
             <thead>
