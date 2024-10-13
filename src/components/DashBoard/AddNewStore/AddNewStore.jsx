@@ -40,7 +40,7 @@ const AddNewStore = () => {
             if (response.data.insertedId) {
                 toast.success(`Store is added`);
                 // navigate("/dashboard/manageProduct");
-                navigate("#");
+                navigate("/manageStore");
                 reset();
             }
             console.log(storeInfo);
