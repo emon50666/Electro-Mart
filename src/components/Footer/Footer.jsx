@@ -103,6 +103,7 @@ const Footer = () => {
                         <li>
                             <Link to="/storesPage" className="text-white underline-hover">
                                 Store
+                                </Link>
                             <Link to="/" className="text-gray-400 underline-hover">
                                 Media
                             </Link>

@@ -18,7 +18,7 @@ const Navbar = () => {
   const { user, logOut, loading } = UserAuth();
   const { theUserCarts } = useCart();
   const { theUserCompares } = useCompare();
-  const { theUserWishlist } = useWishlist()
+  const { theUserWishlist, } = useWishlist()
   const [isOpen, setIsOpen] = useState(false);
   const [cartOpen, setCartOpen] = useState(false);
 

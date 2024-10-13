@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
-import { FaHeart, FaShoppingCart, FaTable } from "react-icons/fa";
-import { DiGitCompare } from "react-icons/di";
+import {  FaTable } from "react-icons/fa";
+
 import { useState } from "react";
 import { MdTableRows } from "react-icons/md";
 import useProduct from "../../Hooks/useProduct";
