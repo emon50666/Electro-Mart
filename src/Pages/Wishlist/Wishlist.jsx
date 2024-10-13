@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
-import { FaHeart, FaShoppingCart, FaTable } from "react-icons/fa";
-import { DiGitCompare } from "react-icons/di";
+import { FaTable } from "react-icons/fa";
 import { useState } from "react";
 import { MdTableRows } from "react-icons/md";
 import useProduct from "../../Hooks/useProduct";
@@ -57,9 +56,9 @@ const Wishlist = () => {
         </div>
       </div>
       {format === "table" && (
-        <div className="w-full overflow-x-auto mt-10 lg:px-20 ">
+        <div className="w-full overflow-x-auto lg:px-20 ">
           <table
-            className="w-full text-left border border-separate rounded border-slate-200"
+            className="w-full text-left border border-separate rounded border-slate-200 my-16"
             cellSpacing="0"
           >
             <thead>
@@ -134,7 +133,7 @@ const Wishlist = () => {
       )}
 
       {format === "card" && (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 lg:gap-4 md:gap-10 px-20 mt-3">
+        <div className="my-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-4 md:gap-y-10 px-20">
            {theUserWishlist.map((wishProduct, index) => <WishlistCart key={index} wishProduct={wishProduct} />           )}
         </div>
       )}
