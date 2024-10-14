@@ -43,7 +43,6 @@ const ManageProductTable = () => {
                             <th className="text-center text-sm md:text-md">Details</th>
                             <th className="text-center text-sm md:text-md">Delete</th>
                             <th className="text-center text-sm md:text-md">Update</th>
-                            <th className="text-center text-sm md:text-md">Promotion</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -87,14 +86,6 @@ const ManageProductTable = () => {
                                         className="btn bg-blue-500 hover:bg-blue-600 text-white text-sm md:text-2xl"
                                     >
                                         <FaPencil />
-                                    </Link>
-                                </td>
-                                <td className="text-center">
-                                    <Link
-                                        to={`/dashboard/makePromotion/${product._id}`}
-                                        className="btn bg-green-500 hover:bg-green-600 text-white py-1 px-2 rounded"
-                                    >
-                                        Add Promotion
                                     </Link>
                                 </td>
                             </tr>
