@@ -1,4 +1,4 @@
-import { FaFacebookF, FaInstagram, FaLocationArrow, FaPhone, FaTelegramPlane } from "react-icons/fa";
+import { FaFacebookF, FaInstagram, FaLocationArrow, FaTelegramPlane } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import { Link } from "react-router-dom"; // Import Link from react-router-dom
 import FooterCategoryList from "./Shared/FooterCategoryList";
@@ -7,21 +7,21 @@ const Footer = () => {
     return ( 
         <div className="px-4 pt-16 md:px-4 lg:px-8 bg-[#222222]  font_inter">
             <div className="grid  row-gap-10 mb-8 grid-cols-1 md:grid-cols-6 md:text-sm  lg:grid-cols-6 xl:grid-cols-6">
-                <div className="md:max-w-md col-span-1 md:col-span-2 ">
+                <div className=" md:max-w-md  col-span-1 md:col-span-2 ">
                     <h2 className="font-bold text-3xl text-gray-100 xl:text-5xl">Elector <span className="text-orange-500">Mart</span></h2>
-                    <div className="pt-2 flex gap-2 items-center lg:max-w-md">
-                        <p className="text-base text-[#B3B3B3]">
+                    <div className="pt-2  gap-2 items-center lg:max-w-md">
+                        <p className="text-sm text-[#B3B3B3]">
                          
-                            <FaPhone></FaPhone>
+                            Call Us 24/7 <br />
                         </p>
-                        <p className="font-semibold text-base  xl:text-3xl text-gray-400">
+                        <p className="font-normal text-base  xl:text-3xl text-gray-400">
                             +8801786397249
                         </p>
                     </div>
                     <div className="pt-3 lg:max-w-sm">
                         <p className="text-base flex gap-2 items-center text-gray-400">
                             <FaLocationArrow/>
-                            36/2 M.M Ali Road,
+                            Dhaka,Bangladesh
                         </p>
                       
                     </div>
@@ -90,21 +90,24 @@ const Footer = () => {
                         <FooterCategoryList />
                     </ul>
                 </div>
-                <div className="col-span-1">
-                    <p className="font-semibold text-xl md:text-base tracking-wide text-gray-300">
+                <div className="col-span-1 ">
+                    <p className="font-semibold text-xl md:text-base tracking-wide text-gray-400">
                         Quick Links
                     </p>
-                    <ul className="mt-2 space-y-1 md:space-y-2 text-md">
-                        <li>
-                           <Link to="/" className="text-white underline-hover">
-                                Shop
+                    <ul className="mt-2 space-y-1 text-base md:space-y-2  ">
+                    <li>
+                        <Link to="/" className="text-gray-400 underline-hover">
+                        Shop
                             </Link>
                         </li>
                         <li>
-                            <Link to="/storesPage" className="text-white underline-hover">
+                            <Link to="/storesPage" className="text-gray-400  underline-hover">
                                 Store
                                 </Link>
-                            <Link to="/" className="text-gray-400 underline-hover">
+                         
+                        </li>
+                        <li>
+                        <Link to="/" className="text-gray-400 underline-hover">
                                 Media
                             </Link>
                         </li>
@@ -113,16 +116,7 @@ const Footer = () => {
                                 Brochure
                             </Link>
                         </li>
-                        <li>
-                            <Link to="/" className="text-gray-400 underline-hover">
-                                Nonprofit
-                            </Link>
-                        </li>
-                        <li>
-                            <Link to="/" className="text-gray-400 underline-hover">
-                                Educational
-                            </Link>
-                        </li>
+                      
                         <li>
                             <Link to="/" className="text-gray-400 underline-hover">
                                 Projects
