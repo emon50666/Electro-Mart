@@ -8,9 +8,9 @@ const ServiceHour = ({ store }) => {
                 <p className={`${hour.isClosed == true ? "text-orange-600" : "text-gray-600"}`}>{hour.day}</p>
                 {
                     hour.isClosed == true ? <p className={`${hour.isClosed == true ? "text-orange-600" : "text-gray-600"}`}>Close</p> : <div className="flex items-center">
-                        <p className={`${hour.isClosed == true ? "text-orange-600" : "text-gray-600"}`}>{hour.openingHour}</p>
-                        <span>{" "}-{" "}</span>
-                        <p className={`${hour.isClosed == true ? "text-orange-600" : "text-gray-600"}`}>{hour.closingHour}</p>
+                        <p className={`${hour.isClosed == true ? "text-orange-600" : "text-gray-600"}`}>{hour.openingHour}{" "}</p>
+                        <span>-</span>
+                        <p className={`${hour.isClosed == true ? "text-orange-600" : "text-gray-600"}`}>{" "}{hour.closingHour}</p>
                     </div>
                 }
 
