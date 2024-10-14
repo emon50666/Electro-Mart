@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
-import { IoHomeOutline, IoAddCircleOutline} from "react-icons/io5";
+import { IoHomeOutline, IoAddCircleOutline } from "react-icons/io5";
 import { HiOutlineShoppingBag } from "react-icons/hi2";
 import { FaRegUser, FaStoreAlt } from "react-icons/fa";
+import { AiFillControl } from "react-icons/ai";
 
 
 const AdminMenu = () => {
@@ -80,6 +81,14 @@ const AdminMenu = () => {
               <Link to={'user'} className="flex  font-semibold text-[16px] w-full flex-1 flex-col items-start justify-center gap-0 overflow-hidden truncate text-sm">
                 User
               </Link>
+            </Link>
+          </li>
+          <li className="px-3">
+            <Link to={'promotionControl'} className="flex  items-center gap-3 rounded p-3  transition-colors hover:bg-[#22292F] hover:text-orange-500 focus:bg-orange-50 aria-[current=page]:bg-orange-50 aria-[current=page]:text-orange-500">
+              <div className="flex   font-semibold text-[16px] items-center self-center">
+                <AiFillControl />
+              </div>
+              Promotion Control
             </Link>
           </li>
           <li className="px-3 group relative">

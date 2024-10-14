@@ -24,6 +24,7 @@ import MemberDashBoard from "../components/DashBoard/MemberDashboard/MemberDashB
 import AddNewStore from "../components/DashBoard/AddNewStore/AddNewStore";
 import UpdateStore from "../components/DashBoard/UpdateStore/UpdateStore";
 import ManageStore from "../components/DashBoard/ManageStore/ManageStore";
+import PromotionControl from "../components/DashBoard/PromotionControl/PromotionControl";
 
 
 
@@ -83,6 +84,10 @@ const router = createBrowserRouter([
     path: '/dashboard',
     element: <PrivateRoute><DashboardLayout /></PrivateRoute>,
     children: [
+      {
+        path: "promotionControl",
+        element: <PrivateRoute><PromotionControl /></PrivateRoute>
+      },
       {
         path: "manageProduct",
         element: <PrivateRoute><ManageProduct /></PrivateRoute>
