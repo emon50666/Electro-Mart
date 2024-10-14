@@ -54,12 +54,11 @@ const AddToPromotion = () => {
                 image: imgUrl,
             };
 
-            // Post promotion data to your API
-            // const response = await axios.post('/promotions', promotionData);
-            // if (response.data.insertedId) {
-            //     toast.success(`${data.title} is added to promotions`);
-            //     navigate('/dashboard/managePromotions');
-            // }
+            const response = await axios.post('/promotions', promotionData);
+            if (response.data.insertedId) {
+                toast.success(`${data.title} is added to promotions`);
+                navigate('/dashboard/managePromotions');
+            }
             console.log(promotionData);
         } catch (error) {
             console.error('Error uploading promotion:', error);
