@@ -105,8 +105,7 @@ const router = createBrowserRouter([
       },
       {
         path: "makePromotion/:id",
-        element: <PrivateRoute><AddToPromotion /></PrivateRoute>,
-        loader: () => fetch(`${import.meta.env.VITE_API_URL}/products`),
+        element: <PrivateRoute><AddToPromotion /></PrivateRoute>
       },
       {
         path: "addProduct",

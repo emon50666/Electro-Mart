@@ -1,10 +1,13 @@
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
 import toast from 'react-hot-toast';
+import useAxiosPublic from '../../Hooks/useAxiosPublic';
 
 const AddToPromotion = () => {
+    const { id } = useParams();
+    const axiosPubic = useAxiosPublic();
     const [promotionImage, setPromotionImage] = useState(null);
     const [imagePreview, setImagePreview] = useState(null);
     const navigate = useNavigate();
@@ -12,6 +15,7 @@ const AddToPromotion = () => {
         register,
         handleSubmit,
         watch,
+        reset,
         formState: { errors },
     } = useForm();
 
@@ -47,6 +51,7 @@ const AddToPromotion = () => {
             const imgUrl = res.data.secure_url;
 
             const promotionData = {
+                mainProductId: id,
                 title: data.title,
                 description: data.description,
                 offerStartDate: formattedOfferStartDate,
@@ -54,10 +59,11 @@ const AddToPromotion = () => {
                 image: imgUrl,
             };
 
-            const response = await axios.post('/promotions', promotionData);
+            const response = await axiosPubic.post('/promotions', promotionData);
             if (response.data.insertedId) {
-                toast.success(`${data.title} is added to promotions`);
-                navigate('/dashboard/managePromotions');
+                toast.success(`Promotion is added`);
+                navigate('/dashboard/manageProduct');
+                reset();
             }
             console.log(promotionData);
         } catch (error) {
@@ -66,9 +72,7 @@ const AddToPromotion = () => {
         }
     };
 
-    // Watch the offer start and remove dates
     const offerStartDate = watch('offerStartDate');
-    const offerRemoveDate = watch('offerRemoveDate');
 
     // Validation to ensure offer start date is not earlier than today
     const validateStartDate = (value) => {
@@ -86,7 +90,8 @@ const AddToPromotion = () => {
 
     return (
         <div className="bg-gray-50 pt-12 pb-4 sm:px-6">
-            <div className="bg-white p-4 rounded-lg shadow-md w-full">
+            {/* Add full form border here */}
+            <div className="bg-white p-8 rounded-lg shadow-md w-full border border-gray-300">
                 <h2 className="text-2xl mb-4 font-bold text-gray-800">Add Promotion</h2>
                 <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
                     {/* Promotion Image */}
@@ -138,7 +143,7 @@ const AddToPromotion = () => {
                         </label>
                         <textarea
                             name="description"
-                            rows="4"
+                            rows="2"
                             {...register('description', { required: true })}
                             className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:ring-blue-500 focus:border-blue-500 outline-none"
                         />
