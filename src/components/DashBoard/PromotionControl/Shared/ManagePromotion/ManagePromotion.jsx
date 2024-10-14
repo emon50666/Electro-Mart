@@ -20,9 +20,8 @@ const ManagePromotion = () => {
             confirmButtonText: "Yes, delete it!",
         }).then((result) => {
             if (result.isConfirmed) {
-                axiosPublic.delete(`/products/${id}`).then((res) => {
+                axiosPublic.delete(`/promotions/${id}`).then((res) => {
                     if (res.data.deletedCount) {
-                        Swal.fire("Deleted!", "Your file has been deleted.", "success");
                         refetch();
                     }
                 });
