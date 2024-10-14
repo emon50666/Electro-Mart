@@ -18,7 +18,6 @@ import Wishlist from "../Pages/Wishlist/Wishlist";
 import Profile from "../components/DashBoard/ProfilePage/Profile";
 import ManageProduct from "../components/DashBoard/ManageProduct/ManageProduct";
 import UpdateProduct from "../Pages/UpdateProduct/UpdateProduct";
-import AddToPromotion from "../Pages/AddToPromotion/AddToPromotion";
 import ManageCart from "../Pages/ManageCart/ManageCart";
 import MemberDashBoard from "../components/DashBoard/MemberDashboard/MemberDashBoard";
 import AddNewStore from "../components/DashBoard/AddNewStore/AddNewStore";
@@ -107,10 +106,6 @@ const router = createBrowserRouter([
       {
         path: "updateStore/:id",
         element: <PrivateRoute><UpdateStore /></PrivateRoute>,
-      },
-      {
-        path: "makePromotion/:id",
-        element: <PrivateRoute><AddToPromotion /></PrivateRoute>
       },
       {
         path: "addProduct",

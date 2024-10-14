@@ -3,7 +3,7 @@ import useProduct from "../../../../Hooks/useProduct";
 import useAxiosPublic from "../../../../Hooks/useAxiosPublic";
 import { MdDeleteForever } from "react-icons/md";
 import { Link } from "react-router-dom";
-import { FaPencil } from "react-icons/fa6";
+import { FaBangladeshiTakaSign, FaPencil } from "react-icons/fa6";
 import { BsEye } from "react-icons/bs";
 
 const ManageProductTable = () => {
@@ -62,7 +62,9 @@ const ManageProductTable = () => {
                                     </span>
                                 </td>
                                 <td className="text-center md:text-lg text-orange-500">
-                                    £{product.price}
+                                    <span className="flex items-center justify-center gap-1">
+                                        <FaBangladeshiTakaSign /> <p>{product.price}</p>
+                                    </span>
                                 </td>
                                 <td className="text-center text-xs md:text-lg">
                                     <Link

@@ -1,16 +1,14 @@
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
 import toast from 'react-hot-toast';
 import useAxiosPublic from '../../Hooks/useAxiosPublic';
+import PropType from 'prop-types';
 
-const AddToPromotion = () => {
-    const { id } = useParams();
+const AddToPromotion = ({ setIndex }) => {
     const axiosPubic = useAxiosPublic();
     const [promotionImage, setPromotionImage] = useState(null);
     const [imagePreview, setImagePreview] = useState(null);
-    const navigate = useNavigate();
     const {
         register,
         handleSubmit,
@@ -51,7 +49,6 @@ const AddToPromotion = () => {
             const imgUrl = res.data.secure_url;
 
             const promotionData = {
-                mainProductId: id,
                 title: data.title,
                 description: data.description,
                 offerStartDate: formattedOfferStartDate,
@@ -61,8 +58,8 @@ const AddToPromotion = () => {
 
             const response = await axiosPubic.post('/promotions', promotionData);
             if (response.data.insertedId) {
-                toast.success(`Promotion is added`);
-                navigate('/dashboard/manageProduct');
+                toast.success(`Promotion is added. Check manage promotions`);
+                setIndex(1)
                 reset();
             }
             console.log(promotionData);
@@ -203,5 +200,7 @@ const AddToPromotion = () => {
         </div>
     );
 };
-
+AddToPromotion.propTypes = {
+    setIndex: PropType.func,
+}
 export default AddToPromotion;
