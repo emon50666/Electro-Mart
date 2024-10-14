@@ -5,6 +5,8 @@ import Swal from 'sweetalert2';
 import useAxiosPublic from '../../Hooks/useAxiosPublic';
 import useCart from '../../Hooks/useCart';
 import { Link } from 'react-router-dom';
+import { FaBangladeshiTakaSign } from 'react-icons/fa6';
+
 const CardOfCart = ({ cart }) => {
     const axiosPublic = useAxiosPublic();
     const { refetch } = useCart();
@@ -44,21 +46,22 @@ const CardOfCart = ({ cart }) => {
             />
             <div className="ml-4">
                 <div className="flex gap-24">
-                    <h4 className="font-semibold text-sm md:text-base mb-1">
-                        {product?.title.slice(0, 25)}...
-                    </h4>
+                    <Link to={`/productDetails/${product._id}`}>
+                        <h4 className="font-semibold text-sm md:text-base mb-1">
+                            {product?.title.slice(0, 25)}...
+                        </h4>
+                    </Link>
                     <button
                         onClick={() => handleDeleteCart(cart?._id)}
                         className='p-0 m-0'>
                         <IoMdCloseCircle className="text-xl text-red-500 hover:text-red-600"></IoMdCloseCircle>
                     </button>
                 </div>
-                <p className="text-orange-500">£{product?.price}</p>
-                <div className='mt-2'>
-                    <Link to={`/productDetails/${product?._id}`} className='bg-gray-200 px-4 rounded-sm hover:bg-gray-300 transition-all'>
-                        View Details
-                    </Link>
-                </div>
+                <p className="text-orange-500 flex items-center gap-1">
+                    <FaBangladeshiTakaSign />
+                    {product?.price}
+                </p>
+
             </div>
         </div>
     );

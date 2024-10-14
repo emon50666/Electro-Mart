@@ -1,13 +1,13 @@
 import { Link } from "react-router-dom";
-import { IoHomeOutline, IoAddCircleOutline, IoStorefrontOutline } from "react-icons/io5";
+import { IoHomeOutline, IoAddCircleOutline} from "react-icons/io5";
 import { HiOutlineShoppingBag } from "react-icons/hi2";
-import { FaRegUser } from "react-icons/fa";
+import { FaRegUser, FaStoreAlt } from "react-icons/fa";
 
 
 const AdminMenu = () => {
   return (
     <div className="">
-      <div className="bg-[#1E293B]  min-h-screen">
+      <div className="">
         <ul className="flex font-serif flex-1 flex-col mt-10 text-gray-400 gap-1 py-3">
           <li className="px-3">
             <Link
@@ -82,18 +82,40 @@ const AdminMenu = () => {
               </Link>
             </Link>
           </li>
-          <li className="px-3">
+          <li className="px-3 group relative">
             <Link
-              className="flex  items-center gap-3 rounded p-3  transition-colors hover:bg-[#22292F] hover:text-orange-500 focus:bg-orange-50 aria-[current=page]:bg-orange-50 aria-[current=page]:text-orange-500 "
+              className="flex items-center text-[16px]  gap-3 rounded p-3  transition-colors hover:bg-[#22292F] hover:text-orange-500 focus:bg-orange-50 aria-[current=page]:bg-orange-50 aria-[current=page]:text-emerald-500 "
             >
-              <div className="flex   font-semibold text-[16px] items-center self-center">
-                <IoStorefrontOutline ></IoStorefrontOutline>
+              <div className="flex text-md  font-semibold  items-center self-center">
+                <FaStoreAlt />
               </div>
-              <Link to={'/'} className="flex  font-semibold text-[16px] w-full flex-1 flex-col items-start justify-center gap-0 overflow-hidden truncate text-sm">
-                Add Store
+              <Link
+                to="#"
+                className="flex font-semibold text-[16px] w-full flex-1 flex-col items-start justify-center gap-0 overflow-hidden truncate"
+              >
+                Stores
               </Link>
             </Link>
+
+            {/* Submenu */}
+            <ul className="absolute  w-full text-gray-400  top-full hidden group-hover:block bg-[#22292F] shadow-lg rounded-lg p-2">
+              <li className="px-3 ">
+                <Link
+                  to="manageStore"
+                  className=" block py-2 px-4 text-sm font-medium  hover:bg-[#22292F] hover:text-orange-500">Manage Store</Link>
+              </li>
+              <li className="px-3">
+                <Link
+                  to="addStore"
+                  className="block py-2 px-4 text-sm font-medium  hover:bg-[#22292F]
+                   hover:text-orange-500  aria-[current=page]:bg-orange-50 aria-[current=page]:text-emerald-500"
+                >
+                  Add Store
+                </Link>
+              </li>
+            </ul>
           </li>
+
         </ul>
       </div>
     </div>

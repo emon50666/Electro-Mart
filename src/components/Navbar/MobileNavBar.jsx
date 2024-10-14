@@ -1,8 +1,10 @@
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
+import useCategories from '../../Hooks/useCategories';
 
 
 const MobileNavBar = () => {
+  const { categories } = useCategories();
     return (
 <div className="relative">
   <div className="sticky top-0 z-40 bg-white">
@@ -43,11 +45,19 @@ const MobileNavBar = () => {
           <p>This is the content for the Menu tab. You can add more content to make the panel scrollable.</p>
         </TabPanel>
         <TabPanel>
-          <h2>Category 1</h2>
-          {/* Add your content here */}
-          <p>This is the content for the Category tab. You can add more content to make the panel scrollable.</p>
-          <p>This is the content for the Category tab. You can add more content to make the panel scrollable.</p>
-          <p>This is the content for the Category tab. You can add more content to make the panel scrollable.</p>
+          
+          <ul className="menu menu-vertical space-y-2  ">
+          {categories.map((cat, idx) =>
+            cat?.newCategory && (
+              <li key={idx}>
+                <a className="text-md font-medium  text-black   px-2 py-1 hover:bg-white hover:text-orange-500 ">
+                  {cat?.newCategory}
+                </a>
+              </li>
+            )
+          )}
+
+        </ul>
         </TabPanel>
       </div>
     </Tabs>

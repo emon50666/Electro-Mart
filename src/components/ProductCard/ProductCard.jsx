@@ -10,17 +10,15 @@ import PropType from "prop-types";
 import useAxiosPublic from "../../Hooks/useAxiosPublic";
 import useAddToCart from "../../Hooks/useAddToCart";
 import useAddToCompare from "../../Hooks/useAddToCompare";
+import useAddToWishlist from "../../Hooks/useAddToWishlist";
 
 const ProductCard = ({ product, refetch }) => {
   const handleAddCart = useAddToCart();
-  const handleAddCompare = useAddToCompare();;
+  const handleAddCompare = useAddToCompare();
+  const handleAddWishlist = useAddToWishlist();
   const axiosPublic = useAxiosPublic();
   const [isHovered, setIsHovered] = useState(false);
   const [cartOpen, setCartOpen] = useState(false);
-  const handleAddToCart = () => {
-    handleAddCart(product)
-    setCartOpen(true);
-  };
   // console.log(user?.email);
   const handleViewCount = (_id) => {
     let currentView = product?.view || 0;
@@ -37,34 +35,45 @@ const ProductCard = ({ product, refetch }) => {
       })
   };
 
+
+  const handleAddToCart = () => {
+    handleAddCart(product)
+    setCartOpen(true);
+  };
   const handleAddToCompare = () => {
     handleAddCompare(product)
   }
+  const handleAddToWishlist = () => {
+    handleAddWishlist(product)
+  }
+
   return (
     <div
       className="   pt-4 pb-3  bg-[#F6F6F6]">
-    
-     <div className="relative p-3 hover:shadow-lg rounded-md bg-white group">
-     <Link to={`/productDetails/${product._id}`}>
-     {product.images.length > 1 && <HoverImage
-          src={product.images[0]}
-          hoverSrc={product.images[1]}
-          alt="Product Image"
-          className="w-full h-[200px] object-cover transition-transform duration-500 ease-in-out group-hover:scale-95"
-        />}
+
+      <div className="relative p-3 hover:shadow-lg rounded-md bg-white group">
+        <Link to={`/productDetails/${product._id}`}>
+          {product.images.length > 1 && <HoverImage
+            src={product.images[0]}
+            hoverSrc={product.images[1]}
+            alt="Product Image"
+            onClick={() => handleViewCount(product._id)}
+            className="w-full h-[200px] object-cover transition-transform duration-500 ease-in-out group-hover:scale-95"
+          />}
 
 
-        {product.images.length <= 1 && <img
-          src={product.images[0]}
-          alt="Product Image"
-          className="w-full h-[200px] object-cover transition-transform duration-500 ease-in-out group-hover:scale-95"
-        />}
+          {product.images.length <= 1 && <img
+            src={product.images[0]}
+            alt="Product Image"
+            onClick={() => handleViewCount(product._id)}
+            className="w-full h-[200px] object-cover transition-transform duration-500 ease-in-out group-hover:scale-95"
+          />}
 
-     </Link>
+        </Link>
 
 
         <div className="absolute top-1/3 right-4 transform -translate-y-1/2 translate-x-full group-hover:translate-x-0 group-hover:opacity-100 opacity-0 group-hover:pointer-events-auto pointer-events-none transition-all duration-300 ease-in-out bg-white p-2 rounded-md border shadow-lg flex flex-col space-y-4">
-          <button>
+          <button onClick={handleAddToWishlist}>
             <FaHeart className="text-lg text-orange-600" />
           </button>
           <button onClick={handleAddToCompare}>
@@ -103,16 +112,16 @@ const ProductCard = ({ product, refetch }) => {
         </div>
 
         {product?.discountPrice == product?.price ? <div className="flex gap-2">
-          <p className="font-bold text-orange-500">{product?.price}</p>
+          <p className="font-bold text-orange-500"> ৳ {product?.price}</p>
         </div>
           :
           product?.discountPrice > 1 ? <div className="flex gap-2">
-            <span className="line-through text-gray-400 font-semibold">{product?.price}</span>
+            <span className="line-through text-gray-400 font-semibold"> ৳{product?.price}</span>
             <p className="font-bold text-orange-500">{product?.discountPrice}</p>
           </div>
             :
             <div className="flex gap-2">
-              <p className="font-bold text-orange-500">{product?.price}</p>
+              <p className="font-bold text-orange-500"> {product?.price}</p>
             </div>
         }
 
@@ -137,7 +146,7 @@ const ProductCard = ({ product, refetch }) => {
         </button>
         {cartOpen && <AddCart setCartOpen={setCartOpen} />}
       </div>
- 
+
     </div>
   );
 };

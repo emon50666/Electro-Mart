@@ -15,10 +15,12 @@ import {
 import useAddToCart from "../../../../Hooks/useAddToCart";
 import AddCart from "../../../../components/AddToCart/AddCart";
 import useAddToCompare from "../../../../Hooks/useAddToCompare";
+import useAddToWishlist from "../../../../Hooks/useAddToWishlist";
 
 const OtherProductDetails = ({ product }) => {
     const handleAddCart = useAddToCart();
     const handleAddCompare = useAddToCompare();
+    const handleAddWishlist = useAddToWishlist();
     const [quantityCount, setQuantityCount] = useState(1)
     const [disableBtn, setDisableBtn] = useState(false)
     const shareUrl = window.location.href;
@@ -49,12 +51,15 @@ const OtherProductDetails = ({ product }) => {
     const handleAddToCompare = () => {
         handleAddCompare(product)
     }
+    const handleAddToWishlist = () =>{
+        handleAddWishlist(product)
+    }
     return (
         <div >
-            <div className="lg:space-y-3">
+            <div className="lg:space-y-3 mt-10">
                 {/* Title & Rating start */}
                 <div>
-                    <h3 className="text-xl md:text-2xl lg:text-3xl font-bold lg:font-semibold font_lexend">{product?.title}</h3>
+                    <h3 className="text-xl md:text-2xl lg:text-2xl font-bold lg:font-semibold font_lexend">{product?.title}</h3>
                     <div className="flex items-center justify-between mt-3">
                         <div className="flex items-center space-x-4 py-1">
                             <Rating
@@ -70,15 +75,15 @@ const OtherProductDetails = ({ product }) => {
                                 <p>({ } customer reviews)</p>
                             </div>
                         </div>
-                        <div className="font_cabin text-[#767676] border-2  px-4">
-                            {product.quantity <= 0 ? <p>Stock Out</p> : <p>{product?.quantity} item available</p>}
+                        <div className="font_cabin rounded-full text-orange-500 border-2  px-4">
+                            {product.quantity <= 0 ? <p>Stock Out</p> : <p>( {product?.quantity} ) item available</p>}
                         </div>
                     </div>
                 </div>
                 {/* Title & Rating end */}
                 {/* Price & description start */}
-                <div className="text-xl lg:text-4xl text-orange-500 font-semibold flex items-center font_cabin">
-                    £
+                <div className="text-xl gap-2 lg:text-4xl text-orange-500 font-semibold flex items-center font_cabin">
+                <p >৳</p>
                     <h3> {product?.price}</h3>
                 </div>
                 <div className="font_cabin text-sm lg:text-base text-[#777777]">
@@ -130,12 +135,12 @@ const OtherProductDetails = ({ product }) => {
                             </div>
                             <h3 className="font-medium font_cabin">Compare</h3>
                         </button>
-                        <div className="flex items-center hover:text-[#666666] pl-8 space-x-1">
+                        <button onClick={handleAddToWishlist}  className="flex items-center hover:text-[#666666] pl-8 space-x-1">
                             <div>
                                 <GoHeart />
                             </div>
                             <h3 className="font-medium font_cabin">Add to wishlist</h3>
-                        </div>
+                        </button>
                     </div>
                     <div className="flex items-center">
                         <h3 className="font-medium font_cabin text-sm md:text-base lg:text-lg">Share:</h3>

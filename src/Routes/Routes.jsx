@@ -20,6 +20,10 @@ import ManageProduct from "../components/DashBoard/ManageProduct/ManageProduct";
 import UpdateProduct from "../Pages/UpdateProduct/UpdateProduct";
 import AddToPromotion from "../Pages/AddToPromotion/AddToPromotion";
 import ManageCart from "../Pages/ManageCart/ManageCart";
+import MemberDashBoard from "../components/DashBoard/MemberDashboard/MemberDashBoard";
+import AddNewStore from "../components/DashBoard/AddNewStore/AddNewStore";
+import UpdateStore from "../components/DashBoard/UpdateStore/UpdateStore";
+import ManageStore from "../components/DashBoard/ManageStore/ManageStore";
 
 
 
@@ -44,23 +48,19 @@ const router = createBrowserRouter([
       },
       {
         path: "/comparePage",
-        element: <ComparePage />
+        element: <PrivateRoute><ComparePage /></PrivateRoute>
       },
       {
         path: "/wishlist",
-        element: <Wishlist />
+        element: <PrivateRoute><Wishlist /></PrivateRoute>
       },
       {
         path: "/storesPage",
         element: <StorPage />
       },
       {
-        path: "/storeDetails",
+        path: "/storeDetails/:id",
         element: <StoreDetails />
-      },
-      {
-        path: "/storPage",
-        element: <StorPage></StorPage>
       },
     ],
 
@@ -88,13 +88,20 @@ const router = createBrowserRouter([
         element: <PrivateRoute><ManageProduct /></PrivateRoute>
       },
       {
+        path: "manageStore",
+        element: <PrivateRoute><ManageStore /></PrivateRoute>
+      },
+      {
         path: "manageCart",
         element: <PrivateRoute><ManageCart /></PrivateRoute>
       },
       {
         path: "updateProduct/:id",
         element: <PrivateRoute><UpdateProduct /></PrivateRoute>,
-        loader: () => fetch(`${import.meta.env.VITE_API_URL}/products`),
+      },
+      {
+        path: "updateStore/:id",
+        element: <PrivateRoute><UpdateStore /></PrivateRoute>,
       },
       {
         path: "makePromotion/:id",
@@ -104,6 +111,10 @@ const router = createBrowserRouter([
       {
         path: "addProduct",
         element: <PrivateRoute><AddNewProduct /></PrivateRoute>
+      },
+      {
+        path: "addStore",
+        element: <PrivateRoute><AddNewStore /></PrivateRoute>
       },
       {
         path: "user",
@@ -117,6 +128,10 @@ const router = createBrowserRouter([
         path: "profile",
         element: <PrivateRoute><Profile /></PrivateRoute>
       },
+      {
+        path: 'my-account',
+        element: <MemberDashBoard />
+      }
 
     ]
   }

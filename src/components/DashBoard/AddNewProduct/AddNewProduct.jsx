@@ -4,9 +4,13 @@ import { useForm } from 'react-hook-form';
 import useAxiosPublic from '../../../Hooks/useAxiosPublic';
 import toast from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
+import UpdateProductForm from '../../AddCategory&Dicount/UpdateProductForm';
+import useCategories from '../../../Hooks/useCategories';
+
 
 const AddNewProduct = () => {
   const axiosPublic = useAxiosPublic();
+  const { categories } = useCategories();
   const navigate = useNavigate();
   const [galleryImages, setGalleryImages] = useState([]);
   const [image, setImage] = useState({ array: [] });
@@ -110,15 +114,14 @@ const AddNewProduct = () => {
       toast.error("Failed to upload product. Please try again.");
     }
   };
-
-
   return (
     <div className="bg-gray-50 pt-12 pb-4 sm:px-6">
+      <UpdateProductForm />
       <div className="bg-white p-4 rounded-lg shadow-md w-full">
-        <h2 className="text-2xl mb-4 font-bold text-gray-800 text-center">Add New Product</h2>
+        <h2 className="text-2xl mb-4 font-bold text-gray-800 ">Add New Product</h2>
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
           {/* Product Gallery Images */}
-          <div className='p-2 md:p-8 border-2 border-gray-400'>
+          <div className='p-2 md:p-8 border rounded-md border-gray-300'>
             <label htmlFor="productGallery" className="block text-sm font-medium text-gray-700">
               Product Gallery Images
             </label>
@@ -129,7 +132,7 @@ const AddNewProduct = () => {
               multiple
               {...register("gallery", { required: true })}
               onChange={handleImageChange}
-              className="mt-1 block w-full md:w-1/2 px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:border-blue-500 outline-none"
+              className="mt-1 block w-full md:w-1/2 px-4 py-2 border-dashed border border-gray-200 rounded-lg shadow-sm focus:border-blue-500 outline-none"
             />
             {errors.gallery && (
               <span className="text-sm text-red-600 font-semibold">
@@ -154,7 +157,7 @@ const AddNewProduct = () => {
           </div>
 
           {/* Other Info Input */}
-          <div className='p-2 md:p-8 border-2 border-gray-400'>
+          <div className='p-2 md:p-8 border rounded-md border-gray-300'>
             <div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
               {/* Product Title */}
               <div>
@@ -225,13 +228,13 @@ const AddNewProduct = () => {
                   className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:border-blue-500 outline-none"
                 >
                   <option value="">Select a category</option>
-                  <option value="mobile">Mobile</option>
-                  <option value="laptop">Laptop</option>
-                  <option value="blender">Blender</option>
-                  <option value="lights">Lights</option>
-                  <option value="kitchen">Kitchen</option>
-                  <option value="headphones">Headphones</option>
-                  <option value="television">Television</option>
+                  {categories.map((cat, idx) =>
+                    cat?.newCategory && (
+                      <option key={idx} value={cat.newCategory}>
+                        {cat.newCategory}
+                      </option>
+                    )
+                  )}
                 </select>
                 {errors.category && (
                   <span className="text-sm text-red-600 font-semibold">
@@ -315,12 +318,13 @@ const AddNewProduct = () => {
                 >
                   <option value="">Select a Percentage</option>
                   <option value="0">0</option>
-                  <option value="5">5%</option>
-                  <option value="10">10%</option>
-                  <option value="15">15%</option>
-                  <option value="20">20%</option>
-                  <option value="25">25%</option>
-                  <option value="30">30%</option>
+                  {categories.map((cat, idx) =>
+                    cat?.newDiscount && (
+                      <option key={idx} value={cat.newDiscount}>
+                        {cat.newDiscount}
+                      </option>
+                    )
+                  )}
                 </select>
                 {errors.discountPercentage && (
                   <span className="text-sm text-red-600 font-semibold">

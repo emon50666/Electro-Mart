@@ -1,73 +1,173 @@
-import { FaFacebookF } from "react-icons/fa6";
+import { FaFacebookF, FaInstagram, FaLocationArrow, FaPhone, FaTelegramPlane } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
-import { FaLinkedinIn } from "react-icons/fa";
-import { FaTelegramPlane } from "react-icons/fa";
+import { Link } from "react-router-dom"; // Import Link from react-router-dom
+import FooterCategoryList from "./Shared/FooterCategoryList";
 
 const Footer = () => {
     return (
-        <div>
-            <footer className="footer grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-6 px-4 sm:px-6 lg:px-20 py-0 md:py-10 mb-20 lg:mb-4">
-                <aside className="">
-                    <h1 className="text-2xl sm:text-3xl lg:text-4xl font-semibold">Electro Mart</h1>
-                    <p className="text-sm sm:text-base lg:text-lg">
-                        Condimentum adipiscing vel neque dis nam <br /> parturient orci at scelerisque.
+        <div className="px-4 pt-16 md:px-4 lg:px-8 bg-[#222222]  font_inter">
+            <div className="grid  row-gap-10 mb-8 grid-cols-1 md:grid-cols-6 md:text-sm  lg:grid-cols-6 xl:grid-cols-6">
+                <div className="md:max-w-md col-span-1 md:col-span-2 ">
+                    <h2 className="font-bold text-3xl text-gray-100 xl:text-5xl">Elector <span className="text-orange-500">Mart</span></h2>
+                    <div className="pt-2 flex gap-2 items-center lg:max-w-md">
+                        <p className="text-base text-[#B3B3B3]">
+
+                            <FaPhone></FaPhone>
+                        </p>
+                        <p className="font-semibold text-base  xl:text-3xl text-gray-400">
+                            +8801786397249
+                        </p>
+                    </div>
+                    <div className="pt-3 lg:max-w-sm">
+                        <p className="text-base flex gap-2 items-center text-gray-400">
+                            <FaLocationArrow />
+                            36/2 M.M Ali Road,
+                        </p>
+
+                    </div>
+                    <div className=" pb-5 lg:max-w-sm">
+                        <ul className="flex mt-5 gap-x-5">
+                            <li>
+                                <Link to="#" className="text-gray-400  hover:text-[#00796b]">
+                                    <FaFacebookF className="text-xl" />
+                                </Link>
+                            </li>
+                            <li>
+                                <Link to="#" className="text-gray-400 hover:text-[#00796b]">
+                                    <FaXTwitter className="text-xl" />
+                                </Link>
+                            </li>
+                            <li>
+                                <Link to="#" className="text-gray-400 hover:text-[#00796b]">
+                                    <FaInstagram className="text-xl" />
+                                </Link>
+                            </li>
+                            <li>
+                                <Link to="#" className="text-gray-400 hover:text-[#00796b]">
+                                    <FaTelegramPlane className="text-xl" />
+                                </Link>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div className="col-span-1">
+                    <p className="font-semibold text-xl md:text-base tracking-wide text-gray-300">
+                        Our Story
+                    </p>
+                    <ul className="mt-2 space-y-1 md:space-y-2 text-md">
+                        <li>
+                            <Link to="/" className="text-gray-400 underline-hover">
+                                Web
+                            </Link>
+                        </li>
+                        <li>
+                            <Link to="/" className="text-gray-400 underline-hover">
+                                eCommerce
+                            </Link>
+                        </li>
+                        <li>
+                            <Link to="/" className="text-gray-400 underline-hover">
+                                Business
+                            </Link>
+                        </li>
+                        <li>
+                            <Link to="/" className="text-gray-400 underline-hover">
+                                Entertainment
+                            </Link>
+                        </li>
+                        <li>
+                            <Link to="/" className="text-gray-400 underline-hover">
+                                Portfolio
+                            </Link>
+                        </li>
+                    </ul>
+                </div>
+                <div className="col-span-1">
+                    <p className="font-semibold text-xl md:text-base tracking-wide text-gray-300">
+                        Category
+                    </p>
+                    <ul className="mt-2 space-y-1 md:space-y-2 text-md">
+                        <FooterCategoryList />
+                    </ul>
+                </div>
+                <div className="col-span-1">
+                    <p className="font-semibold text-xl md:text-base tracking-wide text-gray-300">
+                        Quick Links
+                    </p>
+                    <ul className="mt-2 space-y-1 md:space-y-2 text-md">
+                        <li>
+                            <Link to="/" className="text-white underline-hover">
+                                Shop
+                            </Link>
+                        </li>
+                        <li>
+                            <Link to="/storesPage" className="text-white underline-hover">
+                                Store
+                            </Link>
+                        </li>
+                        <li>
+                            <Link to="/" className="text-gray-400 underline-hover">
+                                Brochure
+                            </Link>
+                        </li>
+                        <li>
+                            <Link to="/" className="text-gray-400 underline-hover">
+                                Nonprofit
+                            </Link>
+                        </li>
+                        <li>
+                            <Link to="/" className="text-gray-400 underline-hover">
+                                Educational
+                            </Link>
+                        </li>
+                        <li>
+                            <Link to="/" className="text-gray-400 underline-hover">
+                                Projects
+                            </Link>
+                        </li>
+                    </ul>
+                </div>
+                <div className="col-span-1">
+                    <p className="font-semibold text-xl md:text-base tracking-wide text-gray-300">
+                        Contact Us
+                    </p>
+                    <ul className="mt-2 space-y-1 md:space-y-2 text-md">
+                        <li>
+                            <Link to="/" className="text-gray-400 underline-hover">
+                                Infopreneur
+                            </Link>
+                        </li>
+                        <li>
+                            <Link to="/" className="text-gray-400 underline-hover">
+                                Personal
+                            </Link>
+                        </li>
+                        <li>
+                            <Link to="/" className="text-gray-400 underline-hover">
+                                Wiki
+                            </Link>
+                        </li>
+                        <li>
+                            <Link to="/" className="text-gray-400 underline-hover">
+                                Forum
+                            </Link>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div className="flex flex-1 text-gray-400 justify-between pt-5 pb-20 lg:pb-3 border-gray-600 border-t xl:flex-row  xl:mb-auto gap-y-2">
+                <p className="text-[10px] lg:text-base">
+                    © 2024 Electro Mart. Develope by Elector Team.
+                </p>
+                <div className="flex  flex-col md:flex-row md:items-center  space-x-4 sm:mt-0">
+                    <p className="text-[10px] text-center lg:text-base">
+                        We using safe payment for
                     </p>
                     <div>
-                        <h1 className="text-lg sm:text-xl lg:text-2xl font-semibold">Subscribe us</h1>
-                        <div className="mt-2 space-x-3 ">
-                            <button className="text-[16px] sm:text-[19px] p-2 rounded-full bg-blue-800 text-white"><FaFacebookF /></button>
-                            <button className="text-[16px] sm:text-[19px] p-2 rounded-full bg-black text-white"><FaXTwitter /></button>
-                            <button className="text-[16px] sm:text-[19px] p-2 rounded-full bg-blue-600 text-white"><FaLinkedinIn /></button>
-                            <button className="text-[16px] sm:text-[19px] p-2 rounded-full bg-blue-500 text-white"><FaTelegramPlane /></button>
-                        </div>
+                        <img src="https://res.cloudinary.com/duv5fiurz/image/upload/v1728717572/Payment_2_yu9afc.svg" alt="" />
                     </div>
-                </aside>
-
-                <nav className="space-y-2">
-                    <h6 className="text-lg sm:text-xl lg:text-2xl font-semibold">Categories</h6>
-                    <a className="link link-hover text-sm sm:text-base lg:text-lg">Smartphones</a>
-                    <a className="link link-hover text-sm sm:text-base lg:text-lg">Laptops</a>
-                    <a className="link link-hover text-sm sm:text-base lg:text-lg">Hardware</a>
-                    <a className="link link-hover text-sm sm:text-base lg:text-lg">Cameras</a>
-                    <a className="link link-hover text-sm sm:text-base lg:text-lg">Headphones</a>
-                    <a className="link link-hover text-sm sm:text-base lg:text-lg">Bathroom</a>
-                </nav>
-
-                <nav className="space-y-2">
-                    <h6 className="text-lg sm:text-xl lg:text-2xl font-semibold">Useful Links</h6>
-                    <a className="link link-hover text-sm sm:text-base lg:text-lg">Promotions</a>
-                    <a className="link link-hover text-sm sm:text-base lg:text-lg">Stores</a>
-                    <a className="link link-hover text-sm sm:text-base lg:text-lg">Our contacts</a>
-                    <a className="link link-hover text-sm sm:text-base lg:text-lg">Delivery & Return</a>
-                    <a className="link link-hover text-sm sm:text-base lg:text-lg">Outlet</a>
-                </nav>
-
-                <nav className="space-y-2">
-                    <h6 className="text-lg sm:text-xl lg:text-2xl font-semibold">Useful Links</h6>
-                    <a className="link link-hover text-sm sm:text-base lg:text-lg">Blog</a>
-                    <a className="link link-hover text-sm sm:text-base lg:text-lg">Our contacts</a>
-                    <a className="link link-hover text-sm sm:text-base lg:text-lg">Promotions</a>
-                    <a className="link link-hover text-sm sm:text-base lg:text-lg">Stores</a>
-                    <a className="link link-hover text-sm sm:text-base lg:text-lg">Delivery & Return</a>
-                </nav>
-
-                <nav className="space-y-2">
-                    <h6 className="text-lg font-semibold">Download App on Mobile:</h6>
-                    <h1 className="text-sm sm:text-base lg:text-lg">15% discount on your first purchase</h1>
-                    <div className="flex space-x-2 md:space-x-0 md:flex-col md:items-start">
-                        <img
-                            src={`https://res.cloudinary.com/duv5fiurz/image/upload/v1728326107/google_play_button_wgbqub_kfnlf6.png`}
-                            className="w-24 lg:w-32"
-                            alt="Google Play"
-                        />
-                        <img
-                            src={`https://res.cloudinary.com/duv5fiurz/image/upload/v1728326107/images_gadmv1_utqpyp.png`}
-                            className="w-24 lg:w-32"
-                            alt="App Store"
-                        />
-                    </div>
-                </nav>
-            </footer>
+                </div>
+            </div>
         </div>
     );
 };
