@@ -8,6 +8,7 @@ import { useState } from "react";
 import { RxCross1 } from "react-icons/rx";
 import useAxiosPublic from "../../Hooks/useAxiosPublic";
 import useWishlist from "../../Hooks/useWishlist";
+import { FaBangladeshiTakaSign } from "react-icons/fa6";
 
 const WishlistCart = ({ wishProduct }) => {
   const { products } = useProduct();
@@ -44,7 +45,7 @@ const WishlistCart = ({ wishProduct }) => {
       {/* Remove Button */}
       <button
         onClick={() => handleDeleteWishlist(wishProduct?._id)}
-        className="absolute top-3 right-3 text-gray-500 hover:text-red-500 transition-colors duration-300"
+        className="absolute z-50 top-3 right-3 text-gray-500 hover:text-red-500 transition-colors duration-300"
       >
         <RxCross1 className="w-5 h-5" />
       </button>
@@ -63,8 +64,9 @@ const WishlistCart = ({ wishProduct }) => {
         <h2 className="font-semibold text-sm sm:text-base overflow-hidden text-ellipsis whitespace-nowrap">
           {product.title}
         </h2>
-        <p className="text-orange-500 font-bold text-sm lg:text-lg">
-          £{product.price}
+        <p className="text-orange-500 font-bold text-sm lg:text-lg flex items-center justify-center gap-1">
+          <FaBangladeshiTakaSign />
+          {product.price}
         </p>
       </div>
 

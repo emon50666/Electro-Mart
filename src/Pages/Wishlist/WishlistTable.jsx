@@ -9,6 +9,7 @@ import useAddToCart from "../../Hooks/useAddToCart";
 import { MdDeleteForever } from "react-icons/md";
 import useAxiosPublic from "../../Hooks/useAxiosPublic";
 import useWishlist from "../../Hooks/useWishlist";
+import { FaBangladeshiTakaSign } from "react-icons/fa6";
 
 const WishlistTable = ({ wishProduct }) => {
   console.log(wishProduct)
@@ -55,10 +56,14 @@ const WishlistTable = ({ wishProduct }) => {
         {product?.brand}
       </td>
       <td className="px-5 md:text-base text-xs  text-center transition duration-300 border-t border-l first:border-l-0 border-slate-300">
-        £{product?.price}
+        <p className="flex items-center justify-center gap-1">
+          <FaBangladeshiTakaSign />{product?.price}
+        </p>
       </td>
       <td className="px-5 md:text-base text-xs  text-center transition duration-300 border-t border-l first:border-l-0 border-slate-300">
-        £{product?.discountPrice}
+        {product?.discountPrice ? <p className="flex items-center justify-center gap-1">
+          <FaBangladeshiTakaSign />{product?.price}
+        </p> : "0"}
       </td>
       <td className="px-5 md:text-base text-xs  text-center transition duration-300 border-t border-l first:border-l-0 border-slate-300">
         {
