@@ -10,6 +10,7 @@ import {
   updateProfile,
 } from 'firebase/auth'
 import auth from '../Firebase/Firebase'
+import axios from 'axios'
 
 
 export const AuthContext = createContext(null)
@@ -49,11 +50,29 @@ const AuthProvider = ({ children }) => {
     })
   }
 
+
+  // save user data
+  const saveUser = async user =>{
+    const currentUser = {
+      email: user?.email,
+      role: 'member',
+      status: 'verified',
+
+    }
+    const {data} = await axios.put(`${import.meta.env.VITE_API_URL}/user`,currentUser)
+    return data
+
+  }
+
+
+
+
   // onAuthStateChange
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, currentUser => {
       setUser(currentUser)
       console.log('CurrentUser-->', currentUser)
+      saveUser(currentUser)
       setLoading(false)
     })
     return () => {

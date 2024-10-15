@@ -1,6 +1,7 @@
 import { useState } from "react";
 import AdminMenu from "./SideBarMenu/AdminMenu";
 import MemberMenu from "./SideBarMenu/MemberMenu";
+import useRoll from "../../Hooks/useRoll";
 
 
 
@@ -8,6 +9,8 @@ import MemberMenu from "./SideBarMenu/MemberMenu";
 
 const SideBar = () => {
   const [isSideNavOpen, setIsSideNavOpen] = useState(false)
+  const [role] = useRoll();
+  console.log(role);
   return (
     <>
 
@@ -58,8 +61,14 @@ const SideBar = () => {
         >
 
           {/* admin menu */}
-          <AdminMenu/>
-          <MemberMenu/>
+         
+        {  role === 'admin' && <AdminMenu/> } 
+
+          {  role === 'member' &&  <MemberMenu/> }
+          {  role === 'seller' && <AdminMenu/> }
+
+          
+         
 
         </nav>
 

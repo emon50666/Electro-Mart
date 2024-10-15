@@ -17,16 +17,23 @@ const FooterCategoryList = () => {
     const visibleCategories = showAll ? categories : categories.slice(0, 5);
     return (
         <div>
-            <ul className=''>
+            <ul className='mt-2 space-y-1 md:space-y-2 text-md '>
                 {visibleCategories.map((cat, idx) => (
                     cat?.newCategory !== "" && (
+                        // <li key={idx}>
+                        //     <Link
+                        //         to="/"
+                        //         className="text-gray-400 underline-hover"
+                        //         onClick={handleCategoryClick} 
+                        //     >
+                        //         
+                        //     </Link>
+                        // </li>
                         <li key={idx}>
-                            <Link
-                                to="/"
-                                className="text-white underline-hover"
-                                onClick={handleCategoryClick}
+                            <Link to="/" className="text-gray-400 underline-hover"
+                            onClick={handleCategoryClick} 
                             >
-                                {cat.newCategory}
+                               {cat.newCategory}
                             </Link>
                         </li>
                     )
@@ -34,8 +41,8 @@ const FooterCategoryList = () => {
             </ul>
             <button
                 onClick={handleShowAll}
-                className="text-white lg:text-base xl:text-lg"
-            >
+                className="text-gray-400 lg:text-base xl:text-lg"
+                >
                 {showAll ? "Show Less" : "All Categories"}
             </button>
         </div >

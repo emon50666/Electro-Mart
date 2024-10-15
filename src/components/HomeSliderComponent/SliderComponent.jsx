@@ -16,8 +16,10 @@ const  HomeSliderComponent =() => {
     },
     {
       id: 1,
-      image: "https://i.postimg.cc/WbF7cKTj/slider0102.jpgg",
-      title: "Freedom With AirPods",
+      // image: "https://i.postimg.cc/WbF7cKTj/slider0102.jpgg",
+      image: "https://i.ibb.co.com/MGjpMXc/Image-4-min.jpg",
+
+      title: "Freedom With Heap Phone",
       subtitle: "Experience Sound.",
       description: "Unleash Wireless Sound Freedom.",
       buttonText: "Shop now",
@@ -36,18 +38,18 @@ const  HomeSliderComponent =() => {
       >
         {slides.map((slide) => (
           <SwiperSlide key={slide.id}>
-            <div className="relative w-full h-[190px]  md:-auto lg:h-[357px] xl:h-[400px] 2xl:h-[450px] ">
+            <div className="relative h-auto   ">
               <img
                 src={slide.image}
                 alt={slide.title}
-                className="w-full object-cover"
+                className="w-full object-cover h-[150px] md:h-[180px] lg:h-[357px] xl:h-[400px] 2xl:h-[450px]"
               />
-              <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-start p-10 text-white">
-                <div className="space-y-4">
-                  <h3 className="text-lg md:text-xl">{slide.subtitle}</h3>
-                  <h1 className="text-2xl md:text-4xl font-bold">{slide.title}</h1>
+              <div className="absolute lg:pl-20 xl:pl-24 2xl:pl-24 pt-10 pb-10 inset-0 bg-black bg-opacity-40 flex items-center justify-start p-10 text-white">
+                <div className="">
+                  <h3 className="text-md md:text-xl">{slide.subtitle}</h3>
+                  <h1 className="text-md md:text-4xl font-bold">{slide.title}</h1>
                   <p className="text-sm md:text-lg">{slide.description}</p>
-                  <button className="bg-green-500 hover:bg-green-600 text-white px-5 py-2 rounded-md">
+                  <button className="px-2 mt-2 py-2 bg-green-500 hover:bg-green-600 text-white  rounded-md">
                     {slide.buttonText}
                   </button>
                 </div>
