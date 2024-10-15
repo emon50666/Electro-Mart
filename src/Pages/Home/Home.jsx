@@ -23,6 +23,8 @@ const Home = () => {
       <HomeSliderComponent/>
 
       <br /><br /><br /><br /><br /><br />
+    
+      
     </div>
   );
 };
