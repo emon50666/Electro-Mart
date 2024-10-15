@@ -4,7 +4,7 @@ import PropType from "prop-types";
 
 const StoreHero = ({ store }) => {
     return (
-        <section className="px-2 mx-auto">
+        <section className="mx-auto">
             <div
                 className="min-h-[60vh] w-full relative rounded-2xl"
                 style={{

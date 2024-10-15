@@ -61,8 +61,8 @@ const WishlistTable = ({ wishProduct }) => {
         </p>
       </td>
       <td className="px-5 md:text-base text-xs  text-center transition duration-300 border-t border-l first:border-l-0 border-slate-300">
-        {product?.discountPrice ? <p className="flex items-center justify-center gap-1">
-          <FaBangladeshiTakaSign />{product?.price}
+        {(product?.discountPrice && (product?.discountPrice !== product?.price) )? <p className="flex items-center justify-center gap-1">
+          <FaBangladeshiTakaSign />{product?.discountPrice}
         </p> : "0"}
       </td>
       <td className="px-5 md:text-base text-xs  text-center transition duration-300 border-t border-l first:border-l-0 border-slate-300">
