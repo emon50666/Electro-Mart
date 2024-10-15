@@ -1,91 +1,89 @@
-import { FaRegTrashAlt } from "react-icons/fa";
-import { LuPencilLine } from "react-icons/lu";
 
-
-const AllUser = () => {
-  return (
-    <div className="pt-10">
-      <h1 className="font-semibold text-2xl mt-4 mb-4 ml-5"> Users List</h1>
-      <div className="overflow-x-auto md:overflow-x-auto  bg-white shadow-md">
-        <table className="table">
-          {/* head */}
-          <thead>
-            <tr className="bg-orange-50">
-              <th>
-
-              </th>
-              <th> Name</th>
-              <th>Email</th>
-
-              <th>Date</th>
-              <th>Status</th>
-
-              <th>Action</th>
-             
-
-              <th></th>
-            </tr>
-          </thead>
-          <tbody>
-            {/* row 1 */}
-            <tr className="">
-              <th>
-              
-              </th>
-              <td>
-             <h1>emon</h1>
-              </td>
-              
-              
-              <th>
-                <small>emon50666@gamil.com</small>
-              </th>
-              <td> 2/34/32</td>
-              <td> Admin</td>
-
-             
-              <div className="items-center pt-3">
-                <td>
+import { useQuery } from '@tanstack/react-query'
 
 
 
-                  {/* You can open the modal using document.getElementById('ID').showModal() method */}
-                  <button onClick={() => document.getElementById('my_modal_3').showModal()}><LuPencilLine className="text-green-500 text-xl font-extrabold"></LuPencilLine> </button>
-                  <dialog id="my_modal_3" className="modal">
-                    <div className="modal-box">
-                      <form method="dialog">
-                        {/* if there is a button in form, it will close the modal */}
-                        <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
-                      </form>
-                      <h1 className="mb-3 font-semibold">Change User Status</h1>
-                      <select className="select select-bordered w-full max-w-xs">
+import useAxiosPublic from '../../../Hooks/useAxiosPublic'
+import { Helmet } from 'react-helmet'
+import UserDataRow from './UserDataRow';
+const AllUsers = () => {
+ const axiosPublic = useAxiosPublic();
+  //   Fetch users Data
+  const {
+    data: users = [],
+    isLoading,
+    refetch,
+  } = useQuery({
+    queryKey: ['users'],
+    queryFn: async () => {
+      const { data } = await axiosPublic(`/users`)
+      return data
+    },
+  })
 
-                        <option>Admin</option>
-                        <option>Member</option>
-                        <option>Seller  </option>
-
-                      </select>
-                      <button className=" ml-10 bg-violet-500 px-3  py-2 rounded-md text-white font-semibold ">Confirm</button>
-
-
-                    </div>
-                  </dialog>
-                </td>
-                <td>  <FaRegTrashAlt className="text-red-500 text-xl font-bold"></FaRegTrashAlt> </td>
-
-              </div>
-
-
-            </tr>
-
-
-
-          </tbody>
-
-        </table>
+  console.log(users)
+  if (isLoading )
+    return (
+      <div className="flex items-center justify-center h-screen">
+        <span className="loading loading-bars loading-lg"></span>
       </div>
-    </div>
-  );
-};
+    );
+  return (
+    <>
+      <div className='container mx-auto px-4 sm:px-8'>
+        <Helmet>
+          <title>All Users</title>
+        </Helmet>
+        <div className='py-8'>
+          <div className='-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto'>
+            <div className='inline-block min-w-full shadow rounded-lg overflow-hidden'>
+              <table className='min-w-full leading-normal'>
+                <thead>
+                  <tr>
+                    <th
+                      scope='col'
+                      className='px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-normal'
+                    >
+                      Email
+                    </th>
+                    <th
+                      scope='col'
+                      className='px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-normal'
+                    >
+                      Role
+                    </th>
+                    <th
+                      scope='col'
+                      className='px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-normal'
+                    >
+                      Status
+                    </th>
 
-export default AllUser;
+                    <th
+                      scope='col'
+                      className='px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-normal'
+                    >
+                      Action
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {users.map(user => (
+                    <UserDataRow
+                      key={user?._id}
+                      user={user}
+                      refetch={refetch}
+                    />
+                  ))}
+
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </>
+  )
+}
+
+export default AllUsers
