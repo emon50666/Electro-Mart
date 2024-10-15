@@ -43,9 +43,6 @@ const ProductCard = ({ product, refetch }) => {
     if (response.data.modifiedCount) {
       refetch();
     }
-    console.log(updatedQuantityInfo);
-
-
     handleAddCart(product)
     setCartOpen(true);
   };
