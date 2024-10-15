@@ -45,13 +45,13 @@ const OtherProductDetails = ({ product }) => {
     }
 
     const handleAddToCart = () => {
-        handleAddCart(product)
+        handleAddCart(product, quantityCount);
         setCartOpen(true);
-    }
+    };
     const handleAddToCompare = () => {
         handleAddCompare(product)
     }
-    const handleAddToWishlist = () =>{
+    const handleAddToWishlist = () => {
         handleAddWishlist(product)
     }
     return (
@@ -83,7 +83,7 @@ const OtherProductDetails = ({ product }) => {
                 {/* Title & Rating end */}
                 {/* Price & description start */}
                 <div className="text-xl gap-2 lg:text-4xl text-orange-500 font-semibold flex items-center font_cabin">
-                <p >৳</p>
+                    <p >৳</p>
                     <h3> {product?.price}</h3>
                 </div>
                 <div className="font_cabin text-sm lg:text-base text-[#777777]">
@@ -135,7 +135,7 @@ const OtherProductDetails = ({ product }) => {
                             </div>
                             <h3 className="font-medium font_cabin">Compare</h3>
                         </button>
-                        <button onClick={handleAddToWishlist}  className="flex items-center hover:text-[#666666] pl-8 space-x-1">
+                        <button onClick={handleAddToWishlist} className="flex items-center hover:text-[#666666] pl-8 space-x-1">
                             <div>
                                 <GoHeart />
                             </div>

@@ -121,7 +121,7 @@ const ProductCard = ({ product, refetch }) => {
           </div>
             :
             <div className="flex gap-2">
-              <p className="font-bold text-orange-500"> {product?.price}</p>
+              <p className="font-bold text-orange-500"> ৳ {product?.price}</p>
             </div>
         }
 
