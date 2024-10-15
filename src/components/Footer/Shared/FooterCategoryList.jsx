@@ -45,7 +45,7 @@ const FooterCategoryList = () => {
                 >
                 {showAll ? "Show Less" : "All Categories"}
             </button>
-        </div>
+        </div >
     );
 };
 

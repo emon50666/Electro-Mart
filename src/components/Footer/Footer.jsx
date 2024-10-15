@@ -4,7 +4,7 @@ import { Link } from "react-router-dom"; // Import Link from react-router-dom
 import FooterCategoryList from "./Shared/FooterCategoryList";
 
 const Footer = () => {
-    return ( 
+    return (
         <div className="px-4 pt-16 md:px-4 lg:px-8 bg-[#222222]  font_inter">
             <div className="grid  row-gap-10 mb-8 grid-cols-1 md:grid-cols-6 md:text-sm  lg:grid-cols-6 xl:grid-cols-6">
                 <div className=" md:max-w-md  col-span-1 md:col-span-2 ">
@@ -23,7 +23,7 @@ const Footer = () => {
                             <FaLocationArrow/>
                             Dhaka,Bangladesh
                         </p>
-                      
+
                     </div>
                     <div className=" pb-5 lg:max-w-sm">
                         <ul className="flex mt-5 gap-x-5">
@@ -154,7 +154,7 @@ const Footer = () => {
             </div>
             <div className="flex flex-1 text-gray-400 justify-between pt-5 pb-20 lg:pb-3 border-gray-600 border-t xl:flex-row  xl:mb-auto gap-y-2">
                 <p className="text-[10px] lg:text-base">
-                     © 2024 Electro Mart. Develope by Elector Team.
+                    © 2024 Electro Mart. Develope by Elector Team.
                 </p>
                 <div className="flex  flex-col md:flex-row md:items-center  space-x-4 sm:mt-0">
                     <p className="text-[10px] text-center lg:text-base">

@@ -129,9 +129,8 @@ const Navbar = () => {
             {
               theUserWishlist.length > 0 && (
                 <span className="absolute -right-2 -ml-1 -top-2 rounded-full bg-orange-500 px-1 py-[1px] text-[10px] text-white">
-                  {theUserCompares.length + '+'}
+                  {theUserWishlist.length + '+'}
                 </span>
-
               )
             }
           </Link>
