@@ -57,11 +57,14 @@ const CardOfCart = ({ cart }) => {
                         <IoMdCloseCircle className="text-xl text-red-500 hover:text-red-600"></IoMdCloseCircle>
                     </button>
                 </div>
+                {
+                    cart?.mainProductId === product?._id && <p className="flex items-center gap-1">
+                        Selected Quantity : <span className='text-orange-500'>{cart?.selectedQuantity}</span>
+                    </p>}
                 <p className="text-orange-500 flex items-center gap-1">
                     <FaBangladeshiTakaSign />
                     {product?.price}
                 </p>
-
             </div>
         </div>
     );
