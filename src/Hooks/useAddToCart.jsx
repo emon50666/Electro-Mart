@@ -8,7 +8,7 @@ const useAddToCart = () => {
     const axiosPublic = useAxiosPublic();
     const { carts, refetch } = useCart();
 
-    const handleAddCart = (product) => {
+    const handleAddCart = (product, quantity = 1) => {
         // Check if the product is already in the cart for this user
         const cartItem = carts.find(cart => cart?.mainProductId === product?._id && cart?.adderMail === user?.email);
 
@@ -24,6 +24,7 @@ const useAddToCart = () => {
 
         const cartProductInfo = {
             mainProductId: product._id,
+            selectedQuantity: quantity,
             adderMail: user?.email,
         };
 
