@@ -4,7 +4,7 @@ import { IoCartOutline, IoLocation, IoSettingsOutline } from "react-icons/io5";
 import { LuPhone } from "react-icons/lu";
 const StoreAddress = ({ store }) => {
     return (
-        <div className="p-5 bg-white rounded-lg h-full">
+        <div className="px-2 py-5 mx-auto bg-white rounded-lg h-full">
             <h3 className="text-2xl font-semibold mb-5 font_cabin">Address</h3>
             <div className="space-y-2">
                 {/* location */}

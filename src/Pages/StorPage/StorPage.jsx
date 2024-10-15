@@ -11,7 +11,7 @@ const StorPage = () => {
     setShowMore(!showMore);
   };
   return (
-    <div className="lg:px-10 md:px-5 px-2 font_cabin">
+    <div className="lg:px-10 md:px-5 px-2 font_cabin pt-20">
       <div className="flex flex-col lg:flex-row items-center  bg-teal-500 p-5 rounded-md my-3">
         <div className="text-slate-700 lg:w-1/2">
           <h1 className="text-3xl font-semibold">Visit Our Stores</h1>
