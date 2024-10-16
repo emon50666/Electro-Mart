@@ -16,8 +16,12 @@ import useAddToCart from "../../../../Hooks/useAddToCart";
 import AddCart from "../../../../components/AddToCart/AddCart";
 import useAddToCompare from "../../../../Hooks/useAddToCompare";
 import useAddToWishlist from "../../../../Hooks/useAddToWishlist";
+import useAxiosPublic from "../../../../Hooks/useAxiosPublic";
+import useProduct from "../../../../Hooks/useProduct";
 
 const OtherProductDetails = ({ product }) => {
+    const axiosPublic = useAxiosPublic();
+    const { refetch } = useProduct();
     const handleAddCart = useAddToCart();
     const handleAddCompare = useAddToCompare();
     const handleAddWishlist = useAddToWishlist();
@@ -43,9 +47,18 @@ const OtherProductDetails = ({ product }) => {
             setDisableBtn(false)
         }
     }
+    const handleQuantity = async () => {
+        const updatedQuantity = parseInt(product?.quantity) - parseInt(quantityCount);
+        const updatedQuantityInfo = { updatedQuantity }
+        const response = await axiosPublic.patch(`/productQuantity/${product?._id}`, updatedQuantityInfo);
+        if (response.data.modifiedCount) {
+            refetch();
+        }
+    }
 
     const handleAddToCart = () => {
         handleAddCart(product, quantityCount);
+        handleQuantity();
         setCartOpen(true);
     };
     const handleAddToCompare = () => {
