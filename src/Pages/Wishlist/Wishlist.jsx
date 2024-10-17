@@ -133,7 +133,7 @@ const Wishlist = () => {
       )}
 
       {format === "card" && (
-        <div className="my-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-4 md:gap-y-10 px-20">
+        <div className="my-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-4 md:gap-y-10 px-20">
            {theUserWishlist.map((wishProduct, index) => <WishlistCart key={index} wishProduct={wishProduct} />           )}
         </div>
       )}
