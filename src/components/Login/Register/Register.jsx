@@ -19,9 +19,8 @@ const Register = () => {
 
   const { createUser, signIn, setUser, updateUserProfile, setLoading, error, setError, showPassword,
 
-    setShowPassword, loading,signInWithGoogle } = UserAuth()
+    setShowPassword, signInWithGoogle } = UserAuth()
 
-    setShowPassword, loading } = UserAuth()
 
 
   // register form 
@@ -309,16 +308,8 @@ const handelGoogle  = async () =>{
 
               <div className="mt-6">
                 <button
-
-                  className="w-full px-6 py-3 tracking-wide text-white capitalize transition-colors duration-300 transform bg-orange-500 rounded-md font-bold text-base focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-50 "  >
-                 Register
-
-                  className={`w-full px-6 py-3 tracking-wide text-white capitalize transition-colors duration-300 transform bg-orange-500 rounded-md font-bold text-base focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-50 ${loading ? "cursor-not-allowed" : ""
-                    }`}
-                  disabled={loading}
-                >
-                  {loading ? "Registering..." : "Register"}
-n
+                  className="w-full px-6 py-3 tracking-wide text-white capitalize transition-colors duration-300 transform bg-orange-500 rounded-md font-bold text-base focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-50 " >
+                    Register
                 </button>
 
               </div>
@@ -329,7 +320,6 @@ n
             error && <p className="text-red-500  font-sm mt-2 mb-5 text-center ">{error}</p>
           }
 
-          {/* Sign In Form */}
           {/* Sign In Form */}
           {!isSignUp && (
             <form onSubmit={handelLogin}>
