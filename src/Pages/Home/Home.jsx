@@ -22,7 +22,6 @@ const Home = () => {
       <HomeOffers />
       <HomeSliderComponent/>
 
-   
     
       
     </div>
