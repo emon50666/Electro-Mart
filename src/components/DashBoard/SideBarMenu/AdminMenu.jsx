@@ -1,130 +1,176 @@
-import { Link } from "react-router-dom";
-import { IoHomeOutline, IoAddCircleOutline } from "react-icons/io5";
+import { NavLink } from "react-router-dom";
+import { IoAddCircleOutline } from "react-icons/io5";
 import { HiOutlineShoppingBag } from "react-icons/hi2";
 import { FaRegUser, FaStoreAlt } from "react-icons/fa";
 import { AiFillControl } from "react-icons/ai";
-
+import { MdDashboardCustomize } from "react-icons/md";
 
 const AdminMenu = () => {
   return (
     <div className="">
       <div className="">
-        <ul className="flex font-serif flex-1 flex-col mt-10 text-gray-400 gap-1 py-3">
-          <li className="px-3">
-            <Link
-              className="flex mt-1 items-center gap-3 rounded p-3  transition-colors hover:bg-[#22292F] hover:text-orange-500 focus:bg-orange-50 aria-[current=page]:bg-orange-50 aria-[current=page]:text-orange-500  "
+        <ul className="flex font-serif flex-1 flex-col mt-10 text-gray-400 gap-0 py-3">
+          <li className="">
+            <NavLink
+              to={'dashboard-layout'}
+              className={({ isActive }) =>
+                `flex mt-1 items-center gap-3 rounded p-3 transition-colors ${
+                  isActive ? 'bg-black  text-orange-400 border-l-2 border-l-orange-500' : 'text-gray-400 hover:bg-[#22292F] hover:text-orange-500'
+                }`
+              }
             >
-              <div className="flex   items-center self-center">
-                <IoHomeOutline></IoHomeOutline>
+              <div className="flex items-center self-center">
+                <MdDashboardCustomize />
               </div>
-              <Link to={'/'} className="flex  text-[16px] font-semibold w-full flex-1 flex-col items-start justify-center gap-0 overflow-hidden truncate ">
-                Home
-              </Link>
-            </Link>
+              <p className="flex  w-full flex-1 flex-col items-start justify-center gap-0 overflow-hidden truncate">
+                DashBoard
+              </p>
+            </NavLink>
           </li>
-          <li className="px-3 group relative">
-            <Link
-              className="flex items-center text-[16px]  gap-3 rounded p-3  transition-colors hover:bg-[#22292F] hover:text-orange-500 focus:bg-orange-50 aria-[current=page]:bg-orange-50 aria-[current=page]:text-emerald-500 "
+
+          <li className=" group relative">
+            <NavLink
+              className={({ isActive }) =>
+                `flex items-center text-[16px] gap-3 rounded p-3 transition-colors ${
+                  isActive ? ' ' : 'text-gray-400 hover:bg-[#22292F] hover:text-orange-500'
+                }`
+              }
+              to="#"
             >
-              <div className="flex text-md  font-semibold  items-center self-center">
+              <div className="flex text-md font-semibold items-center self-center">
                 <IoAddCircleOutline />
               </div>
-              <Link
-                to="#"
-                className="flex font-semibold text-[16px] w-full flex-1 flex-col items-start justify-center gap-0 overflow-hidden truncate"
-              >
+              <span className="flex  text-[16px] w-full flex-1 flex-col items-start justify-center gap-0 overflow-hidden truncate">
                 Product
-              </Link>
-            </Link>
+              </span>
+            </NavLink>
 
             {/* Submenu */}
-            <ul className="absolute  w-full text-gray-400  top-full hidden group-hover:block bg-[#22292F] shadow-lg rounded-lg p-2">
-              <li className="px-3 ">
-                <Link
+            <ul className="absolute w-full text-gray-400 top-full hidden group-hover:block bg-[#22292F] shadow-lg rounded-lg p-2">
+              <li className="">
+                <NavLink
                   to="manageProduct"
-                  className=" block py-2 px-4 text-sm font-medium  hover:bg-[#22292F] hover:text-orange-500">Manage Product</Link>
+                  className={({ isActive }) =>
+                    `block py-2 px-4 text-sm font-medium hover:bg-[#22292F] hover:text-orange-500 ${
+                      isActive ? 'bg-black border-l-2 border-l-orange-500  text-orange-500' : 'text-gray-400'
+                    }`
+                  }
+                >
+                  Manage Product
+                </NavLink>
               </li>
-              <li className="px-3">
-                <Link
+              <li className="">
+                <NavLink
                   to="addProduct"
-                  className="block py-2 px-4 text-sm font-medium  hover:bg-[#22292F]
-                   hover:text-orange-500  aria-[current=page]:bg-orange-50 aria-[current=page]:text-emerald-500"
+                  className={({ isActive }) =>
+                    `block py-2 px-4 text-sm font-medium hover:bg-[#22292F] hover:text-orange-500 ${
+                      isActive ? 'bg-black border-l-2 border-l-orange-500 text-orange-500' : 'text-gray-400'
+                    }`
+                  }
                 >
                   Add New Product
-                </Link>
+                </NavLink>
               </li>
             </ul>
           </li>
 
-          <li className="px-3">
-            <Link
-
-              className="flex  items-center gap-3 rounded p-3  transition-colors hover:bg-[#22292F] hover:text-orange-500 focus:bg-orange-50 aria-[current=page]:bg-orange-50 aria-[current=page]:text-orange-500  "
+          <li className="">
+            <NavLink
+              to={'Order-List'}
+              className={({ isActive }) =>
+                `flex items-center gap-3 rounded p-3 transition-colors ${
+                  isActive ? 'bg-black border-l-2 border-l-orange-500 text-orange-500' : 'text-gray-400 hover:bg-[#22292F] hover:text-orange-500'
+                }`
+              }
             >
-              <div className="flex   font-semibold text-[16px] items-center self-center">
-                <HiOutlineShoppingBag></HiOutlineShoppingBag>
+              <div className="flex font-semibold text-[16px] items-center self-center">
+                <HiOutlineShoppingBag />
               </div>
-              <Link to={'Order-List'} className="flex  font-semibold text-[16px] w-full flex-1 flex-col items-start justify-center gap-0 overflow-hidden truncate text-sm">
+              <p className="flex text-[16px] w-full flex-1 flex-col items-start justify-center gap-0 overflow-hidden truncate ">
                 Order
-              </Link>
-            </Link>
+              </p>
+            </NavLink>
           </li>
 
-
-          <li className="px-3">
-            <Link
-              className="flex  items-center gap-3 rounded p-3  transition-colors hover:bg-[#22292F] hover:text-orange-500 focus:bg-orange-50 aria-[current=page]:bg-orange-50 aria-[current=page]:text-orange-500  "
+          <li className="">
+            <NavLink
+              to={'user'}
+              className={({ isActive }) =>
+                `flex items-center gap-3 rounded p-3 transition-colors ${
+                  isActive ? 'bg-black border-l-2 border-l-orange-500  text-orange-500' : 'text-gray-400 hover:bg-[#22292F] hover:text-orange-500'
+                }`
+              }
             >
-              <div className="flex   font-semibold text-[16px] items-center self-center">
-                <FaRegUser></FaRegUser>
+              <div className="flex  text-[16px] items-center self-center">
+                <FaRegUser />
               </div>
-              <Link to={'user'} className="flex  font-semibold text-[16px] w-full flex-1 flex-col items-start justify-center gap-0 overflow-hidden truncate text-sm">
+              <p className="flex  w-full flex-1 flex-col items-start justify-center gap-0 overflow-hidden truncate ">
                 User
-              </Link>
-            </Link>
+              </p>
+            </NavLink>
           </li>
-          <li className="px-3">
-            <Link to={'promotionControl'} className="flex  items-center gap-3 rounded p-3  transition-colors hover:bg-[#22292F] hover:text-orange-500 focus:bg-orange-50 aria-[current=page]:bg-orange-50 aria-[current=page]:text-orange-500">
-              <div className="flex   font-semibold text-[16px] items-center self-center">
+
+          <li className="">
+            <NavLink
+              to={'promotionControl'}
+              className={({ isActive }) =>
+                `flex items-center gap-3 rounded p-3 transition-colors ${
+                  isActive ? 'bg-black border-l-2 border-l-orange-500 text-orange-500' : 'text-gray-400 hover:bg-[#22292F] hover:text-orange-500'
+                }`
+              }
+            >
+              <div className="flex text-[16px]  items-center self-center">
                 <AiFillControl />
               </div>
-              Promotion Control
-            </Link>
+            Promotion 
+            </NavLink>
           </li>
-          <li className="px-3 group relative">
-            <Link
-              className="flex items-center text-[16px]  gap-3 rounded p-3  transition-colors hover:bg-[#22292F] hover:text-orange-500 focus:bg-orange-50 aria-[current=page]:bg-orange-50 aria-[current=page]:text-emerald-500 "
+
+          <li className=" group relative">
+            <NavLink
+              className={({ isActive }) =>
+                `flex items-center text-[16px] gap-3 rounded p-3 transition-colors ${
+                  isActive ? '' : 'text-gray-400 hover:bg-[#22292F] hover:text-orange-500'
+                }`
+              }
+              to="#"
             >
-              <div className="flex text-md  font-semibold  items-center self-center">
+              <div className="flex text-md font-semibold items-center self-center">
                 <FaStoreAlt />
               </div>
-              <Link
-                to="#"
-                className="flex font-semibold text-[16px] w-full flex-1 flex-col items-start justify-center gap-0 overflow-hidden truncate"
-              >
+              <p className="flex  w-full flex-1 flex-col items-start justify-center gap-0 overflow-hidden ">
                 Stores
-              </Link>
-            </Link>
+              </p>
+            </NavLink>
 
             {/* Submenu */}
-            <ul className="absolute  w-full text-gray-400  top-full hidden group-hover:block bg-[#22292F] shadow-lg rounded-lg p-2">
-              <li className="px-3 ">
-                <Link
+            <ul className="absolute w-full text-gray-400 top-full hidden group-hover:block bg-[#22292F] shadow-lg rounded-lg p-2">
+              <li className="">
+                <NavLink
                   to="manageStore"
-                  className=" block py-2 px-4 text-sm font-medium  hover:bg-[#22292F] hover:text-orange-500">Manage Store</Link>
+                  className={({ isActive }) =>
+                    `block py-2 px-4 text-sm hover:bg-[#22292F] hover:text-orange-500 ${
+                      isActive ? 'bg-black border-l-2 border-l-orange-500 text-orange-500' : 'text-gray-400'
+                    }`
+                  }
+                >
+                  Manage Store
+                </NavLink>
               </li>
-              <li className="px-3">
-                <Link
+              <li className="">
+                <NavLink
                   to="addStore"
-                  className="block py-2 px-4 text-sm font-medium  hover:bg-[#22292F]
-                   hover:text-orange-500  aria-[current=page]:bg-orange-50 aria-[current=page]:text-emerald-500"
+                  className={({ isActive }) =>
+                    `block py-2 px-4 text-sm  hover:bg-[#22292F] hover:text-orange-500 ${
+                      isActive ? 'bg-black  border-l-2 border-l-orange-500 text-orange-500' : 'text-gray-400'
+                    }`
+                  }
                 >
                   Add Store
-                </Link>
+                </NavLink>
               </li>
             </ul>
           </li>
-
         </ul>
       </div>
     </div>
