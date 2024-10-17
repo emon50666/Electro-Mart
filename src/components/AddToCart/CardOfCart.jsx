@@ -13,6 +13,15 @@ const CardOfCart = ({ cart }) => {
     const { products } = useProduct();
     const product = products.find((pack) => pack?._id == cart?.mainProductId);
 
+
+    const handleQuantity = async () => {
+        const updatedQuantity = parseInt(product?.quantity) + parseInt(cart?.selectedQuantity);
+        const updatedQuantityInfo = { updatedQuantity }
+        const response = await axiosPublic.patch(`/productQuantity/${product?._id}`, updatedQuantityInfo);
+        if (response.data.modifiedCount) {
+            refetch();
+        }
+    }
     const handleDeleteCart = (id) => {
         Swal.fire({
             title: "Are you sure?",
@@ -27,6 +36,7 @@ const CardOfCart = ({ cart }) => {
                 axiosPublic.delete(`/carts/${id}`)
                     .then((res) => {
                         if (res.data.deletedCount) {
+                            handleQuantity();
                             refetch();
                         }
                     })

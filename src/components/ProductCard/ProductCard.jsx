@@ -24,7 +24,7 @@ const ProductCard = ({ product, refetch }) => {
     let currentView = product?.view || 0;
     const updateView = currentView + 1;
     const viewInfo = { view: updateView };
-    axiosPublic.patch(`/products/${_id}`, viewInfo)
+    axiosPublic.patch(`/productView/${_id}`, viewInfo)
       .then((res) => {
         if (res.data.modifiedCount) {
           refetch();
@@ -35,8 +35,14 @@ const ProductCard = ({ product, refetch }) => {
       })
   };
 
-
-  const handleAddToCart = () => {
+  console.log(product.quantity);
+  const handleAddToCart = async () => {
+    const updatedQuantity = parseInt(product?.quantity) - 1;
+    const updatedQuantityInfo = { updatedQuantity }
+    const response = await axiosPublic.patch(`/productQuantity/${product?._id}`, updatedQuantityInfo);
+    if (response.data.modifiedCount) {
+      refetch();
+    }
     handleAddCart(product)
     setCartOpen(true);
   };
