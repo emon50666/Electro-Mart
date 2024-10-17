@@ -18,12 +18,13 @@ import Wishlist from "../Pages/Wishlist/Wishlist";
 import Profile from "../components/DashBoard/ProfilePage/Profile";
 import ManageProduct from "../components/DashBoard/ManageProduct/ManageProduct";
 import UpdateProduct from "../Pages/UpdateProduct/UpdateProduct";
-import AddToPromotion from "../Pages/AddToPromotion/AddToPromotion";
 import ManageCart from "../Pages/ManageCart/ManageCart";
 import MemberDashBoard from "../components/DashBoard/MemberDashboard/MemberDashBoard";
 import AddNewStore from "../components/DashBoard/AddNewStore/AddNewStore";
 import UpdateStore from "../components/DashBoard/UpdateStore/UpdateStore";
 import ManageStore from "../components/DashBoard/ManageStore/ManageStore";
+import PromotionControl from "../components/DashBoard/PromotionControl/PromotionControl";
+import DashBoardProfile from "../components/DashBoard/DashBoardProfile/DashBoardProfile";
 
 
 
@@ -84,6 +85,10 @@ const router = createBrowserRouter([
     element: <PrivateRoute><DashboardLayout /></PrivateRoute>,
     children: [
       {
+        path: "promotionControl",
+        element: <PrivateRoute><PromotionControl /></PrivateRoute>
+      },
+      {
         path: "manageProduct",
         element: <PrivateRoute><ManageProduct /></PrivateRoute>
       },
@@ -102,11 +107,6 @@ const router = createBrowserRouter([
       {
         path: "updateStore/:id",
         element: <PrivateRoute><UpdateStore /></PrivateRoute>,
-      },
-      {
-        path: "makePromotion/:id",
-        element: <PrivateRoute><AddToPromotion /></PrivateRoute>,
-        loader: () => fetch(`${import.meta.env.VITE_API_URL}/products`),
       },
       {
         path: "addProduct",
@@ -131,6 +131,10 @@ const router = createBrowserRouter([
       {
         path: 'my-account',
         element: <MemberDashBoard />
+      },
+      {
+        path: 'dashboard-layout',
+        element: <DashBoardProfile/>
       }
 
     ]

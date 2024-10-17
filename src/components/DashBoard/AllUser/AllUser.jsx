@@ -1,47 +1,98 @@
 
+import { useQuery } from '@tanstack/react-query'
 
-const AllUser = () => {
+
+
+import useAxiosPublic from '../../../Hooks/useAxiosPublic'
+import { Helmet } from 'react-helmet'
+import UserDataRow from './UserDataRow';
+const AllUsers = () => {
+ const axiosPublic = useAxiosPublic();
+  //   Fetch users Data
+  const {
+    data: users = [],
+    isLoading,
+    refetch,
+  } = useQuery({
+    queryKey: ['users'],
+    queryFn: async () => {
+      const { data } = await axiosPublic(`/users`)
+      return data
+    },
+  })
+
+  console.log(users)
+  if (isLoading )
     return (
-        <div className="pt-10 bg-white shadow-md">
-                   <h1 className="font-semibold text-2xl mt-4 mb-4 ml-5"> User List</h1>
-            <div className="overflow-x-auto">
-  <table className="table">
-    {/* head */}
-    <thead>
-    <tr className="bg-orange-50">
-        <th></th>
-        <th>Name</th>
-        <th>Email</th>
-        <th>Date</th>
-      </tr>
-    </thead>
-    <tbody>
-      {/* row 1 */}
-      <tr>
-        <th>1</th>
-        <td>Cy Ganderton</td>
-        <td>Quality Control Specialist</td>
-        <td>Blue</td>
-      </tr>
-      {/* row 2 */}
-      <tr>
-        <th>2</th>
-        <td>Hart Hagerty</td>
-        <td>Desktop Support Technician</td>
-        <td>Purple</td>
-      </tr>
-      {/* row 3 */}
-      <tr>
-        <th>3</th>
-        <td>Brice Swyre</td>
-        <td>Tax Accountant</td>
-        <td>Red</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
-        </div>
+      <div className="flex items-center justify-center h-screen">
+        <span className="loading loading-bars loading-lg"></span>
+      </div>
     );
-};
+  return (
+    <>
 
-export default AllUser;
+    <h1 className='mt-14 px-10 font-semibold'>All User List</h1>
+
+
+      <div className='container mx-auto px-4 sm:px-8'>
+        <Helmet>
+          <title>All Users</title>
+        </Helmet>
+
+        <div className=''>
+
+        <div className='py-8'>
+
+          <div className='-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto'>
+            <div className='inline-block min-w-full shadow rounded-lg overflow-hidden'>
+              <table className='min-w-full leading-normal'>
+                <thead>
+                  <tr>
+                    <th
+                      scope='col'
+                      className='px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-normal'
+                    >
+                      Email
+                    </th>
+                    <th
+                      scope='col'
+                      className='px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-normal'
+                    >
+                      Role
+                    </th>
+                    <th
+                      scope='col'
+                      className='px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-normal'
+                    >
+                      Status
+                    </th>
+
+                    <th
+                      scope='col'
+                      className='px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-normal'
+                    >
+                      Action
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {users.map(user => (
+                    <UserDataRow
+                      key={user?._id}
+                      user={user}
+                      refetch={refetch}
+                    />
+                  ))}
+
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+    </>
+  )
+}
+
+export default AllUsers

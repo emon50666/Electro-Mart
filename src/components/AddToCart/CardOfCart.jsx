@@ -13,6 +13,15 @@ const CardOfCart = ({ cart }) => {
     const { products } = useProduct();
     const product = products.find((pack) => pack?._id == cart?.mainProductId);
 
+
+    const handleQuantity = async () => {
+        const updatedQuantity = parseInt(product?.quantity) + parseInt(cart?.selectedQuantity);
+        const updatedQuantityInfo = { updatedQuantity }
+        const response = await axiosPublic.patch(`/productQuantity/${product?._id}`, updatedQuantityInfo);
+        if (response.data.modifiedCount) {
+            refetch();
+        }
+    }
     const handleDeleteCart = (id) => {
         Swal.fire({
             title: "Are you sure?",
@@ -27,6 +36,7 @@ const CardOfCart = ({ cart }) => {
                 axiosPublic.delete(`/carts/${id}`)
                     .then((res) => {
                         if (res.data.deletedCount) {
+                            handleQuantity();
                             refetch();
                         }
                     })
@@ -57,11 +67,14 @@ const CardOfCart = ({ cart }) => {
                         <IoMdCloseCircle className="text-xl text-red-500 hover:text-red-600"></IoMdCloseCircle>
                     </button>
                 </div>
+                {
+                    cart?.mainProductId === product?._id && <p className="flex items-center gap-1">
+                        Selected Quantity : <span className='text-orange-500'>{cart?.selectedQuantity}</span>
+                    </p>}
                 <p className="text-orange-500 flex items-center gap-1">
                     <FaBangladeshiTakaSign />
                     {product?.price}
                 </p>
-
             </div>
         </div>
     );

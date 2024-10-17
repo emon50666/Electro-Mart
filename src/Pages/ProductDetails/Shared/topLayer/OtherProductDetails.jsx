@@ -16,8 +16,12 @@ import useAddToCart from "../../../../Hooks/useAddToCart";
 import AddCart from "../../../../components/AddToCart/AddCart";
 import useAddToCompare from "../../../../Hooks/useAddToCompare";
 import useAddToWishlist from "../../../../Hooks/useAddToWishlist";
+import useAxiosPublic from "../../../../Hooks/useAxiosPublic";
+import useProduct from "../../../../Hooks/useProduct";
 
 const OtherProductDetails = ({ product }) => {
+    const axiosPublic = useAxiosPublic();
+    const { refetch } = useProduct();
     const handleAddCart = useAddToCart();
     const handleAddCompare = useAddToCompare();
     const handleAddWishlist = useAddToWishlist();
@@ -43,15 +47,24 @@ const OtherProductDetails = ({ product }) => {
             setDisableBtn(false)
         }
     }
+    const handleQuantity = async () => {
+        const updatedQuantity = parseInt(product?.quantity) - parseInt(quantityCount);
+        const updatedQuantityInfo = { updatedQuantity }
+        const response = await axiosPublic.patch(`/productQuantity/${product?._id}`, updatedQuantityInfo);
+        if (response.data.modifiedCount) {
+            refetch();
+        }
+    }
 
     const handleAddToCart = () => {
-        handleAddCart(product)
+        handleAddCart(product, quantityCount);
+        handleQuantity();
         setCartOpen(true);
-    }
+    };
     const handleAddToCompare = () => {
         handleAddCompare(product)
     }
-    const handleAddToWishlist = () =>{
+    const handleAddToWishlist = () => {
         handleAddWishlist(product)
     }
     return (
@@ -83,7 +96,7 @@ const OtherProductDetails = ({ product }) => {
                 {/* Title & Rating end */}
                 {/* Price & description start */}
                 <div className="text-xl gap-2 lg:text-4xl text-orange-500 font-semibold flex items-center font_cabin">
-                <p >৳</p>
+                    <p >৳</p>
                     <h3> {product?.price}</h3>
                 </div>
                 <div className="font_cabin text-sm lg:text-base text-[#777777]">
@@ -135,7 +148,7 @@ const OtherProductDetails = ({ product }) => {
                             </div>
                             <h3 className="font-medium font_cabin">Compare</h3>
                         </button>
-                        <button onClick={handleAddToWishlist}  className="flex items-center hover:text-[#666666] pl-8 space-x-1">
+                        <button onClick={handleAddToWishlist} className="flex items-center hover:text-[#666666] pl-8 space-x-1">
                             <div>
                                 <GoHeart />
                             </div>

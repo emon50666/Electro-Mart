@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const MemberMenu = () => {
     return (
         <div>
-        <ul className="flex font-serif flex-1 flex-col  text-gray-400 gap-1 py-3">
+        <ul className="flex font-serif flex-1 flex-col mt-12 text-gray-400 gap-1 py-3">
 
       
           <li className="px-3">

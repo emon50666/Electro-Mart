@@ -4,7 +4,7 @@ import { AiOutlineAppstore } from "react-icons/ai";
 import { SlArrowLeft, SlArrowRight } from "react-icons/sl";
 import { useState } from "react";
 const TopLayerOfDetails = ({ title, id }) => {
-    const [role, setRole] = useState('Admin')
+    const [role,] = useState('Admin')
     return (
         <nav className="flex justify-between items-center px-4 lg:px-8 xl:px-20 bg-slate-300 py-3" id="product_details_top_layer">
             <ul className="flex gap-1 font-semibold font_open_sense">
