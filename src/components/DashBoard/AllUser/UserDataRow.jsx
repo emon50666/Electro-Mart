@@ -51,13 +51,13 @@ const UserDataRow = ({ user, refetch }) => {
         <p className='text-gray-900 whitespace-no-wrap'>{user?.email}</p>
       </td>
       <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
-        <p className='text-gray-900 whitespace-no-wrap'>{user?.role}</p>
+        <p className='text-green-500 capitalize font-semibold whitespace-no-wrap'>{user?.role}</p>
       </td>
       <td className='px-5 py-5 border-b border-gray-200 bg-white text-sm'>
         {user?.status ? (
           <p
             className={`${
-              user.status === 'Verified' ? 'text-green-500' : 'text-yellow-500'
+              user.status === 'Verified' ? 'text-green-500 font-semibold ' : 'text-red-500'
             } whitespace-no-wrap`}
           >
             {user.status}
@@ -74,9 +74,9 @@ const UserDataRow = ({ user, refetch }) => {
         >
           <span
             aria-hidden='true'
-            className='absolute inset-0 bg-green-200 opacity-50 rounded-full'
+            className='absolute inset-0 bg-green-200   opacity-50 rounded-full'
           ></span>
-          <span className='relative'>Update Role</span>
+          <span className='relative py-2 text-green-800'>Update Role</span>
         </button>
         {/* Update User Modal */}
         <UpdateUserModal

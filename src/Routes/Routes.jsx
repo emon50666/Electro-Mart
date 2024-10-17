@@ -24,6 +24,7 @@ import AddNewStore from "../components/DashBoard/AddNewStore/AddNewStore";
 import UpdateStore from "../components/DashBoard/UpdateStore/UpdateStore";
 import ManageStore from "../components/DashBoard/ManageStore/ManageStore";
 import PromotionControl from "../components/DashBoard/PromotionControl/PromotionControl";
+import DashBoardProfile from "../components/DashBoard/DashBoardProfile/DashBoardProfile";
 
 
 
@@ -130,6 +131,10 @@ const router = createBrowserRouter([
       {
         path: 'my-account',
         element: <MemberDashBoard />
+      },
+      {
+        path: 'dashboard-layout',
+        element: <DashBoardProfile/>
       }
 
     ]

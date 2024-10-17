@@ -18,7 +18,7 @@ const Register = () => {
 
 
   const { createUser, signIn, setUser, updateUserProfile, setLoading, error, setError, showPassword,
-    setShowPassword, loading } = UserAuth()
+    setShowPassword, loading,signInWithGoogle } = UserAuth()
 
   // register form 
   const handelRegister = async e => {
@@ -93,7 +93,7 @@ const Register = () => {
 
     } catch (error) {
       console.error(error);
-      toast.error(error.message)
+      toast.error("Already Use This Email ");
       setError('Registration failed. Please try again.');
       setLoading(false); // Stop loading spinner on error
 
@@ -116,10 +116,12 @@ const Register = () => {
       // Login user
       const result = await signIn(email, password);
       toast.success("Login successfully");
+      console.log(result);
       navigate(location?.state ? location?.state : '/')
 
     } catch (error) {
-      toast.error(error.message);
+      toast.error("Email Don't Matched ");
+      console.log(error);
     }
   };
 
@@ -140,7 +142,13 @@ const Register = () => {
 
 
 
-
+// handel google register 
+const handelGoogle  = async () =>{
+ const {data} = await signInWithGoogle();
+ console.log(data);
+ toast.success('Register Successfully')
+ navigate('/')
+}
 
 
 
@@ -181,8 +189,12 @@ const Register = () => {
             </button>
 
           </div>
-
-
+          <form onClick={()=>handelGoogle()} className="mt-7">
+          <button aria-label="Login with Google" type="button" className="flex items-center justify-center w-full  space-x-4 border rounded-md ">
+		<img src="https://i.ibb.co.com/0BxDjqX/download.png" alt="" className="w-10 h-10" />
+			<p>Login with Google</p>
+		</button>
+          </form>
           {/* Sign Up Form */}
           {isSignUp && (
             <form onSubmit={handelRegister}>
@@ -293,11 +305,8 @@ const Register = () => {
 
               <div className="mt-6">
                 <button
-                  className={`w-full px-6 py-3 tracking-wide text-white capitalize transition-colors duration-300 transform bg-orange-500 rounded-md font-bold text-base focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-50 ${loading ? "cursor-not-allowed" : ""
-                    }`}
-                  disabled={loading}
-                >
-                  {loading ? "Registering..." : "Register"}
+                  className="w-full px-6 py-3 tracking-wide text-white capitalize transition-colors duration-300 transform bg-orange-500 rounded-md font-bold text-base focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-50 "  >
+                 Register
                 </button>
 
               </div>

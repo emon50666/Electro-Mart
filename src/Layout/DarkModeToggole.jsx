@@ -5,7 +5,7 @@ const DarkModeToggole = () => {
     const [theme,setTheme] = useState("light")
     const handelTheme = (e) =>{
         if(e.target.checked){
-            setTheme('dark')
+            setTheme('night')
         }else{
             setTheme('light')
         }
@@ -23,11 +23,11 @@ const DarkModeToggole = () => {
         <div onClick={handelTheme}>
             <label className="swap swap-rotate">
   {/* this hidden checkbox controls the state */}
-  <input type="checkbox" className="theme-controller" value="synthwave" />
+  <input type="checkbox" className="theme-controller " value="synthwave" />
 
   {/* sun icon */}
   <svg
-    className="swap-off h-10 w-10 fill-current"
+    className="swap-off h-10 w-10 fill-current text-white "
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 24 24">
     <path
@@ -36,7 +36,7 @@ const DarkModeToggole = () => {
 
   {/* moon icon */}
   <svg
-    className="swap-on h-10 w-10 fill-current"
+    className="swap-on h-10 w-10 fill-current text-white"
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 24 24">
     <path
