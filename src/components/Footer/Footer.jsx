@@ -10,20 +10,22 @@ const Footer = () => {
                 <div className=" md:max-w-md  col-span-1 md:col-span-2 ">
                     <h2 className="font-bold text-3xl text-gray-100 xl:text-5xl">Elector <span className="text-orange-500">Mart</span></h2>
                     <div className="pt-2  gap-2 items-center lg:max-w-md">
-                        <p className="text-sm text-[#B3B3B3]">
-                         
+                        <p className="text-sm xl:text-lg text-[#B3B3B3]">
+
                             Call Us 24/7 <br />
                         </p>
                         <p className="font-normal text-base  xl:text-3xl text-gray-400">
                             +8801786397249
                         </p>
                     </div>
-                    <div className="pt-3 lg:max-w-sm">
-                        <p className="text-base flex gap-2 items-center text-gray-400">
-                            <FaLocationArrow/>
+                    <div className="pt-3 xl:pt-6 lg:max-w-sm">
+                        <p className="text-base xl:text-lg flex gap-2 items-center text-gray-400">
+                            <FaLocationArrow />
                             Dhaka,Bangladesh
                         </p>
-
+                        <p className="text-base xl:text-lg flex gap-2 items-center text-gray-400 underline">
+                            electro@mart.com
+                        </p>
                     </div>
                     <div className=" pb-5 lg:max-w-sm">
                         <ul className="flex mt-5 gap-x-5">
@@ -54,7 +56,7 @@ const Footer = () => {
                     <p className="font-semibold text-xl md:text-base tracking-wide text-gray-300">
                         Our Story
                     </p>
-                    <ul className="mt-2 space-y-1 md:space-y-2 text-md">
+                    <ul className="mt-2 space-y-1 md:space-y-2 text-md xl:text-lg">
                         <li>
                             <Link to="/" className="text-gray-400 underline-hover">
                                 Web
@@ -86,7 +88,7 @@ const Footer = () => {
                     <p className="font-semibold text-xl md:text-base tracking-wide text-gray-300">
                         Category
                     </p>
-                    <ul className="mt-2 space-y-1 md:space-y-2 text-md">
+                    <ul className="mt-2 space-y-1 md:space-y-2 text-md xl:text-lg">
                         <FooterCategoryList />
                     </ul>
                 </div>
@@ -95,19 +97,19 @@ const Footer = () => {
                         Quick Links
                     </p>
                     <ul className="mt-2 space-y-1 text-base md:space-y-2  ">
-                    <li>
-                        <Link to="/" className="text-gray-400 underline-hover">
-                        Shop
+                        <li>
+                            <Link to="/" className="text-gray-400 underline-hover">
+                                Shop
                             </Link>
                         </li>
                         <li>
                             <Link to="/storesPage" className="text-gray-400  underline-hover">
                                 Store
-                                </Link>
-                         
+                            </Link>
+
                         </li>
                         <li>
-                        <Link to="/" className="text-gray-400 underline-hover">
+                            <Link to="/" className="text-gray-400 underline-hover">
                                 Media
                             </Link>
                         </li>
@@ -116,7 +118,7 @@ const Footer = () => {
                                 Brochure
                             </Link>
                         </li>
-                      
+
                         <li>
                             <Link to="/" className="text-gray-400 underline-hover">
                                 Projects
@@ -128,7 +130,7 @@ const Footer = () => {
                     <p className="font-semibold text-xl md:text-base tracking-wide text-gray-300">
                         Contact Us
                     </p>
-                    <ul className="mt-2 space-y-1 md:space-y-2 text-md">
+                    <ul className="mt-2 space-y-1 md:space-y-2 text-md xl:text-lg">
                         <li>
                             <Link to="/" className="text-gray-400 underline-hover">
                                 Infopreneur
