@@ -35,11 +35,11 @@ const [role] = useRoll()
   };
 
   return (
-    <div className="navbar bg-base-100 sticky top-0 z-20 ">
+    <div className="navbar bg-base-100 sticky top-0 px-3 z-20 ">
       <div className="navbar-start">
         {/* Mobile menu button */}
         <div className="lg:hidden">
-          <button onClick={toggleMenu} className="btn btn-ghost">
+          <button onClick={toggleMenu} className="">
             {!isOpen ? (
               <svg
                 xmlns="http://www.w3.org/2000/svg"

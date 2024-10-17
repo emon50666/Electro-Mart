@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import logo_1 from '../../assets/images/logo_1.png'
 import { IoCloseOutline } from "react-icons/io5";
 import useRoll from "../../Hooks/useRoll";
-import DarkModeToggole from "../../Layout/DarkModeToggole";
+
 
 const HeaderDashboard = () => {
 
@@ -23,9 +23,9 @@ const HeaderDashboard = () => {
   return (
     <div>
     
-      <div className=" flex justify-between fixed w-full pt-1 top-0 z-50 bg-[#1E293B]   px-2">
+      <div className=" flex justify-between fixed w-full pt-1 pb-1 top-0 z-50 bg-[#1E293B]   px-2">
         <Link to={'/'}>
-          <img src={logo_1} alt="" className="w-48 text-center mx-auto" />
+          <img src={logo_1} alt="" className="w-28 mt-2  lg:w-44 text-center mx-auto" />
 
         </Link>
 
@@ -37,15 +37,15 @@ const HeaderDashboard = () => {
         >
 
           {
-            user ? <div className="relative flex  gap-2">
+            user ? <div className="relative flex   gap-2">
               <img  referrerPolicy="no-referrer" title={user?.displayName} src={user?.photoURL} className="w-10 h-10 rounded-full border-2 border-blue-500 p-0.5  " />
              
               
-              <div>
-              <h2 className="text-[13px]  text-gray-200 font-semibold"> {user?.displayName} </h2>
-              <h2 className="text-gray-400 font-semibold capitalize"> {role}  </h2>
+              <div className="">
+              <h2 className="text-[10px] lg:text-[13px]  text-gray-200 font-semibold"> {user?.displayName} </h2>
+              <h2 className="text-gray-400 text-[13px] font-semibold capitalize"> {role}  </h2>
               </div>
-              <DarkModeToggole/>
+           
             </div> : <>
               {
                 loading ? <div className="relative inline-block">

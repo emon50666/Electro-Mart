@@ -5,7 +5,7 @@ import useCart from '../Hooks/useCart';
 const BottomNavigation = () => {
   const { theUserCarts } = useCart();
   return (
-    <div className="lg:hidden fixed bottom-0 left-0 right-0 bg-white shadow-lg border-t border-gray-200">
+    <div className="lg:hidden fixed bottom-0 left-0 right-0 bg-white z-30 shadow-lg border-t border-gray-200">
       <nav className="flex justify-between items-center h-16 px-4">
         {/* Home Icon */}
         <div className="flex flex-col items-center text-gray-600">
