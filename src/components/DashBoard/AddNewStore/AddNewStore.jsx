@@ -62,9 +62,9 @@ const AddNewStore = () => {
     const operatingHours = watch("operatingHours");
 
     return (
-        <div className="p-6 bg-gray-100 min-h-screen pt-12">
+        <div className="px-2 py-6 md:p-6 bg-gray-100 min-h-screen pt-12">
             <h2 className="text-2xl font-bold mb-6">Add New Store</h2>
-            <form onSubmit={handleSubmit(onSubmit)} className="space-y-6 bg-white p-6 rounded-lg shadow-md">
+            <form onSubmit={handleSubmit(onSubmit)} className="space-y-2 md:space-y-6 bg-white p-2 md:p-6 rounded-lg shadow-md">
 
                 {/* Shop Name */}
                 <div>
@@ -123,10 +123,10 @@ const AddNewStore = () => {
                 <div className="space-y-4">
                     <h3 className="text-lg font-medium">Operating Hours</h3>
                     {fields.map((field, index) => (
-                        <div key={field.id} className="grid grid-cols-4 gap-4 items-center">
+                        <div key={field.id} className="grid grid-cols-1 md:grid-cols-4 gap-4 items-center border-b-2 pb-3 -mb-3 md:border-none md:pb-0 md:-mb-0">
                             {/* Day */}
                             <div>
-                                <label className="block mb-1 font-medium text-gray-700">Day</label>
+                                <label className="block mb-1 font-medium text-gray-700">Day-{index + 1}</label>
                                 <input
                                     {...register(`operatingHours.${index}.day`, { required: true })}
                                     className="w-full p-2 border border-gray-300 rounded-md"
@@ -164,6 +164,7 @@ const AddNewStore = () => {
                         </div>
                     ))}
                 </div>
+
 
                 {/* Submit Button */}
                 <div className="flex justify-end">

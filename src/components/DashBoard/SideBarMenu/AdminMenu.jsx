@@ -99,7 +99,7 @@ const AdminMenu = () => {
                 <FaStoreAlt />
               </div>
               <Link
-                to="#"
+                to="manageStore"
                 className="flex font-semibold text-[16px] w-full flex-1 flex-col items-start justify-center gap-0 overflow-hidden truncate"
               >
                 Stores
