@@ -18,9 +18,9 @@ const BenifetService = () => {
         {items.map((item, index) => (
           <div
             key={index}
-            className="snap-start  flex-shrink-0  bg-white shadow-lg rounded-lg p-3 flex items-center space-x-4"
+            className="snap-start  flex-shrink-0  bg-white shadow-lg px-6 py-6 lg:px-3 lg:py-3 rounded-md flex items-center space-x-4"
           >
-            <div className="text-base  text-orange-500">{item.icon}</div>
+            <div className="text-2xl  text-orange-500 animate-pulse">{item.icon}</div>
             <p className="text-gray-500">{item.text}</p>
           </div>
         ))}
