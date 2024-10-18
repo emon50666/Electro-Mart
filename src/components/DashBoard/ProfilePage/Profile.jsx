@@ -1,16 +1,13 @@
 import UserAuth from "../../../Hooks/useAuth";
 import useRoll from "../../../Hooks/useRoll";
+import Loader from "../../Loader/Loader";
 
 const Profile = () => {
-  const { user, logOut, loading } = UserAuth();
+  const { user, logOut,  } = UserAuth();
   const [role, isLoading] = useRoll();
 
-  if (isLoading || loading)
-    return (
-      <div className="flex items-center justify-center h-screen">
-        <span className="loading loading-bars loading-lg"></span>
-      </div>
-    );
+ 
+  if (isLoading) return <Loader />;
 
   return (
     <div className="pt-10">

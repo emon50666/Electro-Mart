@@ -78,9 +78,9 @@ const SideBar = () => {
           
           
         </nav>
-        <li onClick={logOut} className="px-3 ">
+        <li onClick={logOut} className=" ">
             <Link to={'/register'} 
-              className="flex mt-1 items-center gap-3 rounded p-3 text-gray-200 transition-colors  "
+              className="flex mt-1 items-center gap-3 p-3 rounded text-gray-200 transition-colors  "
             >
               <div className="flex   items-center self-center">
                 <AiOutlineLogout></AiOutlineLogout>

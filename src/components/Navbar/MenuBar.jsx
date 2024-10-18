@@ -3,19 +3,21 @@ import { FaTimes } from "react-icons/fa";
 import { IoIosArrowUp } from "react-icons/io";
 
 import useCategories from "../../Hooks/useCategories";
+import Loader from "../Loader/Loader";
 const MenuBar = () => {
-  const { categories } = useCategories();
+  const { categories,isLoading } = useCategories();
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
 
+  if (isLoading) return <Loader />;
   return (
 
-    <div className="navbar hidden lg:flex  fixed z-10 px-10 bg-[#030c35]  sm:hidden md:hidden ">
+    <div className="navbar hidden lg:flex  fixed z-10  bg-[#030c35]  sm:hidden md:hidden ">
 
-    <div className="navbar hidden lg:flex px-10 overflow-y-auto text-white sm:hidden md:hidden ">
+    <div className="navbar hidden lg:flex  overflow-y-auto text-white sm:hidden md:hidden ">
 
       {/* All Category Hover Section */}
       <div
