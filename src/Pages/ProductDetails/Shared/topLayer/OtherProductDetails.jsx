@@ -72,7 +72,7 @@ const OtherProductDetails = ({ product }) => {
             <div className="lg:space-y-3 mt-10">
                 {/* Title & Rating start */}
                 <div>
-                    <h3 className="text-xl md:text-2xl lg:text-2xl font-bold lg:font-semibold font_lexend">{product?.title}</h3>
+                    <h3 className="text-md md:text-2xl lg:text-2xl font-bold lg:font-semibold ">{product?.title}</h3>
                     <div className="flex items-center justify-between mt-3">
                         <div className="flex items-center space-x-4 py-1">
                             <Rating
@@ -84,18 +84,18 @@ const OtherProductDetails = ({ product }) => {
                                 fullSymbol={<img src="https://i.ibb.co.com/KGK6qQR/full.jpg" className="icon h-4 md:h-5" />}
                                 readonly
                             />
-                            <div className="font_cabin text-[#767676]">
+                            <div className="font_cabin text-[10px]   lg:text-lg text-[#767676]">
                                 <p>({ } customer reviews)</p>
                             </div>
                         </div>
-                        <div className="font_cabin rounded-full text-orange-500 border-2  px-4">
+                        <div className="font_cabin rounded-full  text-[10px] lg:text-lg text-orange-500 border  px-4">
                             {product.quantity <= 0 ? <p>Stock Out</p> : <p>( {product?.quantity} ) item available</p>}
                         </div>
                     </div>
                 </div>
                 {/* Title & Rating end */}
                 {/* Price & description start */}
-                <div className="text-xl gap-2 lg:text-4xl text-orange-500 font-semibold flex items-center font_cabin">
+                <div className="text-xl gap-2 mb-2 lg:text-4xl text-orange-500 font-semibold flex items-center font_cabin">
                     <p >৳</p>
                     <h3> {product?.price}</h3>
                 </div>
