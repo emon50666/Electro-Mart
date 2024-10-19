@@ -7,6 +7,8 @@ import PropType from "prop-types";
 
 const ProductReview = ({ product }) => {
   const { reviews } = useReview()
+  const allReview = reviews.filter(review => review?.mainId === product?._id )
+
   return (
 
 
@@ -15,7 +17,7 @@ const ProductReview = ({ product }) => {
         <Tabs>
           <TabList >
             <Tab>Description</Tab>
-            <Tab>Reviews ({reviews?.length}) </Tab>
+            <Tab>Reviews ({allReview?.length}) </Tab>
           </TabList>
 
           <TabPanel>
