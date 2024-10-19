@@ -7,7 +7,6 @@ const ComparePage = () => {
 
     return (
         <div className="space-y-10 mb-12 mt-20">
-            {/* Conditionally render the image section only if there are items to compare */}
             {theUserCompares.length > 0 && (
                 <div className='font_lexend min-h-[30vh] h-auto md:h-[30vh] xl:h-[40vh] bg-[url("https://res.cloudinary.com/duv5fiurz/image/upload/v1726674456/page-title-shop_ue5dxm.jpg")] bg-cover bg-center flex flex-col items-center justify-center'>
                     <h2 className="text-2xl md:text-4xl xl:text-7xl text-white font-semibold">Compare</h2>
