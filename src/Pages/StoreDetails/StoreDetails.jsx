@@ -5,6 +5,7 @@ import StoreAddress from "./Shared/StoreAddress";
 import StoreHero from "./Shared/StoreHero";
 import useStores from "../../Hooks/useStores";
 import { useState } from "react";
+import { Helmet } from "react-helmet";
 
 const StoreDetails = () => {
     const { id } = useParams();
@@ -14,6 +15,9 @@ const StoreDetails = () => {
 
     return (
         <div className="lg:px-10 mx-auto space-y-10 font_cabin bg-gray-100 py-1 lg:pt-[80px] px-2">
+            <Helmet>
+                <title>Store Details | Elector Mart</title>
+            </Helmet>
             {/* Store Hero Section */}
             {role == "Admin" && (
                 <div className="flex justify-between items-center border border-dashed border-slate-400 px-5 md:px-10 lg:px-16 xl:px-20 py-3">
