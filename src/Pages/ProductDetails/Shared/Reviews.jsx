@@ -7,7 +7,7 @@ import Loader from "../../../components/Loader/Loader";
 import PropType from "prop-types";
 
 const Reviews = ({ mainId }) => {
-    const { review, refetch, isLoading } = useReview();
+    const { reviews, refetch, isLoading } = useReview();
     const [name, setName] = useState("");
     const [rating, setRating] = useState(0);
     const [reviewText, setReviewText] = useState("");
@@ -87,7 +87,7 @@ const Reviews = ({ mainId }) => {
                     Customer Reviews
                 </h3>
                 <div className="space-y-4 overflow-scroll h-96  overflow-x-hidden">
-                    {review?.map((rev, index) => (
+                    {reviews?.map((rev, index) => (
                         <div
                             key={index}
                             className="border-b-8 rounded-md p-3 bg-white shadow-md"
