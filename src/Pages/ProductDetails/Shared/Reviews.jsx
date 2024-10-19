@@ -4,8 +4,9 @@ import toast from "react-hot-toast";
 import ReactStars from "react-stars";
 import useReview from "../../../Hooks/useReview";
 import Loader from "../../../components/Loader/Loader";
+import PropType from "prop-types";
 
-const Reviews = () => {
+const Reviews = ({ mainId }) => {
     const { review, refetch, isLoading } = useReview();
     const [name, setName] = useState("");
     const [rating, setRating] = useState(0);
@@ -41,7 +42,7 @@ const Reviews = () => {
         }
     };
 
-    if(isLoading) return <Loader/>
+    if (isLoading) return <Loader />
     return (
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-5">
             {/* Left Side: Review Input Form */}
@@ -70,7 +71,7 @@ const Reviews = () => {
                         className="textarea textarea-warning w-full"
                         placeholder="Review Message"
                     ></textarea>
-                   
+
                     <button
                         onClick={handleReviewSubmit}
                         className="px-4 py-2 w-full mt-2 rounded-full text-white font-semibold hover:bg-black hover:text-orange-50 duration-300 bg-orange-500"
@@ -117,5 +118,7 @@ const Reviews = () => {
         </div>
     );
 };
-
+Reviews.propTypes = {
+    mainId: PropType.string,
+}
 export default Reviews;

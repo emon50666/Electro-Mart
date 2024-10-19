@@ -6,7 +6,7 @@ import PropType from "prop-types";
 
 
 const ProductReview = ({ product }) => {
-  const { review } = useReview()
+  const { reviews } = useReview()
   return (
 
 
@@ -15,16 +15,16 @@ const ProductReview = ({ product }) => {
         <Tabs>
           <TabList >
             <Tab>Description</Tab>
-            <Tab>Reviews ({review.length}) </Tab>
+            <Tab>Reviews ({reviews?.length}) </Tab>
           </TabList>
 
           <TabPanel>
             <p>
-              {product.fullDescription}
+              {product?.fullDescription}
             </p>
           </TabPanel>
           <TabPanel>
-            <Reviews />
+            <Reviews mainId={product?._id} />
           </TabPanel>
         </Tabs>
       </div>
