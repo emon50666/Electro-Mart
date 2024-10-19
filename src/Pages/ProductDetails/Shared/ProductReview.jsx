@@ -1,10 +1,12 @@
 
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
+import Reviews from './Reviews';
+import useReview from '../../../Hooks/useReview';
 
 
 const ProductReview = () => {
-
+const {review} = useReview()
   
 
 
@@ -13,20 +15,18 @@ const ProductReview = () => {
   
 
     <>
-    <div className='container mx-auto px-3'>
+    <div className='px-3 md:px-10 lg:px-10 xl:px-10 pt-10 pb-10  bg-gray-100'>
     <Tabs>
     <TabList >
       <Tab>Description</Tab>
-      <Tab>Reviews (0)</Tab>
+      <Tab>Reviews ({review.length}) </Tab>
     </TabList>
 
     <TabPanel>
-      <p>
-       
-      </p>
+     descriptions
     </TabPanel>
     <TabPanel>
-      <h2>Any content 2</h2>
+    <Reviews/>
     </TabPanel>
   </Tabs>
     </div>
