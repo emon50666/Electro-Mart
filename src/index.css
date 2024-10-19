@@ -79,19 +79,19 @@
 }
 
 
-  
-  
-  .swiper-button-prev:after {
-    font-size: 20px !important;
-    color: white;
-  }
-  
-  .swiper-button-next::after {
-    font-size: 20px !important;
-    color: white;
-  }
 
-  .react-tabs__tab--selected {
+
+.swiper-button-prev:after {
+    font-size: 20px !important;
+    color: white;
+}
+
+.swiper-button-next::after {
+    font-size: 20px !important;
+    color: white;
+}
+
+.react-tabs__tab--selected {
     border-color: orange !important;
 }
 
@@ -103,13 +103,19 @@
     background-color: #e0e0e0;
     border-radius: 4px;
     animation: shimmer 1.5s infinite;
-  }
-  
-  @keyframes shimmer {
-    0% { background-position: -500px 0; }
-    100% { background-position: 500px 0; }
-  }
-  
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: -500px 0;
+    }
+
+    100% {
+        background-position: 500px 0;
+    }
+}
 
 
-  
+#cartLink a.active {
+    color: rgb(189, 235, 250);
+}
