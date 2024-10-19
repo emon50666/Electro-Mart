@@ -1,7 +1,7 @@
 import { useState } from "react";
 import UserAuth from "../../Hooks/useAuth";
 import { Link } from "react-router-dom";
-import logo_1 from '../../assets/images/logo_1.png'
+import logo_1 from '../../assets/images/electro4.png'
 import { IoCloseOutline } from "react-icons/io5";
 import useRoll from "../../Hooks/useRoll";
 
@@ -59,7 +59,7 @@ const HeaderDashboard = () => {
        
           {/* Dropdown Menu */}
           {isDropdownOpen && (
-            <div className="absolute  -left-16 w-24  bg-white rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 z-10">
+            <div className="absolute  -left-16 w-44  bg-white rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 z-10">
               {/* Close Icon */}
               <div className="flex justify-between items-center px-4 py-2 border-b border-gray-300">
                 <span className="text-sm font-semibold text-gray-700">Close</span>
