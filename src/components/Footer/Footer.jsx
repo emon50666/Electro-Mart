@@ -14,38 +14,38 @@ const Footer = () => {
 
                             Call Us 24/7 <br />
                         </p>
-                        <p className="font-normal text-base  xl:text-3xl text-gray-400">
+                        <p className="font-normal text-base  xl:text-3xl text-white">
                             +8801786397249
                         </p>
                     </div>
                     <div className="pt-3 xl:pt-6 lg:max-w-sm">
-                        <p className="text-base xl:text-lg flex gap-2 items-center text-gray-400">
+                        <p className="text-base xl:text-lg flex gap-2 items-center text-white">
                             <FaLocationArrow />
                             Dhaka,Bangladesh
                         </p>
-                        <p className="text-base xl:text-lg flex gap-2 items-center text-gray-400 underline">
+                        <p className="text-base xl:text-lg flex gap-2 items-center text-white underline">
                             electro@mart.com
                         </p>
                     </div>
                     <div className=" pb-5 lg:max-w-sm">
                         <ul className="flex mt-5 gap-x-5">
                             <li>
-                                <Link to="#" className="text-gray-400  hover:text-[#00796b]">
+                                <Link to="#" className="text-white  hover:text-[#00796b]">
                                     <FaFacebookF className="text-xl" />
                                 </Link>
                             </li>
                             <li>
-                                <Link to="#" className="text-gray-400 hover:text-[#00796b]">
+                                <Link to="#" className="text-white hover:text-[#00796b]">
                                     <FaXTwitter className="text-xl" />
                                 </Link>
                             </li>
                             <li>
-                                <Link to="#" className="text-gray-400 hover:text-[#00796b]">
+                                <Link to="#" className="text-white hover:text-[#00796b]">
                                     <FaInstagram className="text-xl" />
                                 </Link>
                             </li>
                             <li>
-                                <Link to="#" className="text-gray-400 hover:text-[#00796b]">
+                                <Link to="#" className="text-white hover:text-[#00796b]">
                                     <FaTelegramPlane className="text-xl" />
                                 </Link>
                             </li>
@@ -58,27 +58,27 @@ const Footer = () => {
                     </p>
                     <ul className="mt-2 space-y-1 md:space-y-2 text-md xl:text-lg">
                         <li>
-                            <Link to="/" className="text-gray-400 underline-hover">
+                            <Link to="/" className="text-white underline-hover">
                                 Web
                             </Link>
                         </li>
                         <li>
-                            <Link to="/" className="text-gray-400 underline-hover">
+                            <Link to="/" className="text-white underline-hover">
                                 eCommerce
                             </Link>
                         </li>
                         <li>
-                            <Link to="/" className="text-gray-400 underline-hover">
+                            <Link to="/" className="text-white underline-hover">
                                 Business
                             </Link>
                         </li>
                         <li>
-                            <Link to="/" className="text-gray-400 underline-hover">
+                            <Link to="/" className="text-white underline-hover">
                                 Entertainment
                             </Link>
                         </li>
                         <li>
-                            <Link to="/" className="text-gray-400 underline-hover">
+                            <Link to="/" className="text-white underline-hover">
                                 Portfolio
                             </Link>
                         </li>
@@ -93,34 +93,34 @@ const Footer = () => {
                     </ul>
                 </div>
                 <div className="col-span-1 ">
-                    <p className="font-semibold text-xl md:text-base tracking-wide text-gray-400">
+                    <p className="font-semibold text-xl md:text-base tracking-wide text-white">
                         Quick Links
                     </p>
                     <ul className="mt-2 space-y-1 text-base md:space-y-2  ">
                         <li>
-                            <Link to="/" className="text-gray-400 underline-hover">
+                            <Link to="/" className="text-white underline-hover">
                                 Shop
                             </Link>
                         </li>
                         <li>
-                            <Link to="/storesPage" className="text-gray-400  underline-hover">
+                            <Link to="/storesPage" className="text-white  underline-hover">
                                 Store
                             </Link>
 
                         </li>
                         <li>
-                            <Link to="/" className="text-gray-400 underline-hover">
+                            <Link to="/" className="text-white underline-hover">
                                 Media
                             </Link>
                         </li>
                         <li>
-                            <Link to="/" className="text-gray-400 underline-hover">
+                            <Link to="/" className="text-white underline-hover">
                                 Brochure
                             </Link>
                         </li>
 
                         <li>
-                            <Link to="/" className="text-gray-400 underline-hover">
+                            <Link to="/" className="text-white underline-hover">
                                 Projects
                             </Link>
                         </li>
@@ -132,29 +132,29 @@ const Footer = () => {
                     </p>
                     <ul className="mt-2 space-y-1 md:space-y-2 text-md xl:text-lg">
                         <li>
-                            <Link to="/" className="text-gray-400 underline-hover">
+                            <Link to="/" className="text-white underline-hover">
                                 Infopreneur
                             </Link>
                         </li>
                         <li>
-                            <Link to="/" className="text-gray-400 underline-hover">
+                            <Link to="/" className="text-white underline-hover">
                                 Personal
                             </Link>
                         </li>
                         <li>
-                            <Link to="/" className="text-gray-400 underline-hover">
+                            <Link to="/" className="text-white underline-hover">
                                 Wiki
                             </Link>
                         </li>
                         <li>
-                            <Link to="/" className="text-gray-400 underline-hover">
+                            <Link to="/" className="text-white underline-hover">
                                 Forum
                             </Link>
                         </li>
                     </ul>
                 </div>
             </div>
-            <div className="flex flex-1 text-gray-400 justify-between pt-5 pb-20 lg:pb-3 border-gray-600 border-t xl:flex-row  xl:mb-auto gap-y-2">
+            <div className="flex flex-1 text-white justify-between pt-5 pb-20 lg:pb-3 border-gray-600 border-t xl:flex-row  xl:mb-auto gap-y-2">
                 <p className="text-[10px] lg:text-base">
                     © 2024 Electro Mart. Develope by Elector Team.
                 </p>
