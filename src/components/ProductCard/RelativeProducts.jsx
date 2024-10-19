@@ -11,7 +11,7 @@ import { Link } from "react-router-dom";
 
 const RelativeProducts = ({ category, productId }) => {
   const { products } = useProduct();
- 
+
 
   // Function to render rating stars dynamically
   const renderRating = (rating) => {
@@ -25,9 +25,12 @@ const RelativeProducts = ({ category, productId }) => {
     }
     return stars;
   };
- 
+
   return (
     <div className="relative-products-container px-4">
+      <div>
+        <h3 className="text-2xl font-semib">Related Product</h3>
+      </div>
       <Swiper
         // Setting dynamic slides based on viewport width using breakpoints
         breakpoints={{
@@ -62,8 +65,8 @@ const RelativeProducts = ({ category, productId }) => {
               <SwiperSlide className="h-full">
                 {/* Added a fixed height to the slide container */}
                 <div
-                  className="relative my-10 w-full sm:w-64 lg:w-72 group border-2 border-slate-300 py-5 rounded-md " // Set a fixed height for uniformity
-                  
+                  className="relative mt-5 mb-10 w-full sm:w-64 lg:w-72 group border-2 border-slate-300 py-5 rounded-md " // Set a fixed height for uniformity
+
                 >
                   <div className="relative h-[200px]"> {/* Fixed height for the image container */}
                     {product.images.length > 1 ? (
@@ -83,9 +86,9 @@ const RelativeProducts = ({ category, productId }) => {
                     )}
                   </div>
 
-                 
+
                   {/* Product Details */}
-                  <h1 className="mt-3 text-lg text-center font-medium">{product.title.slice(0,22) }...</h1>
+                  <h1 className="mt-3 text-lg text-center font-medium">{product.title.slice(0, 22)}...</h1>
 
                   {/* Rating */}
                   <div className="rating mt-2 flex justify-center">
