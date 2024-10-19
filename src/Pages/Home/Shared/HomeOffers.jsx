@@ -1,8 +1,10 @@
+import Loader from "../../../components/Loader/Loader";
 import ProductCard from "../../../components/ProductCard/ProductCard";
 import useProduct from "../../../Hooks/useProduct";
 
 const HomeOffers = () => {
-  const { products, refetch } = useProduct();
+  const { products, refetch ,isLoading} = useProduct();
+  if (isLoading) return <Loader />;
   return (
     <div className="px-8 font_open_sense">
       <div>

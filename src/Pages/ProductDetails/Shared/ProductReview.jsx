@@ -1,12 +1,12 @@
 
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
-import useReview from '../../../Hooks/useReview';
+
 
 const ProductReview = () => {
-  const {products,} = useReview()
+
   
-  console.log(products);
+
 
 
   return (
@@ -22,11 +22,7 @@ const ProductReview = () => {
 
     <TabPanel>
       <p>
-        {products.map(product => <>
-             <p>{product.fullDescription} </p>
-             
-          </>)
-        }
+       
       </p>
     </TabPanel>
     <TabPanel>
