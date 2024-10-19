@@ -5,12 +5,14 @@ import ReactStars from "react-stars";
 import useReview from "../../../Hooks/useReview";
 import Loader from "../../../components/Loader/Loader";
 import PropType from "prop-types";
+import UserAuth from "../../../Hooks/useAuth";
 
 const Reviews = ({ mainId }) => {
+    const { user } = UserAuth();
     const { reviews, refetch, isLoading } = useReview();
-    const [name, setName] = useState("");
     const [rating, setRating] = useState(0);
     const [reviewText, setReviewText] = useState("");
+    // console.log(user);
 
     const ratingChanged = (newRating) => {
         setRating(newRating);
@@ -18,7 +20,7 @@ const Reviews = ({ mainId }) => {
 
     const handleReviewSubmit = async () => {
         const reviewData = {
-            name,
+            name: user?.displayName,
             review: reviewText,
             rating,
         };
@@ -29,9 +31,6 @@ const Reviews = ({ mainId }) => {
                 reviewData
             );
             console.log("Review submitted successfully:", res.data);
-
-            // Clear form fields after submission
-            setName("");
             setReviewText("");
             setRating(0);
             toast.success("Thanks For Review");
@@ -58,15 +57,9 @@ const Reviews = ({ mainId }) => {
                     />
                 </div>
                 <div>
-                    <input
-                        type="text"
-                        placeholder="Your Name"
-                        value={name}
-                        onChange={(e) => setName(e.target.value)}
-                        className="input input-bordered input-warning mb-2 w-full"
-                    />
                     <textarea
                         value={reviewText}
+                        rows={5}
                         onChange={(e) => setReviewText(e.target.value)}
                         className="textarea textarea-warning w-full"
                         placeholder="Review Message"
@@ -86,7 +79,7 @@ const Reviews = ({ mainId }) => {
                 <h3 className="text-lg font-semibold border-b w-40 border-gray-200 mb-4">
                     Customer Reviews
                 </h3>
-                <div className="space-y-4 overflow-scroll h-96  overflow-x-hidden">
+                <div className="space-y-4 overflow-scroll max-h-80 h-auto  overflow-x-hidden">
                     {reviews?.map((rev, index) => (
                         <div
                             key={index}
