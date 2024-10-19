@@ -13,6 +13,11 @@ import useAddToCompare from "../../Hooks/useAddToCompare";
 import useAddToWishlist from "../../Hooks/useAddToWishlist";
 
 const ProductCard = ({ product, refetch }) => {
+
+
+
+
+
   const handleAddCart = useAddToCart();
   const handleAddCompare = useAddToCompare();
   const handleAddWishlist = useAddToWishlist();
@@ -109,11 +114,14 @@ const ProductCard = ({ product, refetch }) => {
 
         <div className="flex items-center justify-between">
           <div>
-            <Link to={`/productDetails/${product._id}`}><h4 className="font-semibold text-base capitalize">{product?.title.slice(0, 10)} [...]</h4></Link>
+            <Link 
+            to={`/productDetails/${product._id}`}><h4 className="font-semibold text-base capitalize">{product?.title.slice(0, 10)} [...]</h4></Link>
             <small className="text-gray-400 text-md capitalize font-semibold">{product?.brand}</small>
           </div>
           <span className="flex items-center gap-1 font-semibold mb-4">
-            <FaStar className="text-orange-500" /> 4.7
+            <FaStar className="text-orange-500" /> 
+          
+           
           </span>
         </div>
 

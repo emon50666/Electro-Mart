@@ -12,11 +12,14 @@ const Reviews = ({ mainId }) => {
     const { reviews, refetch, isLoading } = useReview();
     const [rating, setRating] = useState(0);
     const [reviewText, setReviewText] = useState("");
-    // console.log(user);
+    const [selectedImages, setSelectedImages] = useState([]);
+    const [uploadedImageUrls, setUploadedImageUrls] = useState([]);
+    const [showImageModal, setShowImageModal] = useState(false);
+    const [currentImage, setCurrentImage] = useState(null); // For popup image
 
-    const ratingChanged = (newRating) => {
-        setRating(newRating);
-    };
+    const ratingChanged = (newRating) => setRating(newRating);
+
+    const handleFileChange = (e) => setSelectedImages([...e.target.files]);
 
     const handleReviewSubmit = async () => {
         const reviewData = {
@@ -24,16 +27,38 @@ const Reviews = ({ mainId }) => {
             review: reviewText,
             rating,
         };
+        const imageUploadPromises = selectedImages.map(async (image) => {
+            const formData = new FormData();
+            formData.append("image", image);
+
+            const { data } = await axios.post(
+                `https://api.imgbb.com/1/upload?key=${import.meta.env.VITE_IMGBB_API_KEY}`,
+                formData
+            );
+            return data.data.url;
+        });
 
         try {
+            const imageUrls = await Promise.all(imageUploadPromises);
+            setUploadedImageUrls(imageUrls);
+
+            const reviewData = {
+                name,
+                review: reviewText,
+                rating,
+                images: imageUrls,
+            };
+
             const res = await axios.post(
                 `${import.meta.env.VITE_API_URL}/reviews`,
                 reviewData
             );
             console.log("Review submitted successfully:", res.data);
+            setUploadedImageUrls([])
             setReviewText("");
             setRating(0);
-            toast.success("Thanks For Review");
+            setSelectedImages([]);
+            toast.success("Thanks for your review!");
             refetch();
         } catch (error) {
             console.error("Error submitting review:", error);
@@ -41,10 +66,20 @@ const Reviews = ({ mainId }) => {
         }
     };
 
-    if (isLoading) return <Loader />
+    const openImageModal = (imageUrl) => {
+        setCurrentImage(imageUrl);
+        setShowImageModal(true);
+    };
+
+    const closeImageModal = () => {
+        setCurrentImage(null);
+        setShowImageModal(false);
+    };
+
+    if (isLoading) return <Loader />;
+
     return (
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-5">
-            {/* Left Side: Review Input Form */}
             <div className="p-4">
                 <div className="flex mb-5 gap-4 items-center">
                     <h2>Your Rating:</h2>
@@ -53,7 +88,7 @@ const Reviews = ({ mainId }) => {
                         value={rating}
                         onChange={ratingChanged}
                         size={24}
-                        color2={"#ffd700"} // Active star color
+                        color2={"#ffd700"}
                     />
                 </div>
                 <div>
@@ -61,10 +96,28 @@ const Reviews = ({ mainId }) => {
                         value={reviewText}
                         rows={5}
                         onChange={(e) => setReviewText(e.target.value)}
-                        className="textarea textarea-warning w-full"
+                        className="textarea textarea-warning w-full outline-none mt-2 focus:border-none"
                         placeholder="Review Message"
                     ></textarea>
-
+                    <input
+                        type="file"
+                        name="images"
+                        multiple
+                        
+                        onChange={handleFileChange}
+                        className="file-input outline-none focus:border-none mt-2 file-input-bordered w-full"
+                    />
+                    <div className="mt-2 flex gap-2">
+                        {selectedImages.length > 0 &&
+                            selectedImages.map((image, index) => (
+                                <img
+                                    key={index}
+                                    src={URL.createObjectURL(image)}
+                                    alt="Selected"
+                                    className="w-10 h-10 object-cover mr-2 mt-2"
+                                />
+                            ))}
+                    </div>
                     <button
                         onClick={handleReviewSubmit}
                         className="px-4 py-2 w-full mt-2 rounded-full text-white font-semibold hover:bg-black hover:text-orange-50 duration-300 bg-orange-500"
@@ -74,40 +127,65 @@ const Reviews = ({ mainId }) => {
                 </div>
             </div>
 
-            {/* Right Side: Display Reviews */}
             <div className="p-4 border-l-2 border-gray-200">
                 <h3 className="text-lg font-semibold border-b w-40 border-gray-200 mb-4">
                     Customer Reviews
                 </h3>
                 <div className="space-y-4 overflow-scroll max-h-80 h-auto  overflow-x-hidden">
                     {reviews?.map((rev, index) => (
+
                         <div
                             key={index}
                             className="border-b-8 rounded-md p-3 bg-white shadow-md"
                         >
-                            {/* Star Rating */}
                             <div className="flex gap-2 items-center">
                                 <ReactStars
                                     count={5}
                                     value={rev.rating}
-                                    edit={false} // Make it read-only
+                                    edit={false}
                                     size={20}
                                     color2={"#ffd700"}
                                 />
-                                <h1>{rev.rating} </h1>
+                                <h1>{rev.rating}</h1>
                             </div>
-
-                            {/* User Name */}
                             <p className="font-semibold mt-2 text-green-600">
                                 {rev.name}
                             </p>
-
-                            {/* Review Text */}
                             <p className="text-gray-500 mt-1">{rev.review}</p>
+                            <div className="flex gap-2 mt-2">
+                                {rev.images &&
+                                    rev.images.map((image, idx) => (
+                                        <img
+                                            key={idx}
+                                            src={image}
+                                            alt="Review"
+                                            className="w-20 h-20 object-cover cursor-pointer"
+                                            onClick={() => openImageModal(image)}
+                                        />
+                                    ))}
+                            </div>
                         </div>
                     ))}
                 </div>
             </div>
+
+            {showImageModal && (
+                <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+                    <div className="relative">
+                        <img
+                            src={currentImage}
+                            alt="Full View"
+                            className="max-w-full max-h-screen"
+                        />
+                        <button
+                            onClick={closeImageModal}
+                            className="absolute top-4 right-4  text-red-500 text-2xl font-bold"
+                        >
+                            ✕
+                        </button>
+                    </div>
+                </div>
+            )}
         </div>
     );
 };
