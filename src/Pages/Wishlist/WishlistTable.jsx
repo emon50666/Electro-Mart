@@ -10,6 +10,7 @@ import { MdDeleteForever } from "react-icons/md";
 import useAxiosPublic from "../../Hooks/useAxiosPublic";
 import useWishlist from "../../Hooks/useWishlist";
 import { FaBangladeshiTakaSign } from "react-icons/fa6";
+import useAddToCompare from "../../Hooks/useAddToCompare";
 
 const WishlistTable = ({ wishProduct }) => {
   console.log(wishProduct)
@@ -18,13 +19,19 @@ const WishlistTable = ({ wishProduct }) => {
   const { refetch } = useWishlist();
   const [, setCartOpen] = useState(false);
   const handleAddCart = useAddToCart();
+  const handleAddCompare = useAddToCompare();
+  const product = products.find((pack) => pack?._id == wishProduct?.mainProductId);
 
   const handleAddToCart = () => {
     handleAddCart(product)
     setCartOpen(true);
   };
-  const product = products.find((pack) => pack?._id == wishProduct?.mainProductId);
-  console.log(product)
+
+  const handleAddToCompare = () => {
+    handleAddCompare(product)
+  };
+
+  // console.log(product)
 
   const handleDeleteWishlist = (id) => {
 
@@ -61,7 +68,7 @@ const WishlistTable = ({ wishProduct }) => {
         </p>
       </td>
       <td className="px-5 md:text-base text-xs  text-center transition duration-300 border-t border-l first:border-l-0 border-slate-300">
-        {(product?.discountPrice && (product?.discountPrice !== product?.price) )? <p className="flex items-center justify-center gap-1">
+        {(product?.discountPrice && (product?.discountPrice !== product?.price)) ? <p className="flex items-center justify-center gap-1">
           <FaBangladeshiTakaSign />{product?.discountPrice}
         </p> : "0"}
       </td>
@@ -83,7 +90,7 @@ const WishlistTable = ({ wishProduct }) => {
         </button>
       </td>
       <td className="px-5 md:text-base text-xs  text-center transition duration-300 border-t border-l first:border-l-0 border-slate-300">
-        <button className="border-2 border-orange-500 rounded-md text-orange-500 text-lg px-4 py-2 text-center transition-all duration-300 ease-in-out transform hover:scale-105">
+        <button onClick={handleAddToCompare} className="border-2 border-orange-500 rounded-md text-orange-500 text-lg px-4 py-2 text-center transition-all duration-300 ease-in-out transform hover:scale-105">
           <DiGitCompare />
         </button>
       </td>
