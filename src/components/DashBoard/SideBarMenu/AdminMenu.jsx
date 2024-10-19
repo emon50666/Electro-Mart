@@ -126,36 +126,48 @@ const AdminMenu = () => {
             </NavLink>
           </li>
 
-          <li className="px-3 group relative">
-            <Link
-              className="flex items-center text-[16px]  gap-3 rounded p-3  transition-colors hover:bg-[#22292F] hover:text-orange-500 focus:bg-orange-50 aria-[current=page]:bg-orange-50 aria-[current=page]:text-emerald-500 "
+          <li className=" group relative">
+            <NavLink
+              className={({ isActive }) =>
+                `flex items-center text-[16px] gap-3 rounded p-3 transition-colors ${
+                  isActive ? '' : 'text-gray-400 hover:bg-[#22292F] hover:text-orange-500'
+                }`
+              }
+              to="#"
             >
-              <div className="flex text-md  font-semibold  items-center self-center">
+              <div className="flex text-md font-semibold items-center self-center">
                 <FaStoreAlt />
               </div>
-              <Link
-                to="manageStore"
-                className="flex font-semibold text-[16px] w-full flex-1 flex-col items-start justify-center gap-0 overflow-hidden truncate"
-              >
+              <p className="flex  w-full flex-1 flex-col items-start justify-center gap-0 overflow-hidden ">
                 Stores
-              </Link>
-            </Link>
+              </p>
+            </NavLink>
 
             {/* Submenu */}
-            <ul className="absolute  w-full text-gray-400  top-full hidden group-hover:block bg-[#22292F] shadow-lg rounded-lg p-2">
-              <li className="px-3 ">
-                <Link
+            <ul className="absolute w-full text-gray-400 top-full hidden group-hover:block bg-[#22292F] shadow-lg rounded-lg p-2">
+              <li className="">
+                <NavLink
                   to="manageStore"
-                  className=" block py-2 px-4 text-sm font-medium  hover:bg-[#22292F] hover:text-orange-500">Manage Store</Link>
+                  className={({ isActive }) =>
+                    `block py-2 px-4 text-sm hover:bg-[#22292F] hover:text-orange-500 ${
+                      isActive ? 'bg-black border-l-2 border-l-orange-500 text-orange-500' : 'text-gray-400'
+                    }`
+                  }
+                >
+                  Manage Store
+                </NavLink>
               </li>
-              <li className="px-3">
-                <Link
+              <li className="">
+                <NavLink
                   to="addStore"
-                  className="block py-2 px-4 text-sm font-medium  hover:bg-[#22292F]
-                   hover:text-orange-500  aria-[current=page]:bg-orange-50 aria-[current=page]:text-emerald-500"
+                  className={({ isActive }) =>
+                    `block py-2 px-4 text-sm  hover:bg-[#22292F] hover:text-orange-500 ${
+                      isActive ? 'bg-black  border-l-2 border-l-orange-500 text-orange-500' : 'text-gray-400'
+                    }`
+                  }
                 >
                   Add Store
-                </Link>
+                </NavLink>
               </li>
             </ul>
           </li>
