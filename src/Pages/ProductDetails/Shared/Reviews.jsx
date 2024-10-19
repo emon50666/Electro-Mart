@@ -4,10 +4,12 @@ import toast from "react-hot-toast";
 import ReactStars from "react-stars";
 import useReview from "../../../Hooks/useReview";
 import Loader from "../../../components/Loader/Loader";
+import PropType from "prop-types";
+import UserAuth from "../../../Hooks/useAuth";
 
-const Reviews = () => {
-    const { review, refetch, isLoading } = useReview();
-    const [name, setName] = useState("");
+const Reviews = ({ mainId }) => {
+    const { user } = UserAuth();
+    const { reviews, refetch, isLoading } = useReview();
     const [rating, setRating] = useState(0);
     const [reviewText, setReviewText] = useState("");
     const [selectedImages, setSelectedImages] = useState([]);
@@ -20,6 +22,11 @@ const Reviews = () => {
     const handleFileChange = (e) => setSelectedImages([...e.target.files]);
 
     const handleReviewSubmit = async () => {
+        const reviewData = {
+            name: user?.displayName,
+            review: reviewText,
+            rating,
+        };
         const imageUploadPromises = selectedImages.map(async (image) => {
             const formData = new FormData();
             formData.append("image", image);
@@ -48,7 +55,6 @@ const Reviews = () => {
             );
             console.log("Review submitted successfully:", res.data);
             setUploadedImageUrls([])
-            setName("");
             setReviewText("");
             setRating(0);
             setSelectedImages([]);
@@ -86,15 +92,9 @@ const Reviews = () => {
                     />
                 </div>
                 <div>
-                    <input
-                        type="text"
-                        placeholder="Your Name"
-                        value={name}
-                        onChange={(e) => setName(e.target.value)}
-                        className="input outline-none focus:border-none input-bordered input-warning w-full"
-                    />
                     <textarea
                         value={reviewText}
+                        rows={5}
                         onChange={(e) => setReviewText(e.target.value)}
                         className="textarea textarea-warning w-full outline-none mt-2 focus:border-none"
                         placeholder="Review Message"
@@ -131,8 +131,9 @@ const Reviews = () => {
                 <h3 className="text-lg font-semibold border-b w-40 border-gray-200 mb-4">
                     Customer Reviews
                 </h3>
-                <div className="space-y-4 overflow-scroll h-96 overflow-x-hidden">
-                    {review?.map((rev, index) => (
+                <div className="space-y-4 overflow-scroll max-h-80 h-auto  overflow-x-hidden">
+                    {reviews?.map((rev, index) => (
+
                         <div
                             key={index}
                             className="border-b-8 rounded-md p-3 bg-white shadow-md"
@@ -188,5 +189,7 @@ const Reviews = () => {
         </div>
     );
 };
-
+Reviews.propTypes = {
+    mainId: PropType.string,
+}
 export default Reviews;
