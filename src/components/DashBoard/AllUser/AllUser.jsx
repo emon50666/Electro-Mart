@@ -6,6 +6,7 @@ import { useQuery } from '@tanstack/react-query'
 import useAxiosPublic from '../../../Hooks/useAxiosPublic'
 import { Helmet } from 'react-helmet'
 import UserDataRow from './UserDataRow';
+import Loader from '../../Loader/Loader';
 const AllUsers = () => {
  const axiosPublic = useAxiosPublic();
   //   Fetch users Data
@@ -22,12 +23,13 @@ const AllUsers = () => {
   })
 
   console.log(users)
-  if (isLoading )
-    return (
-      <div className="flex items-center justify-center h-screen">
-        <span className="loading loading-bars loading-lg"></span>
-      </div>
-    );
+  // if (isLoading )
+  //   return (
+  //     <div className="flex items-center justify-center h-screen">
+  //       <span className="loading loading-bars loading-lg"></span>
+  //     </div>
+  //   );
+  if (isLoading) return <Loader />;
   return (
     <>
 

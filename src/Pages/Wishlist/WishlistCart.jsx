@@ -9,6 +9,7 @@ import { RxCross1 } from "react-icons/rx";
 import useAxiosPublic from "../../Hooks/useAxiosPublic";
 import useWishlist from "../../Hooks/useWishlist";
 import { FaBangladeshiTakaSign } from "react-icons/fa6";
+import useAddToCompare from "../../Hooks/useAddToCompare";
 
 const WishlistCart = ({ wishProduct }) => {
   const { products } = useProduct();
@@ -16,14 +17,19 @@ const WishlistCart = ({ wishProduct }) => {
   const axiosPublic = useAxiosPublic();
   const [, setCartOpen] = useState(false);
   const handleAddCart = useAddToCart();
+  const handleAddCompare = useAddToCompare();
+  const product = products.find(
+    (pack) => pack?._id === wishProduct?.mainProductId
+  );
   const handleAddToCart = () => {
     handleAddCart(product);
     setCartOpen(true);
   };
 
-  const product = products.find(
-    (pack) => pack?._id === wishProduct?.mainProductId
-  );
+  const handleAddToCompare = () => {
+    handleAddCompare(product)
+  };
+
 
   const handleDeleteWishlist = (id) => {
     axiosPublic
@@ -83,7 +89,9 @@ const WishlistCart = ({ wishProduct }) => {
           Buy Now
         </button>
 
-        <button className="text-orange-500 hover:text-orange-600 transition-colors">
+        <button
+          onClick={handleAddToCompare}
+          className="text-orange-500 hover:text-orange-600 transition-colors">
           <DiGitCompare className="w-5 h-5" />
         </button>
       </div>

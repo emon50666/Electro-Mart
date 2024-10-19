@@ -44,8 +44,8 @@ const router = createBrowserRouter([
       },
       {
         path: "/productDetails/:id",
-        element: <ProductDetails />,
-        loader: () => fetch(`${import.meta.env.VITE_API_URL}/products`),
+        element:<PrivateRoute> <ProductDetails /></PrivateRoute>,
+        loader: () => fetch(`${import.meta.env.VITE_API_URL}/products/`),
       },
       {
         path: "/comparePage",

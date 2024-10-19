@@ -6,6 +6,7 @@ import useAxiosPublic from '../../../Hooks/useAxiosPublic';
 import useCompare from '../../../Hooks/useCompare';
 import useAddToCart from '../../../Hooks/useAddToCart';
 import UserAuth from '../../../Hooks/useAuth';
+import { FaBangladeshiTakaSign } from 'react-icons/fa6';
 
 const ComparisonTable = ({ compares }) => {
     const { user } = UserAuth()
@@ -55,7 +56,7 @@ const ComparisonTable = ({ compares }) => {
                                         />
                                     </div>
                                     <p className='text-[#767676]'>{sliceTitle(product?.title)}</p>
-                                    <p className='text-orange-500'>£<span>{product?.price}</span></p>
+                                    <p className='text-orange-500 flex items-center'><FaBangladeshiTakaSign /><span>{product?.price}</span></p> 
                                     <div className="flex flex-col md:flex-row md:justify-between mt-2 gap-y-1">
                                         <button
                                             onClick={() => handleAddToCart(product?.mainProductId)}

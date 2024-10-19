@@ -72,7 +72,7 @@ const MainLayout = () => {
               <XAxis dataKey="name" hide />
               <Tooltip />
               <Area
-                type="natural"
+                type="monotone"
                 dataKey="uv"
                 stroke={card.chartColor}
                 fill={card.chartColor}

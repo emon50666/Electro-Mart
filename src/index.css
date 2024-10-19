@@ -91,5 +91,25 @@
     color: white;
   }
 
+  .react-tabs__tab--selected {
+    border-color: orange !important;
+}
 
- 
+.react-tabs__tab-list {
+    border-bottom: 1px solid orange !important;
+}
+
+.skeleton {
+    background-color: #e0e0e0;
+    border-radius: 4px;
+    animation: shimmer 1.5s infinite;
+  }
+  
+  @keyframes shimmer {
+    0% { background-position: -500px 0; }
+    100% { background-position: 500px 0; }
+  }
+  
+
+
+  

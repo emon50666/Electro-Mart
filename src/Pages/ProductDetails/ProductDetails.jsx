@@ -3,6 +3,7 @@ import MainProductDetails from "./Shared/topLayer/MainProductDetails";
 import TopLayerOfDetails from "./Shared/topLayer/TopLayerOfDetails";
 import { Helmet } from "react-helmet";
 import RelativeProducts from "../../components/ProductCard/RelativeProducts";
+import ProductReview from "./Shared/ProductReview";
 
 
 const ProductDetails = () => {
@@ -22,9 +23,10 @@ const ProductDetails = () => {
             </div>
             {/* main details section */}
             <MainProductDetails product={product} />
+            {/* review and full description */}
+            <ProductReview product={product} />
+            {/* same category product */}
             <RelativeProducts category={product?.category} productId={product?._id} />
-            <br /><br /><br /><br /><br />
-            {/* <RelativeProducts /> */}
         </div>
     );
 };

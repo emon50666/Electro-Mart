@@ -17,7 +17,6 @@ const SideBar = () => {
   const {logOut} = UserAuth()
   const [isSideNavOpen, setIsSideNavOpen] = useState(false)
   const [role] = useRoll();
-  console.log(role);
   return (
     <>
 
@@ -27,8 +26,8 @@ const SideBar = () => {
         title="Side navigation"
         type="button"
         className={`visible fixed right-2 top-12 z-40 order-10 block h-10 w-10 self-center rounded  shadow-md bg-white opacity-100 lg:hidden ${isSideNavOpen
-            ? "visible opacity-100 [&_span:nth-child(1)]:w-6 [&_span:nth-child(1)]:translate-y-0 [&_span:nth-child(1)]:rotate-45 text-orange-500 [&_span:nth-child(3)]:w-0 [&_span:nth-child(2)]:-rotate-45 "
-            : ""
+          ? "visible opacity-100 [&_span:nth-child(1)]:w-6 [&_span:nth-child(1)]:translate-y-0 [&_span:nth-child(1)]:rotate-45 text-orange-500 [&_span:nth-child(3)]:w-0 [&_span:nth-child(2)]:-rotate-45 "
+          : ""
           }`}
         aria-haspopup="menu"
         aria-label="Side navigation"
@@ -68,19 +67,21 @@ const SideBar = () => {
         >
 
           {/* admin menu */}
-         
-        {  role === 'admin' && <AdminMenu/> } 
 
-          {  role === 'member' &&  <MemberMenu/> }
-          {  role === 'seller' && <AdminMenu/> }
+          {role === 'admin' && <AdminMenu />}
+
+          {role === 'member' && <MemberMenu />}
+          {role === 'seller' && <AdminMenu />}
+
+
 
 
           
           
         </nav>
-        <li onClick={logOut} className="px-3 ">
+        <li onClick={logOut} className=" ">
             <Link to={'/register'} 
-              className="flex mt-1 items-center gap-3 rounded p-3 text-gray-200 transition-colors  "
+              className="flex mt-1 items-center gap-3 p-3 rounded text-gray-200 transition-colors  "
             >
               <div className="flex   items-center self-center">
                 <AiOutlineLogout></AiOutlineLogout>

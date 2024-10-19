@@ -7,7 +7,7 @@ const MobileNavBar = () => {
   const { categories } = useCategories();
     return (
 <div className="relative">
-  <div className="sticky top-0 z-40 bg-white">
+  <div className="sticky top-0 z-40 pt-10 bg-white">
     <Tabs>
       <TabList
         style={{
@@ -43,6 +43,10 @@ const MobileNavBar = () => {
           <h2>Menu-1</h2>
           {/* Add your content here */}
           <p>This is the content for the Menu tab. You can add more content to make the panel scrollable.</p>
+          <p>This is the content for the Menu tab. You can add more content to make the panel scrollable.</p>
+          <p>This is the content for the Menu tab. You can add more content to make the panel scrollable.</p>
+          <p>This is the content for the Menu tab. You can add more content to make the panel scrollable.</p>
+
         </TabPanel>
         <TabPanel>
           
