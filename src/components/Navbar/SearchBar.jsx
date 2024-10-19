@@ -1,6 +1,8 @@
 import { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
-import useProduct from "../../Hooks/useProduct";
+import useProduct from "../../Hooks/useProduct"; 
+import { FaBangladeshiTakaSign } from 'react-icons/fa6';
+
 
 const SearchBar = () => {
   const { products } = useProduct();
@@ -42,7 +44,7 @@ const SearchBar = () => {
       <form
         onChange={(e) => {
           setSearch(e.target.value.toLocaleLowerCase());
-          setShowResults(true); 
+          setShowResults(true);
         }}
         className="hidden lg:flex lg:-mr-16"
       >
@@ -81,7 +83,7 @@ const SearchBar = () => {
                     <h3 className="text-sm font-semibold">
                       {product.title.slice(0, 50)}..
                     </h3>
-                    <p className="text-blue-500 font-medium">${product.price}</p>
+                    <p className="text-blue-500 font-medium flex items-center"><FaBangladeshiTakaSign />{product.price}</p>
                   </div>
                 </Link>
               ))
@@ -93,7 +95,7 @@ const SearchBar = () => {
                 </div>
 
 
-              
+
 
               </>
 
