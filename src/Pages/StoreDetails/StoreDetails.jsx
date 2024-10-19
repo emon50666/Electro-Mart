@@ -13,10 +13,10 @@ const StoreDetails = () => {
     const oneStore = stores.find(store => store?._id === id)
 
     return (
-        <div className="lg:px-10 mx-auto space-y-10 font_cabin bg-gray-100 py-1 lg:pt-[82px] px-2">
+        <div className="lg:px-10 mx-auto space-y-10 font_cabin bg-gray-100 py-1 lg:pt-[80px] px-2">
             {/* Store Hero Section */}
             {role == "Admin" && (
-                <div className="flex justify-between items-center border-2 border-dashed border-gray-400 px-5 md:px-10 lg:px-16 xl:px-20 py-3 bg-gray-300">
+                <div className="flex justify-between items-center border border-dashed border-slate-400 px-5 md:px-10 lg:px-16 xl:px-20 py-3">
                     <h3 className="md:text-lg lg:text-xl xl:text-2xl font-semi-bold">Admin Panel</h3>
                     <div>
                         <Link
