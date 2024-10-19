@@ -11,8 +11,31 @@ import useAxiosPublic from "../../Hooks/useAxiosPublic";
 import useAddToCart from "../../Hooks/useAddToCart";
 import useAddToCompare from "../../Hooks/useAddToCompare";
 import useAddToWishlist from "../../Hooks/useAddToWishlist";
+import useReview from "../../Hooks/useReview";
 
 const ProductCard = ({ product, refetch }) => {
+
+
+
+  const { reviews } = useReview();
+
+  const allReview = reviews.filter(review => review?.mainId === product?._id)
+
+  // Calculate average rating
+  const calculateAverageRating = (products) => {
+    const totalRating = products.reduce((sum, product) => sum + product.rating, 0);
+    const averageRating = totalRating / products.length;
+    return averageRating.toFixed(2); // Round to 2 decimal places
+  };
+
+  // Usage
+  const averageRating = calculateAverageRating(allReview);
+  console.log(averageRating);
+
+
+
+
+
   const handleAddCart = useAddToCart();
   const handleAddCompare = useAddToCompare();
   const handleAddWishlist = useAddToWishlist();
@@ -109,11 +132,19 @@ const ProductCard = ({ product, refetch }) => {
 
         <div className="flex items-center justify-between">
           <div>
-            <Link to={`/productDetails/${product._id}`}><h4 className="font-semibold text-base capitalize">{product?.title.slice(0, 10)} [...]</h4></Link>
+            <Link
+              to={`/productDetails/${product._id}`}><h4 className="font-semibold text-base capitalize">{product?.title.slice(0, 10)} [...]</h4></Link>
             <small className="text-gray-400 text-md capitalize font-semibold">{product?.brand}</small>
           </div>
           <span className="flex items-center gap-1 font-semibold mb-4">
-            <FaStar className="text-orange-500" /> 4.7
+            {isNaN(averageRating) ? '' : (
+              <p className="flex gap-1 items-center">
+                <FaStar className="text-[#ffd700]" /> {averageRating}
+              </p>
+            )}
+
+
+
           </span>
         </div>
 
