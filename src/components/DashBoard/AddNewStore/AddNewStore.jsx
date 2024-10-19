@@ -20,7 +20,9 @@ const AddNewStore = () => {
         try {
             const formData = new FormData();
             formData.append("file", data.image[0]);
+            formData.append("tags", `hello, medium, gist`);
             formData.append("upload_preset", "elector_mart_key");
+            formData.append("api_key", "211491792754595");
 
             const imageResponse = await axios.post('https://api.cloudinary.com/v1_1/duv5fiurz/image/upload', formData);
             const imageUrl = imageResponse.data.secure_url;
@@ -40,7 +42,7 @@ const AddNewStore = () => {
             if (response.data.insertedId) {
                 toast.success(`Store is added`);
                 // navigate("/dashboard/manageProduct");
-                navigate("/manageStore");
+                navigate("/dashboard/manageStore");
                 reset();
             }
             console.log(storeInfo);
@@ -128,7 +130,7 @@ const AddNewStore = () => {
                             <div>
                                 <label className="block mb-1 font-medium text-gray-700">Day-{index + 1}</label>
                                 <input
-                                    {...register(`operatingHours.${index}.day`, { required: true })}
+                                    {...register(`operatingHours.${index}.day`)}
                                     className="w-full p-2 border border-gray-300 rounded-md"
                                 />
                             </div>
@@ -137,7 +139,7 @@ const AddNewStore = () => {
                                 <label className="block mb-1 font-medium text-gray-700">Opening Hour</label>
                                 <input
                                     type="time"
-                                    {...register(`operatingHours.${index}.openingHour`, { required: true })}
+                                    {...register(`operatingHours.${index}.openingHour`)}
                                     className="w-full p-2 border border-gray-300 rounded-md"
                                     disabled={operatingHours[index]?.isClosed}
                                 />
@@ -147,7 +149,7 @@ const AddNewStore = () => {
                                 <label className="block mb-1 font-medium text-gray-700">Closing Hour</label>
                                 <input
                                     type="time"
-                                    {...register(`operatingHours.${index}.closingHour`, { required: true })}
+                                    {...register(`operatingHours.${index}.closingHour`)}
                                     className="w-full p-2 border border-gray-300 rounded-md"
                                     disabled={operatingHours[index]?.isClosed}
                                 />

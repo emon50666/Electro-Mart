@@ -39,7 +39,6 @@ const UpdateStore = () => {
     const { fields } = useFieldArray({ control, name: "operatingHours" });
 
     const onSubmit = async (data) => {
-        console.log(data.image[0]);
         try {
             let imageUrl = currentImage;
 
