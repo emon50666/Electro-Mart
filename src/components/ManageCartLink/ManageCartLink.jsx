@@ -1,7 +1,6 @@
 import { BsArrowRight } from "react-icons/bs";
 import { NavLink } from "react-router-dom";
 
-
 const ManageCartLink = () => {
     return (
         <>
