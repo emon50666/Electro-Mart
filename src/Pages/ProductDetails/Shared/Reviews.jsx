@@ -4,29 +4,22 @@ import toast from "react-hot-toast";
 import ReactStars from "react-stars";
 import useReview from "../../../Hooks/useReview";
 import Loader from "../../../components/Loader/Loader";
-import PropType from "prop-types";
-import UserAuth from "../../../Hooks/useAuth";
 
-const Reviews = ({ mainId }) => {
-    const { user } = UserAuth();
+const Reviews = ({mainId}) => {
     const { reviews, refetch, isLoading } = useReview();
+    const [name, setName] = useState("");
     const [rating, setRating] = useState(0);
     const [reviewText, setReviewText] = useState("");
     const [selectedImages, setSelectedImages] = useState([]);
-    const [uploadedImageUrls, setUploadedImageUrls] = useState([]);
+    const [, setUploadedImageUrls] = useState([]);
     const [showImageModal, setShowImageModal] = useState(false);
     const [currentImage, setCurrentImage] = useState(null); // For popup image
-
+    const allReview = reviews.filter(review => review?.mainId === mainId )
     const ratingChanged = (newRating) => setRating(newRating);
 
     const handleFileChange = (e) => setSelectedImages([...e.target.files]);
 
     const handleReviewSubmit = async () => {
-        const reviewData = {
-            name: user?.displayName,
-            review: reviewText,
-            rating,
-        };
         const imageUploadPromises = selectedImages.map(async (image) => {
             const formData = new FormData();
             formData.append("image", image);
@@ -47,6 +40,7 @@ const Reviews = ({ mainId }) => {
                 review: reviewText,
                 rating,
                 images: imageUrls,
+                mainId
             };
 
             const res = await axios.post(
@@ -54,7 +48,8 @@ const Reviews = ({ mainId }) => {
                 reviewData
             );
             console.log("Review submitted successfully:", res.data);
-            setUploadedImageUrls([])
+
+            setName("");
             setReviewText("");
             setRating(0);
             setSelectedImages([]);
@@ -92,9 +87,15 @@ const Reviews = ({ mainId }) => {
                     />
                 </div>
                 <div>
+                    <input
+                        type="text"
+                        placeholder="Your Name"
+                        value={name}
+                        onChange={(e) => setName(e.target.value)}
+                        className="input outline-none focus:border-none input-bordered input-warning w-full"
+                    />
                     <textarea
                         value={reviewText}
-                        rows={5}
                         onChange={(e) => setReviewText(e.target.value)}
                         className="textarea textarea-warning w-full outline-none mt-2 focus:border-none"
                         placeholder="Review Message"
@@ -103,11 +104,10 @@ const Reviews = ({ mainId }) => {
                         type="file"
                         name="images"
                         multiple
-                        
                         onChange={handleFileChange}
                         className="file-input outline-none focus:border-none mt-2 file-input-bordered w-full"
                     />
-                    <div className="mt-2 flex gap-2">
+                    <div className="mt-2 flex gap-">
                         {selectedImages.length > 0 &&
                             selectedImages.map((image, index) => (
                                 <img
@@ -131,9 +131,8 @@ const Reviews = ({ mainId }) => {
                 <h3 className="text-lg font-semibold border-b w-40 border-gray-200 mb-4">
                     Customer Reviews
                 </h3>
-                <div className="space-y-4 overflow-scroll max-h-80 h-auto  overflow-x-hidden">
-                    {reviews?.map((rev, index) => (
-
+                <div id="review" className="space-y-4 overflow-scroll max-h-80 h-auto  overflow-x-hidden">
+                    {allReview?.map((rev, index) => (
                         <div
                             key={index}
                             className="border-b-8 rounded-md p-3 bg-white shadow-md"
@@ -179,7 +178,7 @@ const Reviews = ({ mainId }) => {
                         />
                         <button
                             onClick={closeImageModal}
-                            className="absolute top-4 right-4  text-red-500 text-2xl font-bold"
+                            className="absolute top-4 right-4 bg-white rounded-full p-2 text-black"
                         >
                             ✕
                         </button>
@@ -189,7 +188,5 @@ const Reviews = ({ mainId }) => {
         </div>
     );
 };
-Reviews.propTypes = {
-    mainId: PropType.string,
-}
+
 export default Reviews;
