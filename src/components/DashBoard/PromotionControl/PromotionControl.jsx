@@ -6,8 +6,8 @@ const PromotionControl = () => {
     const [index,setIndex] = useState(0)
     return (
         <div className="pt-12 pb-4 px-2 sm:px-6 font_open_sense">
-            <div className="px-5 py-10 md:p-10 bg-gray-300 rounded-lg text-teal-600">
-                <h2 className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-semibold">Control All Promotion</h2>
+            <div className="px-5 py-10 md:p-10 bg-gray-200 rounded-lg text-black-600">
+                <h2 className="text-lg md:text-3xl lg:text-3xl xl:text-5xl font-semibold">Control All Promotion</h2>
             </div>
             <div className="mt-10">
                 <Tabs defaultIndex={index} onSelect={() => { }}>

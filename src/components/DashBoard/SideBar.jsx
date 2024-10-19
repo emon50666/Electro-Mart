@@ -3,11 +3,18 @@ import AdminMenu from "./SideBarMenu/AdminMenu";
 import MemberMenu from "./SideBarMenu/MemberMenu";
 import useRoll from "../../Hooks/useRoll";
 
+import { Link } from "react-router-dom";
+
+import { AiOutlineLogout } from "react-icons/ai";
+import UserAuth from "../../Hooks/useAuth";
+
+
 
 
 
 
 const SideBar = () => {
+  const {logOut} = UserAuth()
   const [isSideNavOpen, setIsSideNavOpen] = useState(false)
   const [role] = useRoll();
   return (
@@ -49,7 +56,7 @@ const SideBar = () => {
       <aside
         id="nav-menu-1"
         aria-label="Side navigation"
-        className={`fixed top-0 bottom-0 bg-[#1E293B]  min-h-screen left-0 z-40 flex w-64 flex-col border-r border-r-slate-200 transition-transform lg:translate-x-0 ${isSideNavOpen ? "translate-x-0" : " -translate-x-full"
+        className={`fixed top-0 bottom-0 bg-[#1E293B]  min-h-screen left-0 z-40 flex w-56 flex-col border-r border-r-slate-200 transition-transform lg:translate-x-0 ${isSideNavOpen ? "translate-x-0" : " -translate-x-full"
           }`}
       >
 
@@ -69,7 +76,21 @@ const SideBar = () => {
 
 
 
+          
+          
         </nav>
+        <li onClick={logOut} className="px-3 ">
+            <Link to={'/register'} 
+              className="flex mt-1 items-center gap-3 rounded p-3 text-gray-200 transition-colors  "
+            >
+              <div className="flex   items-center self-center">
+                <AiOutlineLogout></AiOutlineLogout>
+              </div>
+              <p className="flex  text-[16px] font-semibold w-full flex-1 flex-col items-start justify-center gap-0 overflow-hidden truncate ">
+                LogOut
+              </p>
+            </Link>
+          </li>
 
       </aside>
 

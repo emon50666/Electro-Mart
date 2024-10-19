@@ -90,3 +90,11 @@
     font-size: 20px !important;
     color: white;
   }
+
+  .react-tabs__tab--selected {
+    border-color: orange !important;
+}
+
+.react-tabs__tab-list {
+    border-bottom: 1px solid orange !important;
+}

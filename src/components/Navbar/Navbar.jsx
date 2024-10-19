@@ -13,9 +13,13 @@ import useCart from "../../Hooks/useCart";
 import useCompare from "../../Hooks/useCompare";
 import SearchBar from "./SearchBar";
 import useWishlist from "../../Hooks/useWishlist";
+import useRoll from "../../Hooks/useRoll";
 
 const Navbar = () => {
-  const { user, logOut, loading } = UserAuth();
+
+  
+const [role] = useRoll()
+  const { user,  loading,logOut } = UserAuth();
   const { theUserCarts } = useCart();
   const { theUserCompares } = useCompare();
   const { theUserWishlist, } = useWishlist()
@@ -31,11 +35,11 @@ const Navbar = () => {
   };
 
   return (
-    <div className="navbar bg-base-100 sticky top-0 z-20 md:px-10">
+    <div className="navbar bg-base-100 sticky top-0 px-3 z-20 ">
       <div className="navbar-start">
         {/* Mobile menu button */}
         <div className="lg:hidden">
-          <button onClick={toggleMenu} className="btn btn-ghost">
+          <button onClick={toggleMenu} className="">
             {!isOpen ? (
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -139,21 +143,30 @@ const Navbar = () => {
         {cartOpen && <AddCart setCartOpen={setCartOpen} />}
 
         <div className="dropdown dropdown-end z-50">
-          <div tabIndex={0} role="button" className="p-1 rounded-full">
-            {user ? (
+          <div tabIndex={0} role="button" className=" rounded-full">
+           
+            
+              {user ? (
+              
               <div className="relative inline-block">
                 <img
+                 referrerPolicy="no-referrer"
                   title={user?.displayName}
                   src={user?.photoURL}
                   className="w-10 h-10 rounded-full border-2 border-blue-600 p-0.5"
                 />
-                <span className="h-3 w-3 rounded-full border border-white bg-green-500 block absolute top-1 right-0"></span>
+                <span className="h-3 w-3 rounded-full border border-white bg-green-500 block absolute top-2 right-0"></span>
+                
               </div>
+             
+            
+              
             ) : (
               <>
                 {loading ? (
                   <div className="relative inline-block">
                     <img
+                     referrerPolicy="no-referrer"
                       src={user?.photoURL}
                       className="w-10 h-10 rounded-full border-2 border-blue-600 p-0.5"
                     />
@@ -171,16 +184,29 @@ const Navbar = () => {
                 )}
               </>
             )}
+           
+            <>
+            
+         
+          </> 
+          
           </div>
           {user && (
             <ul
               tabIndex={0}
-              className="menu menu-sm font-semibold right-0 dropdown-content bg-white overflow-hidden rounded-box w-48 shadow-md"
+              className="menu menu-sm font-semibold right-0 dropdown-content bg-[#030C35] text-gray-300 overflow-hidden rounded-box w-36 shadow-md"
             >
-              <Link to={"/dashboard"} className="hover:bg-orange-50 p-2 rounded-md hover:text-orange-500">
-                <li>DashBoard</li>
-              </Link>
-              <Link className="hover:bg-orange-50 p-2 rounded-md hover:text-orange-500">
+             
+             <Link
+  to={role === 'admin' ? "dashboard/dashboard-layout" : "dashboard/my-account"}
+  className="hover:bg-orange-50 p-2 rounded-md hover:text-orange-500"
+>
+  <li>DashBoard</li>
+</Link>
+
+           
+          
+              <Link to={'dashboard/profile'} className="hover:bg-orange-50 p-2 rounded-md hover:text-orange-500">
                 <li>Profile</li>
               </Link>
               <Link className="hover:bg-orange-50 p-2 rounded-md hover:text-orange-500">
@@ -190,7 +216,7 @@ const Navbar = () => {
                 <button onClick={logOut}>Logout</button>
               </Link>
             </ul>
-          )}
+          )} 
         </div>
       </div>
     </div>
