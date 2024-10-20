@@ -35,7 +35,7 @@ const Wishlist = () => {
         </div>
       </div>
 
-      <div className="flex lg:flex-row md:flex-row flex-col items-center justify-between px-20 pr-10">
+      <div className="flex lg:flex-row md:flex-row flex-col items-center justify-between lg:px-20 pr-10">
         <h3 className="lg:text-2xl md:text-2xl font-semibold px-10 mt-3">
           Your  wishlist products
         </h3>
@@ -43,13 +43,13 @@ const Wishlist = () => {
         <div className="join lg:mt-5 md:mt-5 mt-2 ">
           <button
             onClick={() => handleFormat("card")}
-            className="btn join-item text-xl"
+            className="btn join-item lg:text-xl text-sm"
           >
             <FaTable />
           </button>
           <button
             onClick={() => handleFormat("table")}
-            className="btn join-item text-2xl"
+            className="btn join-item lg:text-2xl text-sm"
           >
             <MdTableRows />
           </button>
