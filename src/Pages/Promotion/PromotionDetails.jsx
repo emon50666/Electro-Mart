@@ -7,7 +7,7 @@ const PromotionDetails = () => {
   const product = promotionDetails.find((pack) => pack._id == id);
   console.log(product);
 
-  const [counter, setCounter] = useState(59); // Assuming the countdown starts at 59 seconds
+  const [counter, setCounter] = useState(59); 
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -38,43 +38,35 @@ const PromotionDetails = () => {
         </div>
 
         <div>
-        <div className="grid grid-flow-col lg:gap-5 md:gap-5 gap-3 absolute bottom-16 ml-3  text-center auto-cols-max">
-              <div className="hidden lg:inline-block md:inline-block ">
-                <div className="flex flex-col p-2 bg-white rounded-box text-black ">
-                  <span className="countdown font-mono text-5xl">
-                    <span style={{ "--value": 3 }}></span>
-                  </span>
-                  days
-                </div>
-              </div>
-              <div className="flex flex-col p-2 bg-white rounded-box text-black">
-                <span className="countdown font-mono text-5xl">
-                  <span style={{ "--value": 10 }}></span>
-                </span>
-                hours
-              </div>
+          <div className="grid grid-flow-col lg:gap-5 md:gap-5 gap-3 absolute bottom-16 ml-3  text-center auto-cols-max">
+            <div className="hidden lg:inline-block md:inline-block ">
               <div className="flex flex-col p-2 bg-white rounded-box text-black ">
                 <span className="countdown font-mono text-5xl">
-                  <span style={{ "--value": 24 }}></span>
+                  <span style={{ "--value": 3 }}></span>
                 </span>
-                min
-              </div>
-              <div className="flex flex-col p-2 bg-white rounded-box text-black">
-                <span className="countdown font-mono text-5xl">
-                  <span style={{ "--value": counter }}></span>
-                </span>
-                sec
+                days
               </div>
             </div>
+            <div className="flex flex-col p-2 bg-white rounded-box text-black">
+              <span className="countdown font-mono text-5xl">
+                <span style={{ "--value": 10 }}></span>
+              </span>
+              hours
+            </div>
+            <div className="flex flex-col p-2 bg-white rounded-box text-black ">
+              <span className="countdown font-mono text-5xl">
+                <span style={{ "--value": 24 }}></span>
+              </span>
+              min
+            </div>
+            <div className="flex flex-col p-2 bg-white rounded-box text-black">
+              <span className="countdown font-mono text-5xl">
+                <span style={{ "--value": counter }}></span>
+              </span>
+              sec
+            </div>
+          </div>
         </div>
-
-
-
-
-
-
-
-
       </div>
     </div>
   );
