@@ -25,6 +25,7 @@ import UpdateStore from "../components/DashBoard/UpdateStore/UpdateStore";
 import ManageStore from "../components/DashBoard/ManageStore/ManageStore";
 import PromotionControl from "../components/DashBoard/PromotionControl/PromotionControl";
 import DashBoardProfile from "../components/DashBoard/DashBoardProfile/DashBoardProfile";
+import Promotion from "../Pages/Promotion/Promotion";
 
 
 
@@ -62,6 +63,10 @@ const router = createBrowserRouter([
       {
         path: "/storeDetails/:id",
         element: <StoreDetails />
+      },
+      {
+        path: "/promotion",
+        element: <Promotion />
       },
     ],
 
