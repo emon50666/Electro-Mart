@@ -1,4 +1,5 @@
 import ManageCartLink from "../../components/ManageCartLink/ManageCartLink";
+import CartTable from "./Shared/CartTable";
 
 const ManageCart = () => {
     return (
@@ -6,7 +7,9 @@ const ManageCart = () => {
             <ManageCartLink />
             <div className="lg:flex items-center">
                 {/* table of cart product */}
-                <div className="lg:w-8/12"></div>
+                <div className="lg:w-8/12">
+                    <CartTable />
+                </div>
                 {/* total price cart product */}
                 <div className="lg:w-4/12"></div>
             </div>
