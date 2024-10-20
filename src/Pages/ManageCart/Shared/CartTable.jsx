@@ -1,8 +1,17 @@
+import { useState } from 'react';
 import useCart from '../../../Hooks/useCart';
 import CartTableRow from './CartTableRow';
+import PropTypes from "prop-types";
 
-const CartTable = () => {
-    const { theUserCarts } = useCart();
+const CartTable = ({setTotalPrice}) => {
+    const { theUserCarts, refetch, } = useCart();
+    const [total, setTotal] = useState(0);
+
+    const calculateTotal = () => {
+        return Object.values(total).reduce((sum, value) => sum + value, 0).toFixed(2);
+    };
+    const grandTotal = calculateTotal();
+    setTotalPrice(grandTotal)
     return (
         <div className="max-w-4xl mx-auto bg-white p-6 rounded-lg shadow-md">
             <table className="w-full text-left border-collapse">
@@ -15,12 +24,11 @@ const CartTable = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    {theUserCarts.map((item) => (
-                        <CartTableRow key={item.id} item={item}/>
+                    {theUserCarts.map((item, idx) => (
+                        <CartTableRow key={idx} item={item} refetchCart={refetch} setTotal={setTotal} />
                     ))}
                 </tbody>
             </table>
-
             <div className="mt-4">
                 <div className="flex justify-between items-center">
                     <input
@@ -36,5 +44,7 @@ const CartTable = () => {
         </div>
     );
 };
-
+CartTable.propTypes = {
+    setTotalPrice: PropTypes.func,
+};
 export default CartTable;
