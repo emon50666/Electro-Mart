@@ -26,6 +26,7 @@ import ManageStore from "../components/DashBoard/ManageStore/ManageStore";
 import PromotionControl from "../components/DashBoard/PromotionControl/PromotionControl";
 import DashBoardProfile from "../components/DashBoard/DashBoardProfile/DashBoardProfile";
 import Promotion from "../Pages/Promotion/Promotion";
+import PromotionDetails from "../Pages/Promotion/PromotionDetails";
 
 
 
@@ -67,6 +68,11 @@ const router = createBrowserRouter([
       {
         path: "/promotion",
         element: <Promotion />
+      },
+      {
+        path: "/promotionsDetails/:id",
+        element: <PromotionDetails/>,
+        loader: () => fetch(`${import.meta.env.VITE_API_URL}/promotions/`)
       },
     ],
 
