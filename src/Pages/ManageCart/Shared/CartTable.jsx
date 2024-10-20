@@ -1,25 +1,8 @@
-import { useState } from 'react';
 import useCart from '../../../Hooks/useCart';
+import CartTableRow from './CartTableRow';
 
 const CartTable = () => {
     const { theUserCarts } = useCart();
-
-    const updateQuantity = (id, delta) => {
-        setCart((prevCart) =>
-            prevCart.map((item) =>
-                item.id === id
-                    ? { ...item, quantity: Math.max(1, item.quantity + delta) }
-                    : item
-            )
-        );
-    };
-
-    const calculateSubtotal = (price, quantity) => (price * quantity).toFixed(2);
-
-    const handleRemove = (id) => {
-        setCart(cart.filter((item) => item.id !== id));
-    };
-
     return (
         <div className="max-w-4xl mx-auto bg-white p-6 rounded-lg shadow-md">
             <table className="w-full text-left border-collapse">
@@ -33,32 +16,7 @@ const CartTable = () => {
                 </thead>
                 <tbody>
                     {theUserCarts.map((item) => (
-                        <tr key={item.id} className="border-b">
-                            <td className="py-4 flex items-center">
-                                <img src={item.image} alt={item.name} className="w-16 h-16 mr-4" />
-                                <span>{item.name}</span>
-                            </td>
-                            <td className="py-4">${item.price.toFixed(2)}</td>
-                            <td className="py-4">
-                                <div className="flex items-center">
-                                    <button
-                                        className="px-2 py-1 border rounded"
-                                        onClick={() => updateQuantity(item.id, -1)}
-                                    >
-                                        -
-                                    </button>
-                                    <span className="px-4">{item.quantity}</span>
-                                    <button
-                                        className="px-2 py-1 border rounded"
-                                        onClick={() => updateQuantity(item.id, 1)}
-                                    >
-                                        +
-                                    </button>
-                                </div>
-                            </td>
-                            <td className="py-4">${calculateSubtotal(item.price, item.quantity)}</td>
-                            <td className="py-4 text-red-500 cursor-pointer" onClick={() => handleRemove(item.id)}>✕</td>
-                        </tr>
+                        <CartTableRow key={item.id} item={item}/>
                     ))}
                 </tbody>
             </table>
