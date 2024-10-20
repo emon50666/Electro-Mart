@@ -14,18 +14,16 @@ const CartTableRow = ({ item, refetchCart, setTotal }) => {
     const product = products.find(product => product?._id === item?.mainProductId);
 
     useEffect(() => {
-        // Calculate and update subtotal whenever quantityCount changes
         if (product) {
             const subtotal = calculateSubtotal(product?.price, quantityCount);
             setTotal(prev => ({ ...prev, [item._id]: parseFloat(subtotal) }));
         }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [quantityCount, product]);
 
     if (!product) {
         return null;
     }
-
     const increaseCount = () => {
         if (quantityCount >= parseInt(product?.quantity)) {
             toast.error("Stocks Out");
@@ -36,9 +34,8 @@ const CartTableRow = ({ item, refetchCart, setTotal }) => {
             setQuantityCount(increasedCount);
         }
     };
-
     const decreaseCount = () => {
-        if (quantityCount > 1) {  // Ensure it doesn't go below 1
+        if (quantityCount > 1) {
             const decreasedCount = quantityCount - 1;
             setQuantityCount(decreasedCount);
             setDisableBtn(false);
@@ -46,9 +43,8 @@ const CartTableRow = ({ item, refetchCart, setTotal }) => {
     };
 
     const handleQuantityUpdate = async () => {
-        const updatedQuantity = product?.quantity - quantityCount; // Update stock
+        const updatedQuantity = product?.quantity - quantityCount;
         const updatedQuantityInfo = { updatedQuantity };
-
         try {
             const response = await axiosPublic.patch(`/products/${product?._id}/update-quantity`, updatedQuantityInfo);
             if (response.data.modifiedCount) {
@@ -71,11 +67,17 @@ const CartTableRow = ({ item, refetchCart, setTotal }) => {
             confirmButtonText: "Yes, delete it!",
         }).then((result) => {
             if (result.isConfirmed) {
+                const subtotal = calculateSubtotal(product?.price, quantityCount);
                 axiosPublic.delete(`/carts/${id}`)
                     .then((res) => {
                         if (res.data.deletedCount) {
-                            handleQuantityUpdate(); // Update product stock
-                            refetchCart(); // Refetch the cart
+                            handleQuantityUpdate();
+                            refetchCart();
+                            setTotal(prev => {
+                                const newTotal = { ...prev };
+                                delete newTotal[id];
+                                return newTotal;
+                            });
                             toast.success("Item removed from cart!");
                         }
                     })
@@ -141,7 +143,7 @@ const CartTableRow = ({ item, refetchCart, setTotal }) => {
 CartTableRow.propTypes = {
     item: PropTypes.object.isRequired,
     refetchCart: PropTypes.func.isRequired,
-    setTotal: PropTypes.func, 
+    setTotal: PropTypes.func.isRequired,
 };
 
 export default CartTableRow;
