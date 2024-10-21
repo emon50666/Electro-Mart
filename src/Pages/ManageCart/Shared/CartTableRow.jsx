@@ -44,18 +44,13 @@ const CartTableRow = ({ item, refetchCart, setTotal }) => {
     };
 
     const handleQuantityUpdate = async () => {
-        const updatedQuantity = product?.quantity - quantityCount;
-        const updatedQuantityInfo = { updatedQuantity };
-        try {
-            const response = await axiosPublic.patch(`/products/${product?._id}/update-quantity`, updatedQuantityInfo);
-            if (response.data.modifiedCount) {
-                refetch();
-            }
-        } catch (error) {
-            console.error(error);
-            toast.error("Failed to update stock!");
+        const updatedQuantity = parseInt(product?.quantity) + parseInt(item?.selectedQuantity);
+        const updatedQuantityInfo = { updatedQuantity }
+        const response = await axiosPublic.patch(`/productQuantity/${product?._id}`, updatedQuantityInfo);
+        if (response.data.modifiedCount) {
+            refetch();
         }
-    };
+    }
 
     const handleDeleteCart = (id) => {
         Swal.fire({
