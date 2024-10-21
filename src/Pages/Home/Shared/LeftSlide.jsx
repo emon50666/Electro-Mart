@@ -42,9 +42,10 @@ const LeftSlide = () => {
                             />
                             {/* Display the slide title and button centrally */}
                             <div className="absolute inset-0 flex flex-col items-start justify-center space-y-4 left-8">
-                                <h2 className="text-lg font-semibold w-1/2 text-white bg-white/50 p-4 rounded-lg">
+                                {slide.title !== "None" && <h2 className="text-lg font-semibold w-1/2 text-white bg-white/50 p-4 rounded-lg">
                                     {slide.title}
-                                </h2>
+                                </h2>}
+
                                 <Link to="/" className="bg-blue-500 text-white py-2 px-4 rounded-lg shadow-lg hover:bg-blue-600 transition">
                                     Shop Now
                                 </Link>
