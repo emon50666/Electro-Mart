@@ -72,7 +72,7 @@ const SlideTable = ({ onClose }) => {
                     {/* Head */}
                     <thead>
                         <tr>
-                            <th>#</th>
+                            <th></th>
                             <th>Img</th>
                             <th>Name</th>
                             <th>Action</th>

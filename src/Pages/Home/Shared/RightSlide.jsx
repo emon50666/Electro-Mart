@@ -8,7 +8,7 @@ const RightSlide = () => {
             <div>
                 <RightSideTop />
             </div>
-            <div className="flex justify-between space-x-4 max-w-full">
+            <div className="flex justify-between gap-x-4 max-w-full">
                 <div className="w-1/2">
                     <RightBottomL />
                 </div>

@@ -368,29 +368,31 @@ const AddNewProduct = () => {
                 </span>
               )}
             </div> */}
-<div className="mt-6">
-      <label
-        
-        className="block text-sm font-medium text-gray-700"
-      >
-        Full Description
-      </label>
+  <div className="mt-6">
+  <label
+   
+    className="block text-sm font-medium text-gray-700"
+  >
+    Full Description
+  </label>
 
-      <CKEditor
-        editor={ClassicEditor}
-        data=""
-        onChange={(event, editor) => {
-          const data = editor.getData();
-          register('fullDescription').onChange({ target: { value: data } });
-        }}
-      />
+  <CKEditor
+    editor={ClassicEditor}
+    data=""
+    onChange={(event, editor) => {
+      const data = editor.getData();
+      setValue('fullDescription', data); // Use setValue to register with react-hook-form
+      
+    }}
+  />
 
-      {errors.fullDescription && (
-        <span className="text-sm text-red-600 font-semibold">
-          Fill This Field
-        </span>
-      )}
-    </div>
+  {errors.fullDescription && (
+    <span className="text-sm text-red-600 font-semibold">
+      Fill This Field
+    </span>
+  )}
+</div>
+       
 
           </div>
 

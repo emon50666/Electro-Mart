@@ -7,7 +7,7 @@ const SliderModal = ({ isOpen, onClose }) => {
 
     return (
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
-            <div className="bg-white rounded-lg shadow-lg overflow-hidden max-w-lg w-full">
+            <div className="bg-white pt-5 rounded-lg shadow-lg overflow-hidden max-w-lg w-full">
                 <div className="flex justify-end px-2 mt-5 md:mt-1">
                     <button
                         onClick={onClose}
