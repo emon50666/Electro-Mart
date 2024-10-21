@@ -6,6 +6,7 @@ import { Tooltip } from "react-tooltip";
 import { FaDeleteLeft } from "react-icons/fa6";
 import axios from "axios";
 import PropTypes from "prop-types"; // Fixed import name
+import toast from "react-hot-toast";
 
 const SlideTable = ({ onClose }) => {
     const axiosPublic = useAxiosPublic();
@@ -35,7 +36,7 @@ const SlideTable = ({ onClose }) => {
             // Post banner info to the API
             const response = await axiosPublic.post("/banners", bannerInfo);
             if (response.data.insertedId) {
-                Swal.fire("Slider Added");
+                toast.success("Slider Added");
                 onClose(); // Close modal on success
             }
         } catch (error) {
