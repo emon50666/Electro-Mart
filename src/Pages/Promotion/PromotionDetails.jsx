@@ -44,7 +44,7 @@ const PromotionDetails = () => {
   return (
     <div className="lg:mt-28 lg:mx-10 md:mx-5 p-5">
       <div className="relative overflow-hidden bg-teal-400 rounded-xl shadow-lg group font_lexend mb-16">
-        <div className="p-3 md:p-10 lg:flex items-center justify-between">
+        <div className="p-3 md:p-10 lg:flex items-center justify-between lg:gap-x-6 xl:gap-x-8">
           {/* Info Side */}
           <div className="lg:w-1/2 mb-5 md:mb-0">
             {/* Description */}
