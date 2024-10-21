@@ -45,7 +45,7 @@ const PromotionDetails = () => {
       <div className="relative overflow-hidden bg-blue-600 rounded-xl shadow-lg group font_lexend">
         <div className="p-3 md:p-10 md:flex items-center justify-between">
           {/* info side */}
-          <div className="md:w-1/2">
+          <div className="md:w-1/2 mb-5 md:mb-0">
             {/* description */}
             <h2 className="text-3xl font-semibold text-white">{promotion?.description}</h2>
             {/* offer */}
@@ -55,7 +55,7 @@ const PromotionDetails = () => {
               <p>{promotion?.offerRemoveDate.slice(0, 6)}</p>
             </div>
             {/* counter */}
-            <div className="grid grid-flow-col gap-5 text-center auto-cols-max">
+            <div className="grid grid-flow-col gap-5 text-center auto-cols-max mt-5">
               <div className="flex flex-col p-2 rounded-box bg-white text-black">
                 <span className="countdown font-mono text-5xl">
                   <span style={{ "--value": timeRemaining.days }}></span>
@@ -84,7 +84,11 @@ const PromotionDetails = () => {
           </div>
           {/* image side */}
           <div className="md:w-1/2">
-            {/* You can place any image or additional content here */}
+            <img
+              src={promotion?.image}
+              alt={promotion?.description}
+              className="w-full h-auto rounded-lg object-cover"
+            />
           </div>
         </div>
       </div>
