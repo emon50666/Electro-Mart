@@ -7,10 +7,12 @@ import { Autoplay, Pagination, Navigation } from "swiper/modules";
 import { MdModeEdit } from "react-icons/md";
 import SliderModal from './SliderModal';
 import useSlideImage from '../../../Hooks/useSlideImage';
+import useRoll from '../../../Hooks/useRoll';
 
 const LeftSlide = () => {
     const [isModalOpen, setModalOpen] = useState(false);
     const [sliderImages] = useSlideImage();
+    const [role] = useRoll();
 
     const openModal = () => {
         setModalOpen(true);
@@ -37,12 +39,14 @@ const LeftSlide = () => {
                                 alt={`slide ${idx + 1}`}
                                 className="w-full lg:min-h-[400px] max-h-[500px] h-[40vh] md:h-auto rounded-lg"
                             />
-                            <span
-                                onClick={() => openModal(`Edit content for slide ${idx + 1}`)}
-                                className="absolute top-3 right-3 border-2 p-2 rounded-full bg-white/30 hover:bg-slate-700 hover:text-gray-300 cursor-pointer"
-                            >
-                                <MdModeEdit className="text-xl" />
-                            </span>
+                            {role === "admin" && (
+                                <span
+                                    onClick={() => openModal(`Edit content for slide ${idx + 1}`)}
+                                    className="absolute top-3 right-3 border-2 p-2 rounded-full bg-white/30 hover:bg-slate-700 hover:text-gray-300 cursor-pointer"
+                                >
+                                    <MdModeEdit className="text-xl" />
+                                </span>
+                            )}
                         </div>
                     </SwiperSlide>
                 ))}
