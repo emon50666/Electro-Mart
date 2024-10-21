@@ -5,7 +5,7 @@ import useSlideImage from "../../../Hooks/useSlideImage";
 import { Tooltip } from "react-tooltip";
 import { FaDeleteLeft } from "react-icons/fa6";
 import axios from "axios";
-import PropTypes from "prop-types"; // Fixed import name
+import PropTypes from "prop-types";
 import toast from "react-hot-toast";
 
 const SlideTable = ({ onClose }) => {
@@ -14,30 +14,30 @@ const SlideTable = ({ onClose }) => {
     const [sliderImages, refetch] = useSlideImage();
 
     const onSubmit = async (data) => {
-        const file = data.image[0]; // Access the uploaded file
+        const file = data.image[0];
         console.log(file);
 
         const formData = new FormData();
-        formData.append('file', file); // Correctly append the file
+        formData.append('file', file);
         formData.append('upload_preset', 'elector_mart_key');
         formData.append('api_key', '211491792754595');
 
         try {
-            // Upload image to Cloudinary
+
             const res = await axios.post(
                 'https://api.cloudinary.com/v1_1/duv5fiurz/image/upload',
                 formData,
                 { headers: { 'X-Requested-With': 'XMLHttpRequest' } }
             );
 
-            const url = res.data.secure_url; // Get the secure URL from response
-            const bannerInfo = { title: data.title || "None", url }; // Use title or default to "None"
+            const url = res.data.secure_url;
+            const bannerInfo = { title: data.title || "None", url };
 
-            // Post banner info to the API
+
             const response = await axiosPublic.post("/banners", bannerInfo);
             if (response.data.insertedId) {
                 toast.success("Slider Added");
-                onClose(); // Close modal on success
+                onClose();
             }
         } catch (error) {
             console.error("Error uploading the image:", error);
@@ -124,7 +124,7 @@ const SlideTable = ({ onClose }) => {
                     </div>
                     <input
                         type="file"
-                        {...register("image", { required: true })} // Added required validation for image
+                        {...register("image", { required: true })}
                         className="file-input file-input-bordered w-full max-w-xl rounded-none py-1 px-3 my-1"
                     />
                     <input
@@ -140,7 +140,7 @@ const SlideTable = ({ onClose }) => {
 };
 
 SlideTable.propTypes = {
-    onClose: PropTypes.func.isRequired, // Marked onClose as required
+    onClose: PropTypes.func.isRequired,
 };
 
 export default SlideTable;
