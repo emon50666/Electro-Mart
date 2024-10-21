@@ -48,7 +48,7 @@ const PromotionDetails = () => {
           {/* Info Side */}
           <div className="lg:w-1/2 mb-5 md:mb-0">
             {/* Description */}
-            <h2 className="text-xl lg:text-2xl xl:text-3xl font-medium md:font-semibold text-white">{promotion?.description}</h2>
+            <h2 className="text-xl xl:text-3xl font-medium 2xl:font-semibold text-white">{promotion?.description}</h2>
             {/* Offer */}
             <div className="md:text-xl text-gray-200 mt-3 flex items-center gap-3">
               <p>{promotion?.offerStartDate.slice(0, 6)}</p>
