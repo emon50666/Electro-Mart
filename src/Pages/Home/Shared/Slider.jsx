@@ -3,11 +3,15 @@ import RightSlide from "./RightSlide";
 
 const Slider = () => {
     return (
-        <div>
+        <div className="flex items-center mt-28 px-10">
             {/* left slide */}
-            <LeftSlide />
+            <div className="w-1/2">
+                <LeftSlide />
+            </div>
             {/* Right Slide */}
-            <RightSlide />
+            <div className="w-1/2">
+                <RightSlide />
+            </div>
         </div>
     );
 };
