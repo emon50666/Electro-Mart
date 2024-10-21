@@ -109,8 +109,8 @@ const Footer = () => {
 
                         </li>
                         <li>
-                            <Link to="/" className="text-white underline-hover">
-                                Media
+                            <Link to="/promotion" className="text-white underline-hover">
+                                Promotion
                             </Link>
                         </li>
                         <li>

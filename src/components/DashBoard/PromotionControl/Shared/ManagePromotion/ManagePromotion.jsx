@@ -67,7 +67,7 @@ const ManagePromotion = () => {
                                 </td>
                                 <td className="text-center text-xs md:text-lg">
                                     <Link
-                                        to={`/productDetails/${product._id}`}
+                                        to={`/promotionsDetails/${product._id}`}
                                         className="btn bg-teal-400 hover:bg-teal-500 text-white text-sm md:text-lg"
                                     >
                                         <BsEye />

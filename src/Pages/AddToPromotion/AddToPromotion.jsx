@@ -32,8 +32,17 @@ const AddToPromotion = ({ setIndex }) => {
 
     const onSubmit = async (data) => {
         try {
+            const selectedStartDate = new Date(data.offerStartDate);
+            const day = selectedStartDate.getDate();
+            const month = selectedStartDate.getMonth() + 1;
+            const offerStartDay = [parseInt(day), parseInt(month)]
+
             const formattedOfferStartDate = formatDate(data.offerStartDate);
             const formattedOfferRemoveDate = formatDate(data.offerRemoveDate);
+
+            const today = new Date();
+            const startOfYear = new Date(today.getFullYear(), 0, 1);
+            const daysPassed = Math.floor((today - startOfYear) / (1000 * 60 * 60 * 24));
 
             const formData = new FormData();
             formData.append('file', promotionImage);
@@ -52,14 +61,16 @@ const AddToPromotion = ({ setIndex }) => {
                 title: data.title,
                 description: data.description,
                 offerStartDate: formattedOfferStartDate,
+                offerStartDay: offerStartDay,
                 offerRemoveDate: formattedOfferRemoveDate,
                 image: imgUrl,
+                daysPassed
             };
 
             const response = await axiosPubic.post('/promotions', promotionData);
             if (response.data.insertedId) {
                 toast.success(`Promotion is added. Check manage promotions`);
-                setIndex(1)
+                setIndex(1);
                 reset();
             }
             console.log(promotionData);
@@ -71,14 +82,12 @@ const AddToPromotion = ({ setIndex }) => {
 
     const offerStartDate = watch('offerStartDate');
 
-    // Validation to ensure offer start date is not earlier than today
     const validateStartDate = (value) => {
         const today = new Date();
         const selectedStartDate = new Date(value);
         return selectedStartDate >= today || 'Offer start date cannot be earlier than today';
     };
 
-    // Validation to ensure offer remove date is not earlier than offer start date
     const validateRemoveDate = (value) => {
         const selectedRemoveDate = new Date(value);
         const selectedStartDate = new Date(offerStartDate);
@@ -87,7 +96,6 @@ const AddToPromotion = ({ setIndex }) => {
 
     return (
         <div className="bg-gray-50 pt-12 pb-4 sm:px-6">
-            {/* Add full form border here */}
             <div className="bg-white p-8 rounded-lg shadow-md w-full border border-gray-300">
                 <h2 className="text-2xl mb-4 font-bold text-gray-800">Add Promotion</h2>
                 <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
