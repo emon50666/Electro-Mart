@@ -68,6 +68,7 @@ const CartTableRow = ({ item, refetchCart, setTotal }) => {
         }).then((result) => {
             if (result.isConfirmed) {
                 const subtotal = calculateSubtotal(product?.price, quantityCount);
+                subtotal;
                 axiosPublic.delete(`/carts/${id}`)
                     .then((res) => {
                         if (res.data.deletedCount) {
@@ -93,21 +94,25 @@ const CartTableRow = ({ item, refetchCart, setTotal }) => {
 
     return (
         <tr className="border-b">
-            <td className="py-4 flex items-center">
-                <img src={product?.images[0]} alt={product?.title} className="w-16 h-16 mr-4" />
-                <span>{product?.name}</span>
+            <td className="flex items-center justify-center md:text-lg">
+                <img
+                    src={product.images[0]}
+                    alt={product.title}
+                    className="h-16 w-16 object-contain"
+                />
             </td>
-            <td className="py-4">
-                <p className="flex items-center gap-x-1">
+            <td className=" text-center py-4 px-4">
+                <p className="flex justify-center items-center gap-x-1">
                     <FaBangladeshiTakaSign />
                     {product?.price.toFixed(2)}
                 </p>
             </td>
-            <td className="py-4">
-                <div className="flex items-center gap-x-2">
-                    <button type="button"
+            <td className=" text-center py-4 px-4">
+                <div className="border border-slate-300 rounded-md px-2 md:px-auto py-2 flex justify-around items-center gap-x-2">
+                    <button
+                        type="button"
                         onClick={decreaseCount}
-                        className="size-6 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-md border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 focus:outline-none focus:bg-gray-50"
+                        className="w-6 h-6 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-md border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 focus:outline-none focus:bg-gray-50"
                         aria-label="Decrease"
                         disabled={quantityCount === 1}
                     >
@@ -117,26 +122,27 @@ const CartTableRow = ({ item, refetchCart, setTotal }) => {
                     <button
                         type="button"
                         onClick={increaseCount}
-                        className="size-6 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-md border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 focus:outline-none focus:bg-gray-50"
+                        className="w-6 h-6 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-md border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 focus:outline-none focus:bg-gray-50"
                         disabled={disableBtn}
                     >
                         +
                     </button>
                 </div>
             </td>
-            <td className="py-4">
-                <p className="flex items-center gap-x-1">
+            <td className="text-center py-4 px-4">
+                <p className="flex justify-center items-center gap-x-1">
                     <FaBangladeshiTakaSign />
                     {calculateSubtotal(product?.price, quantityCount)}
                 </p>
             </td>
             <td
                 onClick={() => handleDeleteCart(item?._id)}
-                className="py-4 text-red-500 cursor-pointer"
+                className="py-4 px-4 text-center text-blue-500 cursor-pointer"
             >
                 ✕
             </td>
         </tr>
+
     );
 };
 
