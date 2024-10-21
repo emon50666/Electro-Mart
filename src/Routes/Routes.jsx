@@ -1,6 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
 import Layout from "../Layout/Layout";
-
 import Home from "../Pages/Home/Home";
 import Login from "../components/Login/Login";
 import Register from "../components/Login/Register/Register";
@@ -46,7 +45,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/productDetails/:id",
-        element:<PrivateRoute> <ProductDetails /></PrivateRoute>,
+        element: <PrivateRoute> <ProductDetails /></PrivateRoute>,
         loader: () => fetch(`${import.meta.env.VITE_API_URL}/products/`),
       },
       {
@@ -66,6 +65,7 @@ const router = createBrowserRouter([
         element: <StoreDetails />
       },
       {
+
         path: "/promotion",
         element: <Promotion />
       },
@@ -73,6 +73,10 @@ const router = createBrowserRouter([
         path: "/promotionsDetails/:id",
         element: <PromotionDetails/>,
         loader: () => fetch(`${import.meta.env.VITE_API_URL}/promotions/`)
+
+        path: "manageCart",
+        element: <PrivateRoute><ManageCart /></PrivateRoute>
+
       },
     ],
 
@@ -108,10 +112,6 @@ const router = createBrowserRouter([
         element: <PrivateRoute><ManageStore /></PrivateRoute>
       },
       {
-        path: "manageCart",
-        element: <PrivateRoute><ManageCart /></PrivateRoute>
-      },
-      {
         path: "updateProduct/:id",
         element: <PrivateRoute><UpdateProduct /></PrivateRoute>,
       },
@@ -145,7 +145,7 @@ const router = createBrowserRouter([
       },
       {
         path: 'dashboard-layout',
-        element: <DashBoardProfile/>
+        element: <DashBoardProfile />
       }
 
     ]

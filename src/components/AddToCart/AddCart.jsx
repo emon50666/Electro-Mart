@@ -37,19 +37,19 @@ const AddCart = ({ setCartOpen }) => {
                 </button>
                 <h2 className="font-semibold text-xl mb-4 pb-2 border-b">Cart Details</h2>
                 {theUserCarts.map((cart, idx) => <CardOfCart key={idx} cart={cart} />)}
-               {
-                theUserCarts.length > 0 && (
-                    <div className="space-y-3">
-                    <Link to={'/dashboard/manageCart'} className="btn py-2 px-4 w-full border border-orange-500 hover:text-white text-orange-500 hover:bg-orange-500 font-semibold rounded-md">
-                        View Cart
-                    </Link>
-                    <Link to="/dashboard/checkoutPage" className="btn py-2 px-4 w-full bg-orange-500 text-white  hover:bg-orange-500 font-semibold rounded-md">
-                        Checkout
-                    </Link>
+                {
+                    theUserCarts.length > 0 && (
+                        <div className="space-y-3">
+                            <Link to={'/manageCart'} className="btn py-2 px-4 w-full border border-orange-500 hover:text-white text-orange-500 hover:bg-orange-500 font-semibold rounded-md">
+                                View Cart
+                            </Link>
+                            <Link to="/dashboard/checkoutPage" className="btn py-2 px-4 w-full bg-orange-500 text-white  hover:bg-orange-500 font-semibold rounded-md">
+                                Checkout
+                            </Link>
 
-                </div> 
-                ) 
-               }
+                        </div>
+                    )
+                }
             </div>
         </div>
     );
