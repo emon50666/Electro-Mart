@@ -32,8 +32,17 @@ const AddToPromotion = ({ setIndex }) => {
 
     const onSubmit = async (data) => {
         try {
+            const selectedStartDate = new Date(data.offerStartDate);
+            const day = selectedStartDate.getDate();
+            const month = selectedStartDate.getMonth() + 1;
+            const offerStartDay = [parseInt(day), parseInt(month)]
+
             const formattedOfferStartDate = formatDate(data.offerStartDate);
             const formattedOfferRemoveDate = formatDate(data.offerRemoveDate);
+
+            const today = new Date();
+            const startOfYear = new Date(today.getFullYear(), 0, 1);
+            const daysPassed = Math.floor((today - startOfYear) / (1000 * 60 * 60 * 24));
 
             const formData = new FormData();
             formData.append('file', promotionImage);
@@ -52,14 +61,16 @@ const AddToPromotion = ({ setIndex }) => {
                 title: data.title,
                 description: data.description,
                 offerStartDate: formattedOfferStartDate,
+                offerStartDay: offerStartDay,
                 offerRemoveDate: formattedOfferRemoveDate,
                 image: imgUrl,
+                daysPassed
             };
 
             const response = await axiosPubic.post('/promotions', promotionData);
             if (response.data.insertedId) {
                 toast.success(`Promotion is added. Check manage promotions`);
-                setIndex(1)
+                setIndex(1);
                 reset();
             }
             console.log(promotionData);
