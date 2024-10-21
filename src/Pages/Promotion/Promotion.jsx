@@ -3,7 +3,6 @@ import usePromotions from "../../Hooks/usePromotions";
 
 const Promotion = () => {
   const { promotionsProducts } = usePromotions();
-  console.log(promotionsProducts);
 
   return (
     <div className="lg:mt-24 lg:mx-20 font_lexend  md:mx-14 mx-3 mb-5">
@@ -33,9 +32,9 @@ const Promotion = () => {
               </h1>
 
               <Link to={`/promotionsDetails/${product?._id}`}>
-              <button className="bg-orange-400 hover:bg-orange-500 text-xs lg:text-[12px] text-white py-2 lg:px-4 px-3 w-32 opacity-0 transition-opacity duration-700 ease-in-out group-hover:opacity-100">
-                Read More
-              </button>
+                <button className="bg-orange-400 hover:bg-orange-500 text-xs lg:text-[12px] text-white py-2 lg:px-4 px-3 w-32 opacity-0 transition-opacity duration-700 ease-in-out group-hover:opacity-100">
+                  Read More
+                </button>
               </Link>
             </div>
           </div>

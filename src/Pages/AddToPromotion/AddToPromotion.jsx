@@ -82,14 +82,12 @@ const AddToPromotion = ({ setIndex }) => {
 
     const offerStartDate = watch('offerStartDate');
 
-    // Validation to ensure offer start date is not earlier than today
     const validateStartDate = (value) => {
         const today = new Date();
         const selectedStartDate = new Date(value);
         return selectedStartDate >= today || 'Offer start date cannot be earlier than today';
     };
 
-    // Validation to ensure offer remove date is not earlier than offer start date
     const validateRemoveDate = (value) => {
         const selectedRemoveDate = new Date(value);
         const selectedStartDate = new Date(offerStartDate);
@@ -98,7 +96,6 @@ const AddToPromotion = ({ setIndex }) => {
 
     return (
         <div className="bg-gray-50 pt-12 pb-4 sm:px-6">
-            {/* Add full form border here */}
             <div className="bg-white p-8 rounded-lg shadow-md w-full border border-gray-300">
                 <h2 className="text-2xl mb-4 font-bold text-gray-800">Add Promotion</h2>
                 <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">

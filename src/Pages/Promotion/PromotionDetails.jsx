@@ -38,52 +38,52 @@ const PromotionDetails = () => {
   useEffect(() => {
     const interval = setInterval(calculateRemainingTime, 1000);
     return () => clearInterval(interval);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [day, month]);
 
   return (
-    <div className="lg:mt-28 lg:mx-10 md:mx-5">
+    <div className="lg:mt-28 lg:mx-10 md:mx-5 p-5">
       <div className="relative overflow-hidden bg-teal-400 rounded-xl shadow-lg group font_lexend mb-16">
         <div className="p-3 md:p-10 md:flex items-center justify-between">
-          {/* info side */}
+          {/* Info Side */}
           <div className="md:w-1/2 mb-5 md:mb-0">
-            {/* description */}
-            <h2 className="text-3xl font-semibold text-white">{promotion?.description}</h2>
-            {/* offer */}
-            <div className="md:text-xl text-gray-200 mt-5 flex items-center gap-3">
+            {/* Description */}
+            <h2 className="text-xl md:text-3xl font-medium md:font-semibold text-white">{promotion?.description}</h2>
+            {/* Offer */}
+            <div className="md:text-xl text-gray-200 mt-3 flex items-center gap-3">
               <p>{promotion?.offerStartDate.slice(0, 6)}</p>
               <span>-</span>
               <p>{promotion?.offerRemoveDate.slice(0, 6)}</p>
             </div>
-            {/* counter */}
-            <div className="grid grid-flow-col gap-5 text-center auto-cols-max mt-5">
+            {/* Counter */}
+            <div className="grid grid-flow-col gap-3 sm:gap-5 text-center auto-cols-max mt-5">
               <div className="flex flex-col p-2 rounded-box bg-white text-black">
-                <span className="countdown font-mono text-5xl">
+                <span className="countdown font-mono text-2xl md:text-5xl">
                   <span style={{ "--value": timeRemaining.days }}></span>
                 </span>
-                days
+                <span className="text-sm md:text-base">days</span>
               </div>
               <div className="flex flex-col p-2 rounded-box bg-white text-black">
-                <span className="countdown font-mono text-5xl">
+                <span className="countdown font-mono text-2xl md:text-5xl">
                   <span style={{ "--value": timeRemaining.hours }}></span>
                 </span>
-                hours
+                <span className="text-sm md:text-base">hours</span>
               </div>
               <div className="flex flex-col p-2 rounded-box bg-white text-black">
-                <span className="countdown font-mono text-5xl">
+                <span className="countdown font-mono text-2xl md:text-5xl">
                   <span style={{ "--value": timeRemaining.minutes }}></span>
                 </span>
-                min
+                <span className="text-sm md:text-base">min</span>
               </div>
               <div className="flex flex-col p-2 rounded-box bg-white text-black">
-                <span className="countdown font-mono text-5xl">
+                <span className="countdown font-mono text-2xl md:text-5xl">
                   <span style={{ "--value": timeRemaining.seconds }}></span>
                 </span>
-                sec
+                <span className="text-sm md:text-base">sec</span>
               </div>
             </div>
           </div>
-          {/* image side */}
+          {/* Image Side */}
           <div className="md:w-1/2">
             <img
               src={promotion?.image}
