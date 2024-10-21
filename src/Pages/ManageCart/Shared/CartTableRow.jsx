@@ -5,6 +5,7 @@ import toast from "react-hot-toast";
 import { useState, useEffect } from "react";
 import Swal from "sweetalert2";
 import useAxiosPublic from "../../../Hooks/useAxiosPublic";
+import { Link } from "react-router-dom";
 
 const CartTableRow = ({ item, refetchCart, setTotal }) => {
     const axiosPublic = useAxiosPublic();
@@ -95,11 +96,13 @@ const CartTableRow = ({ item, refetchCart, setTotal }) => {
     return (
         <tr className="border-b">
             <td className="flex items-center justify-center md:text-lg">
-                <img
-                    src={product.images[0]}
-                    alt={product.title}
-                    className="h-16 w-16 object-contain"
-                />
+                <Link to={`/productDetails/${product?._id}`}>
+                    <img
+                        src={product.images[0]}
+                        alt={product.title}
+                        className="h-16 w-16 object-contain"
+                    />
+                </Link>
             </td>
             <td className=" text-center py-4 px-4">
                 <p className="flex justify-center items-center gap-x-1">
