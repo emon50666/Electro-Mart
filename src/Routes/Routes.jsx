@@ -44,7 +44,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/productDetails/:id",
-        element:<PrivateRoute> <ProductDetails /></PrivateRoute>,
+        element: <PrivateRoute> <ProductDetails /></PrivateRoute>,
         loader: () => fetch(`${import.meta.env.VITE_API_URL}/products/`),
       },
       {
@@ -62,6 +62,10 @@ const router = createBrowserRouter([
       {
         path: "/storeDetails/:id",
         element: <StoreDetails />
+      },
+      {
+        path: "manageCart",
+        element: <PrivateRoute><ManageCart /></PrivateRoute>
       },
     ],
 
@@ -97,10 +101,6 @@ const router = createBrowserRouter([
         element: <PrivateRoute><ManageStore /></PrivateRoute>
       },
       {
-        path: "manageCart",
-        element: <PrivateRoute><ManageCart /></PrivateRoute>
-      },
-      {
         path: "updateProduct/:id",
         element: <PrivateRoute><UpdateProduct /></PrivateRoute>,
       },
@@ -134,7 +134,7 @@ const router = createBrowserRouter([
       },
       {
         path: 'dashboard-layout',
-        element: <DashBoardProfile/>
+        element: <DashBoardProfile />
       }
 
     ]
