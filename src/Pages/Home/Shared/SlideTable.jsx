@@ -1,5 +1,6 @@
 
-const LeftSlide = () => {
+
+const SlideTable = () => {
     return (
         <div>
             
@@ -7,4 +8,4 @@ const LeftSlide = () => {
     );
 };
 
-export default LeftSlide;
+export default SlideTable;
