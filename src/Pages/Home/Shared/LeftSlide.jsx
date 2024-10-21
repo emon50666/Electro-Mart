@@ -32,17 +32,17 @@ const LeftSlide = () => {
                 modules={[Autoplay, Pagination, Navigation]}
                 className="mySwiper"
             >
-                {sliderImages.map((slide, idx) => (
+                {sliderImages.slice(3, 7).map((slide, idx) => (
                     <SwiperSlide key={idx}>
                         <div className="relative">
                             <img
                                 src={slide.url}
                                 alt={`slide ${idx + 1}`}
-                                className="w-full lg:min-h-[400px] md:max-h-[500px] h-[50vh] md:h-auto rounded-lg object-contain"
+                                className="w-full lg:min-h-[400px] md:max-h-[300px] lg:max-h-[500px] h-[50vh] md:h-auto rounded-lg object-contain md:object-right lg:object-contain border border-gray-400"
                             />
                             {/* Display the slide title and button centrally */}
-                            <div className="absolute inset-0 flex flex-col items-start justify-center space-y-4 lg:left-8 px-1">
-                                {slide.title !== "None" && <h2 className="text-sm lg:text-lg lg:font-semibold lg:w-1/2 text-white bg-black/50 lg:bg-white/50 p-4 rounded-lg">
+                            <div className="absolute inset-0 flex flex-col items-start justify-center space-y-4 md:left-5 lg:left-8 px-1">
+                                {slide.title !== "None" && <h2 className="text-sm md:text-base md:font-medium lg:text-lg lg:font-semibold lg:w-1/2 text-white bg-black/50 p-4 rounded-lg">
                                     {slide.title}
                                 </h2>}
 

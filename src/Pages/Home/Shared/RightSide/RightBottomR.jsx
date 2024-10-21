@@ -22,7 +22,7 @@ const RightBottomR = () => {
                 modules={[Autoplay, Pagination, Navigation]}
                 className="mySwiper"
             >
-                {sliderImages.slice(3, 4).map((slide, idx) => (
+                {sliderImages.slice(2, 3).map((slide, idx) => (
                     <SwiperSlide key={idx}>
                         <div className="relative">
                             <img
