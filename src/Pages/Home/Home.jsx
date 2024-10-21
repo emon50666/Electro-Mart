@@ -1,10 +1,9 @@
 import { Helmet } from "react-helmet";
-import Banner from "../../components/Banner/Banner";
 import HomeOffers from "./Shared/HomeOffers";
 import Popular from "../../components/PopularCategory/Popular";
 import BenifetService from "../../components/PopularCategory/BenifetService/BenifetService";
 import HomeSliderComponent from "../../components/HomeSliderComponent/SliderComponent";
-
+import Slider from "./Shared/Slider"
 
 
 
@@ -14,16 +13,16 @@ const Home = () => {
       <Helmet>
         <title>Home | Elector Mart</title>
       </Helmet>
-      <div className=" flex justify-center min-h-[80vh]">
-        <Banner ></Banner>
+      <div>
+        <Slider />
       </div>
-      <BenifetService/>
-       <Popular/>
+      <BenifetService />
+      <Popular />
       <HomeOffers />
-      <HomeSliderComponent/>
+      <HomeSliderComponent />
 
-    
-      
+
+
     </div>
   );
 };
