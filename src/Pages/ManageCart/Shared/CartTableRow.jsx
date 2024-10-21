@@ -9,7 +9,7 @@ import useAxiosPublic from "../../../Hooks/useAxiosPublic";
 const CartTableRow = ({ item, refetchCart, setTotal }) => {
     const axiosPublic = useAxiosPublic();
     const { products, refetch } = useProduct();
-    const [quantityCount, setQuantityCount] = useState(item.quantity || 1);
+    const [quantityCount, setQuantityCount] = useState(item?.selectedQuantity || 1);
     const [disableBtn, setDisableBtn] = useState(false);
     const product = products.find(product => product?._id === item?.mainProductId);
 

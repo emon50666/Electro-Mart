@@ -12,6 +12,9 @@ const CartPrice = ({ productTotal }) => {
 
     const total = parseFloat(productTotal) + shippingCost;
 
+    // Determine if the subtotal is zero
+    const isSubtotalZero = parseFloat(productTotal) === 0;
+
     return (
         <div className='max-w-lg mx-auto border-2 border-gray-200 p-8 rounded-lg shadow-lg bg-white font_lexend'>
             <h2 className="text-2xl font-semibold">Carts Total</h2>
@@ -34,10 +37,11 @@ const CartPrice = ({ productTotal }) => {
                         <input
                             type="radio"
                             name="shipping"
-                            className="radio checked:bg-blue-500 w-4 h-4 ml-2" // Smaller radio button
+                            className="radio checked:bg-blue-500 w-4 h-4 ml-2"
                             value={150}
                             onChange={handleShippingChange}
                             checked={shippingCost === 150}
+                            disabled={isSubtotalZero} // Disable if subtotal is 0
                         />
                     </label>
                 </div>
@@ -48,10 +52,11 @@ const CartPrice = ({ productTotal }) => {
                         <input
                             type="radio"
                             name="shipping"
-                            className="radio checked:bg-blue-500 w-4 h-4 ml-2" // Smaller radio button
+                            className="radio checked:bg-blue-500 w-4 h-4 ml-2"
                             value={0}
                             onChange={handleShippingChange}
                             checked={shippingCost === 0}
+                            disabled={isSubtotalZero} // Disable if subtotal is 0
                         />
                     </label>
                 </div>
@@ -62,10 +67,11 @@ const CartPrice = ({ productTotal }) => {
                         <input
                             type="radio"
                             name="shipping"
-                            className="radio checked:bg-blue-500 w-4 h-4 ml-2" // Smaller radio button
+                            className="radio checked:bg-blue-500 w-4 h-4 ml-2"
                             value={100}
                             onChange={handleShippingChange}
                             checked={shippingCost === 100}
+                            disabled={isSubtotalZero} // Disable if subtotal is 0
                         />
                     </label>
                 </div>
@@ -83,8 +89,9 @@ const CartPrice = ({ productTotal }) => {
             {/* Proceed to Checkout Button */}
             <div className="mt-6">
                 <button
-                    onClick={() => console.log("Proceeding to Checkout")} // Replace with your checkout function
-                    className="w-full bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition duration-300"
+                    onClick={() => console.log("Proceeding to Checkout")}
+                    className={`w-full bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition duration-300 ${isSubtotalZero ? 'opacity-50 cursor-not-allowed' : ''}`}
+                    disabled={isSubtotalZero} // Disable button if subtotal is 0
                 >
                     Proceed to Checkout
                 </button>
