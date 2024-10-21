@@ -22,7 +22,7 @@ const LeftSlide = () => {
                 slidesPerView={1}
                 spaceBetween={30}
                 autoplay={{
-                    delay: 5000,
+                    delay: 3000,
                     disableOnInteraction: false,
                 }}
                 loop={true}

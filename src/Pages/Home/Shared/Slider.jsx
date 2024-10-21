@@ -3,7 +3,7 @@ import RightSlide from "./RightSlide";
 
 const Slider = () => {
     return (
-        <div className="flex items-center mt-28 px-10">
+        <div className="flex items-center pt-28 px-10">
             {/* left slide */}
             <div className="w-1/2">
                 <LeftSlide />
