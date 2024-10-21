@@ -3,7 +3,7 @@ import 'react-tabs/style/react-tabs.css';
 import Reviews from './Reviews';
 import useReview from '../../../Hooks/useReview';
 import PropType from "prop-types";
-
+import ReactHtmlParser from 'react-html-parser';
 
 const ProductReview = ({ product }) => {
   const { reviews } = useReview()
@@ -22,7 +22,8 @@ const ProductReview = ({ product }) => {
 
           <TabPanel>
             <p>
-              {product?.fullDescription}
+              {/* {product?.fullDescription} */}
+              {ReactHtmlParser(product?.fullDescription)}
             </p>
           </TabPanel>
           <TabPanel>
