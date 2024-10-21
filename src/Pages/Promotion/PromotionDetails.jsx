@@ -38,11 +38,12 @@ const PromotionDetails = () => {
   useEffect(() => {
     const interval = setInterval(calculateRemainingTime, 1000);
     return () => clearInterval(interval);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [day, month]);
 
   return (
     <div className="lg:mt-24 lg:mx-10 md:mx-5">
-      <div className="relative overflow-hidden bg-blue-600 rounded-xl shadow-lg group font_lexend">
+      <div className="relative overflow-hidden bg-teal-400 rounded-xl shadow-lg group font_lexend">
         <div className="p-3 md:p-10 md:flex items-center justify-between">
           {/* info side */}
           <div className="md:w-1/2 mb-5 md:mb-0">
