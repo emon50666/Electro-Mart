@@ -354,23 +354,8 @@ const AddNewProduct = () => {
             </div>
 
             {/* Full Description */}
-            {/* <div className='mt-6'>
-              <label htmlFor="description" className="block text-sm font-medium text-gray-700">Full Description</label>
-              <textarea
-                name="description"
-                rows="4"
-                {...register("fullDescription", { required: true })}
-                className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:border-blue-500 outline-none"
-              ></textarea>
-              {errors.fullDescription && (
-                <span className="text-sm text-red-600 font-semibold">
-                  Fill This Field
-                </span>
-              )}
-            </div> */}
             <div className="mt-6">
               <label
-
                 className="block text-sm font-medium text-gray-700"
               >
                 Full Description
