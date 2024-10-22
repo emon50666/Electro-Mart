@@ -7,6 +7,9 @@ import { useNavigate } from 'react-router-dom';
 import UpdateProductForm from '../../AddCategory&Dicount/UpdateProductForm';
 import useCategories from '../../../Hooks/useCategories';
 
+import { CKEditor } from '@ckeditor/ckeditor5-react';
+import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+
 
 const AddNewProduct = () => {
   const axiosPublic = useAxiosPublic();
@@ -351,7 +354,7 @@ const AddNewProduct = () => {
             </div>
 
             {/* Full Description */}
-            <div className='mt-6'>
+            {/* <div className='mt-6'>
               <label htmlFor="description" className="block text-sm font-medium text-gray-700">Full Description</label>
               <textarea
                 name="description"
@@ -364,7 +367,33 @@ const AddNewProduct = () => {
                   Fill This Field
                 </span>
               )}
-            </div>
+            </div> */}
+  <div className="mt-6">
+  <label
+   
+    className="block text-sm font-medium text-gray-700"
+  >
+    Full Description
+  </label>
+
+  <CKEditor
+    editor={ClassicEditor}
+    data=""
+    onChange={(event, editor) => {
+      const data = editor.getData();
+      setValue('fullDescription', data); // Use setValue to register with react-hook-form
+      
+    }}
+  />
+
+  {errors.fullDescription && (
+    <span className="text-sm text-red-600 font-semibold">
+      Fill This Field
+    </span>
+  )}
+</div>
+       
+
           </div>
 
           <div className="flex justify-end">
