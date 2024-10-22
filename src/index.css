@@ -61,6 +61,7 @@
 .custom-scrollbar::-webkit-scrollbar-track {
     background: #edf2f7;
 }
+
 .custom-scrollbar {
     scrollbar-width: thin;
     scrollbar-color: #a0aec0 #edf2f7;

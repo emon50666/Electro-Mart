@@ -13,7 +13,7 @@ const ProductReview = ({ product }) => {
 
 
     <>
-      <div className='px-3 md:px-10 lg:px-10 xl:px-10 pt-10 pb-10  bg-gray-100'>
+      <div className='px-3 md:px-10 lg:px-10 xl:px-10 pt-10 pb-10'>
         <Tabs>
           <TabList >
             <Tab>Description</Tab>

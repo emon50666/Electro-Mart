@@ -6,22 +6,24 @@ import useAxiosPublic from '../../Hooks/useAxiosPublic';
 import useCart from '../../Hooks/useCart';
 import { Link } from 'react-router-dom';
 import { FaBangladeshiTakaSign } from 'react-icons/fa6';
+import useUpdateQuantity from '../../Hooks/useUpdateQuantity';
 
 const CardOfCart = ({ cart }) => {
     const axiosPublic = useAxiosPublic();
     const { refetch } = useCart();
     const { products } = useProduct();
+    const handleQuantityUpdate = useUpdateQuantity();
     const product = products.find((pack) => pack?._id == cart?.mainProductId);
 
 
-    const handleQuantity = async () => {
-        const updatedQuantity = parseInt(product?.quantity) + parseInt(cart?.selectedQuantity);
-        const updatedQuantityInfo = { updatedQuantity }
-        const response = await axiosPublic.patch(`/productQuantity/${product?._id}`, updatedQuantityInfo);
-        if (response.data.modifiedCount) {
-            refetch();
-        }
-    }
+    // const handleQuantity = async () => {
+    //     const updatedQuantity = parseInt(product?.quantity) + parseInt(cart?.selectedQuantity);
+    //     const updatedQuantityInfo = { updatedQuantity }
+    //     const response = await axiosPublic.patch(`/productQuantity/${product?._id}`, updatedQuantityInfo);
+    //     if (response.data.modifiedCount) {
+    //         refetch();
+    //     }
+    // }
     const handleDeleteCart = (id) => {
         Swal.fire({
             title: "Are you sure?",
@@ -36,7 +38,7 @@ const CardOfCart = ({ cart }) => {
                 axiosPublic.delete(`/carts/${id}`)
                     .then((res) => {
                         if (res.data.deletedCount) {
-                            handleQuantity();
+                            handleQuantityUpdate(product,cart,refetch);
                             refetch();
                         }
                     })
