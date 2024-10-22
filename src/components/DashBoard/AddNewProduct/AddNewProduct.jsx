@@ -23,19 +23,19 @@ const AddNewProduct = () => {
     reset,
     formState: { errors },
     setValue,
-    watch, // Watch function to observe field values
+    watch,
   } = useForm();
 
-  // Set the current date when the component mounts
+
   useEffect(() => {
-    const currentDate = new Date().toISOString().slice(0, 10); // Format YYYY-MM-DD
-    setValue('addDate', currentDate); // Set the current date in the form
+    const currentDate = new Date().toISOString().slice(0, 10);
+    setValue('addDate', currentDate);
   }, [setValue]);
 
   const price = watch('price');
   const discountPercentage = watch('discountPercentage');
 
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+
   const calculateDiscountPrice = () => {
     if (price && discountPercentage) {
       const discountAmount = (price * discountPercentage) / 100;
@@ -48,7 +48,8 @@ const AddNewProduct = () => {
   useEffect(() => {
     const discountPrice = calculateDiscountPrice();
     setValue('discountPrice', discountPrice);
-  }, [price, discountPercentage, setValue, calculateDiscountPrice]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [price, discountPercentage, setValue]);
 
   const handleImageChange = (e) => {
     const files = Array.from(e.target.files);
@@ -85,7 +86,7 @@ const AddNewProduct = () => {
       });
       await axios.all(uploaded);
 
-      // Create product info object with the uploaded images
+
       const productInfo = {
         title: data.title,
         shortDescription: data.shortDescription,
@@ -102,14 +103,14 @@ const AddNewProduct = () => {
         addDate: data.addDate,
       };
 
-      // Submit the product info to your API
+
       const response = await axiosPublic.post("/products", productInfo);
 
       if (response.data.insertedId) {
         toast.success(`${data.title} is added`);
         navigate("/dashboard/manageProduct");
-        // navigate("#");
-        reset(); // Reset the form after successful submission
+
+        reset();
       }
 
     } catch (error) {
@@ -200,8 +201,8 @@ const AddNewProduct = () => {
                 <input
                   type="number"
                   name="discountPrice"
-                  {...register("discountPrice")} // Register discountPrice
-                  readOnly // Set input to read-only
+                  {...register("discountPrice")}
+                  readOnly
                   className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:border-blue-500 outline-none"
                 />
               </div>
@@ -268,7 +269,7 @@ const AddNewProduct = () => {
                   type="date"
                   name="addDate"
                   {...register("addDate", { required: true })}
-                  readOnly // Set input to read-only
+                  readOnly
                   className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:border-blue-500 outline-none"
                 />
               </div>
@@ -340,12 +341,14 @@ const AddNewProduct = () => {
             {/* Short Description */}
             <div className='mt-6'>
               <label htmlFor="shortDescription" className="block text-sm font-medium text-gray-700">Short Description</label>
-              <textarea
-                name="shortDescription"
-                rows="2"
-                {...register("shortDescription", { required: true })}
-                className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:border-blue-500 outline-none"
-              ></textarea>
+              <CKEditor
+                editor={ClassicEditor}
+                data=""
+                onChange={(event, editor) => {
+                  const data = editor.getData();
+                  setValue('shortDescription', data);
+                }}
+              />
               {errors.shortDescription && (
                 <span className="text-sm text-red-600 font-semibold">
                   Fill This Field
@@ -354,45 +357,30 @@ const AddNewProduct = () => {
             </div>
 
             {/* Full Description */}
-            {/* <div className='mt-6'>
-              <label htmlFor="description" className="block text-sm font-medium text-gray-700">Full Description</label>
-              <textarea
-                name="description"
-                rows="4"
-                {...register("fullDescription", { required: true })}
-                className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:border-blue-500 outline-none"
-              ></textarea>
+            <div className="mt-6">
+              <label
+                className="block text-sm font-medium text-gray-700"
+              >
+                Full Description
+              </label>
+
+              <CKEditor
+                editor={ClassicEditor}
+                data=""
+                onChange={(event, editor) => {
+                  const data = editor.getData();
+                  setValue('fullDescription', data);
+
+                }}
+              />
+
               {errors.fullDescription && (
                 <span className="text-sm text-red-600 font-semibold">
                   Fill This Field
                 </span>
               )}
-            </div> */}
-  <div className="mt-6">
-  <label
-   
-    className="block text-sm font-medium text-gray-700"
-  >
-    Full Description
-  </label>
+            </div>
 
-  <CKEditor
-    editor={ClassicEditor}
-    data=""
-    onChange={(event, editor) => {
-      const data = editor.getData();
-      setValue('fullDescription', data); // Use setValue to register with react-hook-form
-      
-    }}
-  />
-
-  {errors.fullDescription && (
-    <span className="text-sm text-red-600 font-semibold">
-      Fill This Field
-    </span>
-  )}
-</div>
-       
 
           </div>
 

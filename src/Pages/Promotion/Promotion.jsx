@@ -6,7 +6,7 @@ const Promotion = () => {
 
   return (
     <div className="lg:mt-24 lg:mx-20 font_lexend  md:mx-14 mx-3 mb-5">
-      <p className="text-[10px]">CLOTHES THAT YOU LIKE</p>
+      <p className="text-[10px]">GADGET THAT YOU LIKE</p>
       <h2 className="text-2xl lg:pb-5">Promotions</h2>
       <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-3">
         {promotionsProducts.map((product) => (
