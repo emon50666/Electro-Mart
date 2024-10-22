@@ -12,8 +12,8 @@ import { Link } from 'react-router-dom';
 
 const LeftSlide = () => {
     const [isModalOpen, setModalOpen] = useState(false);
-    const [sliderImages] = useSlideImage(); // Fetches slides from DB
-    const [role] = useRoll(); // Role check (admin/user)
+    const [sliderImages] = useSlideImage();
+    const [role] = useRoll();
 
     const openModal = () => {
         setModalOpen(true);
