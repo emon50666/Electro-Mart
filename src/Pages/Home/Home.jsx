@@ -4,6 +4,7 @@ import HomeOffers from "./Shared/HomeOffers";
 import Popular from "../../components/PopularCategory/Popular";
 import BenifetService from "../../components/PopularCategory/BenifetService/BenifetService";
 import HomeSliderComponent from "../../components/HomeSliderComponent/SliderComponent";
+import FilterProduct from "../../components/FilterProduct/FilterProduct";
 
 
 
@@ -20,6 +21,7 @@ const Home = () => {
       <BenifetService/>
        <Popular/>
       <HomeOffers />
+      <FilterProduct/>
       <HomeSliderComponent/>
 
     
