@@ -18,7 +18,7 @@ import useAddToCompare from "../../../../Hooks/useAddToCompare";
 import useAddToWishlist from "../../../../Hooks/useAddToWishlist";
 import useAxiosPublic from "../../../../Hooks/useAxiosPublic";
 import useProduct from "../../../../Hooks/useProduct";
-
+import ReactHtmlParser from 'react-html-parser';
 const OtherProductDetails = ({ product }) => {
     const axiosPublic = useAxiosPublic();
     const { refetch } = useProduct();
@@ -101,7 +101,8 @@ const OtherProductDetails = ({ product }) => {
                 </div>
                 <div className="font_cabin text-sm lg:text-base text-[#777777]">
                     <p>
-                        {product?.shortDescription}
+                        {/* {product?.shortDescription} */}
+                        {ReactHtmlParser(product?.shortDescription)}
                     </p>
                 </div>
                 {/* Price & description end */}

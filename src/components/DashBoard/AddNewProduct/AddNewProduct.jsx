@@ -45,6 +45,57 @@ const AddNewProduct = () => {
   };
 
 
+
+  const editorConfiguration = {
+    toolbar: {
+      items: [
+        'heading',
+        '|',
+        'fontSize',
+        'fontFamily',
+        '|',
+        'bold',
+        'italic',
+        '|',
+        'alignment',
+        '|',
+        'numberedList',
+        'bulletedList',
+        '|',
+        'indent',
+        'outdent',
+        '|',
+        'link',
+        'blockQuote',
+        'imageUpload',
+        'insertTable',
+        'mediaEmbed',
+        '|',
+        'undo',
+        'redo',
+        'placeholder',
+      ],
+    },
+    image: {
+      toolbar: ['imageTextAlternative', 'imageStyle:full', 'imageStyle:side'],
+    },
+    table: {
+      contentToolbar: ['tableColumn', 'tableRow', 'mergeTableCells'],
+    },
+    placeholderConfig: {
+      types: ['Name', 'DOB'],
+    },
+  };
+
+
+
+
+
+
+
+
+
+
   useEffect(() => {
     const discountPrice = calculateDiscountPrice();
     setValue('discountPrice', discountPrice);
@@ -338,20 +389,32 @@ const AddNewProduct = () => {
             </div>
 
             {/* Short Description */}
-            <div className='mt-6'>
-              <label htmlFor="shortDescription" className="block text-sm font-medium text-gray-700">Short Description</label>
-              <textarea
-                name="shortDescription"
-                rows="2"
-                {...register("shortDescription", { required: true })}
-                className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:border-blue-500 outline-none"
-              ></textarea>
-              {errors.shortDescription && (
+            <div className="mt-6">
+              <label
+
+                className="block text-sm pb-1 font-medium text-gray-700"
+              >
+               Short Description
+              </label>
+
+              <CKEditor
+                editor={ClassicEditor}
+                config={editorConfiguration}
+                data=""
+                onChange={(event, editor) => {
+                  const data = editor.getData();
+                  setValue('shortDescription', data); // Use setValue to register with react-hook-form
+
+                }}
+              />
+
+              {errors.fullDescription && (
                 <span className="text-sm text-red-600 font-semibold">
-                  Fill This Field
+                  Short Description is Required
                 </span>
               )}
             </div>
+
 
             {/* Full Description */}
             {/* <div className='mt-6'>
@@ -368,31 +431,58 @@ const AddNewProduct = () => {
                 </span>
               )}
             </div> */}
-  <div className="mt-6">
-  <label
-   
-    className="block text-sm font-medium text-gray-700"
-  >
-    Full Description
-  </label>
+            {/* <div className="mt-6">
+              <label
 
-  <CKEditor
-    editor={ClassicEditor}
-    data=""
-    onChange={(event, editor) => {
-      const data = editor.getData();
-      setValue('fullDescription', data); // Use setValue to register with react-hook-form
-      
-    }}
-  />
+                className="block text-sm font-medium text-gray-700"
+              >
+                Full Description
+              </label>
 
-  {errors.fullDescription && (
-    <span className="text-sm text-red-600 font-semibold">
-      Fill This Field
-    </span>
-  )}
-</div>
-       
+              <CKEditor
+                editor={ClassicEditor}
+                config={editorConfiguration}
+                data=""
+                onChange={(event, editor) => {
+                  const data = editor.getData();
+                  setValue('fullDescription', data); // Use setValue to register with react-hook-form
+
+                }}
+              />
+
+              {errors.fullDescription && (
+                <span className="text-sm text-red-600 font-semibold">
+                  Fill This Field
+                </span>
+              )}
+            </div> */}
+
+             <div className="mt-6">
+              <label
+
+                className="block text-sm pb-1 font-medium text-gray-700"
+              >
+                Full Description
+              </label>
+
+              <CKEditor
+                editor={ClassicEditor}
+                config={editorConfiguration}
+                data=""
+                onChange={(event, editor) => {
+                  const data = editor.getData();
+                  setValue('fullDescription', data); // Use setValue to register with react-hook-form
+
+                }}
+              />
+
+              {errors.fullDescription && (
+                <span className="text-sm text-red-600 font-semibold">
+                  Full Description is Required
+                </span>
+              )}
+            </div>
+
 
           </div>
 

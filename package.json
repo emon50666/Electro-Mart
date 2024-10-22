@@ -42,6 +42,7 @@
     "react-loading-skeleton": "^3.5.0",
     "react-magnifier": "^3.0.4",
     "react-medium-image-zoom": "^5.2.10",
+    "react-quill": "^2.0.0",
     "react-rating": "^2.0.5",
     "react-router-dom": "^6.26.1",
     "react-select": "^5.8.1",
