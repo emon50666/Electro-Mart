@@ -187,6 +187,9 @@ const Reviews = ({mainId}) => {
             )}
         </div>
     );
+    
 };
+
+
 
 export default Reviews;

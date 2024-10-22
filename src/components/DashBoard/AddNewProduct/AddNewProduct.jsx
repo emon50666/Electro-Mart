@@ -45,6 +45,57 @@ const AddNewProduct = () => {
   };
 
 
+
+  const editorConfiguration = {
+    toolbar: {
+      items: [
+        'heading',
+        '|',
+        'fontSize',
+        'fontFamily',
+        '|',
+        'bold',
+        'italic',
+        '|',
+        'alignment',
+        '|',
+        'numberedList',
+        'bulletedList',
+        '|',
+        'indent',
+        'outdent',
+        '|',
+        'link',
+        'blockQuote',
+        'imageUpload',
+        'insertTable',
+        'mediaEmbed',
+        '|',
+        'undo',
+        'redo',
+        'placeholder',
+      ],
+    },
+    image: {
+      toolbar: ['imageTextAlternative', 'imageStyle:full', 'imageStyle:side'],
+    },
+    table: {
+      contentToolbar: ['tableColumn', 'tableRow', 'mergeTableCells'],
+    },
+    placeholderConfig: {
+      types: ['Name', 'DOB'],
+    },
+  };
+
+
+
+
+
+
+
+
+
+
   useEffect(() => {
     const discountPrice = calculateDiscountPrice();
     setValue('discountPrice', discountPrice);
@@ -343,6 +394,7 @@ const AddNewProduct = () => {
               <label htmlFor="shortDescription" className="block text-sm font-medium text-gray-700">Short Description</label>
               <CKEditor
                 editor={ClassicEditor}
+                config={editorConfiguration}
                 data=""
                 onChange={(event, editor) => {
                   const data = editor.getData();
@@ -351,10 +403,11 @@ const AddNewProduct = () => {
               />
               {errors.shortDescription && (
                 <span className="text-sm text-red-600 font-semibold">
-                  Fill This Field
+                  Short Description is Required
                 </span>
               )}
             </div>
+
 
             {/* Full Description */}
             <div className="mt-6">
@@ -366,6 +419,7 @@ const AddNewProduct = () => {
 
               <CKEditor
                 editor={ClassicEditor}
+                config={editorConfiguration}
                 data=""
                 onChange={(event, editor) => {
                   const data = editor.getData();

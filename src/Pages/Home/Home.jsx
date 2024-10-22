@@ -4,6 +4,7 @@ import Popular from "../../components/PopularCategory/Popular";
 import BenifetService from "../../components/PopularCategory/BenifetService/BenifetService";
 import HomeSliderComponent from "../../components/HomeSliderComponent/SliderComponent";
 import Slider from "./Shared/Slider"
+import LaptopProduct from "./LaptopProduct";
 
 
 
@@ -20,6 +21,7 @@ const Home = () => {
       <Popular />
       <HomeOffers />
       <HomeSliderComponent />
+      <LaptopProduct/>
 
 
 

@@ -22,13 +22,13 @@ const GallerySide = ({ images }) => {
 
     return (
         <div>
-            <div className="flex flex-col lg:flex-row-reverse gap-x-2 w-full">
+            <div className="flex flex-col lg:flex-row-reverse  gap-x-2 w-full">
                 {/* Large Image Display (Swiper) */}
                 <div className="w-full lg:w-5/6">
                     <Swiper
                         spaceBetween={30}
                         modules={[Pagination, Navigation]}
-                        className="mySwiper h-[300px] lg:h-[500px]"
+                        className="mySwiper  h-[300px] lg:h-[500px] "
                         onSwiper={(swiper) => (swiperRef.current = swiper)} // Get swiper instance
                         onSlideChange={(swiper) => setSelectedImage(images[swiper.activeIndex])} // Update selected image on slide change
                     >
@@ -40,7 +40,7 @@ const GallerySide = ({ images }) => {
                                     className="w-full  h-full object-contain md:object-contain rounded-lg bg-gray-200 py-3 md:py-3 lg:py-10"
                                 /> */}
                                 <Magnifier
-                                    className="w-full h-full object-contain md:object-contain border-8 rounded-lg p-3 lg:p-16"
+                                    className="w-full h-full object-contain md:object-contain border-2 rounded-lg p-3 lg:p-16"
                                     src={image}
                                     width={`80%`}
                                     height={`100%`}
