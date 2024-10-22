@@ -7,6 +7,8 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import toast from "react-hot-toast";
 import { FaStepBackward } from "react-icons/fa";
+import { CKEditor } from "@ckeditor/ckeditor5-react";
+import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 
 const UpdateProduct = () => {
     const { products } = useProduct();
@@ -388,12 +390,14 @@ const UpdateProduct = () => {
                         {/* Short Description */}
                         <div className='mt-6'>
                             <label htmlFor="shortDescription" className="block text-sm font-medium text-gray-700">Short Description</label>
-                            <textarea
-                                name="shortDescription"
-                                rows="2"
-                                {...register("shortDescription", { required: false })}
-                                className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:border-blue-500 outline-none"
-                            ></textarea>
+                            <CKEditor
+                                editor={ClassicEditor}
+                                data={product ? product.shortDescription : ""} // Set the default value from the product
+                                onChange={(event, editor) => {
+                                    const data = editor.getData();
+                                    setValue('shortDescription', data); // Update value using setValue
+                                }}
+                            />
                             {errors.shortDescription && (
                                 <span className="text-sm text-red-600 font-semibold">
                                     Fill This Field
@@ -403,13 +407,15 @@ const UpdateProduct = () => {
 
                         {/* Full Description */}
                         <div className='mt-6'>
-                            <label htmlFor="description" className="block text-sm font-medium text-gray-700">Full Description</label>
-                            <textarea
-                                name="description"
-                                rows="4"
-                                {...register("fullDescription", { required: false })}
-                                className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:border-blue-500 outline-none"
-                            ></textarea>
+                            <label htmlFor="fullDescription" className="block text-sm font-medium text-gray-700">Full Description</label>
+                            <CKEditor
+                                editor={ClassicEditor}
+                                data={product ? product.fullDescription : ""}
+                                onChange={(event, editor) => {
+                                    const data = editor.getData();
+                                    setValue('fullDescription', data); // Update value using setValue
+                                }}
+                            />
                             {errors.fullDescription && (
                                 <span className="text-sm text-red-600 font-semibold">
                                     Fill This Field
