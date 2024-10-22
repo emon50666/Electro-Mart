@@ -1,14 +1,14 @@
 import { GoGitCompare } from "react-icons/go";
 import { GoHeart } from "react-icons/go";
 import { LuFacebook } from "react-icons/lu";
-import { FaWhatsapp, FaXTwitter } from "react-icons/fa6";
+import { FaStar, FaWhatsapp, FaXTwitter } from "react-icons/fa6";
 import { SlSocialLinkedin } from "react-icons/sl";
 import { BsTelegram } from "react-icons/bs";
 import { FaRegEye } from "react-icons/fa";
 import { useState } from "react";
 import PropTypes from "prop-types"
 import toast from "react-hot-toast";
-import Rating from "react-rating";
+
 import {
     TwitterShareButton, TelegramShareButton, LinkedinShareButton, FacebookShareButton, WhatsappShareButton
 } from "react-share";
@@ -18,8 +18,26 @@ import useAddToCompare from "../../../../Hooks/useAddToCompare";
 import useAddToWishlist from "../../../../Hooks/useAddToWishlist";
 import useAxiosPublic from "../../../../Hooks/useAxiosPublic";
 import useProduct from "../../../../Hooks/useProduct";
+import ReactHtmlParser from 'react-html-parser';
+import useReview from "../../../../Hooks/useReview";
 
-const OtherProductDetails = ({ product }) => {
+const OtherProductDetails = ({ product,  }) => {
+
+    const { reviews } = useReview();
+
+    const allReview = reviews.filter(review => review?.mainId === product?._id)
+
+    // Calculate average rating
+    const calculateAverageRating = (products) => {
+        const totalRating = products.reduce((sum, product) => sum + product.rating, 0);
+        const averageRating = totalRating / products.length;
+        return averageRating.toFixed(2); // Round to 2 decimal places
+    };
+
+    // Usage
+    const averageRating = calculateAverageRating(allReview);
+    console.log(averageRating);
+
     const axiosPublic = useAxiosPublic();
     const { refetch } = useProduct();
     const handleAddCart = useAddToCart();
@@ -69,27 +87,27 @@ const OtherProductDetails = ({ product }) => {
     }
     return (
         <div >
-            <div className="lg:space-y-3 mt-10">
+            <div className="lg:space-y-3 ">
                 {/* Title & Rating start */}
                 <div>
-                    <h3 className="text-md md:text-2xl lg:text-2xl font-bold lg:font-semibold ">{product?.title}</h3>
+                    <h3 className="text-md md:text-2xl lg:text-[23px] font-bold lg:font-semibold ">{product?.title}</h3>
                     <div className="flex items-center justify-between mt-3">
                         <div className="flex items-center space-x-4 py-1">
-                            <Rating
-                                initialRating={parseInt(product?.rating) || 0}
-                                emptySymbol={<img
-                                    src="https://i.ibb.co.com/KN7rSQ6/empty-star-removebg-preview.png"
-                                    className="icon h-4 md:h-5" />
-                                }
-                                fullSymbol={<img src="https://i.ibb.co.com/KGK6qQR/full.jpg" className="icon h-4 md:h-5" />}
-                                readonly
-                            />
-                            <div className="font_cabin text-[10px]   lg:text-lg text-[#767676]">
-                                <p>({ } customer reviews)</p>
+
+                            <div className="font_cabin text-[10px] flex gap-3 lg:gap-8 text-sm  lg:text-lg text-[#767676]">
+                                {!isNaN(averageRating) && averageRating ? (
+                                    <p className="flex gap-1 items-center">
+                                        <FaStar className="text-[#ffd700]" /> {averageRating}
+                                    </p>
+                                ) : (
+                                    <p className="flex gap-2 items-center"><FaStar className="text-[#ffd700]" />  (0)</p> // Or you can render nothing by using null
+                                )}
+
+                                (customer Review)
                             </div>
                         </div>
-                        <div className="font_cabin rounded-full  text-[10px] lg:text-lg text-orange-500 border  px-4">
-                            {product.quantity <= 0 ? <p>Stock Out</p> : <p>( {product?.quantity} ) item available</p>}
+                        <div className="font_cabin rounded-full  text-sm bg-[#FEF4F4] lg:text-lg text-orange-500   px-4">
+                            {product.quantity <= 0 ? <p>Stock Out</p> : <p>( {product?.quantity} )In Stock </p>}
                         </div>
                     </div>
                 </div>
@@ -99,9 +117,9 @@ const OtherProductDetails = ({ product }) => {
                     <p >৳</p>
                     <h3> {product?.price}</h3>
                 </div>
-                <div className="font_cabin text-sm lg:text-base text-[#777777]">
+                <div className="font_cabin text-sm lg:text-base text-gray-700">
                     <p>
-                        {product?.shortDescription}
+                        {ReactHtmlParser(product?.shortDescription)}
                     </p>
                 </div>
                 {/* Price & description end */}
@@ -138,21 +156,21 @@ const OtherProductDetails = ({ product }) => {
 
                 </div>
                 {/* Quantity & cart end */}
-                <div className="divider my-2 md:my-0 lg:my-auto"></div>
+                <div className="divider  my-2 md:my-0 lg:my-auto"></div>
                 {/* Share & compare start */}
                 <div className="lg:my-5 flex flex-col xl:flex-row justify-between gap-y-1 ">
                     <div className="flex text-sm md:text-base lg:text-lg">
                         <button onClick={handleAddToCompare} className="flex items-center hover:text-[#666666] space-x-1">
                             <div>
-                                <GoGitCompare />
+                                <GoGitCompare  className="text-orange-500"/>
                             </div>
-                            <h3 className="font-medium font_cabin">Compare</h3>
+                            <h3 className="font-medium  font_cabin">Compare</h3>
                         </button>
                         <button onClick={handleAddToWishlist} className="flex items-center hover:text-[#666666] pl-8 space-x-1">
                             <div>
-                                <GoHeart />
+                                <GoHeart className="text-orange-500" />
                             </div>
-                            <h3 className="font-medium font_cabin">Add to wishlist</h3>
+                            <h3 className="font-medium  font_cabin">Add to wishlist</h3>
                         </button>
                     </div>
                     <div className="flex items-center">
@@ -179,8 +197,8 @@ const OtherProductDetails = ({ product }) => {
                 {/* Share & compare end */}
             </div>
             <div className="divider my-2 md:my-0 lg:my-auto"></div>
-            <div className="flex items-center justify-center gap-x-1 mb-5 mx-2 px-2 xl:px-4 py-2 bg-slate-200 rounded-lg text-sm md:text-base">
-                <FaRegEye className="mt-1" />
+            <div className="flex items-center justify-center gap-x-1 mb-5 mx-2 px-2 xl:px-4 py-2  bg-slate-200 rounded-lg text-sm md:text-base">
+                <FaRegEye className="mt-1 " />
                 <p>
                     {product?.view || 0}
                     {' '}People Watching this product now!

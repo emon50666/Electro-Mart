@@ -1,6 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
 import Layout from "../Layout/Layout";
-
 import Home from "../Pages/Home/Home";
 import Login from "../components/Login/Login";
 import Register from "../components/Login/Register/Register";
@@ -25,6 +24,9 @@ import UpdateStore from "../components/DashBoard/UpdateStore/UpdateStore";
 import ManageStore from "../components/DashBoard/ManageStore/ManageStore";
 import PromotionControl from "../components/DashBoard/PromotionControl/PromotionControl";
 import DashBoardProfile from "../components/DashBoard/DashBoardProfile/DashBoardProfile";
+import Promotion from "../Pages/Promotion/Promotion";
+import PromotionDetails from "../Pages/Promotion/PromotionDetails";
+import Checkout from "../components/Checkout";
 
 
 
@@ -44,7 +46,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/productDetails/:id",
-        element:<PrivateRoute> <ProductDetails /></PrivateRoute>,
+        element: <PrivateRoute> <ProductDetails /></PrivateRoute>,
         loader: () => fetch(`${import.meta.env.VITE_API_URL}/products/`),
       },
       {
@@ -63,6 +65,25 @@ const router = createBrowserRouter([
         path: "/storeDetails/:id",
         element: <StoreDetails />
       },
+      {
+
+        path: "/promotion",
+        element: <Promotion />
+      },
+      {
+        path: "/promotionsDetails/:id",
+        element: <PromotionDetails />,
+        loader: () => fetch(`${import.meta.env.VITE_API_URL}/promotions/`)
+      },
+      {
+        path: "manageCart",
+        element: <PrivateRoute><ManageCart /></PrivateRoute>
+
+      },
+    {
+      path: '/checkout',
+      element: <Checkout/>
+    }
     ],
 
   },
@@ -95,10 +116,6 @@ const router = createBrowserRouter([
       {
         path: "manageStore",
         element: <PrivateRoute><ManageStore /></PrivateRoute>
-      },
-      {
-        path: "manageCart",
-        element: <PrivateRoute><ManageCart /></PrivateRoute>
       },
       {
         path: "updateProduct/:id",
@@ -134,7 +151,7 @@ const router = createBrowserRouter([
       },
       {
         path: 'dashboard-layout',
-        element: <DashBoardProfile/>
+        element: <DashBoardProfile />
       }
 
     ]

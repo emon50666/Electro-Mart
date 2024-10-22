@@ -22,7 +22,6 @@ const ManageProductTable = () => {
             if (result.isConfirmed) {
                 axiosPublic.delete(`/products/${id}`).then((res) => {
                     if (res.data.deletedCount) {
-                        Swal.fire("Deleted!", "Your file has been deleted.", "success");
                         refetch();
                     }
                 });
