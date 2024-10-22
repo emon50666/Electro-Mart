@@ -340,12 +340,15 @@ const AddNewProduct = () => {
             {/* Short Description */}
             <div className='mt-6'>
               <label htmlFor="shortDescription" className="block text-sm font-medium text-gray-700">Short Description</label>
-              <textarea
-                name="shortDescription"
-                rows="2"
-                {...register("shortDescription", { required: true })}
-                className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:border-blue-500 outline-none"
-              ></textarea>
+              <CKEditor
+                editor={ClassicEditor}
+                data=""
+                onChange={(event, editor) => {
+                  const data = editor.getData();
+                  setValue('shortDescription', data); // Use setValue to register with react-hook-form
+
+                }}
+              />
               {errors.shortDescription && (
                 <span className="text-sm text-red-600 font-semibold">
                   Fill This Field
