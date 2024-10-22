@@ -2,16 +2,17 @@
 import { useState } from "react";
 import './FilterSection.css';
 import Loader from "../Loader/Loader";
-import useCategories from './../../Hooks/useCategories';
+
 import useBrands from './../../Hooks/useBrands';
+import useCategory from "../../Hooks/useCategory";
 
 const FilterSection = ({ onFilterChange, filters }) => {
-    const { categories, isLoading: loadingCategories } = useCategories();
+    const { category:categories, isLoading: loadingCategories } = useCategory();
     const { brands, isLoading: loadingBrands } = useBrands();
 
-    const [selectedCategory, setSelectedCategory] = useState(filters.selectedCategory || "");
-    const [selectedBrand, setSelectedBrand] = useState(filters.selectedBrand || "");
-    const [priceRange, setPriceRange] = useState(filters.priceRange || [0, 1000]);
+    const [selectedCategory, setSelectedCategory] = useState(filters.selectedCategory || "all");
+    const [selectedBrand, setSelectedBrand] = useState(filters.selectedBrand || "all");
+    
 
     const handleCategoryChange = (event) => {
         setSelectedCategory(event.target.value);
@@ -21,15 +22,10 @@ const FilterSection = ({ onFilterChange, filters }) => {
         setSelectedBrand(event.target.value);
     };
 
-    const handlePriceChange = (event) => {
-        const maxPrice = Number(event.target.value);
-        setPriceRange([0, maxPrice]);
-    };
 
-    // Removed the automatic filter application from useEffect
 
     const applyFilters = () => {
-        onFilterChange({ selectedCategory, selectedBrand, priceRange });
+        onFilterChange({ selectedCategory, selectedBrand });
     };
 
     if (loadingCategories || loadingBrands) {
@@ -45,8 +41,8 @@ const FilterSection = ({ onFilterChange, filters }) => {
                 <select value={selectedCategory} onChange={handleCategoryChange}>
                     <option value="">All Categories</option>
                     {categories.map(category => (
-                        <option key={category.id} value={category.newCategory}>
-                            {category.newCategory}
+                        <option key={category.id} value={category}>
+                            {category}
                         </option>
                     ))}
                 </select>
@@ -70,15 +66,13 @@ const FilterSection = ({ onFilterChange, filters }) => {
                     type="range" 
                     min="0" 
                     max="1000" 
-                    value={priceRange[1]} 
-                    onChange={handlePriceChange}
-                    step="10"
+                    
                 />
-                <span>${priceRange[0]} - ${priceRange[1]}</span>
+                <span>$0 - $10000</span>
             </div>
 
-            {/* Manually trigger applyFilters */}
-            <button onClick={applyFilters}>
+          
+            <button className="filter-button bg-[#FF5E2B] hover:bg-orange-600" onClick={applyFilters}>
                 Apply Filters
             </button>
         </div>

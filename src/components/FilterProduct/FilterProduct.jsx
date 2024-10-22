@@ -6,38 +6,40 @@ import { useState } from "react";
 import Loader from "../Loader/Loader";
 
 const FilterProduct = () => {
-  const { products, isLoading, refetch } = useProduct(); // Fetch all products
+  const { products, isLoading, refetch } = useProduct(); 
   const [filters, setFilters] = useState({
-      selectedCategory: "",
-      selectedBrand: "",
-      priceRange: [0, 1000],
+      selectedCategory: "all", 
+      selectedBrand: "all",    
+      
   });
 
   const handleFilterChange = (newFilters) => {
-      setFilters(newFilters); // Update filters state with the new values
+      setFilters(newFilters); 
   };
 
   // Filter logic
   const filteredProducts = products.filter(product => {
+      const isCategoryMatch = filters.selectedCategory === "all" || product.category === filters.selectedCategory;
+      const isBrandMatch = filters.selectedBrand === "all" || product.brand === filters.selectedBrand;
+     
 
-      console.log(product)
-      const isCategoryMatch = !filters.selectedCategory || filters.selectedCategory === "all" || product.category === filters.selectedCategory;
-      const isBrandMatch = !filters.selectedBrand || filters.selectedBrand === "all" || product.brand === filters.selectedBrand;
-      const isPriceMatch = product.price >= filters.priceRange[0] && product.price <= filters.priceRange[1];
-
-      return isCategoryMatch && isBrandMatch && isPriceMatch;
+      return isCategoryMatch && isBrandMatch ;
   });
 
   if (isLoading) {
-      return <Loader />; // Loader component while products are being fetched
+      return <Loader />; 
   }
 
   // If no filters applied, show all products
   const displayProducts = filteredProducts.length > 0 ? filteredProducts : products;
 
+//   console.log(displayProducts);
+//   console.log(filteredProducts);
+//   console.log(products)
+
   return (
       <div>
-          <div className="container grid grid-filter-column">
+          <div className="container grid grid-filter-column px-8 py-16 gap-10">
               <div>
                   <FilterSection onFilterChange={handleFilterChange} filters={filters} />
               </div>

@@ -16,7 +16,7 @@ const Home = () => {
         <title>Home | Elector Mart</title>
       </Helmet>
       <div className=" flex justify-center min-h-[80vh]">
-        <Banner ></Banner>
+        {/* <Banner ></Banner> */}
       </div>
       <BenifetService/>
        <Popular/>
