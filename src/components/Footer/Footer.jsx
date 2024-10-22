@@ -53,7 +53,7 @@ const Footer = () => {
                     </div>
                 </div>
                 <div className="col-span-1">
-                    <p className="font-semibold text-xl md:text-base tracking-wide text-gray-300">
+                    <p className="font-semibold text-xl md:text-base xl:text-lg tracking-wide text-gray-300">
                         Our Story
                     </p>
                     <ul className="mt-2 space-y-1 md:space-y-2 text-md xl:text-lg">
@@ -85,7 +85,7 @@ const Footer = () => {
                     </ul>
                 </div>
                 <div className="col-span-1">
-                    <p className="font-semibold text-xl md:text-base tracking-wide text-gray-300">
+                    <p className="font-semibold text-xl md:text-base xl:text-lg tracking-wide text-gray-300">
                         Category
                     </p>
                     <ul className="mt-2 space-y-1 md:space-y-2 text-md xl:text-lg">
@@ -96,7 +96,7 @@ const Footer = () => {
                     <p className="font-semibold text-xl md:text-base tracking-wide text-white">
                         Quick Links
                     </p>
-                    <ul className="mt-2 space-y-1 text-base md:space-y-2  ">
+                    <ul className="mt-2 space-y-1 text-base md:space-y-2 xl:text-lg">
                         <li>
                             <Link to="/" className="text-white underline-hover">
                                 Shop
@@ -127,7 +127,7 @@ const Footer = () => {
                     </ul>
                 </div>
                 <div className="col-span-1">
-                    <p className="font-semibold text-xl md:text-base tracking-wide text-gray-300">
+                    <p className="font-semibold text-xl md:text-base xl:text-lg tracking-wide text-gray-300">
                         Contact Us
                     </p>
                     <ul className="mt-2 space-y-1 md:space-y-2 text-md xl:text-lg">

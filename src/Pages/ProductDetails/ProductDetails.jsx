@@ -19,7 +19,7 @@ const ProductDetails = () => {
             </Helmet>
             {/* top layer of details */}
             <div className="mt-20">
-                <TopLayerOfDetails title={product.title} id={product?._id} />
+                <TopLayerOfDetails title={product?.title} id={product?._id} />
             </div>
             {/* main details section */}
             <MainProductDetails product={product} />
