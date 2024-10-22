@@ -29,7 +29,7 @@ const RightSideTop = () => {
                             <img
                                 src={slide.url}
                                 alt={`slide ${idx + 1}`}
-                                className="w-full lg:min-h-[150px] max-h-[250px] h-[40vh] md:h-auto rounded-lg"
+                                className="w-full lg:min-h-[150px] max-h-[200px] h-[40vh] md:h-auto rounded-lg"
                             />
                             {/* Display the slide title and button centrally */}
                             <div className="absolute inset-0 flex flex-col items-start justify-center space-y-4 left-8">
