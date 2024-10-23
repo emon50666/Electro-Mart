@@ -1,12 +1,22 @@
+import React, { useState } from "react";
 import UserAuth from "../../../Hooks/useAuth";
 import useRoll from "../../../Hooks/useRoll";
 import Loader from "../../Loader/Loader";
+import UpdateUserProfile from "./UpdateUserProfile";
 
 const Profile = () => {
-  const { user, logOut,  } = UserAuth();
+  const { user, logOut } = UserAuth();
   const [role, isLoading] = useRoll();
+  const [isModalOpen, setModalOpen] = useState(false); // State for modal visibility
 
- 
+  const handleEditClick = () => {
+    setModalOpen(true); // Show modal when "Edit Profile" is clicked
+  };
+
+  const handleCloseModal = () => {
+    setModalOpen(false); // Close modal
+  };
+
   if (isLoading) return <Loader />;
 
   return (
@@ -30,9 +40,7 @@ const Profile = () => {
 
           {/* User Information */}
           <div className="text-center mt-4">
-            <h2 className="text-2xl font-bold text-gray-800">
-              {user?.displayName}
-            </h2>
+            <h2 className="text-2xl font-bold text-gray-800">{user?.displayName}</h2>
             <p className="text-gray-600">{user?.email}</p>
           </div>
 
@@ -48,7 +56,10 @@ const Profile = () => {
 
           {/* Action Buttons */}
           <div className="mt-6 flex justify-between">
-            <button className="px-4 py-2 bg-orange-500 hover:bg-orange-600 text-white rounded-md">
+            <button
+              onClick={handleEditClick} // Open modal on button click
+              className="px-4 py-2 bg-orange-500 hover:bg-orange-600 text-white rounded-md"
+            >
               Edit Profile
             </button>
             <button
@@ -60,6 +71,16 @@ const Profile = () => {
           </div>
         </div>
       </div>
+
+      {/* Existing Modal */}
+      {isModalOpen && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+          <div className="bg-white p-6 rounded-lg shadow-lg w-full max-w-md">
+            {/* Modal content */}
+            <UpdateUserProfile handleCloseModal={handleCloseModal} />
+          </div>
+        </div>
+      )}
     </div>
   );
 };
