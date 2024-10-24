@@ -23,7 +23,7 @@ const CartPrice = ({ productTotal }) => {
             {/* Subtotal */}
             <div className='flex justify-between items-center mt-5 border-b border-slate-300 pb-2'>
                 <h4 className="font-semibold text-lg">Subtotal</h4>
-                <p className='flex items-center gap-1 text-lg text-gray-400'>
+                <p className='flex items-center gap-1 text-lg text-gray-700'>
                     <FaBangladeshiTakaSign />
                     {productTotal}
                 </p>

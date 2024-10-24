@@ -7,12 +7,9 @@ import HomeSliderComponent from "../../components/HomeSliderComponent/SliderComp
 
 import FilterProduct from "../../components/FilterProduct/FilterProduct";
 
-
 // import Slider from "./Shared/Slider"
-import LaptopProduct from "./LaptopProduct";
+
 import Banner from "./Shared/Banner";
-
-
 
 
 const Home = () => {
@@ -24,10 +21,11 @@ const Home = () => {
 
       <div className=" flex justify-center min-h-[80vh]">
         {/* <Banner ></Banner> */}
-
+        <Banner/>
+        </div>
       <div>
         {/* <Slider /> */}
-        <Banner/>
+        
 
       </div>
       <BenifetService/>
@@ -38,6 +36,7 @@ const Home = () => {
 
     
       
+    
     </div>
   );
 };
