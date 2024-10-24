@@ -30,7 +30,7 @@ const ProductCard = ({ product, refetch }) => {
 
   // Usage
   const averageRating = calculateAverageRating(allReview);
-  console.log(averageRating);
+  // console.log(averageRating);
 
 
 
@@ -58,7 +58,7 @@ const ProductCard = ({ product, refetch }) => {
       })
   };
 
-  console.log(product.quantity);
+  // console.log(product.quantity);
   const handleAddToCart = async () => {
     const updatedQuantity = parseInt(product?.quantity) - 1;
     const updatedQuantityInfo = { updatedQuantity }
