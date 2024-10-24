@@ -2,6 +2,7 @@ import { useForm } from "react-hook-form";
 import { getAuth, updateProfile } from "firebase/auth"; // Import Firebase Auth and updateProfile
 import useUsers from "../../../Hooks/useUsers";
 import useAxiosPublic from "../../../Hooks/useAxiosPublic";
+import PropType from "prop-types";
 
 const UpdateUserProfile = ({ handleCloseModal }) => {
     const auth = getAuth(); // Get Firebase Auth instance
@@ -15,12 +16,13 @@ const UpdateUserProfile = ({ handleCloseModal }) => {
             phone: theUser?.phone || "",
             district: theUser?.district || "",
             city: theUser?.city || "",
-            country: theUser?.country || ""
+            country: theUser?.country || "",
+            fullAddress: theUser?.fullAddress || "" // New field for full address
         }
     });
 
     const onSubmit = async (data) => {
-        const { name, phone, district, city, country } = data;
+        const { name, phone, district, city, country, fullAddress } = data; // Include fullAddress
 
         // Prepare the data to send to your backend API
         const info = {
@@ -28,7 +30,8 @@ const UpdateUserProfile = ({ handleCloseModal }) => {
             phone,
             district,
             city,
-            country
+            country,
+            fullAddress // Include full address in info
         };
 
         try {
@@ -83,6 +86,11 @@ const UpdateUserProfile = ({ handleCloseModal }) => {
                     <div className="flex flex-row lg:flex-col gap-x-2">
                         <p className="font-bold">Country:</p>
                         <p>{theUser?.country || 'Not Available'}</p>
+                    </div>
+                    {/* Full Address Display */}
+                    <div className="flex flex-row lg:flex-col gap-x-2">
+                        <p className="font-bold">Full Address:</p>
+                        <p>{theUser?.fullAddress || 'Not Available'}</p>
                     </div>
                 </div>
 
@@ -143,6 +151,18 @@ const UpdateUserProfile = ({ handleCloseModal }) => {
                             {errors.country && <p className="text-red-500">{errors.country.message}</p>}
                         </div>
 
+                        {/* Full Address Input */}
+                        <div>
+                            <label className="block text-sm font-medium">Full Address</label>
+                            <input
+                                type="text"
+                                {...register("fullAddress", { required: !theUser?.fullAddress && "Full address is required" })}
+                                defaultValue={theUser?.fullAddress || ""}
+                                className="mt-1 p-2 w-full border rounded"
+                            />
+                            {errors.fullAddress && <p className="text-red-500">{errors.fullAddress.message}</p>}
+                        </div>
+
                         <div className="lg:flex justify-end">
                             <button type="submit" className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">
                                 Save Changes
@@ -154,5 +174,7 @@ const UpdateUserProfile = ({ handleCloseModal }) => {
         </div>
     );
 };
-
+UpdateUserProfile.propTypes = {
+    handleCloseModal: PropType.func,
+}
 export default UpdateUserProfile;
