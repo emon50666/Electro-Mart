@@ -78,7 +78,7 @@ const ProductCard = ({ product, refetch }) => {
 
   return (
     <div
-      className="   pt-4 pb-3  bg-[#F6F6F6]">
+      className="     bg-[#F6F6F6]">
 
       <div className="relative p-3 hover:shadow-lg rounded-md bg-white group">
         <Link to={`/productDetails/${product._id}`}>

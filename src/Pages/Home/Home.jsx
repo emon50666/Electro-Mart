@@ -5,7 +5,7 @@ import BenifetService from "../../components/PopularCategory/BenifetService/Beni
 import HomeSliderComponent from "../../components/HomeSliderComponent/SliderComponent";
 // import Slider from "./Shared/Slider"
 import LaptopProduct from "./LaptopProduct";
-import Benner from "./Shared/Benner";
+import Banner from "./Shared/Banner";
 
 
 
@@ -17,7 +17,7 @@ const Home = () => {
       </Helmet>
       <div>
         {/* <Slider /> */}
-        <Benner/>
+        <Banner/>
       </div>
       <BenifetService />
       <Popular />
