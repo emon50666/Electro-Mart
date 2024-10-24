@@ -53,7 +53,7 @@ const UpdateUserProfile = ({ handleCloseModal }) => {
     };
 
     return (
-        <div className="max-h-[80vh] overflow-y-auto">
+        <div className="max-h-[80vh] overflow-y-auto" id="updateUserId">
             <div className="flex justify-between items-center">
                 <h2 className="text-xl font-bold mb-4">Edit Profile</h2>
                 <button onClick={handleCloseModal} className="text-gray-500 text-2xl hover:text-gray-800">

@@ -34,16 +34,19 @@
     height: 800px;
 }
 
+#updateUserId::-webkit-scrollbar,
 #search_id::-webkit-scrollbar,
 #categoryListId::-webkit-scrollbar {
     display: none;
 }
 
+#updateUserId,
 #search_id,
 #categoryListId {
     scrollbar-width: none;
 }
 
+#updateUserId,
 #search_id,
 #categoryListId {
     -ms-overflow-style: none;

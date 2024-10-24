@@ -73,14 +73,16 @@ const Profile = () => {
       </div>
 
       {/* Modal */}
-      {isModalOpen && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-          <div className="bg-white p-6 rounded-lg shadow-lg w-full max-w-3xl lg:max-w-4xl">
-            {/* Modal content */}
-            <UpdateUserProfile handleCloseModal={handleCloseModal} />
+      <div className="">
+        {isModalOpen && (
+          <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+            <div className="bg-white rounded-sm p-6 md:rounded-lg shadow-lg w-full max-w-3xl lg:max-w-4xl mx-2">
+              {/* Modal content */}
+              <UpdateUserProfile handleCloseModal={handleCloseModal} />
+            </div>
           </div>
-        </div>
-      )}
+        )}
+      </div>
     </div>
   );
 };
