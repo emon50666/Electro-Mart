@@ -3,8 +3,9 @@ import HomeOffers from "./Shared/HomeOffers";
 import Popular from "../../components/PopularCategory/Popular";
 import BenifetService from "../../components/PopularCategory/BenifetService/BenifetService";
 import HomeSliderComponent from "../../components/HomeSliderComponent/SliderComponent";
-import Slider from "./Shared/Slider"
+// import Slider from "./Shared/Slider"
 import LaptopProduct from "./LaptopProduct";
+import Banner from "./Shared/Banner";
 
 
 
@@ -15,7 +16,8 @@ const Home = () => {
         <title>Home | Elector Mart</title>
       </Helmet>
       <div>
-        <Slider />
+        {/* <Slider /> */}
+        <Banner/>
       </div>
       <BenifetService />
       <Popular />

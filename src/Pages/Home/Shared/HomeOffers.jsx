@@ -6,7 +6,7 @@ const HomeOffers = () => {
   const { products, refetch, isLoading } = useProduct();
   if (isLoading) return <Loader />;
   return (
-    <div className="px-8 font_open_sense">
+    <div className="px-8  font_open_sense">
       <div>
         <h3 className="text-2xl mb-5 font-bold">The Best Offers</h3>
       </div>
