@@ -16,9 +16,9 @@ const UpdateProduct = () => {
     const axiosPublic = useAxiosPublic();
     const { categories } = useCategories();
     const navigate = useNavigate();
-    const [galleryImages, setGalleryImages] = useState([]); // For previewing gallery images
-    const [image, setImage] = useState({ array: [] }); // To store uploaded image URLs
-    const [removedImages, setRemovedImages] = useState([]); // Track removed images
+    const [galleryImages, setGalleryImages] = useState([]);
+    const [image, setImage] = useState({ array: [] });
+    const [removedImages, setRemovedImages] = useState([]);
 
     const product = products.find((pack) => pack._id == id);
 
@@ -32,11 +32,11 @@ const UpdateProduct = () => {
     } = useForm();
 
     useEffect(() => {
-        // Set current date
+    
         const currentDate = new Date().toISOString().slice(0, 10);
         setValue("addDate", currentDate);
 
-        // Set default values and gallery images from the product object
+    
         if (product) {
             setValue("title", product.title);
             setValue("shortDescription", product.shortDescription);
@@ -48,16 +48,17 @@ const UpdateProduct = () => {
             setValue("quantity", product.quantity);
             setValue("isHot", product.isHot);
             setValue("isNew", product.isNew);
-            // Set initial gallery images from product
+        
             if (product.images && product.images.length > 0) {
                 setGalleryImages(product.images);
-                setImage({ array: product.images }); // Keep existing images
+                setImage({ array: product.images });
             }
         }
     }, [product, setValue]);
 
     const price = watch("price");
     const discountPercentage = watch("discountPercentage");
+
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
     const calculateDiscountPrice = () => {
@@ -73,32 +74,32 @@ const UpdateProduct = () => {
         setValue("discountPrice", discountPrice);
     }, [price, discountPercentage, setValue, calculateDiscountPrice]);
 
-    // Prevent default form submission when interacting with image inputs
+
     const handleKeyDown = (e) => {
         if (e.key === "Enter") {
             e.preventDefault();
         }
     };
 
-    // Handle image upload preview
+
     const handleImageChange = (e) => {
         const files = Array.from(e.target.files);
         const imagesArray = files.map((file) => URL.createObjectURL(file));
         setGalleryImages((prevImages) => [...prevImages, ...imagesArray]);
     };
 
-    // Handle image removal
+
     const removeImage = (indexToRemove) => {
         const removedImage = galleryImages[indexToRemove];
-        // Add removed image to the list of removed images
+    
         setRemovedImages([...removedImages, removedImage]);
 
-        // Remove the image from the gallery preview
+    
         setGalleryImages((prevImages) =>
             prevImages.filter((_, index) => index !== indexToRemove)
         );
 
-        // Remove the image from the stored array
+    
         const newImageArray = image.array.filter((_, index) => index !== indexToRemove);
         setImage({ array: newImageArray });
     };
@@ -108,34 +109,34 @@ const UpdateProduct = () => {
             const imgGallery = Array.from(data.gallery || []);
             const uploadedImageUrls = [];
 
-            // Handle asynchronous image uploads
+        
             const uploaded = imgGallery.map((file) => {
                 const formData = new FormData();
                 formData.append("file", file);
                 formData.append("upload_preset", "elector_mart_key");
                 formData.append("api_key", "211491792754595");
 
-                // Return a promise that resolves to the secure_url of the uploaded image
+            
                 return axios.post('https://api.cloudinary.com/v1_1/duv5fiurz/image/upload', formData, {
                     headers: { "X-Requested-With": "XMLHttpRequest" }
                 }).then(res => {
-                    return res.data.secure_url; // Return image URL
+                    return res.data.secure_url;
                 });
             });
 
-            // Await all uploads and store the resulting URLs in an array
+        
             const imageUrls = await axios.all(uploaded);
             uploadedImageUrls.push(...imageUrls);
 
-            // Merge newly uploaded images with existing ones
+        
             const finalImages = [...image.array, ...uploadedImageUrls].filter(img => !removedImages.includes(img));
 
-            // Create the product info object with all images
+        
             const productInfo = {
                 title: data.title,
                 shortDescription: data.shortDescription,
                 fullDescription: data.fullDescription,
-                images: finalImages, // Include all images (existing + newly uploaded - removed)
+                images: finalImages,
                 quantity: parseInt(data.quantity),
                 brand: data.brand,
                 category: data.category,
@@ -147,7 +148,7 @@ const UpdateProduct = () => {
                 addDate: data.addDate,
             };
 
-            // Send the updated product information to the backend
+        
             const response = await axiosPublic.put(`/products/${id}`, productInfo);
 
             if (response.data.modifiedCount > 0) {
@@ -199,7 +200,7 @@ const UpdateProduct = () => {
                                     <img src={image} alt={`Product ${index + 1}`} className="w-full h-full" />
                                     <button
                                         onClick={() => removeImage(index)}
-                                        type="button"  // Ensure this is not treated as a form submit button
+                                        type="button" 
                                         className="absolute top-1 right-1 focus:outline-none text-xs"
                                     >
                                         ✖
@@ -250,8 +251,8 @@ const UpdateProduct = () => {
                                 <input
                                     type="number"
                                     name="discountPrice"
-                                    {...register("discountPrice")} // Register discountPrice
-                                    readOnly // Set input to read-only
+                                    {...register("discountPrice")}
+                                    readOnly
                                     className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:border-blue-500 outline-none"
                                 />
                             </div>
@@ -318,7 +319,7 @@ const UpdateProduct = () => {
                                     type="date"
                                     name="addDate"
                                     {...register("addDate", { required: false })}
-                                    readOnly // Set input to read-only
+                                    readOnly
                                     className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:border-blue-500 outline-none"
                                 />
                             </div>
@@ -392,10 +393,10 @@ const UpdateProduct = () => {
                             <label htmlFor="shortDescription" className="block text-sm font-medium text-gray-700">Short Description</label>
                             <CKEditor
                                 editor={ClassicEditor}
-                                data={product ? product.shortDescription : ""} // Set the default value from the product
+                                data={product?.shortDescription}
                                 onChange={(event, editor) => {
                                     const data = editor.getData();
-                                    setValue('shortDescription', data); // Update value using setValue
+                                    setValue('shortDescription', data);
                                 }}
                             />
                             {errors.shortDescription && (
@@ -413,7 +414,7 @@ const UpdateProduct = () => {
                                 data={product ? product.fullDescription : ""}
                                 onChange={(event, editor) => {
                                     const data = editor.getData();
-                                    setValue('fullDescription', data); // Update value using setValue
+                                    setValue('fullDescription', data);
                                 }}
                             />
                             {errors.fullDescription && (
