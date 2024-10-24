@@ -1,0 +1,30 @@
+/* Basic grid setup for the filter and product list */
+.grid-filter-column {
+  display: grid;
+  grid-template-columns: 0.2fr 1fr;
+  gap: 1rem;
+}
+
+/* Container styling */
+.filter-product-container {
+  width: 100%;
+  padding: 1rem;
+}
+
+/* Style for the product view section */
+.product-view--sort {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Sort filter styling */
+.sort-filter {
+  margin-bottom: 1rem;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .grid-filter-column {
+    grid-template-columns: 1fr;
+  }
+}
