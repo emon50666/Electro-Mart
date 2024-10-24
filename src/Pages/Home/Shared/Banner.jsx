@@ -7,7 +7,7 @@ import { Pagination } from 'swiper/modules';
 
 const Banner = () => {
   return (
-    <div className=" mx-auto bg-[#F6F6F6] p-4  grid grid-cols-1 lg:grid-cols-2 gap-6">
+    <div className=" mx-auto bg-[#F6F6F6] px-2 py-1 grid grid-cols-1 lg:grid-cols-2 gap-6">
       {/* Left Side: Swiper Slider */}
       <div className="swiper-container">
         <Swiper

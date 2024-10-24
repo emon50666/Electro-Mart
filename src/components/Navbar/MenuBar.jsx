@@ -45,7 +45,7 @@ const MenuBar = () => {
           </div>
 
           {/* Menu Items */}
-          <ul className="menu menu-vertical space-y-2 mt-5 pt-16 ">
+          <ul className="menu menu-vertical space-y-2 mt-5  ">
           {categories.map((cat, idx) =>
             cat?.newCategory && (
               <li key={idx}>
