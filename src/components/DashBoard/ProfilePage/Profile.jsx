@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import UserAuth from "../../../Hooks/useAuth";
 import useRoll from "../../../Hooks/useRoll";
 import Loader from "../../Loader/Loader";
@@ -72,10 +72,10 @@ const Profile = () => {
         </div>
       </div>
 
-      {/* Existing Modal */}
+      {/* Modal */}
       {isModalOpen && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-          <div className="bg-white p-6 rounded-lg shadow-lg w-full max-w-md">
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+          <div className="bg-white p-6 rounded-lg shadow-lg w-full max-w-3xl lg:max-w-4xl">
             {/* Modal content */}
             <UpdateUserProfile handleCloseModal={handleCloseModal} />
           </div>
