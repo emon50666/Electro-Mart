@@ -6,10 +6,12 @@ import { useState, useEffect } from "react";
 import Swal from "sweetalert2";
 import useAxiosPublic from "../../../Hooks/useAxiosPublic";
 import { Link } from "react-router-dom";
+import useUpdateQuantity from "../../../Hooks/useUpdateQuantity";
 
 const CartTableRow = ({ item, refetchCart, setTotal }) => {
     const axiosPublic = useAxiosPublic();
-    const { products, refetch } = useProduct();
+    const { products } = useProduct();
+    const handleQuantityUpdate = useUpdateQuantity();
     const [quantityCount, setQuantityCount] = useState(item?.selectedQuantity || 1);
     const [disableBtn, setDisableBtn] = useState(false);
     const product = products.find(product => product?._id === item?.mainProductId);
@@ -43,14 +45,6 @@ const CartTableRow = ({ item, refetchCart, setTotal }) => {
         }
     };
 
-    const handleQuantityUpdate = async () => {
-        const updatedQuantity = parseInt(product?.quantity) + parseInt(item?.selectedQuantity);
-        const updatedQuantityInfo = { updatedQuantity }
-        const response = await axiosPublic.patch(`/productQuantity/${product?._id}`, updatedQuantityInfo);
-        if (response.data.modifiedCount) {
-            refetch();
-        }
-    }
 
     const handleDeleteCart = (id) => {
         Swal.fire({
@@ -68,7 +62,7 @@ const CartTableRow = ({ item, refetchCart, setTotal }) => {
                 axiosPublic.delete(`/carts/${id}`)
                     .then((res) => {
                         if (res.data.deletedCount) {
-                            handleQuantityUpdate();
+                            handleQuantityUpdate(product, item, refetchCart);
                             refetchCart();
                             setTotal(prev => {
                                 const newTotal = { ...prev };
