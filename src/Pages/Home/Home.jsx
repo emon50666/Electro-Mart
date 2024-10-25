@@ -5,14 +5,11 @@ import Popular from "../../components/PopularCategory/Popular";
 import BenifetService from "../../components/PopularCategory/BenifetService/BenifetService";
 import HomeSliderComponent from "../../components/HomeSliderComponent/SliderComponent";
 
-import FilterProduct from "../../components/FilterProduct/FilterProduct";
+// import FilterProduct from "../../components/FilterProduct/FilterProduct";
 
+import Slider from "./Shared/Slider"
 
-// import Slider from "./Shared/Slider"
-import LaptopProduct from "./LaptopProduct";
-import Banner from "./Shared/Banner";
-
-
+// import Banner from "./Shared/Banner";
 
 
 const Home = () => {
@@ -22,22 +19,21 @@ const Home = () => {
         <title>Home | Elector Mart</title>
       </Helmet>
 
-      <div className=" flex justify-center min-h-[80vh]">
-        {/* <Banner ></Banner> */}
-
+      {/* <div className=" flex justify-center min-h-[80vh]">
+        <Banner />
+      </div> */}
       <div>
-        {/* <Slider /> */}
-        <Banner/>
-
+        <Slider />
       </div>
-      <BenifetService/>
-       <Popular/>
+      <BenifetService />
+      <Popular />
       <HomeOffers />
-      <FilterProduct/>
-      <HomeSliderComponent/>
+      {/* <FilterProduct /> */}
+      <HomeSliderComponent />
 
-    
-      
+
+
+
     </div>
   );
 };

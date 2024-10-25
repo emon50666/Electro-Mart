@@ -35,18 +35,16 @@ const UpdateUserProfile = ({ handleCloseModal }) => {
         };
 
         try {
-            // Check if the user is updating their display name using Firebase's updateProfile method
             if (name !== user.displayName) {
-                await updateProfile(user, { displayName: name }); // Directly update the user profile
+                await updateProfile(user, { displayName: name });
                 console.log("User name updated successfully");
             }
 
-            // Make the API call to update user info in your database
             const response = await axiosPublic.put(`/user/${user?.email}`, info);
             console.log("Response from server:", response.data);
 
-            reset(data); // Reset the form with updated values
-            handleCloseModal(); // Close the modal after successful submission
+            reset(data);
+            handleCloseModal();
         } catch (error) {
             console.error("Error updating profile: ", error);
         }
