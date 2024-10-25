@@ -1,44 +1,25 @@
 import { Helmet } from "react-helmet";
-
 import HomeOffers from "./Shared/HomeOffers";
 import Popular from "../../components/PopularCategory/Popular";
 import BenifetService from "../../components/PopularCategory/BenifetService/BenifetService";
 import HomeSliderComponent from "../../components/HomeSliderComponent/SliderComponent";
-
-import FilterProduct from "../../components/FilterProduct/FilterProduct";
-
-// import Slider from "./Shared/Slider"
-
-import Banner from "./Shared/Banner";
-
-
+// import FilterProduct from "../../components/FilterProduct/FilterProduct";
+import Slider from "./Shared/Slider"
 const Home = () => {
   return (
     <div className="bg-[#F6F6F6]">
       <Helmet>
         <title>Home | Elector Mart</title>
       </Helmet>
-
-      <div className=" flex justify-center min-h-[80vh]">
-        {/* <Banner ></Banner> */}
-        <Banner/>
-        </div>
       <div>
-        {/* <Slider /> */}
-        
-
+        <Slider />
       </div>
-      <BenifetService/>
-       <Popular/>
+      <BenifetService />
+      <Popular />
       <HomeOffers />
-      <FilterProduct/>
-      <HomeSliderComponent/>
-
-    
-      
-    
+      {/* <FilterProduct /> */}
+      <HomeSliderComponent />
     </div>
   );
 };
-
 export default Home;

@@ -3,11 +3,11 @@ import { MdModeEdit } from "react-icons/md";
 import { Link } from 'react-router-dom';
 import useRoll from '../../../../Hooks/useRoll';
 import RightSideModal from './RightSideModal';
-import useRightSideTop from "../../../../Hooks/useRightSideTop";
+import useRightBottomR from '../../../../Hooks/useRightBottomR';
 
-const RightSideTop = () => {
+const RightBottomR = () => {
     const [role] = useRoll();
-    const { rightTopImages, refetch } = useRightSideTop();
+    const { rightBottomRImages, refetch } = useRightBottomR();
     const [isModalOpen, setIsModalOpen] = useState(false);
 
     const openModal = () => setIsModalOpen(true);
@@ -16,11 +16,11 @@ const RightSideTop = () => {
     return (
         <div>
             <div className="relative">
-                {rightTopImages.length > 0 ? (
-                    rightTopImages.map((rightTopImage, idx) => (
+                {rightBottomRImages.length > 0 ? (
+                    rightBottomRImages.map((rightBottomRImage, idx) => (
                         <div key={idx}>
                             <img
-                                src={rightTopImage.url}
+                                src={rightBottomRImage.url}
                                 alt={`slide ${idx + 1}`}
                                 className="w-full lg:min-h-[150px] max-h-[190px] h-[40vh] md:h-auto rounded-lg"
                             />
@@ -35,7 +35,7 @@ const RightSideTop = () => {
                 ) : (
                     <div>
                         <img
-                            src="https://placehold.co/620x190" // Placeholder image
+                            src="https://placehold.co/304x185" // Static placeholder image
                             alt="Default slide"
                             className="w-full lg:min-h-[150px] max-h-[190px] h-[40vh] md:h-auto rounded-lg"
                         />
@@ -58,9 +58,9 @@ const RightSideTop = () => {
             </div>
 
             {/* Modal */}
-            <RightSideModal isOpen={isModalOpen} onClose={closeModal} sendImages={rightTopImages} refetch={refetch} number={1} />
+            <RightSideModal isOpen={isModalOpen} onClose={closeModal} sendImages={rightBottomRImages} refetch={refetch} number={3} />
         </div>
     );
 };
 
-export default RightSideTop;
+export default RightBottomR;
