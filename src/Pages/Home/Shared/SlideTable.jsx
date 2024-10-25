@@ -11,7 +11,7 @@ import toast from "react-hot-toast";
 const SlideTable = ({ onClose }) => {
     const axiosPublic = useAxiosPublic();
     const { register, handleSubmit } = useForm();
-    const [sliderImages, refetch] = useSlideImage();
+    const [sliderImages, refetch, isLoading] = useSlideImage();
 
     const onSubmit = async (data) => {
         if (sliderImages.length >= 3) {
@@ -67,6 +67,8 @@ const SlideTable = ({ onClose }) => {
             }
         });
     };
+
+
 
     return (
         <div className="py-5">
@@ -127,15 +129,17 @@ const SlideTable = ({ onClose }) => {
                     <input
                         type="file"
                         {...register("image", { required: true })}
-                        className="file-input file-input-bordered w-full max-w-xl rounded-none py-1 px-3 my-1"
+                        className="file-input file-input-bordered rounded-md w-full max-w-xl  py-1 px-3 my-1"
                         disabled={sliderImages.length >= 3}
                     />
-                    <input
-                        type="submit"
-                        value="Add Slide"
-                        className={`bg-slate-500 hover:bg-slate-600 text-white py-2 px-4 w-full rounded focus:outline-none focus:bg-teal-400 transition duration-300 ease-in-out transform hover:scale-95 ${sliderImages.length >= 3 ? "opacity-50 cursor-not-allowed" : ""}`}
-                        disabled={sliderImages.length >= 3}
-                    />
+                    
+                            <input
+                                type="submit"
+                                value={isLoading ? "Loading..." : "Add Slide"}
+                                className={`cursor-pointer bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 w-full rounded focus:outline-none focus:bg-teal-400 transition duration-300 ease-in-out transform hover:scale-95 ${sliderImages.length >= 3 ? "opacity-50 cursor-not-allowed" : ""}`}
+                                disabled={sliderImages.length >= 3}
+                            />
+                     
                 </form>
             </div>
             <Tooltip id="my-tooltip" />

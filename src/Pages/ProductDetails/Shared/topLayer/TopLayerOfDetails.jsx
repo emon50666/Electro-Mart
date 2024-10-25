@@ -4,7 +4,7 @@ import useRoll from "../../../../Hooks/useRoll";
 const TopLayerOfDetails = ({ title, id }) => {
     const [role,] = useRoll();
     return (
-        <nav className="flex justify-between items-center px-4 lg:px-8 xl:px-20 bg-slate-300 py-3" id="product_details_top_layer">
+        <nav className="flex justify-between items-center px-4 lg:px-8 xl:px-20 bg-slate-200 py-3" id="product_details_top_layer">
             <ul className="flex gap-1 font-semibold font_open_sense">
                 <li>
                     <Link to="/">Home</Link> /

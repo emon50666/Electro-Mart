@@ -18,11 +18,11 @@ const ProductDetails = () => {
                 <title>Details | Elector Mart</title>
             </Helmet>
             {/* top layer of details */}
-            <div className="lg:mt-20">
+            <div className="">
                 <TopLayerOfDetails title={product?.title} id={product?._id} />
             </div>
             {/* main details section */}
-            <div className="container mx-auto">
+            <div className="">
                 <MainProductDetails product={product} />
             </div>
             {/* review and full description */}
