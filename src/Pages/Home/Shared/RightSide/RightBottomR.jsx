@@ -38,7 +38,7 @@ const RightBottomR = () => {
             </div>
 
             {/* Modal */}
-            <RightSideModal isOpen={isModalOpen} onClose={closeModal} number={1} />
+            <RightSideModal isOpen={isModalOpen} onClose={closeModal} number={2} />
         </div>
     );
 };
