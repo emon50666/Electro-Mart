@@ -6,32 +6,31 @@ import { Autoplay, Pagination, Navigation } from "swiper/modules";
 import { Link } from 'react-router-dom';
 // import useSlideImage from '../../../../Hooks/useSlideImage';
 
-const RightSideTop = () => {
+const RightBottomR = () => {
     // const [sliderImages] = useSlideImage();
     const sliderImages = [
         {
-        url: 'https://i.ibb.co.com/G5hjB8W/electro-mart.png',
-     title: 'None'    
-        
-      },
-      {
-        url: 'https://i.ibb.co.com/G5hjB8W/electro-mart.png',
-     title: 'None'    
-      },
-      {
-        url: 'https://i.ibb.co.com/G5hjB8W/electro-mart.png',
-     title: 'None'    
-      },
-      {
-        url: 'https://i.ibb.co.com/G5hjB8W/electro-mart.png',
-     title: 'None'    
-      },
-    
+            url: 'https://i.ibb.co.com/G5hjB8W/electro-mart.png',
+            title: 'None'
+
+        },
+        {
+            url: 'https://i.ibb.co.com/G5hjB8W/electro-mart.png',
+            title: 'None'
+        },
+        {
+            url: 'https://res.cloudinary.com/duv5fiurz/image/upload/v1729583922/jzz7ttoztbmo9un9ese0.jpg',
+            title: 'None'
+        },
+        {
+            url: 'https://i.ibb.co.com/G5hjB8W/electro-mart.png',
+            title: 'None'
+        },
+
     ]
 
-
     return (
-        <div>
+        <div className="max-w-full">
             <Swiper
                 slidesPerView={1}
                 spaceBetween={30}
@@ -43,15 +42,14 @@ const RightSideTop = () => {
                 modules={[Autoplay, Pagination, Navigation]}
                 className="mySwiper"
             >
-                {sliderImages.slice(0, 1).map((slide, idx) => (
+                {sliderImages.slice(1, 2).map((slide, idx) => (
                     <SwiperSlide key={idx}>
                         <div className="relative">
                             <img
                                 src={slide.url}
                                 alt={`slide ${idx + 1}`}
-                                className="w-full lg:min-h-[150px] max-h-[200px] h-[40vh] md:h-auto rounded-lg"
+                                className="w-full max-h-[190px] h-[40vh] md:h-auto rounded-lg"
                             />
-                            {/* Display the slide title and button centrally */}
                             <div className="absolute inset-0 flex flex-col items-start justify-center space-y-4 left-8">
                                 {slide.title !== "None" && <h2 className="text-lg font-semibold w-1/2 text-white bg-white/50 p-4 rounded-lg">
                                     {slide.title}
@@ -69,4 +67,4 @@ const RightSideTop = () => {
     );
 };
 
-export default RightSideTop;
+export default RightBottomR;

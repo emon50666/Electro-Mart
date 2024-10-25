@@ -28,17 +28,18 @@ const LeftSlide = () => {
                     delay: 3000,
                     disableOnInteraction: false,
                 }}
+                pagination={{ clickable: true }}
                 loop={true}
                 modules={[Autoplay, Pagination, Navigation]}
                 className="mySwiper"
             >
-                {sliderImages.slice(3, 7).map((slide, idx) => (
+                {sliderImages.map((slide, idx) => (
                     <SwiperSlide key={idx}>
                         <div className="relative">
                             <img
                                 src={slide.url}
                                 alt={`slide ${idx + 1}`}
-                                className="w-full lg:min-h-[400px] md:max-h-[300px] lg:max-h-[500px] h-[50vh] md:h-auto rounded-lg object-contain md:object-right lg:object-contain border border-gray-400"
+                                className="w-full lg:min-h-[400px] md:max-h-[300px] lg:max-h-[400px] h-[50vh] md:h-auto rounded-lg object-contain md:object-right lg:object-fill"
                             />
                             {/* Display the slide title and button centrally */}
                             <div className="absolute inset-0 flex flex-col items-start justify-center space-y-4 md:left-5 lg:left-8 px-1">

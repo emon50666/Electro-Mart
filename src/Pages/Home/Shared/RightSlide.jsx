@@ -1,4 +1,5 @@
 import RightBottomL from "./RightSide/RightBottomL";
+import RightBottomR from "./RightSide/RightBottomR";
 import RightSideTop from "./RightSide/RightSideTop";
 
 const RightSlide = () => {
@@ -8,8 +9,13 @@ const RightSlide = () => {
                 <RightSideTop />
             </div>
 
-            <div className="flex justify-between space-x-4 max-w-full">
-                <RightBottomL />
+            <div className="grid grid-cols-2 gap-3 max-w-full">
+                <div>
+                    <RightBottomL />
+                </div>
+                <div>
+                    <RightBottomR />
+                </div>
             </div>
         </div>
     );
