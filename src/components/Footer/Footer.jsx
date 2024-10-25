@@ -8,7 +8,7 @@ const Footer = () => {
         <div className="px-4 pt-16 md:px-4 lg:px-8 bg-[#222222]  font_inter">
             <div className="grid  row-gap-10 mb-8 grid-cols-1 md:grid-cols-6 md:text-sm  lg:grid-cols-6 xl:grid-cols-6">
                 <div className=" md:max-w-md  col-span-1 md:col-span-2 ">
-                    <h2 className="font-bold text-3xl text-gray-100 xl:text-5xl">Elector <span className="text-orange-500">Mart</span></h2>
+                    <h2 className="font-bold text-3xl text-gray-100 xl:text-5xl">Electro <span className="text-orange-500">Mart</span></h2>
                     <div className="pt-2  gap-2 items-center lg:max-w-md">
                         <p className="text-sm xl:text-lg text-[#B3B3B3]">
 
