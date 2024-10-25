@@ -20,7 +20,6 @@ const RightSideModal = ({ isOpen, onClose, number, sendImages, refetch }) => {
         return "/rightBottomR";
     };
 
-
     const onSubmit = async (data) => {
         const file = data.image?.[0];
         if (!file) {
@@ -34,10 +33,8 @@ const RightSideModal = ({ isOpen, onClose, number, sendImages, refetch }) => {
         formData.append('api_key', '211491792754595');
 
         try {
-            // Log form data for debugging
             console.log("Uploading to Cloudinary:", formData);
 
-            // Upload image to Cloudinary
             const res = await axios.post(
                 'https://api.cloudinary.com/v1_1/duv5fiurz/image/upload',
                 formData,
@@ -60,8 +57,6 @@ const RightSideModal = ({ isOpen, onClose, number, sendImages, refetch }) => {
         }
     };
 
-
-    // Handle deletion of a slide
     const handleDeleteSlide = (id) => {
         Swal.fire({
             title: "Are you sure?",
@@ -83,7 +78,11 @@ const RightSideModal = ({ isOpen, onClose, number, sendImages, refetch }) => {
         });
     };
 
-    console.log(sendImages);
+    const isDisabled = sendImages?.length === 1;
+    if (isDisabled) {
+        toast("Delete the previous image", { icon: '⚠️' });
+    }
+
     return (
         <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
             <div className="bg-white p-6 rounded-lg shadow-lg max-w-md w-full relative">
@@ -150,13 +149,15 @@ const RightSideModal = ({ isOpen, onClose, number, sendImages, refetch }) => {
                             </div>
                             <input
                                 type="file"
-                                {...register("image", { required: true })}
+                                {...register("image", { required: !isDisabled })}
                                 className="file-input file-input-bordered w-full max-w-xl rounded-none py-1 px-3 my-1"
+                                disabled={isDisabled}
                             />
                             <input
                                 type="submit"
                                 value="Add Slide"
                                 className="bg-slate-500 hover:bg-slate-600 text-white py-2 px-4 w-full rounded focus:outline-none focus:bg-teal-400 transition duration-300 ease-in-out transform hover:scale-95"
+                                disabled={isDisabled}
                             />
                         </form>
                     </div>
