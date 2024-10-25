@@ -94,6 +94,9 @@ const RightSideModal = ({ isOpen, onClose, number, sendImages, refetch }) => {
                 </button>
                 <div className="py-5">
                     <div className="max-h-[30vh] overflow-x-auto overflow-y-auto">
+                        {number == 1 && <p className="text-sm text-gray-600">image size should be 620x190</p>}
+                        {number == 2 && <p className="text-sm text-gray-600">image size should be 304x185</p>}
+                        {number == 3 && <p className="text-sm text-gray-600">image size should be 304x185</p>}
                         <table className="table">
                             <thead>
                                 <tr>
