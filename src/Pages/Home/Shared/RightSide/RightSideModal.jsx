@@ -3,17 +3,65 @@ import { FaDeleteLeft } from 'react-icons/fa6';
 import Swal from 'sweetalert2';
 import useAxiosPublic from '../../../../Hooks/useAxiosPublic';
 import { Tooltip } from 'react-tooltip';
-import { useForm } from 'react-hook-form'; // Add react-hook-form for form handling
+import { useForm } from 'react-hook-form';
+import axios from 'axios';
+import toast from 'react-hot-toast';
 
-const RightSideModal = ({ isOpen, onClose, number }) => {
+const RightSideModal = ({ isOpen, onClose, number, sendImages, refetch }) => {
     const axiosPublic = useAxiosPublic();
-    const { register, handleSubmit } = useForm(); // Destructure register and handleSubmit from useForm
+    const { register, handleSubmit } = useForm();
 
     if (!isOpen) return null;
+
     console.log(number);
+    const getEndpoint = () => {
+        if (number === 1) return "/rightTop";
+        if (number === 2) return "/rightBottomL";
+        return "/rightBottomR";
+    };
 
-    const slide = { url: "" };
 
+    const onSubmit = async (data) => {
+        const file = data.image?.[0];
+        if (!file) {
+            Swal.fire("Error", "Please select an image.", "error");
+            return;
+        }
+
+        const formData = new FormData();
+        formData.append('file', file);
+        formData.append('upload_preset', 'elector_mart_key');
+        formData.append('api_key', '211491792754595');
+
+        try {
+            // Log form data for debugging
+            console.log("Uploading to Cloudinary:", formData);
+
+            // Upload image to Cloudinary
+            const res = await axios.post(
+                'https://api.cloudinary.com/v1_1/duv5fiurz/image/upload',
+                formData,
+                { headers: { 'X-Requested-With': 'XMLHttpRequest' } }
+            );
+
+            const url = res.data.secure_url;
+            const bannerInfo = { title: data.title || "None", url };
+
+            console.log(getEndpoint);
+            const response = await axiosPublic.post(getEndpoint(), bannerInfo);
+            if (response.data.insertedId) {
+                toast.success("Slider Added");
+                refetch();
+                onClose();
+            }
+        } catch (error) {
+            console.error("Error uploading the image:", error);
+            Swal.fire("Error", "Failed to add the slider. Please try again.", "error");
+        }
+    };
+
+
+    // Handle deletion of a slide
     const handleDeleteSlide = (id) => {
         Swal.fire({
             title: "Are you sure?",
@@ -25,20 +73,17 @@ const RightSideModal = ({ isOpen, onClose, number }) => {
             confirmButtonText: "Yes, delete it!",
         }).then((result) => {
             if (result.isConfirmed) {
-                axiosPublic.delete(`/banners/${id}`).then((res) => {
+                axiosPublic.delete(`${getEndpoint()}/${id}`).then((res) => {
                     if (res.data.deletedCount) {
-                        // refetch();
+                        toast.success("Slider Deleted");
+                        refetch();
                     }
                 });
             }
         });
     };
 
-    const onSubmit = (data) => {
-        console.log(data); // Process form submission here
-        // You may want to add the slide to your backend or perform further actions
-    };
-
+    console.log(sendImages);
     return (
         <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
             <div className="bg-white p-6 rounded-lg shadow-lg max-w-md w-full relative">
@@ -48,45 +93,46 @@ const RightSideModal = ({ isOpen, onClose, number }) => {
                 >
                     ✕
                 </button>
-
                 <div className="py-5">
                     <div className="max-h-[30vh] overflow-x-auto overflow-y-auto">
                         <table className="table">
                             <thead>
                                 <tr>
-                                    <th></th>
+                                    <th>#</th>
                                     <th>Img</th>
                                     <th>Name</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>{1}</td>
-                                    <td>
-                                        <div className="flex items-center gap-3">
-                                            <div className="avatar">
-                                                <div className="mask h-12 w-12">
-                                                    <img
-                                                        src={slide.url}
-                                                        alt="Slider"
-                                                    />
+                                {sendImages?.map((slide, index) => (
+                                    <tr key={slide._id || index}>
+                                        <td>{index + 1}</td>
+                                        <td>
+                                            <div className="flex items-center gap-3">
+                                                <div className="avatar">
+                                                    <div className="mask h-12 w-12">
+                                                        <img
+                                                            src={slide.url}
+                                                            alt="Slider"
+                                                        />
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                    </td>
-                                    <td>{slide.title || "Picture"}</td>
-                                    <td>
-                                        <button
-                                            onClick={() => handleDeleteSlide(slide._id)}
-                                            className="btn text-lg md:text-xl hover:bg-red-700 hover:text-white"
-                                            data-tooltip-id="my-tooltip"
-                                            data-tooltip-content="Delete"
-                                        >
-                                            <FaDeleteLeft />
-                                        </button>
-                                    </td>
-                                </tr>
+                                        </td>
+                                        <td>{slide.title || "Picture"}</td>
+                                        <td>
+                                            <button
+                                                onClick={() => handleDeleteSlide(slide._id)}
+                                                className="btn text-lg md:text-xl hover:bg-red-700 hover:text-white"
+                                                data-tooltip-id="my-tooltip"
+                                                data-tooltip-content="Delete"
+                                            >
+                                                <FaDeleteLeft />
+                                            </button>
+                                        </td>
+                                    </tr>
+                                ))}
                             </tbody>
                         </table>
                     </div>
@@ -125,6 +171,8 @@ RightSideModal.propTypes = {
     number: PropTypes.number,
     onClose: PropTypes.func.isRequired,
     isOpen: PropTypes.bool.isRequired,
+    sendImages: PropTypes.array,
+    refetch: PropTypes.func,
 };
 
 export default RightSideModal;

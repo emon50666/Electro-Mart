@@ -3,11 +3,12 @@ import { MdModeEdit } from "react-icons/md";
 import { Link } from 'react-router-dom';
 import useRoll from '../../../../Hooks/useRoll';
 import RightSideModal from './RightSideModal';
+import useRightSideImages from "../../../../Hooks/useRightSideImages";
 
 const RightBottomR = () => {
     const [role] = useRoll();
     const [isModalOpen, setIsModalOpen] = useState(false);
-    const slide = { url: "" };
+    const { rightImages } = useRightSideImages(3)
 
     const openModal = () => setIsModalOpen(true);
     const closeModal = () => setIsModalOpen(false);
@@ -16,7 +17,7 @@ const RightBottomR = () => {
         <div>
             <div className="relative">
                 <img
-                    src={slide.url || "https://res.cloudinary.com/duv5fiurz/image/upload/v1729834654/41f528d4-756d-4f7b-a1c6-3da74cfe26fb_midfym.jpg"}
+                    src={rightImages?.url || "https://res.cloudinary.com/duv5fiurz/image/upload/v1729834654/41f528d4-756d-4f7b-a1c6-3da74cfe26fb_midfym.jpg"}
                     alt="slide 1"
                     className="w-full lg:min-h-[150px] max-h-[190px] h-[40vh] md:h-auto rounded-lg"
                 />
@@ -38,7 +39,7 @@ const RightBottomR = () => {
             </div>
 
             {/* Modal */}
-            <RightSideModal isOpen={isModalOpen} onClose={closeModal} number={2} />
+            <RightSideModal isOpen={isModalOpen} onClose={closeModal} number={3} />
         </div>
     );
 };
