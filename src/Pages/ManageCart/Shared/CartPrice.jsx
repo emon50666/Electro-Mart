@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import PropTypes from 'prop-types';
 import { FaBangladeshiTakaSign } from "react-icons/fa6";
+import { Link } from 'react-router-dom';
 
 const CartPrice = ({ productTotal }) => {
     const [shippingCost, setShippingCost] = useState(150);
@@ -22,7 +23,7 @@ const CartPrice = ({ productTotal }) => {
             {/* Subtotal */}
             <div className='flex justify-between items-center mt-5 border-b border-slate-300 pb-2'>
                 <h4 className="font-semibold text-lg">Subtotal</h4>
-                <p className='flex items-center gap-1 text-lg text-gray-400'>
+                <p className='flex items-center gap-1 text-lg text-gray-700'>
                     <FaBangladeshiTakaSign />
                     {productTotal}
                 </p>
@@ -88,13 +89,16 @@ const CartPrice = ({ productTotal }) => {
 
             {/* Proceed to Checkout Button */}
             <div className="mt-6">
-                <button
+               <Link to={'/checkout-page'}>
+               <button
                     onClick={() => console.log("Proceeding to Checkout")}
                     className={`w-full bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition duration-300 ${isSubtotalZero ? 'opacity-50 cursor-not-allowed' : ''}`}
                     disabled={isSubtotalZero} // Disable button if subtotal is 0
                 >
+              
                     Proceed to Checkout
                 </button>
+                </Link>
             </div>
         </div>
     );

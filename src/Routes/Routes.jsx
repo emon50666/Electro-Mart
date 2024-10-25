@@ -27,7 +27,7 @@ import DashBoardProfile from "../components/DashBoard/DashBoardProfile/DashBoard
 import Promotion from "../Pages/Promotion/Promotion";
 import PromotionDetails from "../Pages/Promotion/PromotionDetails";
 import Checkout from "../components/Checkout";
-
+import CheckoutPage from "../Pages/Checkout/CheckoutPage";
 
 
 
@@ -83,7 +83,12 @@ const router = createBrowserRouter([
     {
       path: '/checkout',
       element: <Checkout/>
-    }
+    },
+    {
+      path: '/checkout-page',
+      element: <CheckoutPage/>
+    },
+    
     ],
 
   },

@@ -26,9 +26,10 @@ const RightSideTop = () => {
                             />
 
                             <div className="absolute inset-0 flex flex-col items-start justify-center space-y-4 md:left-5 lg:left-8 px-1">
-                                <Link to="/" className="bg-blue-500 text-white py-2 px-4 rounded-lg shadow-lg hover:bg-blue-600 transition">
+                                 
+                                {/* <Link to="/" className="bg-blue-500 text-white py-2 px-4 rounded-lg shadow-lg hover:bg-blue-600 transition">
                                     Shop Now
-                                </Link>
+                                </Link> */}
                             </div>
                         </div>
                     ))
