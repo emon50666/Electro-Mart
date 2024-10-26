@@ -6,7 +6,7 @@ import ManageCartLink from '../../components/ManageCartLink/ManageCartLink';
 import { Link } from 'react-router-dom';
 
 const CheckoutPage = () => {
-    const { locations } = useLocation(); // Contains division and district data
+    const { locations } = useLocation(); 
     const axiosPublic = useAxiosPublic();
 
     const [selectedState, setSelectedState] = useState(""); // Selected division
