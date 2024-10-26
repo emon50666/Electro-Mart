@@ -4,7 +4,7 @@ import RightSideTop from "./RightSide/RightSideTop";
 
 const RightSlide = () => {
     return (
-        <div className="max-w-full max-h-[450px] space-y-3 px-5">
+        <div className="max-w-full max-h-[450px] space-y-3">
             <div>
                 <RightSideTop />
             </div>

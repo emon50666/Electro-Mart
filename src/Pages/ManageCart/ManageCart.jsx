@@ -6,7 +6,7 @@ import CartPrice from "./Shared/CartPrice";
 const ManageCart = () => {
     const [totalPrice, setTotalPrice] = useState(0);
     return (
-        <div className="lg:pt-20 pb-4 sm:px-6" id="cartLink">
+        <div className=" pb-4 sm:px-6" id="cartLink">
             <ManageCartLink />
             <div className="lg:flex">
                 {/* table of cart product */}
