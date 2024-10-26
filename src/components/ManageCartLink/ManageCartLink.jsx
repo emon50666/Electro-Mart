@@ -12,7 +12,7 @@ const ManageCartLink = () => {
                 </li>
                 <BsArrowRight />
                 <li>
-                    <NavLink to="/">
+                    <NavLink to="/checkout-page">
                         Checkout
                     </NavLink>
                 </li>

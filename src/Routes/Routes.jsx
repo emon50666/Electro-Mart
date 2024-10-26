@@ -26,8 +26,9 @@ import PromotionControl from "../components/DashBoard/PromotionControl/Promotion
 import DashBoardProfile from "../components/DashBoard/DashBoardProfile/DashBoardProfile";
 import Promotion from "../Pages/Promotion/Promotion";
 import PromotionDetails from "../Pages/Promotion/PromotionDetails";
-import Checkout from "../components/Checkout";
+
 import CheckoutPage from "../Pages/Checkout/CheckoutPage";
+import Thanks from "../Pages/ThankYouPage/Thanks";
 
 
 
@@ -80,13 +81,14 @@ const router = createBrowserRouter([
         element: <PrivateRoute><ManageCart /></PrivateRoute>
 
       },
-    {
-      path: '/checkout',
-      element: <Checkout/>
-    },
+   
     {
       path: '/checkout-page',
       element: <CheckoutPage/>
+    },
+    {
+      path: '/greeting',
+      element: <Thanks/>
     },
     
     ],
