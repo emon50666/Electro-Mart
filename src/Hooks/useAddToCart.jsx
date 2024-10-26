@@ -21,7 +21,7 @@ const useAddToCart = () => {
         const cartProductInfo = {
             mainProductId: product._id,
             selectedQuantity: quantity,
-            subtotal,
+            subtotal: parseInt(subtotal),
             adderMail: user?.email,
         };
         axiosPublic.post("/carts", cartProductInfo)
