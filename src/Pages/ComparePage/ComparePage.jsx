@@ -7,7 +7,7 @@ const ComparePage = () => {
     const { theUserCompares } = useCompare();
 
     return (
-        <div className="space-y-10 mb-12 mt-20">
+        <div className="space-y-10 mb-12">
             <Helmet>
                 <title>Compare | Elector Mart</title>
             </Helmet>

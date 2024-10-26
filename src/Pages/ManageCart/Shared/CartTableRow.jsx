@@ -34,16 +34,44 @@ const CartTableRow = ({ item, refetchCart, setTotal }) => {
             return;
         } else {
             const increasedCount = quantityCount + 1;
+            const subtotal = calculateSubtotal(product?.price, increasedCount);
             setQuantityCount(increasedCount);
+
+            // Update quantity and subtotal in the database
+            axiosPublic.put(`/cart/${item._id}`, { selectedQuantity: increasedCount, subtotal: parseInt(subtotal) })
+                .then(() => {
+                    handleQuantityUpdate(product, { ...item, selectedQuantity: increasedCount });
+                    refetchCart();
+                })
+                .catch((error) => {
+                    console.error("Failed to update quantity and subtotal:", error);
+                    toast.error("Failed to update quantity and subtotal in the database!");
+                });
         }
     };
+
     const decreaseCount = () => {
         if (quantityCount > 1) {
             const decreasedCount = quantityCount - 1;
+            const subtotal = calculateSubtotal(product?.price, decreasedCount);
             setQuantityCount(decreasedCount);
             setDisableBtn(false);
+
+            // Update quantity and subtotal in the database
+            axiosPublic.put(`/cart/${item._id}`, { selectedQuantity: decreasedCount, subtotal: parseInt(subtotal)})
+                .then(() => {
+                    handleQuantityUpdate(product, { ...item, selectedQuantity: decreasedCount });
+                    refetchCart();
+                })
+                .catch((error) => {
+                    console.error("Failed to update quantity and subtotal:", error);
+                    toast.error("Failed to update quantity and subtotal in the database!");
+                });
         }
     };
+
+    // Helper function for subtotal
+    const calculateSubtotal = (price, quantity) => (price * quantity).toFixed(2);
 
 
     const handleDeleteCart = (id) => {
@@ -79,8 +107,6 @@ const CartTableRow = ({ item, refetchCart, setTotal }) => {
             }
         });
     };
-
-    const calculateSubtotal = (price, quantity) => (price * quantity).toFixed(2);
 
     return (
         <tr className="border-b">
