@@ -22,22 +22,16 @@ import ReactHtmlParser from 'react-html-parser';
 import useReview from "../../../../Hooks/useReview";
 
 const OtherProductDetails = ({ product,  }) => {
-
     const { reviews } = useReview();
-
     const allReview = reviews.filter(review => review?.mainId === product?._id)
-
     // Calculate average rating
     const calculateAverageRating = (products) => {
         const totalRating = products.reduce((sum, product) => sum + product.rating, 0);
         const averageRating = totalRating / products.length;
         return averageRating.toFixed(2); // Round to 2 decimal places
     };
-
-    // Usage
     const averageRating = calculateAverageRating(allReview);
     console.log(averageRating);
-
     const axiosPublic = useAxiosPublic();
     const { refetch } = useProduct();
     const handleAddCart = useAddToCart();
