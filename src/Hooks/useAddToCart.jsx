@@ -28,7 +28,7 @@ const useAddToCart = () => {
             .then(res => {
                 if (res.data.insertedId) {
                     toast.success("Added to cart");
-                    refetch(); // Refetch the cart to update with new item
+                    refetch();
                 }
             })
             .catch(err => {
