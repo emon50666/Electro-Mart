@@ -5,6 +5,7 @@ import useRoll from "../../../../Hooks/useRoll";
 const TopLayerOfDetails = ({ title, id }) => {
     const [role] = useRoll();
     return (
+
         <nav className="flex flex-col md:flex-row justify-between items-start md:items-center px-4 lg:px-8 xl:px-20 bg-slate-300 py-3" id="product_details_top_layer">
             <ul className="flex flex-col md:flex-row gap-1 font-semibold font_open_sense items-center text-[10px] md:text-base lg:text-[15px] text-gray-900">
                 <li className="items-center flex">

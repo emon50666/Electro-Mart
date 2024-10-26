@@ -37,20 +37,22 @@ const LeftSlide = () => {
                     sliderImages.map((slide, idx) => (
                         <SwiperSlide key={idx}>
                             <div className="relative">
-                                <img
+                               <Link to={'#'}>
+                               <img
                                     src={slide.url}
                                     alt={`slide ${idx + 1}`}
-                                    className="w-full lg:min-h-[400px] md:max-h-[300px] lg:max-h-[400px] h-[50vh] md:h-auto rounded-lg object-contain md:object-right lg:object-fill"
+                                    className="w-full cursor-pointer lg:min-h-[300px] md:max-h-[300px] lg:max-h-[365px] h-[50vh] md:h-auto rounded-lg object-contain md:object-right lg:object-fill"
                                 />
+                               </Link>
                                 <div className="absolute inset-0 flex flex-col items-start justify-center space-y-4 md:left-5 lg:left-8 px-1">
                                     {slide.title !== "None" && (
                                         <h2 className="text-sm md:text-base md:font-medium lg:text-lg lg:font-semibold lg:w-1/2 text-white bg-black/50 p-4 rounded-lg">
                                             {slide.title}
                                         </h2>
                                     )}
-                                    <Link to="/" className="bg-blue-500 text-white py-2 px-4 rounded-lg shadow-lg hover:bg-blue-600 transition">
+                                    {/* <Link to="/" className="bg-blue-500 text-white py-2 px-4 rounded-lg shadow-lg hover:bg-blue-600 transition">
                                         Shop Now
-                                    </Link>
+                                    </Link> */}
                                 </div>
                                 {role === "admin" && (
                                     <span
@@ -69,15 +71,13 @@ const LeftSlide = () => {
                             <img
                                 src="https://placehold.co/620x400" // Static placeholder image
                                 alt="default slide"
-                                className="w-full lg:min-h-[400px] md:max-h-[300px] lg:max-h-[400px] h-[50vh] md:h-auto rounded-lg object-contain md:object-right lg:object-fill"
+                                className="w-full lg:min-h-[300px] md:max-h-[300px] lg:max-h-[351px] h-[50vh] md:h-auto rounded-lg object-contain md:object-right lg:object-fill"
                             />
-                            <div className="absolute inset-0 flex flex-col items-start justify-center space-y-4 md:left-5 lg:left-8 px-1">
+                            <div className=" inset-0 flex flex-col items-start justify-center space-y-4 md:left-5 lg:left-8 px-1">
                                 <h2 className="text-sm md:text-base md:font-medium lg:text-lg lg:font-semibold lg:w-1/2 text-white bg-black/50 p-4 rounded-lg">
                                     Default Slide
                                 </h2>
-                                <Link to="/" className="bg-blue-500 text-white py-2 px-4 rounded-lg shadow-lg hover:bg-blue-600 transition">
-                                    Shop Now
-                                </Link>
+                                
                             </div>
                             {role === "admin" && (
                                 <span

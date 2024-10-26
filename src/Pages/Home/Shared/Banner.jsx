@@ -7,7 +7,7 @@ import { Pagination } from 'swiper/modules';
 
 const Banner = () => {
   return (
-    <div className=" mx-auto bg-[#F6F6F6] p-4  grid grid-cols-1 lg:grid-cols-2 gap-6">
+    <div className=" mx-auto bg-[#F6F6F6] px-2 py-1 grid grid-cols-1 lg:grid-cols-2 gap-6">
       {/* Left Side: Swiper Slider */}
       <div className="swiper-container">
         <Swiper
@@ -22,7 +22,7 @@ const Banner = () => {
               className="bg-cover bg-center flex items-center h-full"
               style={{ backgroundImage: "url('https://i.ibb.co.com/G5hjB8W/electro-mart.png')" }}
             >
-              {/* <div className="px-4 text-white">
+              <div className="px-4 text-white">
                 <h2 className="text-3xl lg:text-2xl font-bold mb-4">Apple Shopping Event</h2>
                 <p className="text-lg mb-6">
                   Shop great deals on MacBook, iPad, iPhone, and more.
@@ -30,7 +30,7 @@ const Banner = () => {
                 <button className="bg-blue-500 hover:bg-blue-600 text-white py-2 px-6 rounded-lg">
                   Shop Now
                 </button>
-              </div> */}
+              </div>
             </div>
           </SwiperSlide>
           <SwiperSlide>

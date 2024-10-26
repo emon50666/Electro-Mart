@@ -22,7 +22,7 @@ const ProductDetails = () => {
                 <TopLayerOfDetails title={product?.title} id={product?._id} />
             </div>
             {/* main details section */}
-            <div className="container mx-auto">
+            <div className="">
                 <MainProductDetails product={product} />
             </div>
             {/* review and full description */}
