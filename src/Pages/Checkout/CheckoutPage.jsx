@@ -18,6 +18,10 @@ const CheckoutPage = () => {
     const [selectedDistrict, setSelectedDistrict] = useState(""); // Selected district
     const [cities, setCities] = useState([]); // Cities of the selected district
     const userSubtotal = parseInt(theUser?.userSubtotal)
+    const [getProductId, setGetProductId] = useState();
+    console.log(getProductId);
+
+
     // Update districts when a division is selected
     useEffect(() => {
         if (selectedState) {
@@ -198,7 +202,7 @@ const CheckoutPage = () => {
                                 <span>Subtotal</span>
                             </div>
                             <div className="">
-                                {theUserCarts.map((cart, idx) => <CheckoutTable key={idx} cart={cart} />)}
+                                {theUserCarts.map((cart, idx) => <CheckoutTable key={idx} cart={cart} setGetProductId={setGetProductId} />)}
                             </div>
                             <div className="flex justify-between">
                                 <span>Subtotal:</span>
