@@ -258,7 +258,7 @@ const CheckoutPage = () => {
                                 <span>Product</span>
                                 <span>Subtotal</span>
                             </div>
-                            <div className="">
+                            <div id='checkoutId' className="overflow-y-auto max-h-36">
                                 {theUserCarts.map((cart, idx) => <CheckoutTable key={idx} cart={cart} setGetProductId={setGetProductId} />)}
                             </div>
                             <div className="flex justify-between">
@@ -298,7 +298,7 @@ const CheckoutPage = () => {
 
 
                             <button type="submit" className="w-full bg-blue-500 text-white py-3 rounded-md mt-4">
-                                Place Order {totalAmount} ৳ 
+                                Place Order {totalAmount} ৳
                             </button>
 
                         </div>
