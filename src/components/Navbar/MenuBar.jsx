@@ -23,7 +23,7 @@ const MenuBar = () => {
   if (isLoading) return <Loader />;
   return (
 
-    <div className="navbar hidden lg:flex  fixed z-10  bg-[#030c35]  sm:hidden md:hidden ">
+    <div className="navbar hidden lg:flex   bg-[#030c35]  sm:hidden md:hidden ">
 
     <div className="navbar hidden lg:flex  overflow-y-auto text-white sm:hidden md:hidden ">
 
