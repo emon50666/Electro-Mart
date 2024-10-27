@@ -47,6 +47,7 @@ const FilterSection = ({ onFilterChange, filters }) => {
                     ))}
                 </select>
             </div>
+          
 
             <div className="filter-option">
                 <label>Brand</label>
@@ -58,17 +59,6 @@ const FilterSection = ({ onFilterChange, filters }) => {
                         </option>
                     ))}
                 </select>
-            </div>
-
-            <div className="filter-option">
-                <label>Price Range</label>
-                <input 
-                    type="range" 
-                    min="0" 
-                    max="1000" 
-                    
-                />
-                <span>$0 - $10000</span>
             </div>
 
           

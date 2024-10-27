@@ -1,8 +1,9 @@
 /* Basic grid setup for the filter and product list */
 .grid-filter-column {
   display: grid;
-  grid-template-columns: 0.2fr 1fr;
-  gap: 1rem;
+  grid-template-columns: 0.3fr 1fr;
+  
+  gap: 2rem;
 }
 
 /* Container styling */

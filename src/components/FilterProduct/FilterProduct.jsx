@@ -4,6 +4,8 @@ import './FilterProduct.css';
 import useProduct from "../../Hooks/useProduct";
 import { useState } from "react";
 import Loader from "../Loader/Loader";
+import { useLocation } from "react-router-dom";
+import { useEffect } from "react";
 
 const FilterProduct = () => {
   const { products, isLoading, refetch } = useProduct(); 
@@ -12,6 +14,17 @@ const FilterProduct = () => {
       selectedBrand: "all",    
       
   });
+
+  const location = useLocation();
+
+  useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    const category = params.get("category") || "all";
+    setFilters((prevFilters) => ({
+      ...prevFilters,
+      selectedCategory: category,
+    }));
+  }, [location]);
 
   const handleFilterChange = (newFilters) => {
       setFilters(newFilters); 
@@ -39,7 +52,7 @@ const FilterProduct = () => {
 
   return (
       <div>
-          <div className="container grid grid-filter-column px-8 py-16 gap-10">
+          <div className="container grid grid-filter-column  px-8 py-16 gap-10 my-10">
               <div>
                   <FilterSection onFilterChange={handleFilterChange} filters={filters} />
               </div>

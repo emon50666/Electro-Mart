@@ -2,16 +2,24 @@ import { useState } from "react";
 import { FaTimes } from "react-icons/fa";
 import { IoIosArrowUp } from "react-icons/io";
 
-import useCategories from "../../Hooks/useCategories";
+
 import Loader from "../Loader/Loader";
+import useCategory from "../../Hooks/useCategory";
+import { Link } from "react-router-dom";
 const MenuBar = () => {
-  const { categories,isLoading } = useCategories();
+  const { category:categories,isLoading } = useCategory();
   const [isOpen, setIsOpen] = useState(false);
+  const [selectedCategory, setSelectedCategory] = useState(""); 
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
 
+  const handleCategoryClick = (cat) => {
+    setSelectedCategory(cat); // Update selected category state
+    
+  };
+  
   if (isLoading) return <Loader />;
   return (
 
@@ -45,16 +53,20 @@ const MenuBar = () => {
           </div>
 
           {/* Menu Items */}
-          <ul className="menu menu-vertical space-y-2 mt-5 pt-16 ">
+          <ul className="menu-vertical space-y-2 mt-5 pt-16 ">
           {categories.map((cat, idx) =>
-            cat?.newCategory && (
-              <li key={idx}>
-                <a className="text-md font-medium  text-black   px-2 py-1 hover:bg-white hover:text-orange-500 ">
-                  {cat?.newCategory}
-                </a>
-              </li>
-            )
-          )}
+              cat && (
+                <li key={idx}>
+                  <Link
+                    to={`/shop-page?category=${cat}`} 
+                    className={`text-md font-medium  text-black   px-2 py-1 hover:bg-white hover:text-orange-300 ${selectedCategory === cat ? "text-orange-600" : "text-black"}`}
+                    onClick={() => handleCategoryClick(cat)}
+                  >
+                    {cat}
+                  </Link>
+                </li>
+              )
+            )}
 
         </ul>
         </div>
@@ -69,18 +81,21 @@ const MenuBar = () => {
 </div>
 
       <div>
-        <ul className="menu menu-horizontal px-1 space-x-2">
-          {categories.map((cat, idx) =>
-            cat?.newCategory && (
-              <li key={idx}>
-                <a className="text-md font-medium hover:bg-[black]/80 text-gray-300  rounded-md hover:border-b-2 hover:rounded-none px-2 py-0 hover:-mb-[2px] transition-transform">
-                  {cat?.newCategory}
-                </a>
-              </li>
-            )
-          )}
-
-        </ul>
+      <ul className=" menu-horizontal px-1 space-x-2">
+            {categories.map((cat, idx) =>
+              cat && (
+                <li key={idx}>
+                  <Link
+                    to={`/shop-page?category=${cat}`} 
+                    className={`text-md font-medium hover:bg-[black]/80 text-gray-300 rounded-md hover:border-b-2 hover:rounded-none px-2 py-0 hover:-mb-[2px] transition-transform ${selectedCategory === cat ? "text-orange-600" : "text-gray-300"}`}
+                    onClick={() => handleCategoryClick(cat)}
+                  >
+                    {cat}
+                  </Link>
+                </li>
+              )
+            )}
+          </ul>
       </div>
 
 
