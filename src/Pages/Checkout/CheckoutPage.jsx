@@ -6,10 +6,12 @@ import ManageCartLink from '../../components/ManageCartLink/ManageCartLink';
 import { Link } from 'react-router-dom';
 import useCart from '../../Hooks/useCart';
 import CheckoutTable from './Shared/CheckoutTable';
+import useUsers from '../../Hooks/useUsers';
 
 const CheckoutPage = () => {
     const { locations } = useLocation();
     const axiosPublic = useAxiosPublic();
+    const { theUser } = useUsers();
     const { theUserCarts } = useCart();
     const [selectedState, setSelectedState] = useState(""); // Selected division
     const [districts, setDistricts] = useState([]); // Districts of the selected division
@@ -197,11 +199,11 @@ const CheckoutPage = () => {
                             <div className="">
                                 {theUserCarts.map((cart, idx) => <CheckoutTable key={idx} cart={cart} />)}
                             </div>
-                            <hr />
                             <div className="flex justify-between">
                                 <span>Subtotal</span>
-                                <span>550.00৳</span>
+                                <span>{theUser?.userSubtotal}</span>
                             </div>
+                            <hr />
                             <div>
                                 <label className="block font-medium mb-1">Shipping</label>
                                 <div className="space-y-2">

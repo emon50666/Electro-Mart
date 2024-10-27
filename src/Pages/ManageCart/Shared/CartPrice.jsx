@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import useUsers from "../../../Hooks/useUsers";
 import useAxiosPublic from "../../../Hooks/useAxiosPublic";
-import toast from "react-hot-toast";
 
 const CartPrice = ({ productTotal }) => {
     const axiosPublic = useAxiosPublic();
@@ -40,15 +39,15 @@ const CartPrice = ({ productTotal }) => {
 
             {/* Proceed to Checkout Button */}
             <div className="mt-6">
-                {/* <Link to={'/checkout-page'}> */}
-                <button
-                    onClick={() => handleUserSubtotal(theUser?.email)}
-                    className={`w-full bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition duration-300 ${isSubtotalZero ? 'opacity-50 cursor-not-allowed' : ''}`}
-                    disabled={isSubtotalZero}
-                >
-                    Proceed to Checkout
-                </button>
-                {/* </Link> */}
+                <Link to={'/checkout-page'}>
+                    <button
+                        onClick={() => handleUserSubtotal(theUser?.email)}
+                        className={`w-full bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition duration-300 ${isSubtotalZero ? 'opacity-50 cursor-not-allowed' : ''}`}
+                        disabled={isSubtotalZero}
+                    >
+                        Proceed to Checkout
+                    </button>
+                </Link>
             </div>
         </div>
     );
