@@ -52,7 +52,7 @@ const FilterProduct = () => {
 
   return (
       <div>
-          <div className="container grid grid-filter-column  px-8 py-16 gap-10 my-10">
+          <div className="container grid grid-filter-column  px-8 py-16 gap-10 ">
               <div>
                   <FilterSection onFilterChange={handleFilterChange} filters={filters} />
               </div>
