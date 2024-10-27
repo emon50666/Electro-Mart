@@ -57,17 +57,17 @@ const ManageProductTable = () => {
                                 </td>
                                 <td className="text-xs md:text-lg">
                                     <span className="w-36 md:w-52 text-sm xl:w-auto block">
-                                        {product.title.slice(0, 45) + '...'}
+                                        {product?.title?.slice(0, 45) + '...'}
                                     </span>
                                 </td>
                                 <td className="text-center md:text-lg text-blue-500">
                                     <span className="flex items-center justify-center gap-1">
-                                        <FaBangladeshiTakaSign /> <p>{product.price}</p>
+                                        <FaBangladeshiTakaSign /> <p>{product?.price}</p>
                                     </span>
                                 </td>
                                 <td className="text-center text-xs md:text-lg">
                                     <Link
-                                        to={`/productDetails/${product._id}`}
+                                        to={`/productDetails/${product?._id}`}
                                         className="btn bg-teal-400 hover:bg-teal-500 text-white text-sm md:text-lg"
                                     >
                                         <BsEye />
@@ -75,7 +75,7 @@ const ManageProductTable = () => {
                                 </td>
                                 <td className="text-center text-xs md:text-md space-y-2">
                                     <button
-                                        onClick={() => handleDeleteProduct(product._id)}
+                                        onClick={() => handleDeleteProduct(product?._id)}
                                         className="btn bg-[#B91C1C] hover:bg-red-600 text-white text-sm md:text-2xl"
                                     >
                                         <MdDeleteForever />
@@ -83,7 +83,7 @@ const ManageProductTable = () => {
                                 </td>
                                 <td className="text-center">
                                     <Link
-                                        to={`/dashboard/updateProduct/${product._id}`}
+                                        to={`/dashboard/updateProduct/${product?._id}`}
                                         className="btn bg-blue-500 hover:bg-blue-600 text-white text-sm md:text-2xl"
                                     >
                                         <FaPencil />

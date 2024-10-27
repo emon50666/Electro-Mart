@@ -7,13 +7,30 @@ import useCart from '../../Hooks/useCart';
 import { Link } from 'react-router-dom';
 import { FaBangladeshiTakaSign } from 'react-icons/fa6';
 import useIncreaseUpdateQuantity from '../../Hooks/useIncreaseUpdateQuantity';
+import useUsers from '../../Hooks/useUsers';
 
 const CardOfCart = ({ cart }) => {
     const axiosPublic = useAxiosPublic();
+    const { theUser } = useUsers();
     const { refetch } = useCart();
     const { products } = useProduct();
     const handleQuantityUpdate = useIncreaseUpdateQuantity();
     const product = products.find((pack) => pack?._id == cart?.mainProductId);
+
+    const handleUserSubtotal = (mail) => {
+        const subPrice = parseInt(cart?.selectedQuantity) * parseInt(product?.price)
+        const newSubTotal = parseInt(theUser?.userSubtotal) - subPrice
+        const subtotalInfo = { subtotal: parseInt(newSubTotal) };
+        axiosPublic.patch(`/users/${mail}`, subtotalInfo)
+            .then(res => {
+                if (res.data.modifiedCount) {
+                    refetch()
+                }
+            })
+            .catch(err => {
+                console.log(`err=> ${err}`);
+            })
+    }
 
 
     const handleDeleteCart = (id) => {
@@ -31,6 +48,7 @@ const CardOfCart = ({ cart }) => {
                     .then((res) => {
                         if (res.data.deletedCount) {
                             handleQuantityUpdate(product, cart, refetch);
+                            handleUserSubtotal(theUser?.email);
                             refetch();
                         }
                     })

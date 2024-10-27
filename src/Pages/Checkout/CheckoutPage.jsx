@@ -23,7 +23,7 @@ const CheckoutPage = () => {
     const [cities, setCities] = useState([]); // Cities of the selected district
     const userSubtotal = parseInt(theUser?.userSubtotal)
     const [getProductId, setGetProductId] = useState();
-    console.log(getProductId);
+    console.table(getProductId);
 
 
     // Update districts when a division is selected
