@@ -3,12 +3,14 @@ import toast from 'react-hot-toast';
 import useLocation from '../../Hooks/useLocation';
 import { useEffect, useState } from 'react';
 import ManageCartLink from '../../components/ManageCartLink/ManageCartLink';
-import { Link } from 'react-router-dom';
+;
+
+
 
 const CheckoutPage = () => {
-    const { locations } = useLocation(); 
+    const { locations } = useLocation();
     const axiosPublic = useAxiosPublic();
-
+  
     const [selectedState, setSelectedState] = useState(""); // Selected division
     const [districts, setDistricts] = useState([]); // Districts of the selected division
     const [selectedDistrict, setSelectedDistrict] = useState(""); // Selected district
@@ -54,29 +56,40 @@ const CheckoutPage = () => {
         const selectedShippingInput = form.querySelector(
             'input[name="shipping"]:checked'
         );
-        const shippingLabel = selectedShippingInput
+       
+       
+            const shippingLabel = selectedShippingInput
             ? form.querySelector(`label[for="${selectedShippingInput.id}"]`).innerText
             : "";
+
+            //  payment 
+
+            const selectedPaymentInput = form.querySelector(
+                'input[name="payment"]:checked'
+            );
+            const selectedPaymentMethod = selectedPaymentInput
+                ? selectedPaymentInput.value
+                : '';
 
         const formData = {
             name: form.name.value,
             number: form.number.value,
             address: form.address.value,
-           
+            paymentMethod: selectedPaymentMethod,
             city: form.city.value,
             district: form.district.value,
             division: form.division.value,
+          
+         
 
-
-            
             shipping: shippingLabel,
         };
-       
+
         console.table(formData);
 
         try {
             const { data } = await axiosPublic.post(
-                `${import.meta.env.VITE_API_URL}/checkout`,
+                `${import.meta.env.VITE_API_URL}/order`,
                 formData
             );
             toast.success('Order placed successfully');
@@ -87,18 +100,19 @@ const CheckoutPage = () => {
         }
     };
 
-   
+
 
     return (
         <div className="md:flex-row gap-10 md:px-10 pb-10">
-             <ManageCartLink/>
+            <ManageCartLink />
             <form className="space-y-4 mt-10" onSubmit={handleSubmitData}>
                 <div className="grid grid-cols-2 gap-5">
                     <div className="w-full bg-white p-6 rounded-lg shadow-md">
                         <h2 className="text-xl font-semibold mb-4">Billing Details</h2>
+                        
                         <div className="grid grid-cols-2 gap-2">
                             <div>
-                                <label className="block text-sm font-medium mb-1">Name</label>
+                                <label className="block text-sm mt-2 text-gray-600 font-medium mb-1">Name</label>
                                 <input
                                     type="text"
                                     name="name"
@@ -108,7 +122,7 @@ const CheckoutPage = () => {
                                 />
                             </div>
                             <div>
-                                <label className="block text-sm font-medium mb-1">Phone</label>
+                                <label className="block text-sm mt-2 text-gray-600 font-medium mb-1">Phone</label>
                                 <input
                                     type="tel"
                                     name="number"
@@ -119,11 +133,11 @@ const CheckoutPage = () => {
                             </div>
                         </div>
 
-                        
+
 
                         <div className="">
                             <div>
-                                <label className="block text-sm font-medium mb-1">Division</label>
+                                <label className="block text-sm mt-2 text-gray-600 font-medium mb-1">Division</label>
                                 <select
                                     className="border w-full p-2 rounded-md"
                                     name="division"
@@ -142,7 +156,7 @@ const CheckoutPage = () => {
                                 </select>
                             </div>
                             <div>
-                                <label className="block text-sm font-medium mb-1">District</label>
+                                <label className="block text-sm mt-2 text-gray-600 font-medium mb-1">District</label>
                                 <select
                                     className="border w-full p-2 rounded-md"
                                     name="district"
@@ -160,9 +174,9 @@ const CheckoutPage = () => {
                         </div>
 
                         <div>
-                            <label className="block text-sm font-medium mb-1">Upazila/City</label>
+                            <label className="block text-sm mt-2 text-gray-600 font-medium mb-1">Upazila/City</label>
                             <select className="border w-full p-2 rounded-md" name="city">
-                                
+
                                 <option value="">Select City</option>
                                 {cities.map((city, index) => (
                                     <option key={index} value={city}>
@@ -174,7 +188,7 @@ const CheckoutPage = () => {
 
                         <div className="">
                             <div>
-                                <label className="block text-sm font-medium mb-1">Address</label>
+                                <label className="block text-sm text-gray-700 font-medium mb-1">Address</label>
                                 <input
                                     type="text"
                                     name="address"
@@ -184,6 +198,37 @@ const CheckoutPage = () => {
                                 />
                             </div>
                         </div>
+                         {/* payment method */}
+                         <h1 className="mt-5 text-lg font-normal text-gray-800 mb-5">
+                            Select Your Payment Method
+                        </h1>
+                         <div className="border mt-5 p-2 rounded-md space-y-2">
+                            <div>
+                                <input
+                                    type="radio"
+                                    id="cash-on-delivery"
+                                    name="payment"
+                                    value="Cash on Delivery"
+                                    className="mr-2"
+                                />
+                                <label htmlFor="cash-on-delivery">Cash on Delivery</label>
+                            </div>
+                            <div className="flex items-center">
+                                <input
+                                    type="radio"
+                                    id="bkash"
+                                    name="payment"
+                                    value="Bkash"
+                                    className="mr-2"
+                                />
+                                <img
+                                    src="https://i.ibb.co/JvBbrr1/bkash.png"
+                                    alt="Bkash"
+                                    className="w-20"
+                                />
+                            </div>
+                        </div>
+                    
                     </div>
 
                     <div className="w-full bg-white p-6 rounded-lg shadow-md">
@@ -220,11 +265,11 @@ const CheckoutPage = () => {
                                 <span>Total</span>
                                 <span>630.00৳</span>
                             </div>
-                            <Link to={'/greeting'}>
-                            <button type="submit" className="w-full bg-orange-500 text-white py-3 rounded-md mt-4">
-                                Place Order 630.00৳
-                            </button>
-                            </Link>
+                            
+                                <button type="submit" className="w-full bg-orange-500 text-white py-3 rounded-md mt-4">
+                                    Place Order 630.00৳
+                                </button>
+                          
                         </div>
                     </div>
                 </div>
