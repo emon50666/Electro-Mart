@@ -163,7 +163,7 @@ const ProductCard = ({ product, refetch }) => {
         }
 
         <button
-          className="py-2 font-semibold px-4 bg-[#FF5E2B] mt-4 text-white rounded flex items-center justify-center relative overflow-hidden"
+          className="py-2 font-semibold px-4 bg-blue-500 mt-4 text-white rounded flex items-center justify-center relative overflow-hidden"
           onClick={handleAddToCart}
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
@@ -173,7 +173,7 @@ const ProductCard = ({ product, refetch }) => {
             className={`absolute transition-all flex gap-3 duration-300 ease-in-out ${isHovered ? 'translate-y-full opacity-0' : 'translate-y-0 opacity-100'
               }`}
           >
-            <FaCartShopping className="items-center mt-1" /> Add to Cart
+            <FaCartShopping className="items-center mt-1" /> Add To Cart
           </span>
           <BsCart
             size={20}

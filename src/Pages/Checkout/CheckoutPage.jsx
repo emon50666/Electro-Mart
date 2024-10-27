@@ -9,28 +9,30 @@ import ManageCartLink from '../../components/ManageCartLink/ManageCartLink';
 import useCart from '../../Hooks/useCart';
 import CheckoutTable from './Shared/CheckoutTable';
 import useUsers from '../../Hooks/useUsers';
+import Loader from '../../components/Loader/Loader';
 
 const CheckoutPage = () => {
     const { locations } = useLocation();
     const axiosPublic = useAxiosPublic();
 
-    const { theUser } = useUsers();
+    const { theUser ,isPending,refetch} = useUsers();
     const { theUserCarts } = useCart();
     const [selectedState, setSelectedState] = useState(""); // Selected division
     const [districts, setDistricts] = useState([]); // Districts of the selected division
     const [selectedDistrict, setSelectedDistrict] = useState(""); // Selected district
     const [cities, setCities] = useState([]); // Cities of the selected district
-    const userSubtotal = parseInt(theUser?.userSubtotal) || 0;
+    const userSubtotal = parseInt(theUser?.userSubtotal) || 0 ;
     const [getProductId, setGetProductId] = useState();
     console.table(getProductId);
 
-    const [shippingCharge, setShippingCharge] = useState(0); // Store selected shipping charge
-    const [totalAmount, setTotalAmount] = useState(userSubtotal); // Store total amount (initially subtotal)
+    const [, setShippingCharge] = useState(0); // Store selected shipping charge
+    const [totalAmount, setTotalAmount] = useState(userSubtotal)  ; // Store total amount (initially subtotal)
 
     const handleShippingChange = (e) => {
-        const selectedCharge = parseInt(e.target.value) || 0; // Safeguard against invalid values
+        const selectedCharge = Number(e.target.value) || 0; // Safeguard against invalid values
         setShippingCharge(selectedCharge);
         setTotalAmount(userSubtotal + selectedCharge); // Update total amount
+        refetch()
     };
 
     // Update districts when a division is selected
@@ -121,6 +123,7 @@ const CheckoutPage = () => {
     };
 
 
+    if (isPending) return <Loader />;
 
     return (
         <div className="md:flex-row gap-10 md:px-10 pb-10">
@@ -222,12 +225,14 @@ const CheckoutPage = () => {
                         <h1 className="mt-5 text-lg font-normal text-gray-800 mb-5">
                             Select Your Payment Method
                         </h1>
-                        <div className="border mt-5 p-2 rounded-md space-y-2">
+                        <div className="border mt-5 p-2  rounded-md space-y-2" required>
                             <div>
                                 <input
                                     type="radio"
                                     id="cash-on-delivery"
                                     name="payment"
+                                    required
+
                                     value="Cash on Delivery"
                                     className="mr-2"
                                 />
@@ -239,6 +244,8 @@ const CheckoutPage = () => {
                                     id="bkash"
                                     name="payment"
                                     value="Bkash"
+                                    required
+
                                     className="mr-2"
                                 />
                                 <img
@@ -258,7 +265,7 @@ const CheckoutPage = () => {
                                 <span>Product</span>
                                 <span>Price</span>
                             </div>
-                            <div id='checkoutId' className="overflow-y-auto max-h-36">
+                            <div id='checkoutId' className="overflow-y-auto h-auto pr-2 max-h-36">
                                 {theUserCarts.map((cart, idx) => <CheckoutTable key={idx} cart={cart} setGetProductId={setGetProductId} />)}
                             </div>
                             <div className="flex justify-between">
@@ -266,7 +273,7 @@ const CheckoutPage = () => {
                                 <span>{userSubtotal}</span>
                             </div>
                             <hr />
-                           <div>
+                           <div >
                              <h2 className='mb-3 font-semibold'>Shipping Method</h2>
                            <div>
                                 <input
@@ -274,10 +281,11 @@ const CheckoutPage = () => {
                                     id="dhaka-inside"
                                     name="shipping"
                                     value="80"
+                                    required
                                     className="mr-2"
                                     onChange={handleShippingChange}
                                 />
-                                <label htmlFor="dhaka-inside">ঢাকার ভিতরে: 80.00৳</label>
+                                <label htmlFor="dhaka-inside">ঢাকার ভিতরে: 80.00 <span className='font-semibold'>৳</span></label>
                             </div>
                             <div>
                                 <input
@@ -285,10 +293,11 @@ const CheckoutPage = () => {
                                     id="dhaka-outside"
                                     name="shipping"
                                     value="130"
+                                    required
                                     className="mr-2"
                                     onChange={handleShippingChange}
                                 />
-                                <label htmlFor="dhaka-outside">ঢাকার বাইরে: 130.00৳</label>
+                                <label htmlFor="dhaka-outside">ঢাকার বাইরে: 130.00 <span className='font-semibold'>৳</span></label>
                             </div>
                            </div>
                             <hr />

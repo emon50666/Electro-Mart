@@ -6,7 +6,7 @@ import UserAuth from "./useAuth";
 const useCart = () => {
     const { user } = UserAuth();
     const axiosPublic = useAxiosPublic();
-    const { data: carts = [], refetch } = useQuery({
+    const { data: carts = [], refetch,isLoading } = useQuery({
         queryKey: ["carts"],
         queryFn: async () => {
             const result = await axiosPublic.get("/carts");
@@ -14,7 +14,7 @@ const useCart = () => {
         },
     });
     const theUserCarts = carts?.filter(cart => cart?.adderMail == user?.email)
-    return { carts, theUserCarts, refetch };
+    return { carts, theUserCarts, refetch,isLoading };
 };
 
 export default useCart;

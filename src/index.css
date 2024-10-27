@@ -156,3 +156,60 @@
     padding-bottom: 2px;
    
 }
+
+/* For Google Chrome, Edge, and Safari */
+::-webkit-scrollbar {
+    width: 1px;  /* Scrollbar width */
+    height: 3px; /* Horizontal scrollbar height */
+  }
+  
+  /* Scrollbar track (background) */
+  ::-webkit-scrollbar-track {
+    background: #f0f0f0; /* Light background color */
+    border-radius: 10px; /* Optional rounded edges */
+  }
+  
+  /* Scrollbar thumb (the draggable part) */
+  ::-webkit-scrollbar-thumb {
+    background-color: #0011ff; /* Blue thumb color */
+    border-radius: 10px; /* Optional rounded edges */
+  }
+  
+  /* Optional: On hover, change thumb color */
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: #057eff;
+  }
+  /* Firefox */
+html {
+    scrollbar-width: thin;         /* Controls the width: thin, auto, none */
+    scrollbar-color: #007bff; /* thumb color track color */
+  }
+  /* Chrome, Edge, Safari */
+::-webkit-scrollbar {
+    width: 1px; /* Width of the scrollbar */
+}
+
+::-webkit-scrollbar-track {
+    background: #0212ff; /* Track color */
+}
+
+::-webkit-scrollbar-thumb {
+    background: #0230ff; /* Scrollbar color */
+    border-radius: 10px; /* Rounded corners */
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #0532ff; /* Color on hover */
+}
+
+/* Firefox */
+* {
+    scrollbar-width: thin; /* Scrollbar width */
+    scrollbar-color: #0540ff ; /* Scrollbar color and track color */
+}
+
+/* For all other browsers */
+body {
+    overflow-y: scroll; /* Ensure scrollbar is always shown */
+ 
+}
