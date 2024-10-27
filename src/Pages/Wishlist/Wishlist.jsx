@@ -27,7 +27,7 @@ const Wishlist = () => {
           Wishlist
         </h2>
         <div className="flex gap-x-1 gap-y-0 md:mt-2 text-white text-sm">
-          <Link to="/" className="cursor-pointer hover:text-orange-500">
+          <Link to="/" className="cursor-pointer hover:text-blue-500">
             Home
           </Link>
           <span>/</span>

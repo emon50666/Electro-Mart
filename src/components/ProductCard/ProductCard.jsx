@@ -103,19 +103,19 @@ const ProductCard = ({ product, refetch }) => {
 
         <div className="absolute top-1/3 right-4 transform -translate-y-1/2 translate-x-full group-hover:translate-x-0 group-hover:opacity-100 opacity-0 group-hover:pointer-events-auto pointer-events-none transition-all duration-300 ease-in-out bg-white p-2 rounded-md border shadow-lg flex flex-col space-y-4">
           <button onClick={handleAddToWishlist}>
-            <FaHeart className="text-lg text-orange-600" />
+            <FaHeart className="text-lg text-blue-600" />
           </button>
           <button onClick={handleAddToCompare}>
-            <IoGitCompareOutline className="text-lg text-orange-600" />
+            <IoGitCompareOutline className="text-lg text-blue-600" />
           </button>
           <Link to={`/productDetails/${product._id}`} onClick={() => handleViewCount(product._id)}>
-            <FaEye className="text-lg text-orange-600" />
+            <FaEye className="text-lg text-blue-600" />
           </Link>
         </div>
 
 
         {product?.discountPercentage > 1 && <div className="mt-3 capitalize   text-end absolute -top-4 inset-x-0  px-2">
-          <small className="bg-orange-500 px-2   py-[1px] text-sm rounded-full font-bold text-white">
+          <small className="bg-blue-500 px-2   py-[1px] text-sm rounded-full font-bold text-white">
             -{product?.discountPercentage}%
           </small>
         </div>}
@@ -149,16 +149,16 @@ const ProductCard = ({ product, refetch }) => {
         </div>
 
         {product?.discountPrice == product?.price ? <div className="flex gap-2">
-          <p className="font-bold text-orange-500"> ৳ {product?.price}</p>
+          <p className="font-bold text-blue-500"> ৳ {product?.price}</p>
         </div>
           :
           product?.discountPrice > 1 ? <div className="flex gap-2">
             <span className="line-through text-gray-400 font-semibold"> ৳{product?.price}</span>
-            <p className="font-bold text-orange-500">{product?.discountPrice}</p>
+            <p className="font-bold text-blue-500">{product?.discountPrice}</p>
           </div>
             :
             <div className="flex gap-2">
-              <p className="font-bold text-orange-500"> ৳ {product?.price}</p>
+              <p className="font-bold text-blue-500"> ৳ {product?.price}</p>
             </div>
         }
 

@@ -162,9 +162,9 @@ const handelGoogle  = async () =>{
 
 
   return (
-    <section className="min-h-screen bg-orange-50">
+    <section className="min-h-screen bg-blue-50">
       <div className="container flex items-center justify-center min-h-screen px-6 mx-auto">
-        <div className="w-full max-w-md shadow-md bg-white rounded-md p-4 border border-dashed border-orange-300  pt-10 pb-10">
+        <div className="w-full max-w-md shadow-md bg-white rounded-md p-4 border border-dashed border-blue-300  pt-10 pb-10">
 
 
           <div className="flex items-center justify-center mt-6 gap-2  ">
@@ -172,8 +172,8 @@ const handelGoogle  = async () =>{
               type="button"
               onClick={() => setIsSignUp(false)}
               className={`w-1/3 p-2 rounded-md font-medium text-center capitalize  ${!isSignUp
-                ? " border-b-2 border-orange-500 text-white font-bold  bg-orange-500 "
-                : " border-b border-orange-600 dark:text-gray-300 text-orange-500 border "
+                ? " border-b-2 border-blue-500 text-white font-bold  bg-blue-500 "
+                : " border-b border-blue-600 dark:text-gray-300 text-blue-500 border "
                 }`}
             >
               LogIn
@@ -183,8 +183,8 @@ const handelGoogle  = async () =>{
               type="button"
               onClick={() => setIsSignUp(true)}
               className={`w-1/3 p-2 rounded-md font-medium text-center capitalize ${isSignUp
-                ? " border-b-2 border-orange-500 text-white font-bold  bg-orange-500  "
-                : " border-b border-orange-600 text-orange-500 border  "
+                ? " border-b-2 border-blue-500 text-white font-bold  bg-blue-500  "
+                : " border-b border-blue-600 text-blue-500 border  "
                 }`}
             >
               Register
@@ -222,7 +222,7 @@ const handelGoogle  = async () =>{
                   name="name"
                   type="text"
                   required
-                  className="block w-full py-3   bg-gray-50 border  outline-none text-orange-500 rounded-lg px-11   focus:border-orange-500 "
+                  className="block w-full py-3   bg-gray-50 border  outline-none text-blue-500 rounded-lg px-11   focus:border-blue-500 "
                   placeholder="Full Name"
                 />
               </div>
@@ -272,7 +272,7 @@ const handelGoogle  = async () =>{
                   type="email"
                   name="email"
                   required
-                  className="block w-full py-3   bg-gray-50 border  outline-none text-orange-500 rounded-lg px-11   focus:border-orange-500 "
+                  className="block w-full py-3   bg-gray-50 border  outline-none text-blue-500 rounded-lg px-11   focus:border-blue-500 "
                   placeholder="Email address"
                 />
               </div>
@@ -298,7 +298,7 @@ const handelGoogle  = async () =>{
                   required
                   name="password"
                   type={showPassword ? 'text' : "password"}
-                  className="block w-full py-3   bg-gray-50 border  outline-none text-orange-500 rounded-lg px-11   focus:border-orange-500 "
+                  className="block w-full py-3   bg-gray-50 border  outline-none text-blue-500 rounded-lg px-11   focus:border-blue-500 "
                   placeholder="Password"
                 />
                 <p onClick={() => setShowPassword(!showPassword)} className="items-center text-base -ml-12"> {showPassword ? <FaRegEyeSlash></FaRegEyeSlash> : <FaRegEye></FaRegEye>} </p>
@@ -308,7 +308,7 @@ const handelGoogle  = async () =>{
 
               <div className="mt-6">
                 <button
-                  className="w-full px-6 py-3 tracking-wide text-white capitalize transition-colors duration-300 transform bg-orange-500 rounded-md font-bold text-base focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-50 " >
+                  className="w-full px-6 py-3 tracking-wide text-white capitalize transition-colors duration-300 transform bg-blue-500 rounded-md font-bold text-base focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-50 " >
                     Register
                 </button>
 
@@ -333,7 +333,7 @@ const handelGoogle  = async () =>{
                   type="email"
                   name="email"
                   required
-                  className="block w-full py-3 bg-gray-50 border outline-none text-orange-500 rounded-lg px-11 focus:border-orange-500"
+                  className="block w-full py-3 bg-gray-50 border outline-none text-blue-500 rounded-lg px-11 focus:border-blue-500"
                   placeholder="Email address"
                 />
               </div>
@@ -359,7 +359,7 @@ const handelGoogle  = async () =>{
                   required
                   name="password"
                   type={showPassword ? 'text' : "password"}
-                  className="block w-full py-3   bg-gray-50 border  outline-none text-orange-500 rounded-lg px-11   focus:border-orange-500 "
+                  className="block w-full py-3   bg-gray-50 border  outline-none text-blue-500 rounded-lg px-11   focus:border-blue-500 "
                   placeholder="Password"
                 />
                 <p onClick={() => setShowPassword(!showPassword)} className="items-center text-base -ml-12"> {showPassword ? <FaRegEyeSlash></FaRegEyeSlash> : <FaRegEye></FaRegEye>} </p>
@@ -373,7 +373,7 @@ const handelGoogle  = async () =>{
               </p>
 
               <div className="mt-6">
-                <button className="w-full px-6 py-3 tracking-wide text-white capitalize transition-colors duration-300 transform bg-orange-500 rounded-md font-bold text-base focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-50" >
+                <button className="w-full px-6 py-3 tracking-wide text-white capitalize transition-colors duration-300 transform bg-blue-500 rounded-md font-bold text-base focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-50" >
                   Login
                 </button>
               </div>

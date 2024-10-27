@@ -72,7 +72,7 @@ const FilterSection = ({ onFilterChange, filters }) => {
             </div>
 
           
-            <button className="filter-button bg-[#FF5E2B] hover:bg-orange-600" onClick={applyFilters}>
+            <button className="filter-button bg-[#FF5E2B] hover:bg-blue-600" onClick={applyFilters}>
                 Apply Filters
             </button>
         </div>

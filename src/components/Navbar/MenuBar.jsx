@@ -27,7 +27,7 @@ const MenuBar = () => {
       >
         {/* Toggle Button */}
         <div>
-          <button className="bg-[#F97316]/90 pt-1 pb-1 pl-3 pr-3  flex items-center rounded-full text-gray-100 text-md font-medium"> All Category <IoIosArrowUp className="items-center pt-1 text-2xl
+          <button className="bg-blue-600 pt-1 pb-1 pl-3 pr-3  flex items-center rounded-full text-gray-100 text-md font-medium"> All Category <IoIosArrowUp className="items-center pt-1 text-2xl
            font-bold"></IoIosArrowUp> </button>
         </div>
 
@@ -41,7 +41,7 @@ const MenuBar = () => {
             className="absolute top-2 left-2 cursor-pointer"
             onClick={toggleMenu}
           >
-            <FaTimes className="text-xl text-orange-500" />
+            <FaTimes className="text-xl text-blue-500" />
           </div>
 
           {/* Menu Items */}
@@ -49,7 +49,7 @@ const MenuBar = () => {
           {categories.map((cat, idx) =>
             cat?.newCategory && (
               <li key={idx}>
-                <a className="text-md font-medium  text-black   px-2 py-1 hover:bg-white hover:text-orange-500 ">
+                <a className="text-md font-medium  text-black   px-2 py-1 hover:bg-white hover:text-blue-500 ">
                   {cat?.newCategory}
                 </a>
               </li>

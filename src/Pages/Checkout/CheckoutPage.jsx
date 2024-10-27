@@ -6,15 +6,25 @@ import ManageCartLink from '../../components/ManageCartLink/ManageCartLink';
 ;
 
 
+import { Link } from 'react-router-dom';
+import useCart from '../../Hooks/useCart';
+import CheckoutTable from './Shared/CheckoutTable';
+import useUsers from '../../Hooks/useUsers';
 
 const CheckoutPage = () => {
     const { locations } = useLocation();
     const axiosPublic = useAxiosPublic();
   
+    const { theUser } = useUsers();
+    const { theUserCarts } = useCart();
     const [selectedState, setSelectedState] = useState(""); // Selected division
     const [districts, setDistricts] = useState([]); // Districts of the selected division
     const [selectedDistrict, setSelectedDistrict] = useState(""); // Selected district
     const [cities, setCities] = useState([]); // Cities of the selected district
+    const userSubtotal = parseInt(theUser?.userSubtotal)
+    const [getProductId, setGetProductId] = useState();
+    console.log(getProductId);
+
 
     // Update districts when a division is selected
     useEffect(() => {
@@ -76,11 +86,14 @@ const CheckoutPage = () => {
             number: form.number.value,
             address: form.address.value,
             paymentMethod: selectedPaymentMethod,
+            getProductId,
             city: form.city.value,
             district: form.district.value,
             division: form.division.value,
           
          
+
+
 
             shipping: shippingLabel,
         };
@@ -238,15 +251,14 @@ const CheckoutPage = () => {
                                 <span>Product</span>
                                 <span>Subtotal</span>
                             </div>
+                            <div className="">
+                                {theUserCarts.map((cart, idx) => <CheckoutTable key={idx} cart={cart} setGetProductId={setGetProductId} />)}
+                            </div>
                             <div className="flex justify-between">
-                                <span>নকশি পিঠা (সিরা ছাড়া) - 1 কেজি</span>
-                                <span>550.00৳</span>
+                                <span>Subtotal:</span>
+                                <span>{userSubtotal}</span>
                             </div>
                             <hr />
-                            <div className="flex justify-between">
-                                <span>Subtotal</span>
-                                <span>550.00৳</span>
-                            </div>
                             <div>
                                 <label className="block font-medium mb-1">Shipping</label>
                                 <div className="space-y-2">
@@ -266,10 +278,13 @@ const CheckoutPage = () => {
                                 <span>630.00৳</span>
                             </div>
                             
-                                <button type="submit" className="w-full bg-orange-500 text-white py-3 rounded-md mt-4">
+                               
+                          
+                            
+                                <button type="submit" className="w-full bg-blue-500 text-white py-3 rounded-md mt-4">
                                     Place Order 630.00৳
                                 </button>
-                          
+                            
                         </div>
                     </div>
                 </div>

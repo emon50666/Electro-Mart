@@ -15,7 +15,7 @@ const AdminMenu = () => {
               to={'dashboard-layout'}
               className={({ isActive }) =>
                 `flex mt-1 items-center gap-3 rounded p-3 transition-colors ${
-                  isActive ? 'bg-black  text-orange-400 border-l-2 border-l-orange-500' : 'text-gray-400 hover:bg-[#22292F] hover:text-orange-500'
+                  isActive ? 'bg-black  text-blue-400 border-l-2 border-l-blue-500' : 'text-gray-400 hover:bg-[#22292F] hover:text-blue-500'
                 }`
               }
             >
@@ -32,7 +32,7 @@ const AdminMenu = () => {
             <NavLink
               className={({ isActive }) =>
                 `flex items-center text-[16px] gap-3 rounded p-3 transition-colors ${
-                  isActive ? ' ' : 'text-gray-400 hover:bg-[#22292F] hover:text-orange-500'
+                  isActive ? ' ' : 'text-gray-400 hover:bg-[#22292F] hover:text-blue-500'
                 }`
               }
               to="#"
@@ -51,8 +51,8 @@ const AdminMenu = () => {
                 <NavLink
                   to="manageProduct"
                   className={({ isActive }) =>
-                    `block py-2 px-4 text-sm font-medium hover:bg-[#22292F] hover:text-orange-500 ${
-                      isActive ? 'bg-black border-l-2 border-l-orange-500  text-orange-500' : 'text-gray-400'
+                    `block py-2 px-4 text-sm font-medium hover:bg-[#22292F] hover:text-blue-500 ${
+                      isActive ? 'bg-black border-l-2 border-l-blue-500  text-blue-500' : 'text-gray-400'
                     }`
                   }
                 >
@@ -63,8 +63,8 @@ const AdminMenu = () => {
                 <NavLink
                   to="addProduct"
                   className={({ isActive }) =>
-                    `block py-2 px-4 text-sm font-medium hover:bg-[#22292F] hover:text-orange-500 ${
-                      isActive ? 'bg-black border-l-2 border-l-orange-500 text-orange-500' : 'text-gray-400'
+                    `block py-2 px-4 text-sm font-medium hover:bg-[#22292F] hover:text-blue-500 ${
+                      isActive ? 'bg-black border-l-2 border-l-blue-500 text-blue-500' : 'text-gray-400'
                     }`
                   }
                 >
@@ -79,7 +79,7 @@ const AdminMenu = () => {
               to={'Order-List'}
               className={({ isActive }) =>
                 `flex items-center gap-3 rounded p-3 transition-colors ${
-                  isActive ? 'bg-black border-l-2 border-l-orange-500 text-orange-500' : 'text-gray-400 hover:bg-[#22292F] hover:text-orange-500'
+                  isActive ? 'bg-black border-l-2 border-l-blue-500 text-blue-500' : 'text-gray-400 hover:bg-[#22292F] hover:text-blue-500'
                 }`
               }
             >
@@ -97,7 +97,7 @@ const AdminMenu = () => {
               to={'user'}
               className={({ isActive }) =>
                 `flex items-center gap-3 rounded p-3 transition-colors ${
-                  isActive ? 'bg-black border-l-2 border-l-orange-500  text-orange-500' : 'text-gray-400 hover:bg-[#22292F] hover:text-orange-500'
+                  isActive ? 'bg-black border-l-2 border-l-blue-500  text-blue-500' : 'text-gray-400 hover:bg-[#22292F] hover:text-blue-500'
                 }`
               }
             >
@@ -115,7 +115,7 @@ const AdminMenu = () => {
               to={'promotionControl'}
               className={({ isActive }) =>
                 `flex items-center gap-3 rounded p-3 transition-colors ${
-                  isActive ? 'bg-black border-l-2 border-l-orange-500 text-orange-500' : 'text-gray-400 hover:bg-[#22292F] hover:text-orange-500'
+                  isActive ? 'bg-black border-l-2 border-l-blue-500 text-blue-500' : 'text-gray-400 hover:bg-[#22292F] hover:text-blue-500'
                 }`
               }
             >
@@ -130,7 +130,7 @@ const AdminMenu = () => {
             <NavLink
               className={({ isActive }) =>
                 `flex items-center text-[16px] gap-3 rounded p-3 transition-colors ${
-                  isActive ? '' : 'text-gray-400 hover:bg-[#22292F] hover:text-orange-500'
+                  isActive ? '' : 'text-gray-400 hover:bg-[#22292F] hover:text-blue-500'
                 }`
               }
               to="#"
@@ -149,8 +149,8 @@ const AdminMenu = () => {
                 <NavLink
                   to="manageStore"
                   className={({ isActive }) =>
-                    `block py-2 px-4 text-sm hover:bg-[#22292F] hover:text-orange-500 ${
-                      isActive ? 'bg-black border-l-2 border-l-orange-500 text-orange-500' : 'text-gray-400'
+                    `block py-2 px-4 text-sm hover:bg-[#22292F] hover:text-blue-500 ${
+                      isActive ? 'bg-black border-l-2 border-l-blue-500 text-blue-500' : 'text-gray-400'
                     }`
                   }
                 >
@@ -161,8 +161,8 @@ const AdminMenu = () => {
                 <NavLink
                   to="addStore"
                   className={({ isActive }) =>
-                    `block py-2 px-4 text-sm  hover:bg-[#22292F] hover:text-orange-500 ${
-                      isActive ? 'bg-black  border-l-2 border-l-orange-500 text-orange-500' : 'text-gray-400'
+                    `block py-2 px-4 text-sm  hover:bg-[#22292F] hover:text-blue-500 ${
+                      isActive ? 'bg-black  border-l-2 border-l-blue-500 text-blue-500' : 'text-gray-400'
                     }`
                   }
                 >

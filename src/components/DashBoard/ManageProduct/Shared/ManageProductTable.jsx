@@ -50,8 +50,8 @@ const ManageProductTable = () => {
                                 <td className="text-center font-semibold md:text-xl">{idx + 1}</td>
                                 <td className="text-center md:text-lg">
                                     <img
-                                        src={product.images[0]}
-                                        alt={product.title}
+                                        src={product?.images[0]}
+                                        alt={product?.title}
                                         className="h-16 w-16 object-cover"
                                     />
                                 </td>
@@ -60,7 +60,7 @@ const ManageProductTable = () => {
                                         {product.title.slice(0, 45) + '...'}
                                     </span>
                                 </td>
-                                <td className="text-center md:text-lg text-orange-500">
+                                <td className="text-center md:text-lg text-blue-500">
                                     <span className="flex items-center justify-center gap-1">
                                         <FaBangladeshiTakaSign /> <p>{product.price}</p>
                                     </span>
