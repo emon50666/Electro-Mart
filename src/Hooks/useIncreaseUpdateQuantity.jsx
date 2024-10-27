@@ -1,7 +1,7 @@
 import useAxiosPublic from "./useAxiosPublic";
 
 
-const useUpdateQuantity = () => {
+const useIncreaseUpdateQuantity = () => {
     const axiosPublic = useAxiosPublic();
 
     const handleQuantityUpdate = async (product, cart, refetch) => {
@@ -21,4 +21,4 @@ const useUpdateQuantity = () => {
     return handleQuantityUpdate;
 };
 
-export default useUpdateQuantity;
+export default useIncreaseUpdateQuantity;

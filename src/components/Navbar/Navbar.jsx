@@ -43,7 +43,7 @@ const [role] = useRoll()
             {!isOpen ? (
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="h-8 w-8 text-orange-500 border border-dashed border-orange-500 rounded-md bg-orange-200/20"
+                className="h-8 w-8 text-blue-500 border border-dashed border-blue-500 rounded-md bg-blue-200/20"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -58,7 +58,7 @@ const [role] = useRoll()
             ) : (
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="h-8 w-8 text-orange-500 border border-dashed border-orange-500 rounded-md bg-orange-200/20"
+                className="h-8 w-8 text-blue-500 border border-dashed border-blue-500 rounded-md bg-blue-200/20"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -102,37 +102,37 @@ const [role] = useRoll()
         <div className="hidden lg:flex space-x-3">
           <div
             onClick={handleAddToCart}
-            className="relative bg-orange-200/50 hover:bg-orange-300/50 cursor-pointer rounded-full p-2"
+            className="relative bg-blue-200/50 hover:bg-blue-300/50 cursor-pointer rounded-full p-2"
           >
-            <FaCartShopping className="text-lg text-orange-600" />
+            <FaCartShopping className="text-lg text-blue-600" />
 
             {
               theUserCarts.length > 0 && (
-                <span className="absolute -right-2 -ml-1 -top-2 rounded-full bg-orange-500 px-1 py-[1px] text-[10px] text-white">
+                <span className="absolute -right-2 -ml-1 -top-2 rounded-full bg-blue-500 px-1 py-[1px] text-[10px] text-white">
                   {theUserCarts.length + '+'}
                 </span>
               )
             }
 
           </div>
-          <Link to={'/comparePage'} className="relative bg-orange-200/50 hover:bg-orange-300/50 cursor-pointer rounded-full p-2">
-            <IoGitCompareOutline className="text-lg text-orange-600" />
+          <Link to={'/comparePage'} className="relative bg-blue-200/50 hover:bg-blue-300/50 cursor-pointer rounded-full p-2">
+            <IoGitCompareOutline className="text-lg text-blue-600" />
 
             {
               theUserCompares.length > 0 && (
-                <span className="absolute -right-2 -ml-1 -top-2 rounded-full bg-orange-500 px-1 py-[1px] text-[10px] text-white">
+                <span className="absolute -right-2 -ml-1 -top-2 rounded-full bg-blue-500 px-1 py-[1px] text-[10px] text-white">
                   {theUserCompares.length + '+'}
                 </span>
               )
             }
           </Link>
 
-          <Link to={'/wishlist'} className="relative bg-orange-200/50 hover:bg-orange-300/50 cursor-pointer rounded-full p-2">
-            <FaHeart className="text-lg text-orange-600" />
+          <Link to={'/wishlist'} className="relative bg-blue-200/50 hover:bg-blue-300/50 cursor-pointer rounded-full p-2">
+            <FaHeart className="text-lg text-blue-600" />
 
             {
               theUserWishlist.length > 0 && (
-                <span className="absolute -right-2 -ml-1 -top-2 rounded-full bg-orange-500 px-1 py-[1px] text-[10px] text-white">
+                <span className="absolute -right-2 -ml-1 -top-2 rounded-full bg-blue-500 px-1 py-[1px] text-[10px] text-white">
                   {theUserWishlist.length + '+'}
                 </span>
               )
@@ -174,9 +174,9 @@ const [role] = useRoll()
                   </div>
                 ) : (
                   <Link to={"/register"}>
-                    <div className="relative bg-orange-200/50 hover:bg-orange-300/50 cursor-pointer rounded-full p-2">
-                      <MdAccountCircle className="text-lg text-orange-600" />
-                      <span className="absolute -right-2 -top-3 rounded-full bg-orange-500 pt-[1px] pb-[4px] pl-1 pr-1 py-[1px] text-[10px] text-white">
+                    <div className="relative bg-blue-200/50 hover:bg-blue-300/50 cursor-pointer rounded-full p-2">
+                      <MdAccountCircle className="text-lg text-blue-600" />
+                      <span className="absolute -right-2 -top-3 rounded-full bg-blue-500 pt-[1px] pb-[4px] pl-1 pr-1 py-[1px] text-[10px] text-white">
                         Account
                       </span>
                     </div>
@@ -199,20 +199,20 @@ const [role] = useRoll()
              
              <Link
   to={role === 'admin' ? "dashboard/dashboard-layout" : "dashboard/my-account"}
-  className="hover:bg-orange-50 p-2 rounded-md hover:text-orange-500"
+  className="hover:bg-blue-50 p-2 rounded-md hover:text-blue-500"
 >
   <li>DashBoard</li>
 </Link>
 
            
           
-              <Link to={'dashboard/profile'} className="hover:bg-orange-50 p-2 rounded-md hover:text-orange-500">
+              <Link to={'dashboard/profile'} className="hover:bg-blue-50 p-2 rounded-md hover:text-blue-500">
                 <li>Profile</li>
               </Link>
-              <Link className="hover:bg-orange-50 p-2 rounded-md hover:text-orange-500">
+              <Link className="hover:bg-blue-50 p-2 rounded-md hover:text-blue-500">
                 <li>Setting</li>
               </Link>
-              <Link to={"/register"} className="hover:bg-orange-50 p-2 rounded-md hover:text-orange-500">
+              <Link to={"/register"} className="hover:bg-blue-50 p-2 rounded-md hover:text-blue-500">
                 <button onClick={logOut}>Logout</button>
               </Link>
             </ul>

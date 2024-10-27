@@ -11,7 +11,7 @@ const MobileNavBar = () => {
     <Tabs>
       <TabList
         style={{
-          borderBottom: '2px solid orange',
+          borderBottom: '2px solid blue',
         }}
       >
         <Tab
@@ -54,7 +54,7 @@ const MobileNavBar = () => {
           {categories.map((cat, idx) =>
             cat?.newCategory && (
               <li key={idx}>
-                <a className="text-md font-medium  text-black   px-2 py-1 hover:bg-white hover:text-orange-500 ">
+                <a className="text-md font-medium  text-black   px-2 py-1 hover:bg-white hover:text-blue-500 ">
                   {cat?.newCategory}
                 </a>
               </li>
@@ -69,7 +69,7 @@ const MobileNavBar = () => {
 
   <style>{`
     .selected-tab {
-      background-color: orange;
+      background-color: blue;
       
       color: white;
     }

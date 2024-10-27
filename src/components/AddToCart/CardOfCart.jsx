@@ -6,13 +6,13 @@ import useAxiosPublic from '../../Hooks/useAxiosPublic';
 import useCart from '../../Hooks/useCart';
 import { Link } from 'react-router-dom';
 import { FaBangladeshiTakaSign } from 'react-icons/fa6';
-import useUpdateQuantity from '../../Hooks/useUpdateQuantity';
+import useIncreaseUpdateQuantity from '../../Hooks/useIncreaseUpdateQuantity';
 
 const CardOfCart = ({ cart }) => {
     const axiosPublic = useAxiosPublic();
     const { refetch } = useCart();
     const { products } = useProduct();
-    const handleQuantityUpdate = useUpdateQuantity();
+    const handleQuantityUpdate = useIncreaseUpdateQuantity();
     const product = products.find((pack) => pack?._id == cart?.mainProductId);
 
 
@@ -30,7 +30,7 @@ const CardOfCart = ({ cart }) => {
                 axiosPublic.delete(`/carts/${id}`)
                     .then((res) => {
                         if (res.data.deletedCount) {
-                            handleQuantityUpdate(product,cart,refetch);
+                            handleQuantityUpdate(product, cart, refetch);
                             refetch();
                         }
                     })

@@ -4,16 +4,17 @@ import useLocation from '../../Hooks/useLocation';
 import { useEffect, useState } from 'react';
 import ManageCartLink from '../../components/ManageCartLink/ManageCartLink';
 import { Link } from 'react-router-dom';
+import useCart from '../../Hooks/useCart';
+import CheckoutTable from './Shared/CheckoutTable';
 
 const CheckoutPage = () => {
-    const { locations } = useLocation(); 
+    const { locations } = useLocation();
     const axiosPublic = useAxiosPublic();
-
+    const { theUserCarts } = useCart();
     const [selectedState, setSelectedState] = useState(""); // Selected division
     const [districts, setDistricts] = useState([]); // Districts of the selected division
     const [selectedDistrict, setSelectedDistrict] = useState(""); // Selected district
     const [cities, setCities] = useState([]); // Cities of the selected district
-
     // Update districts when a division is selected
     useEffect(() => {
         if (selectedState) {
@@ -62,16 +63,16 @@ const CheckoutPage = () => {
             name: form.name.value,
             number: form.number.value,
             address: form.address.value,
-           
+
             city: form.city.value,
             district: form.district.value,
             division: form.division.value,
 
 
-            
+
             shipping: shippingLabel,
         };
-       
+
         console.table(formData);
 
         try {
@@ -87,11 +88,11 @@ const CheckoutPage = () => {
         }
     };
 
-   
+
 
     return (
         <div className="md:flex-row gap-10 md:px-10 pb-10">
-             <ManageCartLink/>
+            <ManageCartLink />
             <form className="space-y-4 mt-10" onSubmit={handleSubmitData}>
                 <div className="grid grid-cols-2 gap-5">
                     <div className="w-full bg-white p-6 rounded-lg shadow-md">
@@ -119,7 +120,7 @@ const CheckoutPage = () => {
                             </div>
                         </div>
 
-                        
+
 
                         <div className="">
                             <div>
@@ -162,7 +163,7 @@ const CheckoutPage = () => {
                         <div>
                             <label className="block text-sm font-medium mb-1">Upazila/City</label>
                             <select className="border w-full p-2 rounded-md" name="city">
-                                
+
                                 <option value="">Select City</option>
                                 {cities.map((city, index) => (
                                     <option key={index} value={city}>
@@ -194,8 +195,7 @@ const CheckoutPage = () => {
                                 <span>Subtotal</span>
                             </div>
                             <div className="flex justify-between">
-                                <span>নকশি পিঠা (সিরা ছাড়া) - 1 কেজি</span>
-                                <span>550.00৳</span>
+                                {theUserCarts.map((cart, idx) => <CheckoutTable key={idx} cart={cart} />)}
                             </div>
                             <hr />
                             <div className="flex justify-between">
@@ -221,9 +221,9 @@ const CheckoutPage = () => {
                                 <span>630.00৳</span>
                             </div>
                             <Link to={'/greeting'}>
-                            <button type="submit" className="w-full bg-orange-500 text-white py-3 rounded-md mt-4">
-                                Place Order 630.00৳
-                            </button>
+                                <button type="submit" className="w-full bg-blue-500 text-white py-3 rounded-md mt-4">
+                                    Place Order 630.00৳
+                                </button>
                             </Link>
                         </div>
                     </div>

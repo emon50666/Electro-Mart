@@ -29,7 +29,7 @@ const Profile = () => {
             <img
               src={user?.photoURL}
               alt=""
-              className="w-40 rounded-full border-2 border-orange-300"
+              className="w-40 rounded-full border-2 border-blue-300"
             />
           </div>
           <div className="justify-center text-center">
@@ -58,7 +58,7 @@ const Profile = () => {
           <div className="mt-6 flex justify-between">
             <button
               onClick={handleEditClick} // Open modal on button click
-              className="px-4 py-2 bg-orange-500 hover:bg-orange-600 text-white rounded-md"
+              className="px-4 py-2 bg-blue-500 hover:bg-blue-600 text-white rounded-md"
             >
               Edit Profile
             </button>

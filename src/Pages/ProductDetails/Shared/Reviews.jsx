@@ -120,7 +120,7 @@ const Reviews = ({mainId}) => {
                     </div>
                     <button
                         onClick={handleReviewSubmit}
-                        className="px-4 py-2 w-full mt-2 rounded-full text-white font-semibold hover:bg-black hover:text-orange-50 duration-300 bg-orange-500"
+                        className="px-4 py-2 w-full mt-2 rounded-full text-white font-semibold hover:bg-black hover:text-blue-50 duration-300 bg-blue-500"
                     >
                         Submit
                     </button>

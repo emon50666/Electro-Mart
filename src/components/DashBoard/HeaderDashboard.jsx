@@ -72,13 +72,13 @@ const HeaderDashboard = () => {
               {/* Dropdown Items */}
               <ul className="py-1 text-sm  text-gray-700 text-left"> {/* Text aligned to the left */}
                 <li>
-                  <Link to={'profile'} className="block px-4 py-2 hover:bg-orange-50 hover:text-orange-500" >Profile</Link>
+                  <Link to={'profile'} className="block px-4 py-2 hover:bg-blue-50 hover:text-blue-500" >Profile</Link>
                 </li>
                 <li>
-                  <a href="/settings" className="block px-4 py-2 hover:bg-orange-50 hover:text-orange-500">Settings</a>
+                  <a href="/settings" className="block px-4 py-2 hover:bg-blue-50 hover:text-blue-500">Settings</a>
                 </li>
                 <li>
-                  <Link to={'/register'} onClick={logOut} className="block px-4 py-2 hover:bg-orange-50 hover:text-orange-500">LogOut</Link>
+                  <Link to={'/register'} onClick={logOut} className="block px-4 py-2 hover:bg-blue-50 hover:text-blue-500">LogOut</Link>
                 </li>
               </ul>
             </div>

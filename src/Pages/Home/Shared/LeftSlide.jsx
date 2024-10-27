@@ -71,7 +71,7 @@ const LeftSlide = () => {
                             <img
                                 src="https://placehold.co/620x400" // Static placeholder image
                                 alt="default slide"
-                                className="w-full lg:min-h-[300px] md:max-h-[300px] lg:max-h-[351px] h-[50vh] md:h-auto rounded-lg object-contain md:object-right lg:object-fill"
+                                className="w-full lg:min-h-[300px] md:max-h-[300px] lg:max-h-[351px] xl:max-h-[648px] h-[50vh] md:h-full rounded-lg object-contain md:object-right lg:object-fill"
                             />
                             <div className=" inset-0 flex flex-col items-start justify-center space-y-4 md:left-5 lg:left-8 px-1">
                                 <h2 className="text-sm md:text-base md:font-medium lg:text-lg lg:font-semibold lg:w-1/2 text-white bg-black/50 p-4 rounded-lg">

@@ -113,11 +113,11 @@
 }
 
 .react-tabs__tab--selected {
-    border-color: orange !important;
+    border-color: blue !important;
 }
 
 .react-tabs__tab-list {
-    border-bottom: 1px solid orange !important;
+    border-bottom: 1px solid blue !important;
 }
 
 .skeleton {

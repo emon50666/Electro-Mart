@@ -60,7 +60,7 @@ const ManageProductTable = () => {
                                         {product.title.slice(0, 45) + '...'}
                                     </span>
                                 </td>
-                                <td className="text-center md:text-lg text-orange-500">
+                                <td className="text-center md:text-lg text-blue-500">
                                     <span className="flex items-center justify-center gap-1">
                                         <FaBangladeshiTakaSign /> <p>{product.price}</p>
                                     </span>
