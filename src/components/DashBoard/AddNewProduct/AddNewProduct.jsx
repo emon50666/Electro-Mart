@@ -300,7 +300,7 @@ const AddNewProduct = () => {
 
               {/* quantity */}
               <div>
-                <label htmlFor="quantity" className="block text-sm font-medium text-gray-700">Product Quantity</label>
+                <label htmlFor="quantity" className="block text-sm font-medium text-gray-700">Product Quantity <sub>Only number</sub></label>
                 <input
                   type="text"
                   name="quantity"
