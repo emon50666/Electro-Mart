@@ -23,7 +23,7 @@ const CheckoutPage = () => {
     const [cities, setCities] = useState([]); // Cities of the selected district
     const userSubtotal = parseInt(theUser?.userSubtotal) || 0 ;
     const [getProductId, setGetProductId] = useState();
-    console.table(getProductId);
+   console.log(getProductId);
 
     const [, setShippingCharge] = useState(0); // Store selected shipping charge
     const [totalAmount, setTotalAmount] = useState(userSubtotal)  ; // Store total amount (initially subtotal)
@@ -99,11 +99,7 @@ const CheckoutPage = () => {
             city: form.city.value,
             district: form.district.value,
             division: form.division.value,
-
-
-
-
-
+            totalAmount,
             shipping: shippingLabel,
         };
 

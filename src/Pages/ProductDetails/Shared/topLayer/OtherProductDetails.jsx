@@ -84,6 +84,9 @@ const OtherProductDetails = ({ product }) => {
     const handleAddToWishlist = () => {
         handleAddWishlist(product)
     }
+
+
+    
     return (
         <div >
             <div className="lg:space-y-3 ">

@@ -68,7 +68,7 @@ const CardOfCart = ({ cart }) => {
             />
             <div className="ml-4">
                 <div className="flex gap-24">
-                    <Link to={`/productDetails/${product._id}`}>
+                    <Link to={`/productDetails/${product?._id}`}>
                         <h4 className="font-semibold text-sm md:text-base mb-1">
                             {product?.title.slice(0, 25)}...
                         </h4>

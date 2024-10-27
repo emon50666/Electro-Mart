@@ -5,6 +5,7 @@ import BenifetService from "../../components/PopularCategory/BenifetService/Beni
 import HomeSliderComponent from "../../components/HomeSliderComponent/SliderComponent";
 // import FilterProduct from "../../components/FilterProduct/FilterProduct";
 import Slider from "./Shared/Slider"
+import LaptopProduct from "./LaptopProduct";
 const Home = () => {
   return (
     <div className="bg-[#F6F6F6]">
@@ -19,6 +20,7 @@ const Home = () => {
       <HomeOffers />
       {/* <FilterProduct /> */}
       <HomeSliderComponent />
+      <LaptopProduct/>
     </div>
   );
 };
