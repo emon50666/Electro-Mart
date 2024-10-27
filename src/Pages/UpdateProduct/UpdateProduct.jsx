@@ -32,11 +32,11 @@ const UpdateProduct = () => {
     } = useForm();
 
     useEffect(() => {
-    
+
         const currentDate = new Date().toISOString().slice(0, 10);
         setValue("addDate", currentDate);
 
-    
+
         if (product) {
             setValue("title", product.title);
             setValue("shortDescription", product.shortDescription);
@@ -48,7 +48,7 @@ const UpdateProduct = () => {
             setValue("quantity", product.quantity);
             setValue("isHot", product.isHot);
             setValue("isNew", product.isNew);
-        
+
             if (product.images && product.images.length > 0) {
                 setGalleryImages(product.images);
                 setImage({ array: product.images });
@@ -91,15 +91,15 @@ const UpdateProduct = () => {
 
     const removeImage = (indexToRemove) => {
         const removedImage = galleryImages[indexToRemove];
-    
+
         setRemovedImages([...removedImages, removedImage]);
 
-    
+
         setGalleryImages((prevImages) =>
             prevImages.filter((_, index) => index !== indexToRemove)
         );
 
-    
+
         const newImageArray = image.array.filter((_, index) => index !== indexToRemove);
         setImage({ array: newImageArray });
     };
@@ -109,14 +109,14 @@ const UpdateProduct = () => {
             const imgGallery = Array.from(data.gallery || []);
             const uploadedImageUrls = [];
 
-        
+
             const uploaded = imgGallery.map((file) => {
                 const formData = new FormData();
                 formData.append("file", file);
                 formData.append("upload_preset", "elector_mart_key");
                 formData.append("api_key", "211491792754595");
 
-            
+
                 return axios.post('https://api.cloudinary.com/v1_1/duv5fiurz/image/upload', formData, {
                     headers: { "X-Requested-With": "XMLHttpRequest" }
                 }).then(res => {
@@ -124,14 +124,14 @@ const UpdateProduct = () => {
                 });
             });
 
-        
+
             const imageUrls = await axios.all(uploaded);
             uploadedImageUrls.push(...imageUrls);
 
-        
+
             const finalImages = [...image.array, ...uploadedImageUrls].filter(img => !removedImages.includes(img));
 
-        
+
             const productInfo = {
                 title: data.title,
                 shortDescription: data.shortDescription,
@@ -148,7 +148,7 @@ const UpdateProduct = () => {
                 addDate: data.addDate,
             };
 
-        
+
             const response = await axiosPublic.put(`/products/${id}`, productInfo);
 
             if (response.data.modifiedCount > 0) {
@@ -200,7 +200,7 @@ const UpdateProduct = () => {
                                     <img src={image} alt={`Product ${index + 1}`} className="w-full h-full" />
                                     <button
                                         onClick={() => removeImage(index)}
-                                        type="button" 
+                                        type="button"
                                         className="absolute top-1 right-1 focus:outline-none text-xs"
                                     >
                                         ✖
@@ -301,7 +301,7 @@ const UpdateProduct = () => {
                             <div>
                                 <label htmlFor="quantity" className="block text-sm font-medium text-gray-700">Product Quantity</label>
                                 <input
-                                    type="number"
+                                    type="text"
                                     name="quantity"
                                     {...register("quantity", { required: false })}
                                     className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:border-blue-500 outline-none"

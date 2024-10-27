@@ -69,13 +69,13 @@ const CartTableRow = ({ item, refetchCart, setTotal }) => {
             .then(res => {
                 if (res.data.modifiedCount) {
                     refetchCart()
-                    toast.success("update")
+                    // toast.success("update")
                     const updatedQuantity = parseInt(product?.quantity) + 1;
                     const updatedQuantityInfo = { updatedQuantity }
                     axiosPublic.patch(`/productQuantity/${product?._id}`, updatedQuantityInfo)
                         .then(response => {
                             if (response.data.modifiedCount) {
-                                toast.success("update product")
+                                // toast.success("update product")
                                 refetch();
                             }
                         })
