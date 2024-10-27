@@ -9,7 +9,6 @@ const useIncreaseUpdateQuantity = () => {
             const updatedQuantity = parseInt(product?.quantity) + parseInt(cart?.selectedQuantity);
             const updatedQuantityInfo = { updatedQuantity };
             const response = await axiosPublic.patch(`/productQuantity/${product?._id}`, updatedQuantityInfo);
-
             if (response.data.modifiedCount) {
                 refetch();
             }

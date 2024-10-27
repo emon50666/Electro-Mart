@@ -99,7 +99,7 @@ const AddNewProduct = () => {
   useEffect(() => {
     const discountPrice = calculateDiscountPrice();
     setValue('discountPrice', discountPrice);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [price, discountPercentage, setValue]);
 
   const handleImageChange = (e) => {
@@ -302,7 +302,7 @@ const AddNewProduct = () => {
               <div>
                 <label htmlFor="quantity" className="block text-sm font-medium text-gray-700">Product Quantity</label>
                 <input
-                  type="number"
+                  type="text"
                   name="quantity"
                   {...register("quantity", { required: true })}
                   className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:border-blue-500 outline-none"

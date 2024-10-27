@@ -10,7 +10,7 @@ import useIncreaseUpdateQuantity from "../../../Hooks/useIncreaseUpdateQuantity"
 
 const CartTableRow = ({ item, refetchCart, setTotal }) => {
     const axiosPublic = useAxiosPublic();
-    const { products } = useProduct();
+    const { products, refetch } = useProduct();
     const handleQuantityUpdate = useIncreaseUpdateQuantity();
     const [quantityCount, setQuantityCount] = useState(item?.selectedQuantity || 1);
     const [disableBtn, setDisableBtn] = useState(false);
@@ -27,6 +27,28 @@ const CartTableRow = ({ item, refetchCart, setTotal }) => {
     if (!product) {
         return null;
     }
+
+    const handleIncreaseSelectedQuantity = (id) => {
+        const updatedSelectedQuantity = quantityCount + 1;
+        const updatedSubtotal = parseInt(updatedSelectedQuantity * product?.price);
+        const quantityInfo = { updatedSelectedQuantity, updatedSubtotal };
+        axiosPublic.patch(`/carts/${id}`, quantityInfo)
+            .then(res => {
+                if (res.data.modifiedCount) {
+                    refetchCart();
+                    const updatedQuantity = parseInt(product?.quantity) - 1;
+                    const updatedQuantityInfo = { updatedQuantity }
+                    axiosPublic.patch(`/productQuantity/${product?._id}`, updatedQuantityInfo)
+                        .then(response => {
+                            if (response.data.modifiedCount) {
+                                refetch();
+                            }
+                        })
+                }
+            })
+            .catch(error => console.error("Error updating cart quantity:", error));
+    };
+
     const increaseCount = () => {
         if (quantityCount >= parseInt(product?.quantity)) {
             toast.error("Stocks Out");
@@ -35,13 +57,38 @@ const CartTableRow = ({ item, refetchCart, setTotal }) => {
         } else {
             const increasedCount = quantityCount + 1;
             setQuantityCount(increasedCount);
+            handleIncreaseSelectedQuantity(item?._id);
         }
+    };
+
+    const handleDecreaseSelectedQuantity = (id) => {
+        const updatedSelectedQuantity = quantityCount - 1;
+        const updatedSubtotal = parseInt(updatedSelectedQuantity * product?.price);
+        const quantityInfo = { updatedSelectedQuantity, updatedSubtotal };
+        axiosPublic.patch(`/carts/${id}`, quantityInfo)
+            .then(res => {
+                if (res.data.modifiedCount) {
+                    refetchCart()
+                    toast.success("update")
+                    const updatedQuantity = parseInt(product?.quantity) + 1;
+                    const updatedQuantityInfo = { updatedQuantity }
+                    axiosPublic.patch(`/productQuantity/${product?._id}`, updatedQuantityInfo)
+                        .then(response => {
+                            if (response.data.modifiedCount) {
+                                toast.success("update product")
+                                refetch();
+                            }
+                        })
+                }
+            })
+            .catch(error => console.error("Error updating cart quantity:", error));
     };
     const decreaseCount = () => {
         if (quantityCount > 1) {
             const decreasedCount = quantityCount - 1;
             setQuantityCount(decreasedCount);
             setDisableBtn(false);
+            handleDecreaseSelectedQuantity(item?._id)
         }
     };
 

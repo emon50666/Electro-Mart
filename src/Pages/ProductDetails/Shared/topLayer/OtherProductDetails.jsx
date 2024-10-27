@@ -32,7 +32,7 @@ const OtherProductDetails = ({ product }) => {
     const handleAddCart = useAddToCart();
     const handleAddCompare = useAddToCompare();
     const handleAddWishlist = useAddToWishlist();
-    const [quantityCount, setQuantityCount] = useState(theCart?.selectedQuantity || 1);
+    const [quantityCount, setQuantityCount] = useState(theCart?.selectedQuantity || 0);
     const [disableBtn, setDisableBtn] = useState(false)
     const shareUrl = window.location.href;
     const [cartOpen, setCartOpen] = useState(false);
