@@ -36,7 +36,7 @@ const OtherProductDetails = ({ product }) => {
     const [disableBtn, setDisableBtn] = useState(false)
     const shareUrl = window.location.href;
     const [cartOpen, setCartOpen] = useState(false);
-    console.log(theCart);
+    // console.log(theCart);
 
     // Calculate average rating
     const calculateAverageRating = (products) => {
@@ -129,6 +129,7 @@ const OtherProductDetails = ({ product }) => {
                         <div className="flex items-center justify-between gap-x-3.5">
                             <button type="button"
                                 onClick={() => decreaseCount()}
+                                disabled={theCart}
                                 className="size-6 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-md border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 focus:outline-none focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none" tabIndex="-1" aria-label="Decrease" data-hs-input-number-decrement="">
                                 &minus;
                             </button>
@@ -136,7 +137,7 @@ const OtherProductDetails = ({ product }) => {
                             <button
                                 type="button"
                                 onClick={() => increaseCount()}
-                                disabled={disableBtn}
+                                disabled={disableBtn || theCart}
                                 className="size-6 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-md border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 focus:outline-none focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none">
                                 +
                             </button>
