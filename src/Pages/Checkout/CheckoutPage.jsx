@@ -20,7 +20,7 @@ const CheckoutPage = () => {
     const [districts, setDistricts] = useState([]); // Districts of the selected division
     const [selectedDistrict, setSelectedDistrict] = useState(""); // Selected district
     const [cities, setCities] = useState([]); // Cities of the selected district
-    const userSubtotal = parseInt(theUser?.userSubtotal)
+    const userSubtotal = parseInt(theUser?.userSubtotal) || 0;
     const [getProductId, setGetProductId] = useState();
     console.table(getProductId);
 
@@ -28,9 +28,9 @@ const CheckoutPage = () => {
     const [totalAmount, setTotalAmount] = useState(userSubtotal); // Store total amount (initially subtotal)
 
     const handleShippingChange = (e) => {
-        const selectedCharge = parseInt(e.target.value); // Get selected shipping charge
-        setShippingCharge(selectedCharge); // Update state
-        setTotalAmount(userSubtotal + selectedCharge); // Calculate and update total amount
+        const selectedCharge = parseInt(e.target.value) || 0; // Safeguard against invalid values
+        setShippingCharge(selectedCharge);
+        setTotalAmount(userSubtotal + selectedCharge); // Update total amount
     };
 
     // Update districts when a division is selected
@@ -258,7 +258,7 @@ const CheckoutPage = () => {
                                 <span>Product</span>
                                 <span>Price</span>
                             </div>
-                            <div className="">
+                            <div id='checkoutId' className="overflow-y-auto max-h-36">
                                 {theUserCarts.map((cart, idx) => <CheckoutTable key={idx} cart={cart} setGetProductId={setGetProductId} />)}
                             </div>
                             <div className="flex justify-between">
@@ -300,8 +300,8 @@ const CheckoutPage = () => {
 
 
 
-                            <button type="submit" className="w-full font-semibold bg-blue-500 text-white py-3 rounded-md mt-4">
-                                Place Order {totalAmount}  ৳ 
+                            <button type="submit" className="w-full bg-blue-500 text-white py-3 rounded-md mt-4">
+                                Place Order {totalAmount} ৳
                             </button>
 
                         </div>
