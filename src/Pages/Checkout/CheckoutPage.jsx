@@ -13,7 +13,7 @@ import useUsers from '../../Hooks/useUsers';
 const CheckoutPage = () => {
     const { locations } = useLocation();
     const axiosPublic = useAxiosPublic();
-  
+
     const { theUser } = useUsers();
     const { theUserCarts } = useCart();
     const [selectedState, setSelectedState] = useState(""); // Selected division
@@ -23,8 +23,15 @@ const CheckoutPage = () => {
     const userSubtotal = parseInt(theUser?.userSubtotal)
     const [getProductId, setGetProductId] = useState();
     console.table(getProductId);
-    
-   
+
+    const [shippingCharge, setShippingCharge] = useState(0); // Store selected shipping charge
+    const [totalAmount, setTotalAmount] = useState(userSubtotal); // Store total amount (initially subtotal)
+
+    const handleShippingChange = (e) => {
+        const selectedCharge = parseInt(e.target.value); // Get selected shipping charge
+        setShippingCharge(selectedCharge); // Update state
+        setTotalAmount(userSubtotal + selectedCharge); // Calculate and update total amount
+    };
 
     // Update districts when a division is selected
     useEffect(() => {
@@ -66,20 +73,20 @@ const CheckoutPage = () => {
         const selectedShippingInput = form.querySelector(
             'input[name="shipping"]:checked'
         );
-       
-       
-            const shippingLabel = selectedShippingInput
+
+
+        const shippingLabel = selectedShippingInput
             ? form.querySelector(`label[for="${selectedShippingInput.id}"]`).innerText
             : "";
 
-            //  payment 
+        //  payment 
 
-            const selectedPaymentInput = form.querySelector(
-                'input[name="payment"]:checked'
-            );
-            const selectedPaymentMethod = selectedPaymentInput
-                ? selectedPaymentInput.value
-                : '';
+        const selectedPaymentInput = form.querySelector(
+            'input[name="payment"]:checked'
+        );
+        const selectedPaymentMethod = selectedPaymentInput
+            ? selectedPaymentInput.value
+            : '';
 
         const formData = {
             name: form.name.value,
@@ -90,8 +97,8 @@ const CheckoutPage = () => {
             city: form.city.value,
             district: form.district.value,
             division: form.division.value,
-          
-         
+
+
 
 
 
@@ -122,7 +129,7 @@ const CheckoutPage = () => {
                 <div className="grid grid-cols-2 gap-5">
                     <div className="w-full bg-white p-6 rounded-lg shadow-md">
                         <h2 className="text-xl font-semibold mb-4">Billing Details</h2>
-                        
+
                         <div className="grid grid-cols-2 gap-2">
                             <div>
                                 <label className="block text-sm mt-2 text-gray-600 font-medium mb-1">Name</label>
@@ -211,11 +218,11 @@ const CheckoutPage = () => {
                                 />
                             </div>
                         </div>
-                         {/* payment method */}
-                         <h1 className="mt-5 text-lg font-normal text-gray-800 mb-5">
+                        {/* payment method */}
+                        <h1 className="mt-5 text-lg font-normal text-gray-800 mb-5">
                             Select Your Payment Method
                         </h1>
-                         <div className="border mt-5 p-2 rounded-md space-y-2">
+                        <div className="border mt-5 p-2 rounded-md space-y-2">
                             <div>
                                 <input
                                     type="radio"
@@ -241,7 +248,7 @@ const CheckoutPage = () => {
                                 />
                             </div>
                         </div>
-                    
+
                     </div>
 
                     <div className="w-full bg-white p-6 rounded-lg shadow-md">
@@ -260,31 +267,40 @@ const CheckoutPage = () => {
                             </div>
                             <hr />
                             <div>
-                                <label className="block font-medium mb-1">Shipping</label>
-                                <div className="space-y-2">
-                                    <div>
-                                        <input type="radio" id="dhaka-inside" name="shipping" className="mr-2" />
-                                        <label htmlFor="dhaka-inside">ঢাকার ভিতরে: 80.00৳</label>
-                                    </div>
-                                    <div>
-                                        <input type="radio" id="dhaka-outside" name="shipping" className="mr-2" />
-                                        <label htmlFor="dhaka-outside">ঢাকার বাইরে: 130.00৳</label>
-                                    </div>
-                                </div>
+                                <input
+                                    type="radio"
+                                    id="dhaka-inside"
+                                    name="shipping"
+                                    value="80"
+                                    className="mr-2"
+                                    onChange={handleShippingChange}
+                                />
+                                <label htmlFor="dhaka-inside">ঢাকার ভিতরে: 80.00৳</label>
+                            </div>
+                            <div>
+                                <input
+                                    type="radio"
+                                    id="dhaka-outside"
+                                    name="shipping"
+                                    value="130"
+                                    className="mr-2"
+                                    onChange={handleShippingChange}
+                                />
+                                <label htmlFor="dhaka-outside">ঢাকার বাইরে: 130.00৳</label>
                             </div>
                             <hr />
                             <div className="flex justify-between">
                                 <span>Total</span>
-                                <span>630.00৳</span>
+                                <span>{totalAmount}৳</span>
                             </div>
-                            
-                               
-                          
-                            
-                                <button type="submit" className="w-full bg-blue-500 text-white py-3 rounded-md mt-4">
-                                    Place Order 630.00৳
-                                </button>
-                            
+
+
+
+
+                            <button type="submit" className="w-full bg-blue-500 text-white py-3 rounded-md mt-4">
+                                Place Order {totalAmount} ৳ 
+                            </button>
+
                         </div>
                     </div>
                 </div>
