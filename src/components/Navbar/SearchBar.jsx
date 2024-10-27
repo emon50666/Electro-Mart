@@ -29,12 +29,12 @@ const SearchBar = () => {
     const searchTerm = search.toLocaleLowerCase();
     return (
 
-      product.title.toLocaleLowerCase().includes(searchTerm) ||
+      product?.title?.toLocaleLowerCase().includes(searchTerm) ||
 
-      product.title.toLocaleLowerCase().includes(searchTerm) ||
+      product?.title?.toLocaleLowerCase().includes(searchTerm) ||
 
-      product.brand.toLocaleLowerCase().includes(searchTerm) ||
-      product.category.toLocaleLowerCase().includes(searchTerm)
+      product?.brand?.toLocaleLowerCase().includes(searchTerm) ||
+      product?.category?.toLocaleLowerCase().includes(searchTerm)
     );
   });
 
