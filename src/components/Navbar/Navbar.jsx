@@ -17,9 +17,9 @@ import useRoll from "../../Hooks/useRoll";
 
 const Navbar = () => {
 
-  
-const [role] = useRoll()
-  const { user,  loading,logOut } = UserAuth();
+
+  const [role] = useRoll()
+  const { user, loading, logOut } = UserAuth();
   const { theUserCarts } = useCart();
   const { theUserCompares } = useCompare();
   const { theUserWishlist, } = useWishlist()
@@ -105,38 +105,43 @@ const [role] = useRoll()
             className="relative bg-blue-200/50 hover:bg-blue-300/50 cursor-pointer rounded-full p-2"
           >
             <FaCartShopping className="text-lg text-blue-600" />
+            {!loading && (
+  theUserCarts.length > 0 && (
+    <span className="absolute -right-1 -ml-1 -top-2 rounded-full bg-blue-500 px-1 py-[0px] text-[10px] text-white">
+      {theUserCarts.length >= 9 ? "9+" : theUserCarts.length}
+    </span>
+  )
+)}
 
-            {
-              theUserCarts.length > 0 && (
-                <span className="absolute -right-2 -ml-1 -top-2 rounded-full bg-blue-500 px-1 py-[1px] text-[10px] text-white">
-                  {theUserCarts.length + '+'}
-                </span>
-              )
-            }
 
           </div>
           <Link to={'/comparePage'} className="relative bg-blue-200/50 hover:bg-blue-300/50 cursor-pointer rounded-full p-2">
             <IoGitCompareOutline className="text-lg text-blue-600" />
 
-            {
+
+            {!loading && (
+
               theUserCompares.length > 0 && (
                 <span className="absolute -right-2 -ml-1 -top-2 rounded-full bg-blue-500 px-1 py-[1px] text-[10px] text-white">
-                  {theUserCompares.length + '+'}
+                  {theUserCompares.length >= 9 ? "9+" `${theUserCompares.length}+` : theUserCompares.length}
                 </span>
               )
-            }
+
+            )}
           </Link>
 
           <Link to={'/wishlist'} className="relative bg-blue-200/50 hover:bg-blue-300/50 cursor-pointer rounded-full p-2">
             <FaHeart className="text-lg text-blue-600" />
 
-            {
-              theUserWishlist.length > 0 && (
+            {!loading && (
+              theUserWishlist.length > 0 && ( // Display if there are items in the wishlist
                 <span className="absolute -right-2 -ml-1 -top-2 rounded-full bg-blue-500 px-1 py-[1px] text-[10px] text-white">
-                  {theUserWishlist.length + '+'}
+                  {theUserWishlist.length >= 9 ? "9+" `${theUserWishlist.length}+` : theUserWishlist.length}
                 </span>
               )
-            }
+            )}
+
+
           </Link>
         </div>
 
@@ -144,29 +149,29 @@ const [role] = useRoll()
 
         <div className="dropdown dropdown-end z-50">
           <div tabIndex={0} role="button" className=" rounded-full">
-           
-            
-              {user ? (
-              
+
+
+            {user ? (
+
               <div className="relative inline-block">
                 <img
-                 referrerPolicy="no-referrer"
+                  referrerPolicy="no-referrer"
                   title={user?.displayName}
                   src={user?.photoURL}
                   className="w-10 h-10 rounded-full border-2 border-blue-600 p-0.5"
                 />
                 <span className="h-3 w-3 rounded-full border border-white bg-green-500 block absolute top-2 right-0"></span>
-                
+
               </div>
-             
-            
-              
+
+
+
             ) : (
               <>
                 {loading ? (
                   <div className="relative inline-block">
                     <img
-                     referrerPolicy="no-referrer"
+                      referrerPolicy="no-referrer"
                       src={user?.photoURL}
                       className="w-10 h-10 rounded-full border-2 border-blue-600 p-0.5"
                     />
@@ -184,28 +189,28 @@ const [role] = useRoll()
                 )}
               </>
             )}
-           
+
             <>
-            
-         
-          </> 
-          
+
+
+            </>
+
           </div>
           {user && (
             <ul
               tabIndex={0}
               className="menu menu-sm font-semibold right-0 dropdown-content bg-[#030C35] text-gray-300 overflow-hidden rounded-box w-36 shadow-md"
             >
-             
-             <Link
-  to={role === 'admin' ? "dashboard/dashboard-layout" : "dashboard/my-account"}
-  className="hover:bg-blue-50 p-2 rounded-md hover:text-blue-500"
->
-  <li>DashBoard</li>
-</Link>
 
-           
-          
+              <Link
+                to={role === 'admin' ? "dashboard/dashboard-layout" : "dashboard/my-account"}
+                className="hover:bg-blue-50 p-2 rounded-md hover:text-blue-500"
+              >
+                <li>DashBoard</li>
+              </Link>
+
+
+
               <Link to={'dashboard/profile'} className="hover:bg-blue-50 p-2 rounded-md hover:text-blue-500">
                 <li>Profile</li>
               </Link>
@@ -216,7 +221,7 @@ const [role] = useRoll()
                 <button onClick={logOut}>Logout</button>
               </Link>
             </ul>
-          )} 
+          )}
         </div>
       </div>
     </div>
