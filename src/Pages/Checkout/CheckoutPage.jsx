@@ -194,7 +194,7 @@ const CheckoutPage = () => {
                                 <span>Product</span>
                                 <span>Subtotal</span>
                             </div>
-                            <div className="flex justify-between">
+                            <div className="">
                                 {theUserCarts.map((cart, idx) => <CheckoutTable key={idx} cart={cart} />)}
                             </div>
                             <hr />
