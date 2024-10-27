@@ -292,16 +292,16 @@ const CheckoutPage = () => {
                             </div>
                            </div>
                             <hr />
-                            <div className="flex justify-between">
-                                <span>Total</span>
+                            <div className="flex font-semibold justify-between">
+                                <span >Total</span>
                                 <span>{totalAmount} ৳</span>
                             </div>
 
 
 
 
-                            <button type="submit" className="w-full bg-blue-500 text-white py-3 rounded-md mt-4">
-                                Place Order {totalAmount} ৳ 
+                            <button type="submit" className="w-full font-semibold bg-blue-500 text-white py-3 rounded-md mt-4">
+                                Place Order {totalAmount}  ৳ 
                             </button>
 
                         </div>

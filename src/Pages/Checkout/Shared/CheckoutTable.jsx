@@ -8,9 +8,9 @@ const CheckoutTable = ({ cart, setGetProductId }) => {
     console.log(product?._id);
     return (
        
-            <div className='flex justify-between items-center pt-4 border-b pb-1   border-gray-300'>
+            <div className='flex justify-between items-center pt-4 border-b pb-1    border-gray-300'>
             {setGetProductId(product?._id)}
-            <p className='text-sm'>{product?.title}</p>
+            <p className='flex items-center gap-x-2'><span className='inline-block'>{product?.title.slice(0,47)}..</span><sub className='text-md text-blue-500'>(x{cart.selectedQuantity})</sub></p>
             <p>{cart?.subtotal}</p>
         </div>
         
