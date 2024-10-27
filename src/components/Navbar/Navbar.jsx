@@ -122,7 +122,7 @@ const Navbar = () => {
             {!loading && (
 
               theUserCompares.length > 0 && (
-                <span className="absolute -right-2 -ml-1 -top-2 rounded-full bg-blue-500 px-1 py-[1px] text-[10px] text-white">
+                <span className="absolute -right-1 -ml-1 -top-2 rounded-full bg-blue-500 px-1 py-[0px] text-[10px] text-white">
                   {theUserCompares.length >= 9 ? "9+" `${theUserCompares.length}+` : theUserCompares.length}
                 </span>
               )
@@ -135,7 +135,7 @@ const Navbar = () => {
 
             {!loading && (
               theUserWishlist.length > 0 && ( // Display if there are items in the wishlist
-                <span className="absolute -right-2 -ml-1 -top-2 rounded-full bg-blue-500 px-1 py-[1px] text-[10px] text-white">
+                <span className="absolute -right-1 -ml-1 -top-2 rounded-full bg-blue-500 px-1 py-[0px] text-[10px] text-white">
                   {theUserWishlist.length >= 9 ? "9+" `${theUserWishlist.length}+` : theUserWishlist.length}
                 </span>
               )
@@ -160,7 +160,7 @@ const Navbar = () => {
                   src={user?.photoURL}
                   className="w-10 h-10 rounded-full border-2 border-blue-600 p-0.5"
                 />
-                <span className="h-3 w-3 rounded-full border border-white bg-green-500 block absolute top-2 right-0"></span>
+                <span className="h-3 w-3 rounded-full border border-white bg-green-500 block absolute top-1 right-0"></span>
 
               </div>
 
