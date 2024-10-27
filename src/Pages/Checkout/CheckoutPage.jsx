@@ -3,10 +3,9 @@ import toast from 'react-hot-toast';
 import useLocation from '../../Hooks/useLocation';
 import { useEffect, useState } from 'react';
 import ManageCartLink from '../../components/ManageCartLink/ManageCartLink';
-;
 
 
-import { Link } from 'react-router-dom';
+
 import useCart from '../../Hooks/useCart';
 import CheckoutTable from './Shared/CheckoutTable';
 import useUsers from '../../Hooks/useUsers';
@@ -24,7 +23,8 @@ const CheckoutPage = () => {
     const userSubtotal = parseInt(theUser?.userSubtotal)
     const [getProductId, setGetProductId] = useState();
     console.table(getProductId);
-
+    
+   
 
     // Update districts when a division is selected
     useEffect(() => {
