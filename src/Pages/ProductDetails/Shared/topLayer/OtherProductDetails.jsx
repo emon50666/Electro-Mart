@@ -20,10 +20,24 @@ import useAxiosPublic from "../../../../Hooks/useAxiosPublic";
 import useProduct from "../../../../Hooks/useProduct";
 import ReactHtmlParser from 'react-html-parser';
 import useReview from "../../../../Hooks/useReview";
+import useCart from "../../../../Hooks/useCart";
 
-const OtherProductDetails = ({ product,  }) => {
+const OtherProductDetails = ({ product }) => {
+    const { theUserCarts } = useCart();
+    const theCart = theUserCarts.find(cart => cart?.mainProductId === product?._id);
     const { reviews } = useReview();
     const allReview = reviews.filter(review => review?.mainId === product?._id)
+    const axiosPublic = useAxiosPublic();
+    const { refetch } = useProduct();
+    const handleAddCart = useAddToCart();
+    const handleAddCompare = useAddToCompare();
+    const handleAddWishlist = useAddToWishlist();
+    const [quantityCount, setQuantityCount] = useState(theCart?.selectedQuantity || 0);
+    const [disableBtn, setDisableBtn] = useState(false)
+    const shareUrl = window.location.href;
+    const [cartOpen, setCartOpen] = useState(false);
+    console.log(theCart);
+
     // Calculate average rating
     const calculateAverageRating = (products) => {
         const totalRating = products.reduce((sum, product) => sum + product.rating, 0);
@@ -31,16 +45,7 @@ const OtherProductDetails = ({ product,  }) => {
         return averageRating.toFixed(2); // Round to 2 decimal places
     };
     const averageRating = calculateAverageRating(allReview);
-    console.log(averageRating);
-    const axiosPublic = useAxiosPublic();
-    const { refetch } = useProduct();
-    const handleAddCart = useAddToCart();
-    const handleAddCompare = useAddToCompare();
-    const handleAddWishlist = useAddToWishlist();
-    const [quantityCount, setQuantityCount] = useState(1)
-    const [disableBtn, setDisableBtn] = useState(false)
-    const shareUrl = window.location.href;
-    const [cartOpen, setCartOpen] = useState(false);
+    // console.log(averageRating);
 
     const increaseCount = () => {
         if (quantityCount === parseInt(product?.quantity)) {
@@ -100,14 +105,14 @@ const OtherProductDetails = ({ product,  }) => {
                                 (customer Review)
                             </div>
                         </div>
-                        <div className="font_cabin rounded-full  text-sm bg-[#FEF4F4] lg:text-lg text-orange-500   px-4">
+                        <div className="font_cabin rounded-full  text-sm bg-[#FEF4F4] lg:text-lg text-blue-500   px-4">
                             {product.quantity <= 0 ? <p>Stock Out</p> : <p>( {product?.quantity} )In Stock </p>}
                         </div>
                     </div>
                 </div>
                 {/* Title & Rating end */}
                 {/* Price & description start */}
-                <div className="text-xl gap-2 mb-2 lg:text-4xl text-orange-500 font-semibold flex items-center font_cabin">
+                <div className="text-xl gap-2 mb-2 lg:text-4xl text-blue-500 font-semibold flex items-center font_cabin">
                     <p >৳</p>
                     <h3> {product?.price}</h3>
                 </div>
@@ -140,10 +145,10 @@ const OtherProductDetails = ({ product,  }) => {
                     <div className="space-x-3 md:space-x-5">
                         <button
                             onClick={handleAddToCart}
-                            className="px-9 md:px-4 py-2 text-sm lg:text-base bg-orange-500 text-white font-semibold rounded-md hover:bg-teal-500 focus:bg-teal-600 focus:outline-none focus:ring-2 focus:ring-teal-300">
+                            className="px-9 md:px-4 py-2 text-sm lg:text-base bg-blue-500 text-white font-semibold rounded-md hover:bg-teal-500 focus:bg-teal-600 focus:outline-none focus:ring-2 focus:ring-teal-300">
                             Add to cart
                         </button>
-                        <button className="px-9 md:px-4 py-2 text-sm lg:text-base bg-orange-500 text-white font-semibold rounded-md hover:bg-teal-500 focus:bg-teal-600 focus:outline-none focus:ring-2 focus:ring-teal-300">
+                        <button className="px-9 md:px-4 py-2 text-sm lg:text-base bg-blue-500 text-white font-semibold rounded-md hover:bg-teal-500 focus:bg-teal-600 focus:outline-none focus:ring-2 focus:ring-teal-300">
                             Buy now
                         </button>
                     </div>
@@ -156,13 +161,13 @@ const OtherProductDetails = ({ product,  }) => {
                     <div className="flex text-sm md:text-base lg:text-lg">
                         <button onClick={handleAddToCompare} className="flex items-center hover:text-[#666666] space-x-1">
                             <div>
-                                <GoGitCompare  className="text-orange-500"/>
+                                <GoGitCompare className="text-blue-500" />
                             </div>
                             <h3 className="font-medium  font_cabin">Compare</h3>
                         </button>
                         <button onClick={handleAddToWishlist} className="flex items-center hover:text-[#666666] pl-8 space-x-1">
                             <div>
-                                <GoHeart className="text-orange-500" />
+                                <GoHeart className="text-blue-500" />
                             </div>
                             <h3 className="font-medium  font_cabin">Add to wishlist</h3>
                         </button>

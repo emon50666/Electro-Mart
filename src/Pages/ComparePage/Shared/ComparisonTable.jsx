@@ -47,7 +47,7 @@ const ComparisonTable = ({ compares }) => {
                                 <span className='p-4 w-56 md:min-w-52 md:w-auto block'>
                                     <button
                                         onClick={() => handleDeleteCompare(product?._id)}
-                                        className='flex items-center gap-x-1 text-sm mb-2 p-1 hover:bg-gray-100 hover:text-orange-500 hover:px-10 hover:font-medium rounded-sm transition-all'><RxCross1 /> <span>Remove</span></button>
+                                        className='flex items-center gap-x-1 text-sm mb-2 p-1 hover:bg-gray-100 hover:text-blue-500 hover:px-10 hover:font-medium rounded-sm transition-all'><RxCross1 /> <span>Remove</span></button>
                                     <div className="flex flex-col items-center">
                                         <img
                                             src={product?.image}
@@ -56,14 +56,14 @@ const ComparisonTable = ({ compares }) => {
                                         />
                                     </div>
                                     <p className='text-[#767676]'>{sliceTitle(product?.title)}</p>
-                                    <p className='text-orange-500 flex items-center'><FaBangladeshiTakaSign /><span>{product?.price}</span></p> 
+                                    <p className='text-blue-500 flex items-center'><FaBangladeshiTakaSign /><span>{product?.price}</span></p> 
                                     <div className="flex flex-col md:flex-row md:justify-between mt-2 gap-y-1">
                                         <button
                                             onClick={() => handleAddToCart(product?.mainProductId)}
-                                            className="bg-orange-500 hover:bg-teal-500 focus:ring-2 focus:ring-teal-300 hover:ring-2 hover:ring-teal-300 transition-all text-white py-2 px-1 md:px-4 text-sm rounded-md cursor-pointer">
+                                            className="bg-blue-500 hover:bg-teal-500 focus:ring-2 focus:ring-teal-300 hover:ring-2 hover:ring-teal-300 transition-all text-white py-2 px-1 md:px-4 text-sm rounded-md cursor-pointer">
                                             Add to Cart
                                         </button>
-                                        <Link to={`/productDetails/${product?.mainProductId}`} className="text-center bg-orange-500 hover:bg-teal-500 focus:ring-2 focus:ring-teal-300 hover:ring-2 hover:ring-teal-300 transition-all text-white py-2 px-2 md:px-4 rounded-md text-sm cursor-pointer">
+                                        <Link to={`/productDetails/${product?.mainProductId}`} className="text-center bg-blue-500 hover:bg-teal-500 focus:ring-2 focus:ring-teal-300 hover:ring-2 hover:ring-teal-300 transition-all text-white py-2 px-2 md:px-4 rounded-md text-sm cursor-pointer">
                                             Details
                                         </Link>
                                     </div>

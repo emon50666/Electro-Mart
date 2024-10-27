@@ -11,8 +11,8 @@ const TopLayerOfDetails = ({ title, id }) => {
                 <li className="items-center flex">
                     <Link to="/" className="hover:text-gray-600">Home</Link> /
                 </li>
-                <li className="hidden md:block text-orange-500">
-                    <Link to="/" className="hover:text-orange-400">Category</Link> /
+                <li className="hidden md:block text-blue-500">
+                    <Link to="/" className="hover:text-blue-400">Category</Link> /
                 </li>
                 <li className="items-center flex text-gray-900">
                     <Link to="#" className="hover:text-gray-600">{title}</Link>

@@ -81,7 +81,7 @@ const StorPage = () => {
                 </h2>
                 <Link
                   to={`/storeDetails/${store?._id}`}
-                  className="mt-3 bg-orange-500 text-white py-2 px-4 rounded hover:bg-orange-600">
+                  className="mt-3 bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600">
                   View Store
                 </Link>
               </div>

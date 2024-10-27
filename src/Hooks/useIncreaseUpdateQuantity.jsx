@@ -1,7 +1,7 @@
 import useAxiosPublic from "./useAxiosPublic";
 
 
-const useUpdateQuantity = () => {
+const useIncreaseUpdateQuantity = () => {
     const axiosPublic = useAxiosPublic();
 
     const handleQuantityUpdate = async (product, cart, refetch) => {
@@ -9,7 +9,6 @@ const useUpdateQuantity = () => {
             const updatedQuantity = parseInt(product?.quantity) + parseInt(cart?.selectedQuantity);
             const updatedQuantityInfo = { updatedQuantity };
             const response = await axiosPublic.patch(`/productQuantity/${product?._id}`, updatedQuantityInfo);
-
             if (response.data.modifiedCount) {
                 refetch();
             }
@@ -21,4 +20,4 @@ const useUpdateQuantity = () => {
     return handleQuantityUpdate;
 };
 
-export default useUpdateQuantity;
+export default useIncreaseUpdateQuantity;

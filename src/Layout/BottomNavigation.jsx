@@ -32,7 +32,7 @@ const BottomNavigation = () => {
           {/* Badge for cart items count */}
           {
             theUserCarts.length > 0 && (
-              <span className="absolute -right-2 -ml-1 -top-2 rounded-full bg-orange-500 px-1 py-[1px] text-[10px] text-white">
+              <span className="absolute -right-2 -ml-1 -top-2 rounded-full bg-blue-500 px-1 py-[1px] text-[10px] text-white">
                 {theUserCarts.length + '+'}
               </span>
             )

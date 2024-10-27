@@ -61,7 +61,7 @@ const Banner = () => {
                 <p className="text-lg text-white mb-6">
                   Shop great deals on MacBook, iPad, iPhone, and more.
                 </p>
-                <button className="bg-orange-500 hover:bg-blue-600 text-white py-2 px-6 rounded-lg">
+                <button className="bg-blue-500 hover:bg-blue-600 text-white py-2 px-6 rounded-lg">
                   Shop Now
                 </button>
               </div>

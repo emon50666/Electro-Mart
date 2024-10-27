@@ -26,8 +26,8 @@ const cards = [
   {
     title: 'Total Orders',
     value: '2,802',
-    icon: <FaShoppingBag className="text-orange-500 text-[40px] rounded-full p-2 bg-[#FB923C]/30 " />,
-    chartColor: '#FB923C', // Orange
+    icon: <FaShoppingBag className="text-blue-500 text-[40px] rounded-full p-2 bg-[#FB923C]/30 " />,
+    chartColor: '#FB923C', // blue
   },
   {
     title: 'Customers',
