@@ -234,7 +234,7 @@ const AddNewProduct = () => {
               <div>
                 <label htmlFor="price" className="block text-sm font-medium text-gray-700">Product Price</label>
                 <input
-                  type="number"
+                  type="text"
                   name="price"
                   {...register("price", { required: true })}
                   className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:border-blue-500 outline-none"
