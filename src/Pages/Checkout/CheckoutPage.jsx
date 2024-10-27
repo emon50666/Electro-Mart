@@ -256,7 +256,7 @@ const CheckoutPage = () => {
                         <div className="space-y-4">
                             <div className="flex justify-between">
                                 <span>Product</span>
-                                <span>Subtotal</span>
+                                <span>Price</span>
                             </div>
                             <div className="">
                                 {theUserCarts.map((cart, idx) => <CheckoutTable key={idx} cart={cart} setGetProductId={setGetProductId} />)}
@@ -266,7 +266,9 @@ const CheckoutPage = () => {
                                 <span>{userSubtotal}</span>
                             </div>
                             <hr />
-                            <div>
+                           <div>
+                             <h2 className='mb-3 font-semibold'>Shipping Method</h2>
+                           <div>
                                 <input
                                     type="radio"
                                     id="dhaka-inside"
@@ -288,10 +290,11 @@ const CheckoutPage = () => {
                                 />
                                 <label htmlFor="dhaka-outside">ঢাকার বাইরে: 130.00৳</label>
                             </div>
+                           </div>
                             <hr />
                             <div className="flex justify-between">
                                 <span>Total</span>
-                                <span>{totalAmount}৳</span>
+                                <span>{totalAmount} ৳</span>
                             </div>
 
 
