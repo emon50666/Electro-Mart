@@ -29,6 +29,8 @@ import PromotionDetails from "../Pages/Promotion/PromotionDetails";
 
 import CheckoutPage from "../Pages/Checkout/CheckoutPage";
 import Thanks from "../Pages/ThankYouPage/Thanks";
+import About from "../Pages/About/About";
+import Contacts from "../Pages/Contacts/Contacts";
 
 
 
@@ -70,6 +72,15 @@ const router = createBrowserRouter([
 
         path: "/promotion",
         element: <Promotion />
+      },
+      {
+
+        path: "/about",
+        element: <About />
+      },
+      {
+        path:"/contacts",
+        element:<Contacts/>
       },
       {
         path: "/promotionsDetails/:id",

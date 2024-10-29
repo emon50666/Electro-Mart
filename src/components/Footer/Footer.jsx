@@ -58,13 +58,13 @@ const Footer = () => {
                     </p>
                     <ul className="mt-2 space-y-1 md:space-y-2 text-md xl:text-lg">
                         <li>
-                            <Link to="/" className="text-gray-400 underline-hover">
-                                Web
+                            <Link to="/about" className="text-gray-400 underline-hover">
+                                About
                             </Link>
                         </li>
                         <li>
-                            <Link to="/" className="text-gray-400 underline-hover">
-                                eCommerce
+                            <Link to="/contacts" className="text-gray-400 underline-hover">
+                                Our Contacts
                             </Link>
                         </li>
                         <li>
