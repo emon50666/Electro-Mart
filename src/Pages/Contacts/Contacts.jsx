@@ -9,6 +9,10 @@ const Contacts = () => {
   const toggleFAQ = (index) => {
     setActiveIndex(activeIndex === index ? null : index);
   };
+  const [showMore, setShowMore] = useState(false);
+  const handleReadMore = () => {
+    setShowMore(!showMore);
+  };
 
   const faqData = [
     {
@@ -154,6 +158,35 @@ const Contacts = () => {
     </div>
   </div>
 </div>
+{/* ---------------------------------------------------- */}
+<div className="container  mt-2 bg-gray-50 p-4 rounded-md mb-5">
+        <h2 className="text-xl  font-bold">
+          Online store of household appliances and electronics
+        </h2>
+        <p className="text-md">
+          {showMore ? (
+            <>
+              Then the question arises: where’s the content? Not there yet?
+              That’s not so bad, there’s dummy copy to the rescue. But worse,
+              what if the fish doesn’t fit in the can, the foot’s too big for
+              the boot? Or too small? Too short sentences, too many headings,
+              images too large for the proposed design, or too small, or they
+              fit in but it looks iffy for reasons. A client that’s unhappy for
+              a reason is a problem, a client that’s unhappy though he or she
+              can’t quite put a finger on it is worse. Chances are there wasn’t
+              collaboration, communication, and...
+            </>
+          ) : (
+            "Then the question arises: where’s the content? Not there yet? That’s not so bad, there’s dummy copy to the rescue..."
+          )}
+        </p>
+        <button
+          onClick={handleReadMore}
+          className="mt-3 px-3 py-2 text-md bg-white rounded hover:bg-gray-100"
+        >
+          {showMore ? "Show Less" : "Read More"}
+        </button>
+      </div>
 
       {/* --------------------------------------------------------------- */}
       <div className="rounded-2xl px-2 mx-auto h-auto xl:h-full my-10">
