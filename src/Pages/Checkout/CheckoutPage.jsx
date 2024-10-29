@@ -10,10 +10,12 @@ import useCart from '../../Hooks/useCart';
 import CheckoutTable from './Shared/CheckoutTable';
 import useUsers from '../../Hooks/useUsers';
 import Loader from '../../components/Loader/Loader';
+import UserAuth from '../../Hooks/useAuth';
 
 const CheckoutPage = () => {
     const { locations } = useLocation();
     const axiosPublic = useAxiosPublic();
+    const {user} = UserAuth()
 
     const { theUser ,isPending,refetch} = useUsers();
     const { theUserCarts } = useCart();
@@ -101,6 +103,7 @@ const CheckoutPage = () => {
             division: form.division.value,
             totalAmount,
             shipping: shippingLabel,
+            user
         };
 
         console.table(formData);

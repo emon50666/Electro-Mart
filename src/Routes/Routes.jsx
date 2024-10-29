@@ -80,22 +80,7 @@ const router = createBrowserRouter([
 
       },
    
-    {
-      path: '/checkout-page',
-      element: <CheckoutPage/>
-    },
-    {
-      path:'/success',
-      element: <Success/>
-    },
-    {
-      path:'/fail',
-      element: <Fail/>
-    },
-    {
-      path:'/cancel',
-      element: <Cancel/>
-    },
+   
     
     ],
 
@@ -108,8 +93,23 @@ const router = createBrowserRouter([
     path: '/register',
     element: <Register />
   },
-
-
+  {
+    path:'/success/:tranId',
+    element: <Success/>
+  },
+  {
+    path: '/checkout-page',
+    element: <CheckoutPage/>
+  },
+  
+  {
+    path:'/fail',
+    element: <Fail/>
+  },
+  {
+    path:'/cancel',
+    element: <Cancel/>
+  },
 
 
 
@@ -165,7 +165,8 @@ const router = createBrowserRouter([
       {
         path: 'dashboard-layout',
         element: <DashBoardProfile />
-      }
+      },
+      
 
     ]
   }
