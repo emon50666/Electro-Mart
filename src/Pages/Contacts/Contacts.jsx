@@ -197,6 +197,26 @@ const Contacts = () => {
       </div>
       {/* ---------------------------------------------------- */}
       <div className="container  mt-2 bg-gray-50 p-4 rounded-md mb-5 lg:px-20">
+      <h3 className="text-xl font-bold mt-4">
+        Were Here to Help You!
+        </h3>
+        <p className="text-md">
+        At our e-commerce store, customer satisfaction is our top priority. Whether you have questions about our extensive range of household appliances and electronics, need assistance with your order, or seek advice on product selection, our friendly customer service team is just a message away. We aim to provide you with all the support you need to make informed purchasing decisions. Your feedback is essential, and we’re here to ensure your shopping experience is smooth and enjoyable.
+        </p>
+      <h3 className="text-xl font-bold mt-4">
+        Were Here to Help You!
+        </h3>
+        <p className="text-md">
+        At our e-commerce store, customer satisfaction is our top priority. Whether you have questions about our extensive range of household appliances and electronics, need assistance with your order, or seek advice on product selection, our friendly customer service team is just a message away. We aim to provide you with all the support you need to make informed purchasing decisions. Your feedback is essential, and we’re here to ensure your shopping experience is smooth and enjoyable.
+        </p>
+      <h3 className="text-xl font-bold mt-4">
+        Were Here to Help You!
+        </h3>
+        <p className="text-md">
+        At our e-commerce store, customer satisfaction is our top priority. Whether you have questions about our extensive range of household appliances and electronics, need assistance with your order, or seek advice on product selection, our friendly customer service team is just a message away. We aim to provide you with all the support you need to make informed purchasing decisions. Your feedback is essential, and we’re here to ensure your shopping experience is smooth and enjoyable.
+        </p>
+      </div>
+      <div className="container  mt-2 bg-gray-50 p-4 rounded-md mb-5 lg:px-20">
         <h2 className="text-xl font-bold">
           Welcome to Our Online Store for Household Appliances and Electronics
         </h2>
