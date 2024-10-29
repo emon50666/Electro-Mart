@@ -134,7 +134,7 @@ const Contacts = () => {
         </div>
       </div>
       <h3 className="font-semibold mb-3">Subscribe us</h3>
-      <div className="flex items-center justify-center space-x-4">
+      <div className="flex items-center  space-x-4">
         <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">
           <FaFacebookF className="w-6 h-6 text-blue-600 hover:text-blue-800" />
         </a>
