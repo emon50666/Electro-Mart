@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { FaFacebookF, FaPhone } from "react-icons/fa6";
+import { FaFacebookF, FaInstagram, FaLinkedinIn, FaPhone, FaTwitter } from "react-icons/fa6";
 import { MdEmail } from "react-icons/md";
 import { RiMessengerFill, RiTelegramFill } from "react-icons/ri";
 
@@ -130,15 +130,27 @@ const Contacts = () => {
         </div>
         <div className="flex items-center">
           <MdEmail className="w-6 h-6 text-orange-500 mr-3" />
-          <span>Email: woodmart@mail.com</span>
+          <span>Email: electro@mark.com</span>
         </div>
       </div>
       <h3 className="font-semibold mb-3">Subscribe us</h3>
-      <div className="flex space-x-2">
-        <a href="#" className="bg-blue-600 p-2 rounded-full">
-          <FaFacebookF className="w-5 h-5 text-white" />
-        </a>
-        </div>
+      <div className="flex items-center space-x-4">
+      <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">
+        <FaFacebookF className="w-6 h-6 text-blue-600 hover:text-blue-800" />
+      </a>
+      <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">
+        <FaInstagram className="w-7 h-7 text-pink-600 hover:text-pink-800" />
+      </a>
+      <a href="https://telegram.org" target="_blank" rel="noopener noreferrer">
+        <RiTelegramFill className="w-8 h-8 text-blue-400 hover:text-blue-600" />
+      </a>
+      <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
+        <FaTwitter className="w-7 h-7 text-blue-400 hover:text-blue-600" />
+      </a>
+      <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer">
+        <FaLinkedinIn className="w-6 h-8 text-blue-700 hover:text-blue-900" />
+      </a>
+    </div>
     </div>
   </div>
 </div>
