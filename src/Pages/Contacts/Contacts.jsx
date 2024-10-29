@@ -85,7 +85,7 @@ const Contacts = () => {
 </div>
 
       {/* --------------------------------------------------------------- */}
-      <div className="flex flex-wrap items-start lg:mx-20">
+      <div className="flex flex-wrap items-start lg:mx-20 md:mx-10 mx-2">
   <div className="min-h-screen flex flex-col w-full lg:w-2/3 mb-8 lg:mb-0">
     <h2 className="text-3xl font-bold mb-8">Frequently Asked Questions</h2>
 
@@ -111,11 +111,10 @@ const Contacts = () => {
     </div>
   </div>
 
-  <div className="w-full lg:w-1/3">
-  <h2 className="text-3xl font-bold mb-4 lg:ml-9">Need Help?</h2>
+  <div className="w-full lg:w-1/3 px-4">
+    <h2 className="text-3xl font-bold mb-4 lg:ml-9 md:ml-44">Need Help?</h2>
 
     <div className="bg-white p-6 rounded-lg shadow-md max-w-sm mx-auto">
-
       <div className="space-y-3 mb-6">
         <div className="flex items-center">
           <FaPhone className="w-6 h-6 text-blue-500 mr-3" />
@@ -135,23 +134,23 @@ const Contacts = () => {
         </div>
       </div>
       <h3 className="font-semibold mb-3">Subscribe us</h3>
-      <div className="flex items-center space-x-4">
-      <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">
-        <FaFacebookF className="w-6 h-6 text-blue-600 hover:text-blue-800" />
-      </a>
-      <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">
-        <FaInstagram className="w-7 h-7 text-pink-600 hover:text-pink-800" />
-      </a>
-      <a href="https://telegram.org" target="_blank" rel="noopener noreferrer">
-        <RiTelegramFill className="w-8 h-8 text-blue-400 hover:text-blue-600" />
-      </a>
-      <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
-        <FaTwitter className="w-7 h-7 text-blue-400 hover:text-blue-600" />
-      </a>
-      <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer">
-        <FaLinkedinIn className="w-6 h-8 text-blue-700 hover:text-blue-900" />
-      </a>
-    </div>
+      <div className="flex items-center justify-center space-x-4">
+        <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer">
+          <FaFacebookF className="w-6 h-6 text-blue-600 hover:text-blue-800" />
+        </a>
+        <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">
+          <FaInstagram className="w-7 h-7 text-pink-600 hover:text-pink-800" />
+        </a>
+        <a href="https://telegram.org" target="_blank" rel="noopener noreferrer">
+          <RiTelegramFill className="w-8 h-8 text-blue-400 hover:text-blue-600" />
+        </a>
+        <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
+          <FaTwitter className="w-7 h-7 text-blue-400 hover:text-blue-600" />
+        </a>
+        <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer">
+          <FaLinkedinIn className="w-6 h-8 text-blue-700 hover:text-blue-900" />
+        </a>
+      </div>
     </div>
   </div>
 </div>
