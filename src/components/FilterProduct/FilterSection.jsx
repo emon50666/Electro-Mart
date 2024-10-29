@@ -2,7 +2,6 @@
 import { useState } from "react";
 import "./FilterSection.css";
 import Loader from "../Loader/Loader";
-
 import useBrands from "./../../Hooks/useBrands";
 import useCategory from "../../Hooks/useCategory";
 
@@ -17,9 +16,10 @@ const FilterSection = ({ onFilterChange, filters }) => {
     filters.selectedBrand || "all"
   );
 
-  const [minPrice, setMinPrice] = useState(""); // For minimum price filter
-  const [maxPrice, setMaxPrice] = useState(""); // For maximum price filter
+  const [minPrice, setMinPrice] = useState(""); 
+  const [maxPrice, setMaxPrice] = useState(""); 
 
+  const [sortOrder, setSortOrder] = useState(filters.sortOrder || "new"); 
 
   const handleCategoryChange = (event) => {
     setSelectedCategory(event.target.value);
@@ -29,7 +29,6 @@ const FilterSection = ({ onFilterChange, filters }) => {
     setSelectedBrand(event.target.value);
   };
 
-
   const handleMinPriceChange = (event) => {
     setMinPrice(event.target.value);
   };
@@ -38,8 +37,12 @@ const FilterSection = ({ onFilterChange, filters }) => {
     setMaxPrice(event.target.value);
   };
 
+  const handleSortChange = (event) => {
+    setSortOrder(event.target.value);
+  };
+
   const applyFilters = () => {
-    onFilterChange({ selectedCategory, selectedBrand });
+    onFilterChange({ selectedCategory, selectedBrand, minPrice, maxPrice, sortOrder }); 
   };
 
   if (loadingCategories || loadingBrands) {
@@ -73,8 +76,9 @@ const FilterSection = ({ onFilterChange, filters }) => {
           ))}
         </select>
       </div>
-        {/* Price Range Filter */}
-        <div className="filter-option">
+
+      {/* Price Range Filter */}
+      <div className="filter-option">
         <label>Price Range</label>
         <div className="price-inputs">
           <input
@@ -94,6 +98,15 @@ const FilterSection = ({ onFilterChange, filters }) => {
         </div>
       </div>
 
+      {/* Sort Options */}
+      <div className="filter-option">
+        <label>Sort By</label>
+        <select value={sortOrder} onChange={handleSortChange}>
+          <option value="new">Newest</option>
+          <option value="priceLowHigh">Price: Low to High</option>
+          <option value="priceHighLow">Price: High to Low</option>
+        </select>
+      </div>
 
       <button
         className="filter-button bg-[#FF5E2B] hover:bg-orange-600"

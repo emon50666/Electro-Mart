@@ -1,31 +1,31 @@
+/* Filter Section Styles */
 .filter-section {
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   position: sticky;
+  top: 20px; /* keeps it at a visible position on scroll */
 }
 
 .filter-section h3 {
-  margin-bottom: 15px;
+  margin-bottom: 20px;
   font-size: 1.5rem;
   text-align: center;
   text-transform: uppercase;
-  margin-bottom: 20px;
 }
 
 .filter-option {
-  margin-bottom: 15px;
+  margin-bottom: 20px;
 }
 
 .filter-option label {
   display: block;
   margin-bottom: 5px;
   font-weight: bold;
-  margin-bottom: 20px;
 }
 
 .filter-option select,
-.filter-option input[type="range"] {
+.filter-option input[type="number"] {
   width: 100%;
   height: 46px;
   padding: 0 12px;
@@ -35,12 +35,94 @@
   border-top: 1px solid black;
   border-bottom: 1px solid black;
   margin-bottom: 20px;
+  font-size: 1rem;
+}
+
+.filter-option select:focus,
+.price-input:focus {
+  border-color: #ff5e2b;
+  box-shadow: 0 0 3px #ff5e2b;
+}
+
+.price-inputs {
+  display: flex;
+  gap: 10px;
+}
+
+.price-input {
+  width: 100%;
+  height: 46px;
+  padding: 0 12px;
+  border: none;
+  border-radius: 4px;
+  outline: none;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  font-size: 1rem;
+}
+
+.price-input::placeholder {
+  color: #999;
 }
 
 .filter-button {
+  width: 100%;
+  background-color: #ff5e2b;
   color: white;
-  border: none;
-  padding: 10px 15px;
+  padding: 12px 15px;
+  font-weight: bold;
+  text-align: center;
   border-radius: 4px;
   cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.filter-button:hover {
+  background-color: #e65522;
+}
+
+/* Responsive styles for tablets */
+@media (max-width: 1024px) {
+  .filter-section {
+    padding: 16px;
+  }
+
+  .filter-section h3 {
+    font-size: 1.4rem;
+  }
+
+  .filter-option select,
+  .filter-option input[type="number"],
+  .price-input {
+    height: 42px;
+    font-size: 0.95rem;
+  }
+}
+
+/* Responsive styles for mobile devices */
+@media (max-width: 768px) {
+  .filter-section {
+    padding: 12px;
+  }
+
+  .filter-section h3 {
+    font-size: 1.3rem;
+  }
+
+  .filter-option select,
+  .filter-option input[type="number"],
+  .price-input {
+    height: 40px;
+    font-size: 0.9rem;
+  }
+
+  .price-inputs {
+    flex-direction: column; /* Stack min and max inputs vertically */
+    gap: 5px;
+  }
+
+  .filter-button {
+    padding: 10px 12px;
+    font-size: 0.95rem;
+  }
 }
