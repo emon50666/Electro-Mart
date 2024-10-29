@@ -204,16 +204,16 @@ const Contacts = () => {
         At our e-commerce store, customer satisfaction is our top priority. Whether you have questions about our extensive range of household appliances and electronics, need assistance with your order, or seek advice on product selection, our friendly customer service team is just a message away. We aim to provide you with all the support you need to make informed purchasing decisions. Your feedback is essential, and we’re here to ensure your shopping experience is smooth and enjoyable.
         </p>
       <h3 className="text-xl font-bold mt-4">
-        Were Here to Help You!
+      Your Satisfaction is Our Mission
         </h3>
         <p className="text-md">
-        At our e-commerce store, customer satisfaction is our top priority. Whether you have questions about our extensive range of household appliances and electronics, need assistance with your order, or seek advice on product selection, our friendly customer service team is just a message away. We aim to provide you with all the support you need to make informed purchasing decisions. Your feedback is essential, and we’re here to ensure your shopping experience is smooth and enjoyable.
+        We understand that shopping online can sometimes raise questions. That's why our dedicated customer service team is here to assist you every step of the way. From inquiries about product specifications to tracking your order or understanding our return policies, we’re committed to providing you with clear and prompt assistance. We value your feedback and strive to enhance your shopping experience, so please don’t hesitate to reach out—we’re here to help!
         </p>
       <h3 className="text-xl font-bold mt-4">
-        Were Here to Help You!
+      Contact Us for Exceptional Support
         </h3>
         <p className="text-md">
-        At our e-commerce store, customer satisfaction is our top priority. Whether you have questions about our extensive range of household appliances and electronics, need assistance with your order, or seek advice on product selection, our friendly customer service team is just a message away. We aim to provide you with all the support you need to make informed purchasing decisions. Your feedback is essential, and we’re here to ensure your shopping experience is smooth and enjoyable.
+        Our goal is to ensure you receive the best possible service while shopping with us. If you have any questions regarding our products, need guidance on making a purchase, or want to know about shipping options, our knowledgeable support team is here for you. We believe that every inquiry is important, and we take pride in providing timely and helpful responses. Your satisfaction matters to us, and we look forward to assisting you with your needs!
         </p>
       </div>
       <div className="container  mt-2 bg-gray-50 p-4 rounded-md mb-5 lg:px-20">
