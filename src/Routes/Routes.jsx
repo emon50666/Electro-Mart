@@ -28,11 +28,9 @@ import Promotion from "../Pages/Promotion/Promotion";
 import PromotionDetails from "../Pages/Promotion/PromotionDetails";
 
 import CheckoutPage from "../Pages/Checkout/CheckoutPage";
-import Thanks from "../Pages/ThankYouPage/Thanks";
-
-
-
-
+import Success from "../Pages/SuccessPage/Success";
+import Fail from "../Pages/FailPage/Fail";
+import Cancel from "../Pages/CancelPage/Cancel";
 
 
 const router = createBrowserRouter([
@@ -87,8 +85,16 @@ const router = createBrowserRouter([
       element: <CheckoutPage/>
     },
     {
-      path: '/greeting',
-      element: <Thanks/>
+      path:'/success',
+      element: <Success/>
+    },
+    {
+      path:'/fail',
+      element: <Fail/>
+    },
+    {
+      path:'/cancel',
+      element: <Cancel/>
     },
     
     ],

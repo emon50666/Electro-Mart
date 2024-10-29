@@ -109,8 +109,14 @@ const CheckoutPage = () => {
             const { data } = await axiosPublic.post(
                 `${import.meta.env.VITE_API_URL}/order`,
                 formData
+               
             );
             toast.success('Order placed successfully');
+            //    const redirectUrl = data.data.paymentUrl;
+            //    if(redirectUrl){
+            //     window.location.replace(redirectUrl)
+            //    }
+            window.location.replace(data.paymentUrl)
             return data;
         } catch (error) {
             console.error(error);
