@@ -85,7 +85,7 @@ const Contacts = () => {
 </div>
 
       {/* --------------------------------------------------------------- */}
-      <div className="flex flex-wrap items-start lg:mx-20 md:mx-10 mx-2">
+      <div className="flex flex-wrap items-start lg:mx-20 md:mx-10 mx-2 lg:-mb-56 lg:mt-10">
   <div className="min-h-screen flex flex-col w-full lg:w-2/3 mb-8 lg:mb-0">
     <h2 className="text-3xl font-bold mb-8">Frequently Asked Questions</h2>
 
