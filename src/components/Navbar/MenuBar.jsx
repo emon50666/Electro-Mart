@@ -59,7 +59,7 @@ const MenuBar = () => {
                 <li key={idx}>
                   <Link
                     to={`/shop-page?category=${cat}`} 
-                    className={`text-md font-medium  text-black   px-2 py-1 hover:bg-white hover:text-orange-300 ${selectedCategory === cat ? "text-orange-600" : "text-black"}`}
+                    className={`text-md font-medium  text-black   px-2 py-1 hover:bg-white hover:text-blue-500 ${selectedCategory === cat ? "text-blue-600" : "text-black"}`}
                     onClick={() => handleCategoryClick(cat)}
                   >
                     {cat}
@@ -87,7 +87,7 @@ const MenuBar = () => {
                 <li key={idx}>
                   <Link
                     to={`/shop-page?category=${cat}`} 
-                    className={`text-md font-medium hover:bg-[black]/80 text-gray-300 rounded-md hover:border-b-2 hover:rounded-none px-2 py-0 hover:-mb-[2px] transition-transform ${selectedCategory === cat ? "text-orange-600" : "text-gray-300"}`}
+                    className={`text-md font-medium hover:bg-[black]/80 text-gray-300 rounded-md hover:border-b-2 hover:rounded-none px-2 py-0 hover:-mb-[2px] transition-transform ${selectedCategory === cat ? "text-white" : "text-gray-300"}`}
                     onClick={() => handleCategoryClick(cat)}
                   >
                     {cat}
