@@ -28,11 +28,10 @@ import Promotion from "../Pages/Promotion/Promotion";
 import PromotionDetails from "../Pages/Promotion/PromotionDetails";
 
 import CheckoutPage from "../Pages/Checkout/CheckoutPage";
-import Thanks from "../Pages/ThankYouPage/Thanks";
-
-
-
-
+import Success from "../Pages/SuccessPage/Success";
+import Fail from "../Pages/FailPage/Fail";
+import Cancel from "../Pages/CancelPage/Cancel";
+import Thanks from "../Pages/TnaksPage/Thanks";
 
 
 const router = createBrowserRouter([
@@ -82,14 +81,7 @@ const router = createBrowserRouter([
 
       },
    
-    {
-      path: '/checkout-page',
-      element: <CheckoutPage/>
-    },
-    {
-      path: '/greeting',
-      element: <Thanks/>
-    },
+   
     
     ],
 
@@ -102,8 +94,27 @@ const router = createBrowserRouter([
     path: '/register',
     element: <Register />
   },
-
-
+  {
+    path:'/thanks',
+    element: <Thanks/>
+  },
+  {
+    path:'/success/:tranId',
+    element: <Success/>
+  },
+  {
+    path: '/checkout-page',
+    element: <CheckoutPage/>
+  },
+  
+  {
+    path:'/fail',
+    element: <Fail/>
+  },
+  {
+    path:'/cancel',
+    element: <Cancel/>
+  },
 
 
 
@@ -159,7 +170,8 @@ const router = createBrowserRouter([
       {
         path: 'dashboard-layout',
         element: <DashBoardProfile />
-      }
+      },
+      
 
     ]
   }
