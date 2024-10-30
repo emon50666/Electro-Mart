@@ -35,6 +35,7 @@ import FilterProduct from "../components/FilterProduct/FilterProduct";
 
 
 
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -81,6 +82,7 @@ const router = createBrowserRouter([
         element: <PrivateRoute><ManageCart /></PrivateRoute>
 
       },
+   
     {
       path: '/checkout',
       element: <Checkout/>

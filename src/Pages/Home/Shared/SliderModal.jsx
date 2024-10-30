@@ -17,10 +17,11 @@ const SliderModal = ({ isOpen, onClose }) => {
                     </button>
                 </div>
                 <div className="px-4">
-                    <div>
-                        <h2 className="text-3xl font-semibold text-slate-700 mb-3">
+                    <div className="space-y-2">
+                        <h2 className="text-3xl font-semibold text-slate-700">
                             Manage Sliders
                         </h2>
+                        <p className="text-sm text-gray-600">image size should be 680x400</p>
                     </div>
                     <div>
                         <SlideTable onClose={onClose} />

@@ -40,10 +40,10 @@ const AddCart = ({ setCartOpen }) => {
                 {
                     theUserCarts.length > 0 && (
                         <div className="space-y-3">
-                            <Link to={'/manageCart'} className="btn py-2 px-4 w-full border border-orange-500 hover:text-white text-orange-500 hover:bg-orange-500 font-semibold rounded-md">
+                            <Link to={'/manageCart'} className="btn py-2 px-4 w-full border border-blue-500 hover:text-white text-blue-500 hover:bg-blue-500 font-semibold rounded-md">
                                 View Cart
                             </Link>
-                            <Link to="/dashboard/checkoutPage" className="btn py-2 px-4 w-full bg-orange-500 text-white  hover:bg-orange-500 font-semibold rounded-md">
+                            <Link to="/dashboard/checkoutPage" className="btn py-2 px-4 w-full bg-blue-500 text-white  hover:bg-blue-500 font-semibold rounded-md">
                                 Checkout
                             </Link>
 

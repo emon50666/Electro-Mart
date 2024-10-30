@@ -79,23 +79,23 @@ const WishlistTable = ({ wishProduct }) => {
       </td>
       <td className="px-5 md:text-base text-xs  text-center transition duration-300 border-t border-l first:border-l-0 border-slate-300">
         <Link to={`/productDetails/${wishProduct?._id}`}>
-          <button className="border-2 border-orange-500 rounded-md text-orange-500 text-lg px-4 py-2 text-center transition-all duration-300 ease-in-out transform hover:scale-105">
+          <button className="border-2 border-blue-500 rounded-md text-blue-500 text-lg px-4 py-2 text-center transition-all duration-300 ease-in-out transform hover:scale-105">
             <BsEye />
           </button>
         </Link>
       </td>
       <td className="px-5 md:text-base text-xs  text-center transition duration-300 border-t border-l first:border-l-0 border-slate-300">
-        <button onClick={handleAddToCart} className="border-2 border-orange-500 rounded-md text-orange-500 text-lg px-4 py-2 text-center transition-all duration-300 ease-in-out transform hover:scale-105">
+        <button onClick={handleAddToCart} className="border-2 border-blue-500 rounded-md text-blue-500 text-lg px-4 py-2 text-center transition-all duration-300 ease-in-out transform hover:scale-105">
           <FaShoppingCart />
         </button>
       </td>
       <td className="px-5 md:text-base text-xs  text-center transition duration-300 border-t border-l first:border-l-0 border-slate-300">
-        <button onClick={handleAddToCompare} className="border-2 border-orange-500 rounded-md text-orange-500 text-lg px-4 py-2 text-center transition-all duration-300 ease-in-out transform hover:scale-105">
+        <button onClick={handleAddToCompare} className="border-2 border-blue-500 rounded-md text-blue-500 text-lg px-4 py-2 text-center transition-all duration-300 ease-in-out transform hover:scale-105">
           <DiGitCompare />
         </button>
       </td>
       <td className="px-5 md:text-base text-xs  text-center transition duration-300 border-t border-l first:border-l-0 border-slate-300">
-        <button onClick={() => handleDeleteWishlist(wishProduct?._id)} className="border-2 border-orange-500 rounded-md text-orange-500 text-xl px-4 py-2 text-center transition-all duration-300 ease-in-out transform hover:scale-105">
+        <button onClick={() => handleDeleteWishlist(wishProduct?._id)} className="border-2 border-blue-500 rounded-md text-blue-500 text-xl px-4 py-2 text-center transition-all duration-300 ease-in-out transform hover:scale-105">
           <MdDeleteForever />
         </button>
       </td>

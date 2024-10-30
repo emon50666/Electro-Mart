@@ -9,7 +9,7 @@ const Order = () => {
   <table className="table">
     {/* head */}
     <thead>
-      <tr className="bg-orange-50">
+      <tr className="bg-blue-50">
         <th>
         
         </th>
@@ -27,7 +27,7 @@ const Order = () => {
     </thead>
     <tbody>
       {/* row 1 */}
-      <tr className="border-l-4  border-orange-500">
+      <tr className="border-l-4  border-blue-500">
         <th>
         
         </th>

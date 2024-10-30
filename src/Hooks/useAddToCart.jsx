@@ -9,7 +9,8 @@ const useAddToCart = () => {
     const { carts, refetch } = useCart();
 
     const handleAddCart = (product, quantity = 1) => {
-        // Check if the product is already in the cart for this user
+        quantity = quantity === 0 ? 1 : quantity; // Set quantity to 1 if it is 0
+
         const cartItem = carts.find(cart => cart?.mainProductId === product?._id && cart?.adderMail === user?.email);
 
         if (product?.quantity <= 0) {
@@ -22,9 +23,11 @@ const useAddToCart = () => {
             return;
         }
 
+        const subtotal = (product?.price * quantity).toFixed(2);
         const cartProductInfo = {
             mainProductId: product._id,
             selectedQuantity: quantity,
+            subtotal: parseInt(subtotal),
             adderMail: user?.email,
         };
 
@@ -32,7 +35,7 @@ const useAddToCart = () => {
             .then(res => {
                 if (res.data.insertedId) {
                     toast.success("Added to cart");
-                    refetch()
+                    refetch();
                 }
             })
             .catch(err => {

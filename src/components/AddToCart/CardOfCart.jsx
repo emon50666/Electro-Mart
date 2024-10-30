@@ -6,22 +6,33 @@ import useAxiosPublic from '../../Hooks/useAxiosPublic';
 import useCart from '../../Hooks/useCart';
 import { Link } from 'react-router-dom';
 import { FaBangladeshiTakaSign } from 'react-icons/fa6';
+import useIncreaseUpdateQuantity from '../../Hooks/useIncreaseUpdateQuantity';
+import useUsers from '../../Hooks/useUsers';
 
 const CardOfCart = ({ cart }) => {
     const axiosPublic = useAxiosPublic();
+    const { theUser } = useUsers();
     const { refetch } = useCart();
     const { products } = useProduct();
+    const handleQuantityUpdate = useIncreaseUpdateQuantity();
     const product = products.find((pack) => pack?._id == cart?.mainProductId);
 
-
-    const handleQuantity = async () => {
-        const updatedQuantity = parseInt(product?.quantity) + parseInt(cart?.selectedQuantity);
-        const updatedQuantityInfo = { updatedQuantity }
-        const response = await axiosPublic.patch(`/productQuantity/${product?._id}`, updatedQuantityInfo);
-        if (response.data.modifiedCount) {
-            refetch();
-        }
+    const handleUserSubtotal = (mail) => {
+        const subPrice = parseInt(cart?.selectedQuantity) * parseInt(product?.price)
+        const newSubTotal = parseInt(theUser?.userSubtotal) - subPrice
+        const subtotalInfo = { subtotal: parseInt(newSubTotal) };
+        axiosPublic.patch(`/users/${mail}`, subtotalInfo)
+            .then(res => {
+                if (res.data.modifiedCount) {
+                    refetch()
+                }
+            })
+            .catch(err => {
+                console.log(`err=> ${err}`);
+            })
     }
+
+
     const handleDeleteCart = (id) => {
         Swal.fire({
             title: "Are you sure?",
@@ -36,7 +47,8 @@ const CardOfCart = ({ cart }) => {
                 axiosPublic.delete(`/carts/${id}`)
                     .then((res) => {
                         if (res.data.deletedCount) {
-                            handleQuantity();
+                            handleQuantityUpdate(product, cart, refetch);
+                            handleUserSubtotal(theUser?.email);
                             refetch();
                         }
                     })

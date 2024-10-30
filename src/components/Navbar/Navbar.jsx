@@ -41,7 +41,7 @@ const Navbar = () => {
             {!isOpen ? (
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="h-8 w-8 text-orange-500 border border-dashed border-orange-500 rounded-md bg-orange-200/20"
+                className="h-8 w-8 text-blue-500 border border-dashed border-blue-500 rounded-md bg-blue-200/20"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -56,7 +56,7 @@ const Navbar = () => {
             ) : (
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="h-8 w-8 text-orange-500 border border-dashed border-orange-500 rounded-md bg-orange-200/20"
+                className="h-8 w-8 text-blue-500 border border-dashed border-blue-500 rounded-md bg-blue-200/20"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -101,9 +101,16 @@ const Navbar = () => {
         <div className="hidden lg:flex space-x-3">
           <div
             onClick={handleAddToCart}
-            className="relative bg-orange-200/50 hover:bg-orange-300/50 cursor-pointer rounded-full p-2"
+            className="relative bg-blue-200/50 hover:bg-blue-300/50 cursor-pointer rounded-full p-2"
           >
-            <FaCartShopping className="text-lg text-orange-600" />
+            <FaCartShopping className="text-lg text-blue-600" />
+            {!loading && (
+  theUserCarts.length > 0 && (
+    <span className="absolute -right-1 -ml-1 -top-2 rounded-full bg-blue-500 px-1 py-[0px] text-[10px] text-white">
+      {theUserCarts.length >= 9 ? "9+" : theUserCarts.length}
+    </span>
+  )
+)}
 
             {theUserCarts.length > 0 && (
               <span className="absolute -right-2 -ml-1 -top-2 rounded-full bg-orange-500 px-1 py-[1px] text-[10px] text-white">
@@ -165,9 +172,9 @@ const Navbar = () => {
                   </div>
                 ) : (
                   <Link to={"/register"}>
-                    <div className="relative bg-orange-200/50 hover:bg-orange-300/50 cursor-pointer rounded-full p-2">
-                      <MdAccountCircle className="text-lg text-orange-600" />
-                      <span className="absolute -right-2 -top-3 rounded-full bg-orange-500 pt-[1px] pb-[4px] pl-1 pr-1 py-[1px] text-[10px] text-white">
+                    <div className="relative bg-blue-200/50 hover:bg-blue-300/50 cursor-pointer rounded-full p-2">
+                      <MdAccountCircle className="text-lg text-blue-600" />
+                      <span className="absolute -right-2 -top-3 rounded-full bg-blue-500 pt-[1px] pb-[4px] pl-1 pr-1 py-[1px] text-[10px] text-white">
                         Account
                       </span>
                     </div>
@@ -200,7 +207,7 @@ const Navbar = () => {
               >
                 <li>Profile</li>
               </Link>
-              <Link className="hover:bg-orange-50 p-2 rounded-md hover:text-orange-500">
+              <Link className="hover:bg-blue-50 p-2 rounded-md hover:text-blue-500">
                 <li>Setting</li>
               </Link>
               <Link

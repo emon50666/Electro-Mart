@@ -10,7 +10,7 @@ const ProductDetails = () => {
     const products = useLoaderData();
     const { id } = useParams();
     const product = products.find((pack) => pack._id == id);
-    console.log(product);
+    // console.log(product);
 
     return (
         <div className="space-y-9">
@@ -18,11 +18,13 @@ const ProductDetails = () => {
                 <title>Details | Elector Mart</title>
             </Helmet>
             {/* top layer of details */}
-            <div className="mt-20">
+            <div className="">
                 <TopLayerOfDetails title={product?.title} id={product?._id} />
             </div>
             {/* main details section */}
-            <MainProductDetails product={product} />
+            <div className="">
+                <MainProductDetails product={product} />
+            </div>
             {/* review and full description */}
             <ProductReview product={product} />
             {/* same category product */}
