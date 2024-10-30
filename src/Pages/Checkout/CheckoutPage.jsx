@@ -11,12 +11,13 @@ import CheckoutTable from './Shared/CheckoutTable';
 import useUsers from '../../Hooks/useUsers';
 import Loader from '../../components/Loader/Loader';
 import UserAuth from '../../Hooks/useAuth';
+import { useNavigate } from 'react-router-dom';
 
 const CheckoutPage = () => {
     const { locations } = useLocation();
     const axiosPublic = useAxiosPublic();
     const {user} = UserAuth()
-
+ const navigate = useNavigate()
     const { theUser ,isPending,refetch} = useUsers();
     const { theUserCarts } = useCart();
     const [selectedState, setSelectedState] = useState(""); // Selected division
@@ -115,11 +116,16 @@ const CheckoutPage = () => {
                
             );
             toast.success('Order placed successfully');
-            //    const redirectUrl = data.data.paymentUrl;
-            //    if(redirectUrl){
-            //     window.location.replace(redirectUrl)
-            //    }
-            window.location.replace(data.paymentUrl)
+            // redirect url to ssl
+             // Check the payment method
+             if (selectedPaymentMethod === 'Cash on Delivery') {
+                toast.success('Order placed successfully!');
+                navigate('/thanks'); // Redirect to success page
+            } else if (selectedPaymentMethod === 'Bkash') {
+                toast.success('Redirecting to SSL payment gateway...');
+                window.location.replace(data.paymentUrl); // Redirect to SSL payment gateway
+            }
+            
             return data;
         } catch (error) {
             console.error(error);
@@ -315,7 +321,7 @@ const CheckoutPage = () => {
 
 
                             <button type="submit" className="w-full bg-blue-500 text-white py-3 rounded-md mt-4">
-                                Place Order {totalAmount} ৳
+                                Place Order {totalAmount} 
                             </button>
 
                         </div>
