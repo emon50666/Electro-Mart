@@ -16,13 +16,11 @@ import useWishlist from "../../Hooks/useWishlist";
 import useRoll from "../../Hooks/useRoll";
 
 const Navbar = () => {
-
-
-  const [role] = useRoll()
+  const [role] = useRoll();
   const { user, loading, logOut } = UserAuth();
   const { theUserCarts } = useCart();
   const { theUserCompares } = useCompare();
-  const { theUserWishlist, } = useWishlist()
+  const { theUserWishlist } = useWishlist();
   const [isOpen, setIsOpen] = useState(false);
   const [cartOpen, setCartOpen] = useState(false);
 
@@ -81,8 +79,9 @@ const Navbar = () => {
       </div>
 
       <div
-        className={`fixed inset-y-0 right-0 z-50 overflow-y-scroll w-64 transform bg-base-100 shadow-md p-4 transition-transform duration-300 ease-in-out ${isOpen ? "translate-x-0" : "translate-x-full"
-          }`}
+        className={`fixed inset-y-0 right-0 z-50 overflow-y-scroll w-64 transform bg-base-100 shadow-md p-4 transition-transform duration-300 ease-in-out ${
+          isOpen ? "translate-x-0" : "translate-x-full"
+        }`}
       >
         <MobileNavBar></MobileNavBar>
       </div>
@@ -113,35 +112,36 @@ const Navbar = () => {
               )
             )}
 
-
+            {theUserCarts.length > 0 && (
+              <span className="absolute -right-2 -ml-1 -top-2 rounded-full bg-orange-500 px-1 py-[1px] text-[10px] text-white">
+                {theUserCarts.length + "+"}
+              </span>
+            )}
           </div>
-          <Link to={'/comparePage'} className="relative bg-blue-200/50 hover:bg-blue-300/50 cursor-pointer rounded-full p-2">
-            <IoGitCompareOutline className="text-lg text-blue-600" />
+          <Link
+            to={"/comparePage"}
+            className="relative bg-orange-200/50 hover:bg-orange-300/50 cursor-pointer rounded-full p-2"
+          >
+            <IoGitCompareOutline className="text-lg text-orange-600" />
 
-
-            {!loading && (
-
-              theUserCompares.length > 0 && (
-                <span className="absolute -right-1 -ml-1 -top-2 rounded-full bg-blue-500 px-1 py-[0px] text-[10px] text-white">
-                  {theUserCompares.length >= 9 ? "9+" `${theUserCompares.length}+` : theUserCompares.length}
-                </span>
-              )
-
+            {theUserCompares.length > 0 && (
+              <span className="absolute -right-2 -ml-1 -top-2 rounded-full bg-orange-500 px-1 py-[1px] text-[10px] text-white">
+                {theUserCompares.length + "+"}
+              </span>
             )}
           </Link>
 
-          <Link to={'/wishlist'} className="relative bg-blue-200/50 hover:bg-blue-300/50 cursor-pointer rounded-full p-2">
-            <FaHeart className="text-lg text-blue-600" />
+          <Link
+            to={"/wishlist"}
+            className="relative bg-orange-200/50 hover:bg-orange-300/50 cursor-pointer rounded-full p-2"
+          >
+            <FaHeart className="text-lg text-orange-600" />
 
-            {!loading && (
-              theUserWishlist.length > 0 && ( // Display if there are items in the wishlist
-                <span className="absolute -right-1 -ml-1 -top-2 rounded-full bg-blue-500 px-1 py-[0px] text-[10px] text-white">
-                  {theUserWishlist.length >= 9 ? "9+" `${theUserWishlist.length}+` : theUserWishlist.length}
-                </span>
-              )
+            {theUserWishlist.length > 0 && (
+              <span className="absolute -right-2 -ml-1 -top-2 rounded-full bg-orange-500 px-1 py-[1px] text-[10px] text-white">
+                {theUserWishlist.length + "+"}
+              </span>
             )}
-
-
           </Link>
         </div>
 
@@ -149,10 +149,7 @@ const Navbar = () => {
 
         <div className="dropdown dropdown-end z-50">
           <div tabIndex={0} role="button" className=" rounded-full">
-
-
             {user ? (
-
               <div className="relative inline-block">
                 <img
                   referrerPolicy="no-referrer"
@@ -160,12 +157,8 @@ const Navbar = () => {
                   src={user?.photoURL}
                   className="w-10 h-10 rounded-full border-2 border-blue-600 p-0.5"
                 />
-                <span className="h-3 w-3 rounded-full border border-white bg-green-500 block absolute top-1 right-0"></span>
-
+                <span className="h-3 w-3 rounded-full border border-white bg-green-500 block absolute top-2 right-0"></span>
               </div>
-
-
-
             ) : (
               <>
                 {loading ? (
@@ -190,34 +183,37 @@ const Navbar = () => {
               </>
             )}
 
-            <>
-
-
-            </>
-
+            <></>
           </div>
           {user && (
             <ul
               tabIndex={0}
               className="menu menu-sm font-semibold right-0 dropdown-content bg-[#030C35] text-gray-300 overflow-hidden rounded-box w-36 shadow-md"
             >
-
               <Link
-                to={role === 'admin' ? "dashboard/dashboard-layout" : "dashboard/my-account"}
-                className="hover:bg-blue-50 p-2 rounded-md hover:text-blue-500"
+                to={
+                  role === "admin"
+                    ? "dashboard/dashboard-layout"
+                    : "dashboard/my-account"
+                }
+                className="hover:bg-orange-50 p-2 rounded-md hover:text-orange-500"
               >
                 <li>DashBoard</li>
               </Link>
 
-
-
-              <Link to={'dashboard/profile'} className="hover:bg-blue-50 p-2 rounded-md hover:text-blue-500">
+              <Link
+                to={"dashboard/profile"}
+                className="hover:bg-orange-50 p-2 rounded-md hover:text-orange-500"
+              >
                 <li>Profile</li>
               </Link>
               <Link className="hover:bg-blue-50 p-2 rounded-md hover:text-blue-500">
                 <li>Setting</li>
               </Link>
-              <Link to={"/register"} className="hover:bg-blue-50 p-2 rounded-md hover:text-blue-500">
+              <Link
+                to={"/register"}
+                className="hover:bg-orange-50 p-2 rounded-md hover:text-orange-500"
+              >
                 <button onClick={logOut}>Logout</button>
               </Link>
             </ul>
@@ -225,8 +221,6 @@ const Navbar = () => {
         </div>
       </div>
     </div>
-
-
   );
 };
 
