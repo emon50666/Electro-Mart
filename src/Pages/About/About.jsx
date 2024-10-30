@@ -30,32 +30,26 @@ const About = () => {
       {/* About Section */}
       <section data-aos="fade-up" className=" flex  mb-12">
        
-        <div className="lg:w-1/2 w-full flex justify-center" data-aos="fade-left">
-        <img
-          src="https://res.cloudinary.com/dvubt5hiv/image/upload/v1730137730/r4fvkmgrhedjerxwyzgo.jpg"
-          alt="Our Vision"
-          className="rounded-lg shadow-lg transition-transform duration-500 ease-in-out hover:scale-105" // Hover effect and animation
-        />
-      </div>
-        
-        <div>
-          <h1 className="text-4xl font-semibold text-blue-600">What We Do</h1>
-          <p className="mt-4 text-lg  mb-6 text-gray-600 max-w-2xl mx-auto">
-            At <strong>Electro Mart</strong>, we’re passionate about delivering the best in
-            cutting-edge electronics and gadgets. Our e-commerce platform
-            provides a seamless shopping experience, offering a wide range of
-            products from the latest smartphones and laptops to home appliances
-            and accessories. <br /> <br /> We carefully curate high-quality, innovative
-            technology that caters to every need—whether you're a tech
-            enthusiast, a professional, or simply looking to upgrade your
-            devices. Our mission is to bring the future of electronics to your
-            doorstep, with competitive prices, detailed product information, and
-            exceptional customer service. With a focus on customer satisfaction,
-            we aim to make shopping for electronics simple, secure, and
-            enjoyable. Explore the future with Electro Mart—where technology
-            meets convenience.
-          </p>
-        </div>
+      <div className="flex flex-col lg:flex-row lg:items-center lg:justify-center p-6 space-y-8 lg:space-y-0 lg:space-x-8">
+  {/* Image Section */}
+  <div className="lg:w-1/2 w-full flex justify-center" data-aos="fade-left">
+    <img
+      src="https://res.cloudinary.com/dvubt5hiv/image/upload/v1730137730/r4fvkmgrhedjerxwyzgo.jpg"
+      alt="Our Vision"
+      className="rounded-lg shadow-lg transition-transform duration-500 ease-in-out hover:scale-105 w-full max-w-lg" // Ensures responsive image size
+    />
+  </div>
+  
+  {/* Text Section */}
+  <div className="lg:w-1/2 w-full  lg:text-left">
+    <h1 className="text-3xl lg:text-4xl font-semibold text-blue-600">What We Do</h1>
+    <p className="mt-4 text-base lg:text-lg mb-6 text-gray-600 max-w-2xl mx-auto lg:mx-0">
+      At <strong>Electro Mart</strong>, we’re passionate about delivering the best in cutting-edge electronics and gadgets. Our e-commerce platform provides a seamless shopping experience, offering a wide range of products from the latest smartphones and laptops to home appliances and accessories. <br /> <br />
+      We carefully curate high-quality, innovative technology that caters to every need—whether youre a tech enthusiast, a professional, or simply looking to upgrade your devices. Our mission is to bring the future of electronics to your doorstep, with competitive prices, detailed product information, and exceptional customer service. With a focus on customer satisfaction, we aim to make shopping for electronics simple, secure, and enjoyable. Explore the future with Electro Mart—where technology meets convenience.
+    </p>
+  </div>
+</div>
+
       </section>
 
       
@@ -143,7 +137,7 @@ const About = () => {
          {/* all brand logo section */}
 
          <div className="mt-10 bg-white text-4xl font-semibold py-3">
-          <h1 className="text-center text-3xl text-blue-700">Prepare  Brand Logos</h1>
+          <h1 className="text-center lg:text-3xl md:text-3xl text-2xl text-blue-700">Prepare  Brand Logos</h1>
           <Marquee pauseOnHover speed={50} gradient={false}>
         <div className="flex items-center gap-2 sm:gap-4">
           <span className="text-xs sm:text-sm md:text-base lg:text-lg text-gray-800 font-semibold">
@@ -224,7 +218,7 @@ const About = () => {
 
 
       {/* Team Section (With Images) */}
-      <section className="team-section py-12 bg-gray-100">
+      <section className="team-section py-12 mx-5 bg-gray-100">
       <div className="container mx-auto">
         <h2 className="text-3xl font-semibold text-blue-700 text-center mb-8">Meet Our Team</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
