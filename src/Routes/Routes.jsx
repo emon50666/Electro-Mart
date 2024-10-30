@@ -26,9 +26,9 @@ import PromotionControl from "../components/DashBoard/PromotionControl/Promotion
 import DashBoardProfile from "../components/DashBoard/DashBoardProfile/DashBoardProfile";
 import Promotion from "../Pages/Promotion/Promotion";
 import PromotionDetails from "../Pages/Promotion/PromotionDetails";
-import Checkout from "../components/Checkout";
-import FilterProduct from "../components/FilterProduct/FilterProduct";
 
+import CheckoutPage from './../Pages/Checkout/CheckoutPage';
+import FilterProduct from "../components/FilterProduct/FilterProduct";
 
 
 
@@ -77,6 +77,7 @@ const router = createBrowserRouter([
         element: <PromotionDetails />,
         loader: () => fetch(`${import.meta.env.VITE_API_URL}/promotions/`)
       },
+
       {
         path: "manageCart",
         element: <PrivateRoute><ManageCart /></PrivateRoute>
@@ -84,8 +85,8 @@ const router = createBrowserRouter([
       },
    
     {
-      path: '/checkout',
-      element: <Checkout/>
+      path: '/checkout-page',
+      element: <CheckoutPage/>
     },
     {
       path: '/shop-page',
