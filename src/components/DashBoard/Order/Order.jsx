@@ -1,7 +1,42 @@
-import { LuPencilLine } from "react-icons/lu";
+
 import { FaRegTrashAlt } from "react-icons/fa";
 
+import useOrder from "../../../Hooks/useOrder";
+import useAxiosPublic from "../../../Hooks/useAxiosPublic";
+import Swal from "sweetalert2";
+
 const Order = () => {
+  const { payments ,refetch} = useOrder();
+  console.log(payments);
+const axiosPublic = useAxiosPublic()
+
+  // delete order 
+
+  const handleDeleteOrder= (id) => {
+    Swal.fire({
+        title: "Are you sure?",
+        text: "you want to delete this product",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3B82F6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+        if (result.isConfirmed) {
+            axiosPublic.delete(`/order/${id}`).then((res) => {
+                if (res.data.deletedCount) {
+                    refetch();
+                }
+            });
+        }
+    });
+};
+
+
+
+
+
+
     return (
         <div className="pt-10">
              <h1 className="font-semibold text-2xl mt-4 mb-4 ml-5"> Order List</h1>
@@ -9,16 +44,16 @@ const Order = () => {
   <table className="table">
     {/* head */}
     <thead>
-      <tr className="bg-blue-50">
+      <tr className="bg-blue-50 text-md">
         <th>
         
         </th>
         <th>Product Name</th>
         <th>Order ID</th>
 
-        <th>Price</th>
-        <th>Quantity</th>
-        <th>Payment</th>
+        <th>Price<span className=" font-semibold text-black ml-1 items-center ">( ৳ )</span> </th>
+        <th>Payment Method</th>
+        <th>Shipping Charge</th>
         <th>Status</th>
         <th>Action</th>
 
@@ -27,67 +62,42 @@ const Order = () => {
     </thead>
     <tbody>
       {/* row 1 */}
-      <tr className="border-l-4  border-blue-500">
-        <th>
-        
+     {
+      payments?.map((pay,indx) => <>
+       <tr key={indx} className="">
+        <th className="font-normal border">
+        {indx+1}
         </th>
-        <td>
-          <div className="flex  items-center gap-3">
-            <div className="avatar">
-              <div className="mask mask-squircle h-12 w-12">
-                <img
-                  src="https://img.daisyui.com/images/profile/demo/2@94.webp"
-                  alt="Avatar Tailwind CSS Component" />
-              </div>
-            </div>
+        <td className="border-r border-gray-200">
+          <div className="flex  items-center ">
+            
             <div>
-              <div className="font-bold">Apple Mac Book</div>
+              <div className="font-normal ">{pay?.product_name} </div>
             </div>
           </div>
         </td>
-        <td>
-         #23546
+        <td className="text-blue-500 border-r font-semibold">
+         #{pay?.paymentId}
          
         </td>
-        <td>$1220</td>
-        <th>
-          <button className="btn btn-ghost btn-xs">1,638</button>
+        <td className="border-r font-semibold  ">{pay?.amount} </td>
+        <th className="border-r" >
+          <p className="font-normal text-[13px] ">{pay?.payment_method} </p>
         </th>
-        <td> cash on delivery</td>
-        <td> Pending</td>
-       <div className="items-center pt-3">
-       <td>
-        
-         
+        <td className="border-r"> {pay?.shipping_method}  </td>
+        <td className={`border-r ${pay?.status === 'pending' ? 'text-red-500' : 'text-green-400 font-semibold capitalize'}`}>
+  {pay?.status}
+</td>
+      
+      
+       <td className="border-r ">   <FaRegTrashAlt  onClick={() => handleDeleteOrder(pay._id)} className="text-red-500 cursor-pointer text-xl font-bold"></FaRegTrashAlt> </td>
        
-       {/* You can open the modal using document.getElementById('ID').showModal() method */}
-<button  onClick={()=>document.getElementById('my_modal_3').showModal()}><LuPencilLine className="text-green-500 text-xl font-extrabold"></LuPencilLine> </button>
-<dialog id="my_modal_3" className="modal">
-  <div className="modal-box">
-    <form method="dialog">
-      {/* if there is a button in form, it will close the modal */}
-      <button className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
-    </form>
-    <h1 className="mb-3 font-semibold">Change Product Status</h1>
-   <select className="select select-bordered w-full max-w-xs">
-
-  <option>Pending</option>
-  <option>Cancel</option>
-  <option>Processing</option>
-
-</select>
-<button className=" ml-10 bg-violet-500 px-3  py-2 rounded-md text-white font-semibold ">Confirm</button>
-   
-   
-  </div>
-</dialog>
-       </td>
-       <td>  <FaRegTrashAlt className="text-red-500 text-xl font-bold"></FaRegTrashAlt> </td>
-       
-       </div>
+     
 
 
       </tr>
+      </>)
+     }
       
 
      
