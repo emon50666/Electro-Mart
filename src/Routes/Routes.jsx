@@ -27,16 +27,10 @@ import DashBoardProfile from "../components/DashBoard/DashBoardProfile/DashBoard
 import Promotion from "../Pages/Promotion/Promotion";
 import PromotionDetails from "../Pages/Promotion/PromotionDetails";
 
-
 import CheckoutPage from './../Pages/Checkout/CheckoutPage';
 import FilterProduct from "../components/FilterProduct/FilterProduct";
 
 
-
-
-
-
-import CheckoutPage from "../Pages/Checkout/CheckoutPage";
 import Success from "../Pages/SuccessPage/Success";
 import Fail from "../Pages/FailPage/Fail";
 import Cancel from "../Pages/CancelPage/Cancel";

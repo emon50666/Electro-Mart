@@ -8,16 +8,7 @@ import HomeSliderComponent from "../../components/HomeSliderComponent/SliderComp
 import Slider from './Shared/Slider';
 
 
-// // import Slider from "./Shared/Slider"
-// import LaptopProduct from "./LaptopProduct";
-// import Banner from "./Shared/Banner";
 
-
-
-
-
-// import FilterProduct from "../../components/FilterProduct/FilterProduct";
-import Slider from "./Shared/Slider"
 import LaptopProduct from "./LaptopProduct";
 
 const Home = () => {

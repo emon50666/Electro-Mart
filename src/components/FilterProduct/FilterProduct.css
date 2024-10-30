@@ -3,12 +3,14 @@
   display: grid;
   grid-template-columns: 0.3fr 1fr;
   gap: 2rem;
+
 }
 
 /* Container styling */
 .filter-product-container {
   width: 100%;
   padding: 1rem;
+
 }
 
 /* Style for the product view section */
@@ -26,7 +28,7 @@
   padding: 20px;
   text-align: center;
   font-size: 1.2rem;
-  color: #FF5E2B;
+  color: blue;
   font-weight: bold;
 }
 
