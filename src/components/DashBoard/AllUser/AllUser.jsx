@@ -33,7 +33,7 @@ const AllUsers = () => {
   return (
     <>
 
-    <h1 className='mt-14 px-10 font-semibold'>All User List</h1>
+    <h1 className='mt-14 px-10 font-semibold text-lg'>All User List</h1>
 
 
       <div className='container mx-auto px-4 sm:px-8'>

@@ -33,7 +33,7 @@ const ManageProductTable = () => {
         <div className="py-6">
             <div className="overflow-x-auto">
                 <table className="table">
-                    <thead className="capitalize bg-gray-200 rounded-lg font-semibold">
+                    <thead className="capitalize  bg-gray-200 rounded-lg font-semibold">
                         <tr className="text-black">
                             <th className="text-center text-sm md:text-lg"></th>
                             <th className="py-2 md:py-5 text-center text-sm md:text-md">Image</th>
@@ -46,13 +46,13 @@ const ManageProductTable = () => {
                     </thead>
                     <tbody>
                         {products.map((product, idx) => (
-                            <tr key={idx} className="shadow-sm">
-                                <td className="text-center font-semibold md:text-xl">{idx + 1}</td>
+                            <tr key={idx} className="shadow-sm ">
+                                <td className="text-center  ">{idx + 1}</td>
                                 <td className="text-center md:text-lg">
                                     <img
                                         src={product?.images[0]}
                                         alt={product?.title}
-                                        className="h-16 w-16 object-cover"
+                                        className="h-12 w-12 object-cover"
                                     />
                                 </td>
                                 <td className="text-xs md:text-lg">
@@ -60,7 +60,7 @@ const ManageProductTable = () => {
                                         {product?.title?.slice(0, 45) + '...'}
                                     </span>
                                 </td>
-                                <td className="text-center md:text-lg text-blue-500">
+                                <td className="text-center md:text-md text-blue-500">
                                     <span className="flex items-center justify-center gap-1">
                                         <FaBangladeshiTakaSign /> <p>{product?.price}</p>
                                     </span>

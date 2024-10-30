@@ -5,9 +5,11 @@ import { FaRegUser, FaStoreAlt } from "react-icons/fa";
 import { AiFillControl } from "react-icons/ai";
 import { MdDashboardCustomize } from "react-icons/md";
 import useOrder from "../../../Hooks/useOrder";
+import useProduct from "../../../Hooks/useProduct";
 
 const AdminMenu = () => {
   const { payments } = useOrder();
+  const {products} = useProduct()
   return (
     <div className="">
       <div className="">
@@ -17,7 +19,7 @@ const AdminMenu = () => {
               to={'dashboard-layout'}
               className={({ isActive }) =>
                 `flex mt-1 items-center gap-3 rounded p-3 transition-colors ${
-                  isActive ? 'bg-black  text-blue-400 border-l-2 border-l-blue-500' : 'text-gray-400 hover:bg-[#22292F] hover:text-blue-500'
+                  isActive ? 'bg-black  text-orange-400 border-l-2 border-l-orange-500' : 'text-gray-400 hover:bg-[#22292F] hover:text-orange-500'
                 }`
               }
             >
@@ -34,7 +36,7 @@ const AdminMenu = () => {
             <NavLink
               className={({ isActive }) =>
                 `flex items-center text-[16px] gap-3 rounded p-3 transition-colors ${
-                  isActive ? ' ' : 'text-gray-400 hover:bg-[#22292F] hover:text-blue-500'
+                  isActive ? ' ' : 'text-gray-400 hover:bg-[#22292F] hover:text-orange-500'
                 }`
               }
               to="#"
@@ -42,8 +44,11 @@ const AdminMenu = () => {
               <div className="flex text-md font-semibold items-center self-center">
                 <IoAddCircleOutline />
               </div>
-              <span className="flex  text-[16px] w-full flex-1 flex-col items-start justify-center gap-0 overflow-hidden truncate">
-                Product
+              <span className="flex  relative text-[16px] w-full flex-1 flex-col items-start justify-center gap-0 overflow-hidden truncate">
+                Products
+                <span className="absolute  left-16 -top-0 font-sans   rounded-full bg-orange-500 px-1 py-[0px] text-[10px] text-white">
+                 {products.length}
+                </span>
               </span>
             </NavLink>
 
@@ -53,8 +58,8 @@ const AdminMenu = () => {
                 <NavLink
                   to="manageProduct"
                   className={({ isActive }) =>
-                    `block py-2 px-4 text-sm font-medium hover:bg-[#22292F] hover:text-blue-500 ${
-                      isActive ? 'bg-black border-l-2 border-l-blue-500  text-blue-500' : 'text-gray-400'
+                    `block py-2 px-4 text-sm font-medium hover:bg-[#22292F] hover:text-orange-500 ${
+                      isActive ? 'bg-black border-l-2 border-l-orange-500  text-orange-500' : 'text-gray-400'
                     }`
                   }
                 >
@@ -65,8 +70,8 @@ const AdminMenu = () => {
                 <NavLink
                   to="addProduct"
                   className={({ isActive }) =>
-                    `block py-2 px-4 text-sm font-medium hover:bg-[#22292F] hover:text-blue-500 ${
-                      isActive ? 'bg-black border-l-2 border-l-blue-500 text-blue-500' : 'text-gray-400'
+                    `block py-2 px-4 text-sm font-medium hover:bg-[#22292F] hover:text-orange-500 ${
+                      isActive ? 'bg-black border-l-2 border-l-orange-500 text-orange-500' : 'text-gray-400'
                     }`
                   }
                 >
@@ -81,7 +86,7 @@ const AdminMenu = () => {
               to={'Order-List'}
               className={({ isActive }) =>
                 `flex items-center gap-3 rounded p-3 transition-colors ${
-                  isActive ? 'bg-black border-l-2 border-l-blue-500 text-blue-500' : 'text-gray-400 hover:bg-[#22292F] hover:text-blue-500'
+                  isActive ? 'bg-black border-l-2 border-l-orange-500 text-orange-500' : 'text-gray-400 hover:bg-[#22292F] hover:text-orange-500'
                 }`
               }
             >
@@ -90,7 +95,7 @@ const AdminMenu = () => {
               </div>
               <p className="flex relative  text-[16px] w-full flex-1 flex-col items-start justify-center gap-0 overflow-hidden truncate ">
               Order
-                <span className="absolute  left-12 -top-0   rounded-full bg-blue-500 px-1 py-[0px] text-[10px] text-white">
+                <span className="absolute  left-12 -top-0   rounded-full bg-orange-500 px-1 py-[0px] text-[10px] text-white">
                  {payments.length}
                 </span>
               </p>
@@ -102,7 +107,7 @@ const AdminMenu = () => {
               to={'user'}
               className={({ isActive }) =>
                 `flex items-center gap-3 rounded p-3 transition-colors ${
-                  isActive ? 'bg-black border-l-2 border-l-blue-500  text-blue-500' : 'text-gray-400 hover:bg-[#22292F] hover:text-blue-500'
+                  isActive ? 'bg-black border-l-2 border-l-orange-500  text-orange-500' : 'text-gray-400 hover:bg-[#22292F] hover:text-orange-500'
                 }`
               }
             >
@@ -120,7 +125,7 @@ const AdminMenu = () => {
               to={'promotionControl'}
               className={({ isActive }) =>
                 `flex items-center gap-3 rounded p-3 transition-colors ${
-                  isActive ? 'bg-black border-l-2 border-l-blue-500 text-blue-500' : 'text-gray-400 hover:bg-[#22292F] hover:text-blue-500'
+                  isActive ? 'bg-black border-l-2 border-l-orange-500 text-orange-500' : 'text-gray-400 hover:bg-[#22292F] hover:text-orange-500'
                 }`
               }
             >
@@ -135,7 +140,7 @@ const AdminMenu = () => {
             <NavLink
               className={({ isActive }) =>
                 `flex items-center text-[16px] gap-3 rounded p-3 transition-colors ${
-                  isActive ? '' : 'text-gray-400 hover:bg-[#22292F] hover:text-blue-500'
+                  isActive ? '' : 'text-gray-400 hover:bg-[#22292F] hover:text-orange-500'
                 }`
               }
               to="#"
@@ -154,8 +159,8 @@ const AdminMenu = () => {
                 <NavLink
                   to="manageStore"
                   className={({ isActive }) =>
-                    `block py-2 px-4 text-sm hover:bg-[#22292F] hover:text-blue-500 ${
-                      isActive ? 'bg-black border-l-2 border-l-blue-500 text-blue-500' : 'text-gray-400'
+                    `block py-2 px-4 text-sm hover:bg-[#22292F] hover:text-orange-500 ${
+                      isActive ? 'bg-black border-l-2 border-l-orange-500 text-orange-500' : 'text-gray-400'
                     }`
                   }
                 >
@@ -166,8 +171,8 @@ const AdminMenu = () => {
                 <NavLink
                   to="addStore"
                   className={({ isActive }) =>
-                    `block py-2 px-4 text-sm  hover:bg-[#22292F] hover:text-blue-500 ${
-                      isActive ? 'bg-black  border-l-2 border-l-blue-500 text-blue-500' : 'text-gray-400'
+                    `block py-2 px-4 text-sm  hover:bg-[#22292F] hover:text-orange-500 ${
+                      isActive ? 'bg-black  border-l-2 border-l-orange-500 text-orange-500' : 'text-gray-400'
                     }`
                   }
                 >
