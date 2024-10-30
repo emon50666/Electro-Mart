@@ -4,8 +4,10 @@ import { HiOutlineShoppingBag } from "react-icons/hi2";
 import { FaRegUser, FaStoreAlt } from "react-icons/fa";
 import { AiFillControl } from "react-icons/ai";
 import { MdDashboardCustomize } from "react-icons/md";
+import useOrder from "../../../Hooks/useOrder";
 
 const AdminMenu = () => {
+  const { payments } = useOrder();
   return (
     <div className="">
       <div className="">
@@ -46,7 +48,7 @@ const AdminMenu = () => {
             </NavLink>
 
             {/* Submenu */}
-            <ul className="absolute w-full text-gray-400 top-full hidden group-hover:block bg-[#22292F] shadow-lg rounded-lg p-2">
+            <ul className="absolute w-full z-40 text-gray-400 top-full hidden group-hover:block bg-[#22292F] shadow-lg rounded-lg p-2">
               <li className="">
                 <NavLink
                   to="manageProduct"
@@ -86,8 +88,11 @@ const AdminMenu = () => {
               <div className="flex font-semibold text-[16px] items-center self-center">
                 <HiOutlineShoppingBag />
               </div>
-              <p className="flex text-[16px] w-full flex-1 flex-col items-start justify-center gap-0 overflow-hidden truncate ">
-                Order
+              <p className="flex relative  text-[16px] w-full flex-1 flex-col items-start justify-center gap-0 overflow-hidden truncate ">
+              Order
+                <span className="absolute  left-12 -top-0   rounded-full bg-blue-500 px-1 py-[0px] text-[10px] text-white">
+                 {payments.length}
+                </span>
               </p>
             </NavLink>
           </li>

@@ -106,12 +106,12 @@ const Navbar = () => {
           >
             <FaCartShopping className="text-lg text-blue-600" />
             {!loading && (
-  theUserCarts.length > 0 && (
-    <span className="absolute -right-1 -ml-1 -top-2 rounded-full bg-blue-500 px-1 py-[0px] text-[10px] text-white">
-      {theUserCarts.length >= 9 ? "9+" : theUserCarts.length}
-    </span>
-  )
-)}
+              theUserCarts.length > 0 && (
+                <span className="absolute -right-1 -ml-1 -top-2 rounded-full bg-blue-500 px-1 py-[0px] text-[10px] text-white">
+                  {theUserCarts.length >= 9 ? "9+" : theUserCarts.length}
+                </span>
+              )
+            )}
 
 
           </div>
