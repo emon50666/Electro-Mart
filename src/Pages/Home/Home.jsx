@@ -4,6 +4,7 @@ import Popular from "../../components/PopularCategory/Popular";
 import BenifetService from "../../components/PopularCategory/BenifetService/BenifetService";
 import HomeSliderComponent from "../../components/HomeSliderComponent/SliderComponent";
 
+
 import Slider from './Shared/Slider';
 
 
@@ -13,6 +14,11 @@ import Slider from './Shared/Slider';
 
 
 
+
+
+// import FilterProduct from "../../components/FilterProduct/FilterProduct";
+import Slider from "./Shared/Slider"
+import LaptopProduct from "./LaptopProduct";
 
 const Home = () => {
   return (
@@ -26,11 +32,17 @@ const Home = () => {
       <BenifetService />
       <Popular />
       <HomeOffers />
+
       
       <HomeSliderComponent/>
 
     
       
+
+      {/* <FilterProduct /> */}
+      <HomeSliderComponent />
+      <LaptopProduct/>
+
     </div>
   );
 };

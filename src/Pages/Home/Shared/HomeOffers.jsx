@@ -14,7 +14,7 @@ const HomeOffers = () => {
       <div className="flex lg:grid lg:grid-cols-5 gap-3 md:grid-cols-3 sm:grid-cols-1 overflow-x-auto lg:overflow-hidden no-scrollbar snap-x snap-mandatory">
         {products.slice(0, 5).map((product, idx) => (
           <>
-            {((product?.isNew === "yes" || product?.discountPercentage > 1) && product?.quantity > 0) && (
+            {((product?.isHot === "yes" || product?.isNew === "yes" || product?.discountPercentage > 1) && product?.quantity > 0) && (
               <div key={idx} className="snap-start flex-shrink-0 w-full sm:w-auto">
                 <ProductCard product={product} refetch={refetch} />
               </div>

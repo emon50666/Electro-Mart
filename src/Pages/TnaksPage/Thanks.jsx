@@ -3,7 +3,7 @@
 const Thanks = () => {
     return (
         <div>
-            your order has been recive
+            your ordre rev
         </div>
     );
 };

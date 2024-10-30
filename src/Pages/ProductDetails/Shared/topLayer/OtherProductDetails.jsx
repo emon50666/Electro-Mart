@@ -21,6 +21,7 @@ import useProduct from "../../../../Hooks/useProduct";
 import ReactHtmlParser from 'react-html-parser';
 import useReview from "../../../../Hooks/useReview";
 import useCart from "../../../../Hooks/useCart";
+import { Link } from "react-router-dom";
 
 const OtherProductDetails = ({ product }) => {
     const { theUserCarts } = useCart();
@@ -84,6 +85,9 @@ const OtherProductDetails = ({ product }) => {
     const handleAddToWishlist = () => {
         handleAddWishlist(product)
     }
+
+
+    
     return (
         <div >
             <div className="lg:space-y-3 ">
@@ -149,9 +153,10 @@ const OtherProductDetails = ({ product }) => {
                             className="px-9 md:px-4 py-2 text-sm lg:text-base bg-blue-500 text-white font-semibold rounded-md hover:bg-teal-500 focus:bg-teal-600 focus:outline-none focus:ring-2 focus:ring-teal-300">
                             Add to cart
                         </button>
-                        <button className="px-9 md:px-4 py-2 text-sm lg:text-base bg-blue-500 text-white font-semibold rounded-md hover:bg-teal-500 focus:bg-teal-600 focus:outline-none focus:ring-2 focus:ring-teal-300">
+                       <Link to={'/checkout-page'}>
+                       <button  onClick={handleAddToCart} className="px-9 md:px-4 py-2 text-sm lg:text-base bg-blue-500 text-white font-semibold rounded-md hover:bg-teal-500 focus:bg-teal-600 focus:outline-none focus:ring-2 focus:ring-teal-300">
                             Buy now
-                        </button>
+                        </button></Link>
                     </div>
 
                 </div>
