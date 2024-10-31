@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { BsCart } from "react-icons/bs";
 import { FaCartShopping, FaHeart, FaStar } from "react-icons/fa6";
 import { IoGitCompareOutline } from "react-icons/io5";
@@ -76,6 +76,20 @@ const ProductCard = ({ product, refetch }) => {
     handleAddWishlist(product)
   }
 
+
+  const [titleLength, setTitleLength] = useState(30);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setTitleLength(window.innerWidth >= 1024 ? 37 : 30);
+    };
+
+    handleResize(); // Set initial length based on current screen size
+    window.addEventListener("resize", handleResize);
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   return (
     <div
       className="    bg-[#F6F6F6]">
@@ -148,22 +162,27 @@ const ProductCard = ({ product, refetch }) => {
 </div>
 
 
-        <div className="flex items-center justify-between">
+      
           <div>
-            <Link
-              to={`/productDetails/${product._id}`}><h4 className="font-semibold text-[12px] lg:text-base capitalize">{product?.title.slice(0, 10)} ...</h4></Link>
-            <small className="text-gray-400 text-md capitalize font-semibold">{product?.brand}</small>
-          </div>
-          <span className="flex items-center text-[10px] lg:text-base relative bottom-1 gap-1 font-semibold mb-4">
+          <Link to={`/productDetails/${product._id}`}>
+      <h4 className="font-semibold  text-[12px] lg:text-base capitalize">
+        {product?.title.slice(0, titleLength)}
+        {product?.title.length > titleLength ? '...' : ''}
+      </h4>
+    </Link>
+            <div className="flex items-center justify-between">
+            <small className="text-gray-600  lg:text-base capitalize font-semibold">{product?.brand}</small>
+
+            <span className="flex items-center text-[12px] lg:text-base  mt-1 gap-1 font-semibold ">
             {isNaN(averageRating) ? '' : (
               <p className="flex gap-1 items-center">
                 <FaStar className="text-[#ffd700]  " /> {averageRating}
               </p>
             )}
-
-
-
           </span>
+            </div>
+    
+          
         </div>
 
         {product?.discountPrice == product?.price ? <div className="flex gap-2 ">
@@ -171,7 +190,7 @@ const ProductCard = ({ product, refetch }) => {
         </div>
           :
           product?.discountPrice > 1 ? <div className="flex gap-2">
-            <span className="line-through text-gray-400 font-semibold text-[13px] lg:text-base"> ৳{product?.price}</span>
+            <span className="line-through through-red-500  text-gray-500 font-semibold text-[13px] lg:text-base"> ৳{product?.price}</span>
             <p className="font-bold text-blue-500 text-[13px] lg:text-base">{product?.discountPrice}</p>
           </div>
             :
