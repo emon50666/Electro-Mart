@@ -78,7 +78,7 @@ const ProductCard = ({ product, refetch }) => {
 
   return (
     <div
-      className="     bg-[#F6F6F6]">
+      className="    bg-[#F6F6F6]">
 
       <div className="relative p-3 hover:shadow-lg rounded-md bg-white group">
         <Link to={`/productDetails/${product._id}`}>
@@ -87,7 +87,7 @@ const ProductCard = ({ product, refetch }) => {
             hoverSrc={product.images[1]}
             alt="Product Image"
             onClick={() => handleViewCount(product._id)}
-            className="w-full h-[200px] object-cover transition-transform duration-500 ease-in-out group-hover:scale-95"
+            className="lg:w-full h-[100px] w-[130px] lg:h-[200px] object-cover transition-transform duration-500 ease-in-out group-hover:scale-95"
           />}
 
 
@@ -95,13 +95,13 @@ const ProductCard = ({ product, refetch }) => {
             src={product.images[0]}
             alt="Product Image"
             onClick={() => handleViewCount(product._id)}
-            className="w-full h-[200px] object-cover transition-transform duration-500 ease-in-out group-hover:scale-95"
+            className="lg:w-full h-[100px] w-[130px] lg:h-[200px]  object-cover transition-transform duration-500 ease-in-out group-hover:scale-95"
           />}
 
         </Link>
 
 
-        <div className="absolute top-1/3 right-4 transform -translate-y-1/2 translate-x-full group-hover:translate-x-0 group-hover:opacity-100 opacity-0 group-hover:pointer-events-auto pointer-events-none transition-all duration-300 ease-in-out bg-white p-2 rounded-md border shadow-lg flex flex-col space-y-4">
+        <div className="absolute top-1/3 z-50 right-4 transform -translate-y-1/2 translate-x-full group-hover:translate-x-0 group-hover:opacity-100 opacity-0 group-hover:pointer-events-auto pointer-events-none transition-all duration-300 ease-in-out bg-white p-2 rounded-md border shadow-lg flex flex-col space-y-4">
           <button onClick={handleAddToWishlist}>
             <FaHeart className="text-lg text-blue-600" />
           </button>
@@ -119,7 +119,7 @@ const ProductCard = ({ product, refetch }) => {
             -{product?.discountPercentage}%
           </small>
         </div>}
-        <div className="mt-3 capitalize   absolute bottom-[310px]  md:bottom-[320px] lg:bottom-[304px] inset-x-0  px-2">
+        {/* <div className="mt-3 capitalize   absolute bottom-[191px]  md:bottom-[330px] lg:bottom-[304px] inset-x-0  px-2">
           {product?.isNew === "yes" && <small className="bg-teal-500 px-2   pb-[2px] text-sm  rounded-full font-bold text-white">
             New
           </small>
@@ -128,18 +128,36 @@ const ProductCard = ({ product, refetch }) => {
           {product?.isHot === "yes" && <small className="bg-red-500 px-2   pb-[2px] text-sm  rounded-full font-bold text-white">
             Hot
           </small>}
-        </div>
+        </div> */}
+        <div
+  className={`mt-3 capitalize absolute  ${
+    product?.isHot === "yes" ? "bottom-[191px]  lg:bottom-[304px]" : "bottom-[215px] lg:bottom-[327px]"
+  } md:bottom-[330px] inset-x-0 px-2`}
+>
+  {product?.isNew === "yes" && (
+    <small className="bg-teal-500 px-2 pb-[2px] text-sm rounded-full font-bold text-white">
+      New
+    </small>
+  )}
+  <br />
+  {product?.isHot === "yes" && (
+    <small className="bg-red-500 px-2 pb-[2px] text-sm rounded-full font-bold text-white">
+      Hot
+    </small>
+  )}
+</div>
+
 
         <div className="flex items-center justify-between">
           <div>
             <Link
-              to={`/productDetails/${product._id}`}><h4 className="font-semibold text-base capitalize">{product?.title.slice(0, 10)} [...]</h4></Link>
+              to={`/productDetails/${product._id}`}><h4 className="font-semibold text-[12px] lg:text-base capitalize">{product?.title.slice(0, 10)} ...</h4></Link>
             <small className="text-gray-400 text-md capitalize font-semibold">{product?.brand}</small>
           </div>
-          <span className="flex items-center gap-1 font-semibold mb-4">
+          <span className="flex items-center text-[10px] lg:text-base relative bottom-1 gap-1 font-semibold mb-4">
             {isNaN(averageRating) ? '' : (
               <p className="flex gap-1 items-center">
-                <FaStar className="text-[#ffd700]" /> {averageRating}
+                <FaStar className="text-[#ffd700]  " /> {averageRating}
               </p>
             )}
 
@@ -148,13 +166,13 @@ const ProductCard = ({ product, refetch }) => {
           </span>
         </div>
 
-        {product?.discountPrice == product?.price ? <div className="flex gap-2">
-          <p className="font-bold text-blue-500"> ৳ {product?.price}</p>
+        {product?.discountPrice == product?.price ? <div className="flex gap-2 ">
+          <p className="font-bold text-blue-500 text-[10px] lg:text-base"> ৳ {product?.price}</p>
         </div>
           :
           product?.discountPrice > 1 ? <div className="flex gap-2">
-            <span className="line-through text-gray-400 font-semibold"> ৳{product?.price}</span>
-            <p className="font-bold text-blue-500">{product?.discountPrice}</p>
+            <span className="line-through text-gray-400 font-semibold text-[13px] lg:text-base"> ৳{product?.price}</span>
+            <p className="font-bold text-blue-500 text-[13px] lg:text-base">{product?.discountPrice}</p>
           </div>
             :
             <div className="flex gap-2">
@@ -163,7 +181,7 @@ const ProductCard = ({ product, refetch }) => {
         }
 
         <button
-          className="py-2 font-semibold px-4 bg-blue-500 mt-4 text-white rounded flex items-center justify-center relative overflow-hidden"
+          className="py-2 font-semibold text-[12px] lg:text-base px-4 bg-blue-700 mt-4 text-white rounded flex items-center justify-center relative overflow-hidden"
           onClick={handleAddToCart}
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
@@ -173,7 +191,7 @@ const ProductCard = ({ product, refetch }) => {
             className={`absolute transition-all flex gap-3 duration-300 ease-in-out ${isHovered ? 'translate-y-full opacity-0' : 'translate-y-0 opacity-100'
               }`}
           >
-            <FaCartShopping className="items-center mt-1" /> Add To Cart
+            <FaCartShopping className="items-center  mt-1" /> Add To Cart
           </span>
           <BsCart
             size={20}

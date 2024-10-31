@@ -149,11 +149,11 @@
    
     left: 50%; /* Align it horizontally */
     transform: translateX(-50%); /* Ensure proper centering */
-    background: rgb(246, 246, 246);
-    width: 60px;
+  
+    width: 100px;
     text-align: center;
-    border-radius: 100px;
-    padding-bottom: 2px;
+    
+   
    
 }
 
