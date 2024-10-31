@@ -145,7 +145,7 @@ const ProductCard = ({ product, refetch }) => {
         </div> */}
         <div
   className={`mt-3 capitalize absolute  ${
-    product?.isHot === "yes" ? "bottom-[191px]  lg:bottom-[304px]" : "bottom-[215px] lg:bottom-[327px]"
+    product?.isHot === "yes" ? "bottom-[214px] md:bottom-[210px] lg:bottom-[330px]" : "bottom-[214px] md:bottom-[330px]  lg:bottom-[300px]"
   } md:bottom-[330px] inset-x-0 px-2`}
 >
   {product?.isNew === "yes" && (
