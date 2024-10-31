@@ -46,7 +46,8 @@ const AdminMenu = () => {
               </div>
               <span className="flex  relative text-[16px] w-full flex-1 flex-col items-start justify-center gap-0 overflow-hidden truncate">
                 Products
-                <span className="absolute  left-16 -top-0 font-sans   rounded-full bg-orange-500 px-1 py-[0px] text-[10px] text-white">
+                <span className="absolute -right-0 -ml-1 left-[69px] -top-0  h-4 w-4 rounded-full bg-orange-500 px-1 py-0 text-[10px] text-white flex items-center justify-center">
+              
                  {products.length}
                 </span>
               </span>
@@ -95,7 +96,7 @@ const AdminMenu = () => {
               </div>
               <p className="flex relative  text-[16px] w-full flex-1 flex-col items-start justify-center gap-0 overflow-hidden truncate ">
               Order
-                <span className="absolute  left-12 -top-0   rounded-full bg-orange-500 px-1 py-[0px] text-[10px] text-white">
+              <span className="absolute -right-0 -ml-1 left-[50px] -top-0  h-4 w-4 rounded-full bg-orange-500 px-1 py-0 text-[10px] text-white flex items-center justify-center">
                  {payments.length}
                 </span>
               </p>

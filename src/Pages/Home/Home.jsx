@@ -10,6 +10,7 @@ import Slider from './Shared/Slider';
 
 
 import LaptopProduct from "./LaptopProduct";
+import MousBanner from "../../Hooks/MousBanner/MousBanner";
 
 const Home = () => {
   return (
@@ -25,7 +26,7 @@ const Home = () => {
       <HomeOffers />
 
       
-      <HomeSliderComponent/>
+  
 
     
       
@@ -33,6 +34,7 @@ const Home = () => {
       {/* <FilterProduct /> */}
       <HomeSliderComponent />
       <LaptopProduct/>
+      <MousBanner/>
 
     </div>
   );
