@@ -29,7 +29,7 @@ const Reviews = ({mainId}) => {
                 formData
             );
             return data.data.url;
-        });
+    });
 
         try {
             const imageUrls = await Promise.all(imageUploadPromises);

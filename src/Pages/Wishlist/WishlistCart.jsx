@@ -59,8 +59,8 @@ const WishlistCart = ({ wishProduct }) => {
       {/* Image */}
       <Link to={`/productDetails/${product?._id}`} className="block relative">
         <img
-          src={product.images[0]}
-          alt={product.title}
+          src={product?.images[0]}
+          alt={product?.title}
           className="w-full h-48 object-contain p-4 transition-transform duration-500 group-hover:scale-105"
         />
       </Link>
@@ -68,11 +68,11 @@ const WishlistCart = ({ wishProduct }) => {
       {/* Title and Price */}
       <div className="px-4 py-2 text-center">
         <h2 className="font-semibold text-sm sm:text-base overflow-hidden text-ellipsis whitespace-nowrap">
-          {product.title}
+          {product?.title}
         </h2>
         <p className="text-blue-500 font-bold text-sm lg:text-lg flex items-center justify-center gap-1">
           <FaBangladeshiTakaSign />
-          {product.price}
+          {product?.price}
         </p>
       </div>
 
