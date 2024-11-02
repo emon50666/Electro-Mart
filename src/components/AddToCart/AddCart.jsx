@@ -43,7 +43,7 @@ const AddCart = ({ setCartOpen }) => {
                             <Link to={'/manageCart'} className="btn py-2 px-4 w-full border border-blue-500 hover:text-white text-blue-500 hover:bg-blue-500 font-semibold rounded-md">
                                 View Cart
                             </Link>
-                            <Link to="/dashboard/checkoutPage" className="btn py-2 px-4 w-full bg-blue-500 text-white  hover:bg-blue-500 font-semibold rounded-md">
+                            <Link to="/checkout-Page" className="btn py-2 px-4 w-full bg-blue-500 text-white  hover:bg-blue-500 font-semibold rounded-md">
                                 Checkout
                             </Link>
 
