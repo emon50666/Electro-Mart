@@ -26,7 +26,7 @@ const SliderComponent = () => {
     <p className="mt-2 md:mt-4 text-[12px] md:text-md">
     Wireless mechanical keyboard designed for comfort and style with ethereal RGB lighting and full media controls at your fingertips.
     </p>
-    <button className="mt-4 md:mt-6 underline hover:translate-x-1 duration-700  flex items-center  text-[#2F3132] font-semibold rounded">
+    <button className="mt-4  underline hover:translate-x-1 duration-700  flex items-center  text-[#2F3132] font-semibold rounded">
     Shop G715 Now <IoMdArrowDropright className="items-center mt-1 text-xl"></IoMdArrowDropright>
     </button>
 </div>
