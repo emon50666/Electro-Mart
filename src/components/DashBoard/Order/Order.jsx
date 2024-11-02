@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, {  useState } from "react";
 import { FaRegTrashAlt } from "react-icons/fa";
 import useOrder from "../../../Hooks/useOrder";
 import useAxiosPublic from "../../../Hooks/useAxiosPublic";
@@ -10,6 +10,7 @@ const Order = () => {
   const { payments, refetch } = useOrder();
   const axiosPublic = useAxiosPublic();
   const [expandedProductId, setExpandedProductId] = useState(null);
+
 
   // Toggle the accordion for product details
   const toggleAccordion = (productId) => {
@@ -121,6 +122,7 @@ const Order = () => {
               <th>Payment Method</th>
               <th>Shipping Charge</th>
               <th>Status</th>
+          
               <th>Action</th>
             </tr>
           </thead>
@@ -139,6 +141,7 @@ const Order = () => {
                   <td className="border-r"><p className="font-normal text-[13px]">{pay?.payment_method}</p></td>
                   <td className="border-r">{pay?.shipping_method}</td>
                   <td className={`border-r ${pay?.status === 'pending' ? 'text-red-500' : 'text-green-400 font-semibold capitalize'}`}>{pay?.status}</td>
+                  
                   <td className="border-r">
                     <FaRegTrashAlt onClick={() => handleDeleteOrder(pay._id)} className="text-red-500 cursor-pointer text-xl font-bold" />
                   </td>
@@ -147,7 +150,7 @@ const Order = () => {
                 {expandedProductId === pay._id && (
                   <tr>
                     <td colSpan="9" className="p-4 bg-gray-100">
-                      <div>
+                      <div >
                         <h3 className="font-semibold">Customer Details</h3>
                         <div className="grid grid-cols-2">
                           <div className="border flex items-center">
@@ -203,19 +206,14 @@ const Order = () => {
                             <h2 className="font-semibold px-4 py-2 text-sm">Total Price:</h2>
                             <h2 className="py-2">{pay?.amount}</h2>
                           </div>
-                          <div className="border items-center flex gap-5">
+                          <div className="border">
                             <button
                               onClick={() => downloadPDF(pay)}
                               className="border-r bg-gradient-to-r my-2 mx-2 from-[#A539D5] via-black to-violet-600 rounded-md py-2 px-6 text-white font-semibold "
                             >
                               Download PDF
                             </button>
-                            <button
-                             
-                              className="border-r  bg-gradient-to-r from-[#A539D5] via-blue-800 to-violet-500 rounded-md py-2 px-6 text-white font-semibold"
-                            >
-                              Print
-                            </button>
+                           
                           </div>
                         </div>
                       </div>

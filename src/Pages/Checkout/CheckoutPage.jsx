@@ -122,7 +122,7 @@ const CheckoutPage = () => {
                 toast.success('Order placed successfully!');
                 navigate('/thanks'); // Redirect to success page
             } else if (selectedPaymentMethod === 'Bkash') {
-                toast.success('Redirecting to SSL payment gateway...');
+                
                 window.location.replace(data.paymentUrl); // Redirect to SSL payment gateway
             }
             
@@ -296,7 +296,7 @@ const CheckoutPage = () => {
                                     className="mr-2"
                                     onChange={handleShippingChange}
                                 />
-                                <label htmlFor="dhaka-inside">ঢাকার ভিতরে: 80.00 <span className='font-semibold'>৳</span></label>
+                                <label htmlFor="dhaka-inside">InSide Dhaka: 80 <span className='font-semibold'>Taka</span></label>
                             </div>
                             <div>
                                 <input
@@ -308,7 +308,7 @@ const CheckoutPage = () => {
                                     className="mr-2"
                                     onChange={handleShippingChange}
                                 />
-                                <label htmlFor="dhaka-outside">ঢাকার বাইরে: 130.00 <span className='font-semibold'>৳</span></label>
+                                <label htmlFor="dhaka-outside">OutSide Dhaka: 130 <span className='font-semibold'>Taka</span></label>
                             </div>
                            </div>
                             <hr />
