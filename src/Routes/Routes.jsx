@@ -35,6 +35,7 @@ import Success from "../Pages/SuccessPage/Success";
 import Fail from "../Pages/FailPage/Fail";
 import Cancel from "../Pages/CancelPage/Cancel";
 import Thanks from "../Pages/TnaksPage/Thanks";
+import CompleteOrder from "../components/DashBoard/Order/CompleteOrder";
 
 
 
@@ -94,8 +95,8 @@ const router = createBrowserRouter([
     {
       path: '/shop-page',
       element: <FilterProduct/>
-    }
-
+    },
+  
    
     
 
@@ -132,7 +133,10 @@ const router = createBrowserRouter([
     element: <Cancel/>
   },
 
-
+  {
+    path:'/complete-order/:tranId',
+    element: <CompleteOrder/>
+  },
 
   // dashboard route
   {
@@ -187,6 +191,8 @@ const router = createBrowserRouter([
         path: 'dashboard-layout',
         element: <DashBoardProfile />
       },
+      
+  
       
 
     ]
