@@ -37,6 +37,8 @@ import Cancel from "../Pages/CancelPage/Cancel";
 import Thanks from "../Pages/TnaksPage/Thanks";
 import CompleteOrder from "../components/DashBoard/Order/CompleteOrder";
 
+import UserOrder from "../components/DashBoard/MemberDashboard/UserOrder";
+
 
 
 const router = createBrowserRouter([
@@ -137,6 +139,8 @@ const router = createBrowserRouter([
     path:'/complete-order/:tranId',
     element: <CompleteOrder/>
   },
+  
+  
 
   // dashboard route
   {
@@ -191,8 +195,12 @@ const router = createBrowserRouter([
         path: 'dashboard-layout',
         element: <DashBoardProfile />
       },
+     
+      {
+        path: 'orders',
+        element: <UserOrder/>,
       
-  
+      },
       
 
     ]

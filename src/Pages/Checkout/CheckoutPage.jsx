@@ -32,7 +32,7 @@ const CheckoutPage = () => {
     const [totalAmount, setTotalAmount] = useState(userSubtotal)  ; // Store total amount (initially subtotal)
 
     const handleShippingChange = (e) => {
-        const selectedCharge = Number(e.target.value) || 0; // Safeguard against invalid values
+        const selectedCharge = Number(e.target.value) || 0 ; // Safeguard against invalid values
         setShippingCharge(selectedCharge);
         setTotalAmount(userSubtotal + selectedCharge); // Update total amount
         refetch()
@@ -104,7 +104,7 @@ const CheckoutPage = () => {
             division: form.division.value,
             totalAmount,
             shipping: shippingLabel,
-            user
+            adderMail: user?.email
         };
 
         console.table(formData);

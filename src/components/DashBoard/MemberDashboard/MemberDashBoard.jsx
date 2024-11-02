@@ -1,7 +1,12 @@
 import { FaClipboardList, FaMapMarkerAlt, FaStoreAlt, FaUser } from "react-icons/fa";
 import { FaCartPlus } from "react-icons/fa6";
 
+
+
+
 const MemberDashboard = () => {
+
+
   const cards = [
     { title: "Orders", icon: <FaClipboardList className="text-blue-500" /> },
     { title: "Store", icon: <FaStoreAlt  className="text-[#22C55E] " /> },
@@ -18,7 +23,7 @@ const MemberDashboard = () => {
           className="flex flex-col items-center justify-center border border-blue-500 rounded-lg p-2 hover:shadow-lg transition-all"
         >
           <div className="text-4xl mb-4">{card.icon}</div>
-          <h3 className="text-gray-700 text-lg font-semibold">{card.title}</h3>
+          <h3 className="text-gray-700 text-lg font-semibold">{card.title} </h3>
         </div>
       ))}
     </div>
