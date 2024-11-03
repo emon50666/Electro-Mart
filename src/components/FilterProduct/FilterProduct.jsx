@@ -59,7 +59,7 @@ const FilterProduct = () => {
   }
 
   return (
-      <div>
+      <div className="bg-[#F6F6F6]">
           <div className="container grid grid-filter-column px-8 py-16 gap-10">
               <div>
                   <FilterSection onFilterChange={handleFilterChange} filters={filters} />
