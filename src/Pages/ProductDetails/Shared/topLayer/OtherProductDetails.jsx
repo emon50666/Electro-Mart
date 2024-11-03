@@ -106,7 +106,7 @@ const OtherProductDetails = ({ product }) => {
                                     <p className="flex gap-2 items-center"><FaStar className="text-[#ffd700]" />  (0)</p> // Or you can render nothing by using null
                                 )}
 
-                                (customer Review)
+                                ( customer Review)
                             </div>
                         </div>
                         <div className="font_cabin rounded-full  text-sm bg-[#FEF4F4] lg:text-lg text-blue-500   px-4">
@@ -150,11 +150,11 @@ const OtherProductDetails = ({ product }) => {
                     <div className="space-x-3 md:space-x-5">
                         <button
                             onClick={handleAddToCart}
-                            className="px-9 md:px-4 py-2 text-sm lg:text-base bg-blue-500 text-white font-semibold rounded-md hover:bg-teal-500 focus:bg-teal-600 focus:outline-none focus:ring-2 focus:ring-teal-300">
+                            className="px-9 md:px-14 py-2  text-sm lg:text-base bg-blue-500 text-white font-semibold rounded-md hover:bg-blue-600 duration-300 focus:bg-teal-600 focus:outline-none focus:ring-2 focus:ring-teal-300">
                             Add to cart
                         </button>
                        <Link to={'/checkout-page'}>
-                       <button  onClick={handleAddToCart} className="px-9 md:px-4 py-2 text-sm lg:text-base bg-blue-500 text-white font-semibold rounded-md hover:bg-teal-500 focus:bg-teal-600 focus:outline-none focus:ring-2 focus:ring-teal-300">
+                       <button  onClick={handleAddToCart} className="px-9 md:px-14 py-2 text-sm lg:text-base   font-semibold rounded-md text-blue-500 border border-blue-500 hover:text-white duration-300 hover:bg-blue-500 focus:bg-teal-600 focus:outline-none focus:ring-2 focus:ring-teal-300">
                             Buy now
                         </button></Link>
                     </div>
@@ -180,9 +180,9 @@ const OtherProductDetails = ({ product }) => {
                     </div>
                     <div className="flex items-center">
                         <h3 className="font-medium font_cabin text-sm md:text-base lg:text-lg">Share:</h3>
-                        <div className="flex items-center space-x-2 ml-1 lg:text-xl text-[#666666]">
+                        <div className="flex items-center space-x-2 ml-1 lg:text-xl text-blue-500 gap-4">
                             <FacebookShareButton url={shareUrl}>
-                                <LuFacebook className="cursor-pointer" />
+                                <LuFacebook className="cursor-pointer " />
                             </FacebookShareButton>
                             <TwitterShareButton url={shareUrl}>
                                 <FaXTwitter className="cursor-pointer" />
