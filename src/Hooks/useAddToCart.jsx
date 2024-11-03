@@ -8,6 +8,8 @@ const useAddToCart = () => {
     const axiosPublic = useAxiosPublic();
     const { carts, refetch } = useCart();
 
+    console.log(carts)
+
     const handleAddCart = (product, quantity = 1) => {
         quantity = quantity === 0 ? 1 : quantity; // Set quantity to 1 if it is 0
 
@@ -24,6 +26,8 @@ const useAddToCart = () => {
         }
 
         const subtotal = (product?.price * quantity).toFixed(2);
+        
+        
         const cartProductInfo = {
             mainProductId: product._id,
             selectedQuantity: quantity,
