@@ -8,34 +8,42 @@ import ManageCartLink from '../../components/ManageCartLink/ManageCartLink';
 
 import useCart from '../../Hooks/useCart';
 import CheckoutTable from './Shared/CheckoutTable';
-import useUsers from '../../Hooks/useUsers';
-import Loader from '../../components/Loader/Loader';
+
+// import Loader from '../../components/Loader/Loader';
 import UserAuth from '../../Hooks/useAuth';
 import { useNavigate } from 'react-router-dom';
+import useTotalAmount from '../../Hooks/useTotalAmount';
+import useProduct from '../../Hooks/useProduct';
 
 const CheckoutPage = () => {
     const { locations } = useLocation();
     const axiosPublic = useAxiosPublic();
     const {user} = UserAuth()
  const navigate = useNavigate()
-    const { theUser ,isPending,refetch} = useUsers();
+  
+    const {totalPrice} = useTotalAmount();
+    
+  const {products} = useProduct()
     const { theUserCarts } = useCart();
     const [selectedState, setSelectedState] = useState(""); // Selected division
     const [districts, setDistricts] = useState([]); // Districts of the selected division
     const [selectedDistrict, setSelectedDistrict] = useState(""); // Selected district
     const [cities, setCities] = useState([]); // Cities of the selected district
-    const userSubtotal = parseInt(theUser?.userSubtotal) || 0 ;
+    const userSubtotal = parseInt(totalPrice) || 0 ;
     const [getProductId, setGetProductId] = useState();
    console.log(getProductId);
+   const userOrder = theUserCarts
+  
 
-    const [, setShippingCharge] = useState(0); // Store selected shipping charge
+    // const [ setShippingCharge] = useState(0); // Store selected shipping charge
     const [totalAmount, setTotalAmount] = useState(userSubtotal)  ; // Store total amount (initially subtotal)
-
+    
     const handleShippingChange = (e) => {
-        const selectedCharge = Number(e.target.value) || 0 ; // Safeguard against invalid values
-        setShippingCharge(selectedCharge);
-        setTotalAmount(userSubtotal + selectedCharge); // Update total amount
-        refetch()
+        const selectedCharge = Number(e.target.value) || 0;
+        console.log(e.target.value);
+        // setShippingCharge(selectedCharge);
+        setTotalAmount(userSubtotal + selectedCharge);
+        console.log("Selected shipping charge:", selectedCharge);
     };
 
     // Update districts when a division is selected
@@ -99,6 +107,8 @@ const CheckoutPage = () => {
             address: form.address.value,
             paymentMethod: selectedPaymentMethod,
             getProductId,
+            userOrder,
+            products: products?.map(product => product.title),
             city: form.city.value,
             district: form.district.value,
             division: form.division.value,
@@ -134,7 +144,7 @@ const CheckoutPage = () => {
     };
 
 
-    if (isPending) return <Loader />;
+    // if (isPending) return <Loader />;
 
     return (
         <div className="md:flex-row gap-10 md:px-10 pb-10">

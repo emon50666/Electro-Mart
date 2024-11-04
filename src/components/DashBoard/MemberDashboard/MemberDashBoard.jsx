@@ -1,11 +1,12 @@
 import { FaClipboardList, FaMapMarkerAlt, FaStoreAlt, FaUser } from "react-icons/fa";
 import { FaCartPlus } from "react-icons/fa6";
+import useCart from "../../../Hooks/useCart";
 
 
 
 
 const MemberDashboard = () => {
-
+const {theUserCarts} = useCart()
 
   const cards = [
     { title: "Orders", icon: <FaClipboardList className="text-blue-500" /> },
@@ -22,7 +23,7 @@ const MemberDashboard = () => {
           key={index}
           className="flex flex-col items-center justify-center border border-blue-500 rounded-lg p-2 hover:shadow-lg transition-all"
         >
-          <div className="text-4xl mb-4">{card.icon}</div>
+          <div className="text-4xl mb-4">{card.icon} {theUserCarts.length}</div>
           <h3 className="text-gray-700 text-lg font-semibold">{card.title} </h3>
         </div>
       ))}
