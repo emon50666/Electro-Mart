@@ -28,7 +28,7 @@ if(isLoading) return <Loader/>
           <tr className="bg-blue-50  text-sm">
             <th className="py-2 px-4 border-b lg:text-sm border-gray-300 text-left">Product Image</th>
             <th className="py-2 px-4 border-b border-gray-300 text-left">Product Name</th>
-            <th className="py-2 px-4 border-b border-gray-300 relative  mr-14 lg:mr-0 text-left">Price</th>
+            <th className="py-2 px-4 border-b border-gray-300 relative    text-left">Price</th>
           </tr>
         </thead>
         <tbody>
