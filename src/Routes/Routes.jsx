@@ -38,6 +38,7 @@ import Thanks from "../Pages/TnaksPage/Thanks";
 import CompleteOrder from "../components/DashBoard/Order/CompleteOrder";
 
 import UserOrder from "../components/DashBoard/MemberDashboard/UserOrder";
+import TopProducts from "../Pages/TopProducts";
 
 
 
@@ -140,7 +141,10 @@ const router = createBrowserRouter([
     element: <CompleteOrder/>
   },
   
-  
+  {
+    path: '/top',
+    element: <TopProducts/>
+  },
 
   // dashboard route
   {

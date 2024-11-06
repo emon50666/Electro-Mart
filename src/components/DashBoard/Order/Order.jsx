@@ -141,7 +141,12 @@ const Order = () => {
                   <td className="border-r"><p className="font-normal text-[13px]">{pay?.payment_method}</p></td>
                   <td className="border-r">{pay?.shipping_method}</td>
                   <td className={`border-r ${pay?.status === 'pending' ? 'text-red-500' : 'text-green-400 font-semibold capitalize'}`}>{pay?.status}</td>
-                  
+                  <td> <select name="" id="">
+                    <option value="">Complete</option>
+                    <option value="">processing</option>
+                    <option value="">cancel</option>
+                    
+                    </select> </td>
                   <td className="border-r">
                     <FaRegTrashAlt onClick={() => handleDeleteOrder(pay._id)} className="text-red-500 cursor-pointer text-xl font-bold" />
                   </td>

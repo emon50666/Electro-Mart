@@ -13,7 +13,7 @@ import CheckoutTable from './Shared/CheckoutTable';
 import UserAuth from '../../Hooks/useAuth';
 import { useNavigate } from 'react-router-dom';
 import useTotalAmount from '../../Hooks/useTotalAmount';
-import useProduct from '../../Hooks/useProduct';
+
 
 const CheckoutPage = () => {
     const { locations } = useLocation();
@@ -23,7 +23,7 @@ const CheckoutPage = () => {
   
     const {totalPrice} = useTotalAmount();
     
-  const {products} = useProduct()
+
     const { theUserCarts } = useCart();
     const [selectedState, setSelectedState] = useState(""); // Selected division
     const [districts, setDistricts] = useState([]); // Districts of the selected division
@@ -108,13 +108,13 @@ const CheckoutPage = () => {
             paymentMethod: selectedPaymentMethod,
             getProductId,
             userOrder,
-            products: products?.map(product => product.title),
             city: form.city.value,
             district: form.district.value,
             division: form.division.value,
             totalAmount,
             shipping: shippingLabel,
-            adderMail: user?.email
+            adderMail: user?.email,
+         
         };
 
         console.table(formData);

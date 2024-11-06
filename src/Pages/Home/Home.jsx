@@ -10,7 +10,7 @@ import Slider from './Shared/Slider';
 
 
 import LaptopProduct from "./LaptopProduct";
-import MousBanner from "../../Hooks/MousBanner/MousBanner";
+import MousBanner from "../../components/MousBanner/MousBanner";
 
 const Home = () => {
   return (
@@ -24,12 +24,6 @@ const Home = () => {
       <BenifetService />
       <Popular />
       <HomeOffers />
-
-      
-  
-
-    
-      
 
       {/* <FilterProduct /> */}
       <HomeSliderComponent />
