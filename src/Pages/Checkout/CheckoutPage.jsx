@@ -14,6 +14,7 @@ import UserAuth from '../../Hooks/useAuth';
 import { useNavigate } from 'react-router-dom';
 import useTotalAmount from '../../Hooks/useTotalAmount';
 
+
 const CheckoutPage = () => {
     const { locations } = useLocation();
     const axiosPublic = useAxiosPublic();
@@ -22,7 +23,7 @@ const CheckoutPage = () => {
   
     const {totalPrice} = useTotalAmount();
     
-  
+
     const { theUserCarts } = useCart();
     const [selectedState, setSelectedState] = useState(""); // Selected division
     const [districts, setDistricts] = useState([]); // Districts of the selected division
@@ -31,6 +32,8 @@ const CheckoutPage = () => {
     const userSubtotal = parseInt(totalPrice) || 0 ;
     const [getProductId, setGetProductId] = useState();
    console.log(getProductId);
+   const userOrder = theUserCarts
+  
 
     // const [ setShippingCharge] = useState(0); // Store selected shipping charge
     const [totalAmount, setTotalAmount] = useState(userSubtotal)  ; // Store total amount (initially subtotal)
@@ -104,12 +107,14 @@ const CheckoutPage = () => {
             address: form.address.value,
             paymentMethod: selectedPaymentMethod,
             getProductId,
+            userOrder,
             city: form.city.value,
             district: form.district.value,
             division: form.division.value,
             totalAmount,
             shipping: shippingLabel,
-            user
+            adderMail: user?.email,
+         
         };
 
         console.table(formData);
@@ -127,7 +132,7 @@ const CheckoutPage = () => {
                 toast.success('Order placed successfully!');
                 navigate('/thanks'); // Redirect to success page
             } else if (selectedPaymentMethod === 'Bkash') {
-                toast.success('Redirecting to SSL payment gateway...');
+                
                 window.location.replace(data.paymentUrl); // Redirect to SSL payment gateway
             }
             
@@ -301,7 +306,7 @@ const CheckoutPage = () => {
                                     className="mr-2"
                                     onChange={handleShippingChange}
                                 />
-                                <label htmlFor="dhaka-inside">ঢাকার ভিতরে: 80.00 <span className='font-semibold'>৳</span></label>
+                                <label htmlFor="dhaka-inside">InSide Dhaka: 80 <span className='font-semibold'>Taka</span></label>
                             </div>
                             <div>
                                 <input
@@ -313,7 +318,7 @@ const CheckoutPage = () => {
                                     className="mr-2"
                                     onChange={handleShippingChange}
                                 />
-                                <label htmlFor="dhaka-outside">ঢাকার বাইরে: 130.00 <span className='font-semibold'>৳</span></label>
+                                <label htmlFor="dhaka-outside">OutSide Dhaka: 130 <span className='font-semibold'>Taka</span></label>
                             </div>
                            </div>
                             <hr />
