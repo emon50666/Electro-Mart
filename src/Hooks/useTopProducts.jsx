@@ -1,35 +1,25 @@
 import { useQuery } from "@tanstack/react-query";
 import useAxiosPublic from "./useAxiosPublic";
 
-const useTopProducts = () => {
+
+const useTopProduct = () => {
     const axiosPublic = useAxiosPublic();
-    const { data: payments = [], refetch, isLoading } = useQuery({
-        queryKey: ["payments"],
+    const { data: products = [], refetch, isLoading } = useQuery({
+        queryKey: ["product"],
         queryFn: async () => {
-            const result = await axiosPublic.get("/payments");
+            const result = await axiosPublic.get("/products");
             return result.data;
         },
     });
 
-    // Calculate top-selling products
-    const productOrderCounts = payments.reduce((acc, payment) => {
-        // Assuming each `payment` contains an array of products in `payment.products`
-        payment?.products?.forEach(product => {
-            const productId = product.productId; // Use the unique product ID
-            const quantity = product.quantity || 1; // Assuming `quantity` represents the number ordered
+    // Function to get top-selling products
+    const getTopSellingProducts = (topN = 105) => {
+        return [...products]
+            .sort((a, b) => (b.soldQuantity || 0) - (a.soldQuantity || 0))
+            .slice(0, topN);
+    };
 
-            // Increment count for this product in the accumulator
-            acc[productId] = (acc[productId] || 0) + quantity;
-        });
-        return acc;
-    }, {});
-
-    // Convert the product order counts to an array and sort by order count
-    const topSellingProducts = Object.entries(productOrderCounts)
-        .map(([productId, orderCount]) => ({ productId, orderCount }))
-        .sort((a, b) => b.orderCount - a.orderCount); // Sort in descending order
-
-    return { payments, topSellingProducts, refetch, isLoading };
+    return { products, refetch, isLoading, getTopSellingProducts };
 };
 
-export default useTopProducts;
+export default useTopProduct;

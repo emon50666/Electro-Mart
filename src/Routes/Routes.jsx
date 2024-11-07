@@ -42,6 +42,7 @@ import TopProducts from "../Pages/TopProducts";
 
 
 
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -99,7 +100,6 @@ const router = createBrowserRouter([
       path: '/shop-page',
       element: <FilterProduct/>
     },
-  
    
     
 
@@ -145,6 +145,7 @@ const router = createBrowserRouter([
     path: '/top',
     element: <TopProducts/>
   },
+  
 
   // dashboard route
   {

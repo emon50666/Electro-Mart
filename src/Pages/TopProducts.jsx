@@ -1,11 +1,22 @@
-import useTopProducts from "../Hooks/useTopProducts";
+
+import useTopProduct from './../Hooks/useTopProducts';
+
 
 const TopProducts = () => {
-    const {topSellingProducts} = useTopProducts();
-    console.log(topSellingProducts);
+    const { getTopSellingProducts } = useTopProduct();
+    const topProducts = getTopSellingProducts(105); // Get top 5 selling products
+console.log(topProducts);
     return (
         <div>
-            this is a top products list
+            <h2>Top Selling Products{topProducts.length} </h2>
+            <ul>
+                {topProducts.map((product) => (
+                    <li key={product._id}>
+                        <h3>{product.title}</h3>
+                        <p>Sold: {product.quantity}</p>
+                    </li>
+                ))}
+            </ul>
         </div>
     );
 };

@@ -50,7 +50,7 @@ const FilterSection = ({ onFilterChange, filters }) => {
   }
 
   return (
-    <div className="filter-section ">
+    <div className="filter-section  ">
       <h3 className="">Filter Products</h3>
 
       <div className="filter-option">
