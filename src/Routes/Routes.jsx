@@ -42,6 +42,7 @@ import TopProducts from "../Pages/TopProducts";
 import CookiePolicy from "../Pages/CookiePolicy/CookiePolicy";
 import PrivacyPolicy from "../Pages/PrivacyPolicy/PrivacyPolicy";
 import TermsAndConditions from "../Pages/TermsAndConditions/TermsAndConditions";
+import RefundPolicy from "../Pages/Refundpolicy/RefundPolicy";
 
 
 
@@ -101,6 +102,10 @@ const router = createBrowserRouter([
       {
         path:"/termsAndConditions",
         element:<TermsAndConditions></TermsAndConditions>
+      },
+      {
+        path:"/refundPolicy",
+        element:<RefundPolicy></RefundPolicy>
       },
       {
         path: "/promotionsDetails/:id",
