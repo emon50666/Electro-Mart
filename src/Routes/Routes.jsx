@@ -28,12 +28,14 @@ import Promotion from "../Pages/Promotion/Promotion";
 import PromotionDetails from "../Pages/Promotion/PromotionDetails";
 
 import CheckoutPage from "../Pages/Checkout/CheckoutPage";
-import Thanks from "../Pages/ThankYouPage/Thanks";
 import About from "../Pages/About/About";
 import Contacts from "../Pages/Contacts/Contacts";
-
-
-
+import FilterProduct from "../components/FilterProduct/FilterProduct";
+import Success from "../Pages/SuccessPage/Success";
+import Fail from "../Pages/FailPage/Fail";
+import Cancel from "../Pages/CancelPage/Cancel";
+import CompleteOrder from "../components/DashBoard/Order/CompleteOrder";
+import Thanks from "../Pages/TnaksPage/Thanks";
 
 
 
@@ -87,21 +89,26 @@ const router = createBrowserRouter([
         element: <PromotionDetails />,
         loader: () => fetch(`${import.meta.env.VITE_API_URL}/promotions/`)
       },
+
       {
         path: "manageCart",
         element: <PrivateRoute><ManageCart /></PrivateRoute>
 
       },
    
+
     {
       path: '/checkout-page',
       element: <CheckoutPage/>
     },
     {
-      path: '/greeting',
-      element: <Thanks/>
+      path: '/shop-page',
+      element: <FilterProduct/>
     },
+  
+   
     
+
     ],
 
   },
@@ -113,10 +120,32 @@ const router = createBrowserRouter([
     path: '/register',
     element: <Register />
   },
+  {
+    path:'/thanks',
+    element: <Thanks/>
+  },
+  {
+    path:'/success/:tranId',
+    element: <Success/>
+  },
+  {
+    path: '/checkout-page',
+    element: <CheckoutPage/>
+  },
+  
+  {
+    path:'/fail',
+    element: <Fail/>
+  },
+  {
+    path:'/cancel',
+    element: <Cancel/>
+  },
 
-
-
-
+  {
+    path:'/complete-order/:tranId',
+    element: <CompleteOrder/>
+  },
 
   // dashboard route
   {
@@ -170,7 +199,10 @@ const router = createBrowserRouter([
       {
         path: 'dashboard-layout',
         element: <DashBoardProfile />
-      }
+      },
+      
+  
+      
 
     ]
   }

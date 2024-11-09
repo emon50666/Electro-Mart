@@ -1,65 +1,48 @@
-// SliderComponent.jsx
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Autoplay } from 'swiper/modules';
+import { IoMdArrowDropright } from "react-icons/io";
 
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+import { useEffect } from "react";
+const SliderComponent = () => {
 
+    useEffect(() => {
+        AOS.init({ duration: 1000 }); // You can adjust the duration
+    }, []);
 
-const  HomeSliderComponent =() => {
-  const slides = [
-    {
-      id: 1,
-      image: "https://i.postimg.cc/L4fXdBww/slider0101.jpg",
-      title: "iPhone 16 Pro Max",
-      subtitle: "New Camera. New Design.",
-      description: "Titanium. So Strong. So Light. So Pro.",
-      buttonText: "Shop now",
-    },
-    {
-      id: 1,
-      // image: "https://i.postimg.cc/WbF7cKTj/slider0102.jpgg",
-      image: "https://i.ibb.co.com/MGjpMXc/Image-4-min.jpg",
+    return (
+        <>
+           
+            <div className="relative mt-10 mb-10 w-full lg:h-[500px] md:h-[400px] flex items-center  overflow-hidden">
+            <div className="absolute inset-0 "></div>
 
-      title: "Freedom With Heap Phone",
-      subtitle: "Experience Sound.",
-      description: "Unleash Wireless Sound Freedom.",
-      buttonText: "Shop now",
-    },
-  ];
+{/* Text Content */}
+<div
 
-  return (
-    <div className="w-full mx-auto overflow-hidden mt-16 mb-16">
-      <Swiper
-        modules={[Navigation, Autoplay]}
-        navigation
-        pagination={{ clickable: true }}
-        autoplay={{ delay: 9000 }}
-        loop={true}
-        className="mySwiper"
-      >
-        {slides.map((slide) => (
-          <SwiperSlide key={slide.id}>
-            <div className="relative h-auto   ">
-              <img
-                src={slide.image}
-                alt={slide.title}
-                className="w-full object-cover h-[150px] md:h-[180px] lg:h-[357px] xl:h-[400px] 2xl:h-[450px]"
-              />
-              <div className="absolute lg:pl-20 xl:pl-24 2xl:pl-24 pt-10 pb-10 inset-0 bg-black bg-opacity-40 flex items-center justify-start p-10 text-white">
-                <div className="">
-                  <h3 className="text-md md:text-xl">{slide.subtitle}</h3>
-                  <h1 className="text-md md:text-4xl font-bold">{slide.title}</h1>
-                  <p className="text-sm md:text-lg">{slide.description}</p>
-                  <button className="px-2 mt-2 py-2 bg-green-500 hover:bg-green-600 text-white  rounded-md">
-                    {slide.buttonText}
-                  </button>
-                </div>
-              </div>
+    data-aos="fade-right"
+    data-aos-offset="300"
+    data-aos-easing="ease-in-sine"
+    className="relative z-10 text-start  p-6 md:p-10 lg:p-16  text-[#2F3132] max-w-md">
+    <h2 className="text-3xl md:text-4xl font-bold">G715 Wireless Gaming Keyboard</h2>
+    <p className="mt-2 md:mt-4 text-[12px] md:text-md">
+    Wireless mechanical keyboard designed for comfort and style with ethereal RGB lighting and full media controls at your fingertips.
+    </p>
+    <button className="mt-4  underline hover:translate-x-1 duration-700  flex items-center  text-[#2F3132] font-semibold rounded">
+    Shop G715 Now <IoMdArrowDropright className="items-center mt-1 text-xl"></IoMdArrowDropright>
+    </button>
+</div>
+                {/* Background Image */}
+                <img
+                    src="https://res.cloudinary.com/dpsgtszzi/image/upload/v1730362292/Screenshot_12_lsg84f.png" // replace with your image URL
+                    alt="Gaming Mouse"
+                    className="absolute top-0  right-0 w-full h-full object-cover lg:object-right md:h-full md:w-auto lg:w-full"
+                />
+
+                {/* Overlay for gradient effect */}
+                
             </div>
-          </SwiperSlide>
-        ))}
-      </Swiper>
-    </div>
-  );
+        </>
+
+    );
 }
 
-export default HomeSliderComponent;
+export default SliderComponent;

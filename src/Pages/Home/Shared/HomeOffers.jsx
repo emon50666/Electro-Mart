@@ -6,15 +6,15 @@ const HomeOffers = () => {
   const { products, refetch, isLoading } = useProduct();
   if (isLoading) return <Loader />;
   return (
-    <div className="px-8  font_open_sense">
+    <div className="px-2 lg:px-8  font_open_sense">
       <div>
         <h3 className="text-2xl mb-5 font-bold">The Best Offers</h3>
       </div>
       {/* preview cards */}
-      <div className="flex lg:grid lg:grid-cols-5 gap-3 md:grid-cols-3 sm:grid-cols-1 overflow-x-auto lg:overflow-hidden no-scrollbar snap-x snap-mandatory">
+      <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-3">
         {products.slice(0, 5).map((product, idx) => (
           <>
-            {((product?.isNew === "yes" || product?.discountPercentage > 1) && product?.quantity > 0) && (
+            {((product?.isHot === "yes" ) && product?.quantity > 0) && (
               <div key={idx} className="snap-start flex-shrink-0 w-full sm:w-auto">
                 <ProductCard product={product} refetch={refetch} />
               </div>

@@ -13,7 +13,7 @@ const BenifetService = () => {
       ];
     return (
         <div>
-              <div className="px-4 py-8">
+              <div className="px-4 mt-10 mb-10">
       <div className="flex lg:grid lg:grid-cols-5 gap-3  md:grid-cols-3 sm:grid-cols-2  overflow-x-auto lg:overflow-hidden no-scrollbar">
         {items.map((item, index) => (
           <div

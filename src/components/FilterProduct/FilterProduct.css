@@ -1,14 +1,16 @@
 /* Basic grid setup for the filter and product list */
 .grid-filter-column {
   display: grid;
-  grid-template-columns: 0.2fr 1fr;
-  gap: 1rem;
+  grid-template-columns: 0.3fr 1fr;
+  gap: 2rem;
+
 }
 
 /* Container styling */
 .filter-product-container {
   width: 100%;
   padding: 1rem;
+
 }
 
 /* Style for the product view section */
@@ -22,9 +24,39 @@
   margin-bottom: 1rem;
 }
 
+.no-product-alert {
+  padding: 20px;
+  text-align: center;
+  font-size: 1.2rem;
+  color: blue;
+  font-weight: bold;
+}
+
+/* Tablet responsiveness */
+@media (max-width: 1024px) {
+  .grid-filter-column {
+    grid-template-columns: 0.4fr 1fr;
+    gap: 1.5rem;
+  }
+  
+  .no-product-alert {
+    font-size: 1.1rem;
+  }
+}
+
 /* Mobile responsiveness */
 @media (max-width: 768px) {
   .grid-filter-column {
     grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .no-product-alert {
+    font-size: 1rem;
+    padding: 15px;
+  }
+
+  .filter-product-container {
+    padding: 0.5rem;
   }
 }
