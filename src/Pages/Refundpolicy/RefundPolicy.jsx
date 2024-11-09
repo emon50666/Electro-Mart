@@ -132,14 +132,14 @@ const RefundPolicy = () => {
         </section>
   
         {/* Final Notes */}
-        {/* <section className="mb-8">
+        <section className="mb-8">
           <h2 className="text-xl sm:text-2xl font-semibold text-gray-900 mb-2">
             Contact Us
           </h2>
           <p className="text-base sm:text-lg text-gray-700">
             If you have any questions about our refund and return policy, please contact us at <a href="mailto:support@electromart.com" className="text-blue-500">support@electromart.com</a>.
           </p>
-        </section> */}
+        </section>
       </div>
     );
 };
