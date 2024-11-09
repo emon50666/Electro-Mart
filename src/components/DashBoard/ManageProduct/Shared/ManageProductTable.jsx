@@ -1,3 +1,4 @@
+import  { useState } from "react";
 import Swal from "sweetalert2";
 import useProduct from "../../../../Hooks/useProduct";
 import useAxiosPublic from "../../../../Hooks/useAxiosPublic";
@@ -5,10 +6,14 @@ import { MdDeleteForever } from "react-icons/md";
 import { Link } from "react-router-dom";
 import { FaBangladeshiTakaSign, FaPencil } from "react-icons/fa6";
 import { BsEye } from "react-icons/bs";
+import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 
 const ManageProductTable = () => {
     const axiosPublic = useAxiosPublic();
     const { products, refetch } = useProduct();
+    const [currentPage, setCurrentPage] = useState(1);
+    const itemsPerPage = 10;
+
     const handleDeleteProduct = (id) => {
         Swal.fire({
             title: "Are you sure?",
@@ -29,11 +34,31 @@ const ManageProductTable = () => {
         });
     };
 
+    // Calculate indices for the current page
+    const indexOfLastItem = currentPage * itemsPerPage;
+    const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+    const currentProducts = products.slice(indexOfFirstItem, indexOfLastItem);
+
+    // Calculate total pages
+    const totalPages = Math.ceil(products.length / itemsPerPage);
+
+    // Handle page change
+    const handlePageChange = (pageNumber) => setCurrentPage(pageNumber);
+
+    // Handle next and previous buttons
+    const handleNextPage = () => {
+        if (currentPage < totalPages) setCurrentPage(currentPage + 1);
+    };
+
+    const handlePrevPage = () => {
+        if (currentPage > 1) setCurrentPage(currentPage - 1);
+    };
+
     return (
         <div className="py-6">
             <div className="overflow-x-auto">
                 <table className="table">
-                    <thead className="capitalize  bg-gray-200 rounded-lg font-semibold">
+                    <thead className="capitalize bg-gray-200 rounded-lg font-semibold">
                         <tr className="text-black">
                             <th className="text-center text-sm md:text-lg"></th>
                             <th className="py-2 md:py-5 text-center text-sm md:text-md">Image</th>
@@ -45,9 +70,9 @@ const ManageProductTable = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        {products.map((product, idx) => (
-                            <tr key={idx} className="shadow-sm ">
-                                <td className="text-center  ">{idx + 1}</td>
+                        {currentProducts.map((product, idx) => (
+                            <tr key={product._id} className="shadow-sm">
+                                <td className="text-center">{idx + 1 + indexOfFirstItem}</td>
                                 <td className="text-center md:text-lg">
                                     <img
                                         src={product?.images[0]}
@@ -93,6 +118,37 @@ const ManageProductTable = () => {
                         ))}
                     </tbody>
                 </table>
+
+                {/* Pagination Controls */}
+                <div className="flex justify-center mt-4 space-x-2">
+                    <button
+                        onClick={handlePrevPage}
+                        disabled={currentPage === 1}
+                        className="px-3 py-1 rounded shadow-md bg-gray-100 border border-blue-400 text-blue-500 hover:bg-blue-500 hover:text-white disabled:opacity-50"
+                    >
+                        <FaArrowLeft />
+                    </button>
+
+                    {Array.from({ length: totalPages }, (_, i) => (
+                        <button
+                            key={i}
+                            onClick={() => handlePageChange(i + 1)}
+                            className={`px-3 py-1 rounded ${
+                                currentPage === i + 1 ? "bg-blue-500 text-white" : "bg-gray-200"
+                            }`}
+                        >
+                            {i + 1}
+                        </button>
+                    ))}
+
+                    <button
+                        onClick={handleNextPage}
+                        disabled={currentPage === totalPages}
+                        className="px-3 py-1 rounded shadow-md bg-gray-100 border border-blue-400 text-blue-500 hover:bg-blue-500 hover:text-white disabled:opacity-50"
+                    >
+                        <FaArrowRight />
+                    </button>
+                </div>
             </div>
         </div>
     );
