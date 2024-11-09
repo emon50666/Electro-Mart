@@ -104,7 +104,14 @@ const CookiePolicy = () => {
       </section>
 
       {/* Contact Information */}
-      
+      <section className="mb-6">
+        <h2 className="text-xl sm:text-2xl font-semibold text-gray-900 mb-2">Contact Us</h2>
+        <p className="text-base sm:text-lg text-gray-700">
+          If you have any questions or concerns about our Cookie Policy, please feel free to contact us:
+          <br />
+          Email: <a href="mailto:support@electromart.com" className="text-blue-500">support@electromart.com</a>
+        </p>
+      </section>
     </div>
     );
 };
