@@ -2,7 +2,7 @@
 const RefundPolicy = () => {
     return (
         <div className="container mx-auto px-4 py-6 sm:px-6 lg:px-8">
-        {/* Page Title */}
+       
         <h1 className="text-3xl font-extrabold text-center text-gray-900 mb-8 md:text-4xl">
           Refund Policy - Electro Mart
         </h1>
