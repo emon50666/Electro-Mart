@@ -39,6 +39,9 @@ import Thanks from "../Pages/TnaksPage/Thanks";
 
 import UserOrder from "../components/DashBoard/MemberDashboard/UserOrder";
 import TopProducts from "../Pages/TopProducts";
+import CookiePolicy from "../Pages/CookiePolicy/CookiePolicy";
+import PrivacyPolicy from "../Pages/PrivacyPolicy/PrivacyPolicy";
+import TermsAndConditions from "../Pages/TermsAndConditions/TermsAndConditions";
 
 
 
@@ -86,6 +89,18 @@ const router = createBrowserRouter([
       {
         path:"/contacts",
         element:<Contacts/>
+      },
+      {
+        path:"/cookiePolicy",
+        element:<CookiePolicy></CookiePolicy>
+      },
+      {
+        path:"/privacyPolicy",
+        element:<PrivacyPolicy></PrivacyPolicy>
+      },
+      {
+        path:"/termsAndConditions",
+        element:<TermsAndConditions></TermsAndConditions>
       },
       {
         path: "/promotionsDetails/:id",
