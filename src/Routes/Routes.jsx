@@ -34,7 +34,7 @@ import Success from "../Pages/SuccessPage/Success";
 import Fail from "../Pages/FailPage/Fail";
 import Cancel from "../Pages/CancelPage/Cancel";
 import Thanks from "../Pages/TnaksPage/Thanks";
-import MemberOrder from "../components/DashBoard/MemberOrder/memberOrder";
+
 
 
 const router = createBrowserRouter([
@@ -93,21 +93,23 @@ const router = createBrowserRouter([
 
       {
         path: "manageCart",
-        element: (
-          <PrivateRoute>
-            <ManageCart />
-          </PrivateRoute>
-        ),
-      },
+        element: <PrivateRoute><ManageCart /></PrivateRoute>
 
-      {
-        path: "/checkout-page",
-        element: <CheckoutPage />,
       },
-      {
-        path: "/shop-page",
-        element: <FilterProduct />,
-      },
+   
+
+    {
+      path: '/checkout-page',
+      element: <CheckoutPage/>
+    },
+    {
+      path: '/shop-page',
+      element: <FilterProduct/>
+    }
+
+   
+    
+
     ],
   },
   {
@@ -139,6 +141,8 @@ const router = createBrowserRouter([
     path: "/cancel",
     element: <Cancel />,
   },
+
+
 
   // dashboard route
   {
@@ -242,8 +246,11 @@ const router = createBrowserRouter([
         path: "dashboard-layout",
         element: <DashBoardProfile />,
       },
-    ],
-  },
+      
+
+    ]
+  }
+
 ]);
 
 export default router;

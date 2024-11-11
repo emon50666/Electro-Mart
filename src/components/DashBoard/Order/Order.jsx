@@ -1,117 +1,111 @@
+
 import { FaRegTrashAlt } from "react-icons/fa";
 import useOrder from "../../../Hooks/useOrder";
 import useAxiosPublic from "../../../Hooks/useAxiosPublic";
 import Swal from "sweetalert2";
-import { useEffect, useState } from "react";
-import axios from "axios";
-import Loader from "../../Loader/Loader";
 
 const Order = () => {
-  const { payments, refetch } = useOrder();
-  const axiosPublic = useAxiosPublic();
-  const [productDetails, setProductDetails] = useState({});
-  const [isLoading, setIsLoading] = useState(true);
+  const { payments ,refetch} = useOrder();
+  console.log(payments);
+const axiosPublic = useAxiosPublic()
 
-  useEffect(() => {
-    const fetchProductDetails = async () => {
-      try {
-        const allProductDetails = {};
-        
-        await Promise.all(
-          payments.flatMap(payment =>
-            payment.products.map(async (product) => {
-              const response = await axios.get(`http://localhost:9000/products/${product.mainProductId}`);
-              allProductDetails[product.mainProductId] = response.data;
-            })
-          )
-        );
+  // delete order 
 
-        setProductDetails(allProductDetails);
-      } catch (error) {
-        console.error("Error fetching product details:", error);
-      } finally {
-        setIsLoading(false);
-      }
-    };
-
-    if (payments) fetchProductDetails();
-  }, [payments]);
-
-  // Delete order
-  const handleDeleteOrder = (id) => {
+  const handleDeleteOrder= (id) => {
     Swal.fire({
-      title: "Are you sure?",
-      text: "you want to delete this product",
-      icon: "warning",
-      showCancelButton: true,
-      confirmButtonColor: "#3B82F6",
-      cancelButtonColor: "#d33",
-      confirmButtonText: "Yes, delete it!",
+        title: "Are you sure?",
+        text: "you want to delete this product",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3B82F6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, delete it!",
     }).then((result) => {
-      if (result.isConfirmed) {
-        axiosPublic.delete(`/orders/${id}`).then((res) => {
-          if (res.data.deletedCount) {
-            refetch();
-          }
-        });
-      }
+        if (result.isConfirmed) {
+            axiosPublic.delete(`/order/${id}`).then((res) => {
+                if (res.data.deletedCount) {
+                    refetch();
+                }
+            });
+        }
     });
-  };
+};
 
-  if (isLoading) return <Loader />;
 
-  return (
-    <div className="pt-10">
-      <h1 className="font-semibold text-2xl mt-4 mb-4 ml-5">Order List</h1>
-      <div className="overflow-x-auto bg-white shadow-md">
-        <table className="table">
-          <thead>
-            <tr className="bg-blue-50 text-md">
-              <th>#</th>
-              <th>Product Name</th>
-              <th>Order ID</th>
-              <th>Price (৳)</th>
-              <th>Payment Method</th>
-              <th>Shipping Charge</th>
-              <th>Payment</th>
-              <th>Delivery</th>
-              <th>Action</th>
-            </tr>
-          </thead>
-          <tbody>
-            {payments?.map((pay, indx) => (
-              <tr key={pay._id}>
-                <td className="font-normal border">{indx + 1}</td>
-                <td className="border-r border-gray-200">
-                  <div className="font-normal">
-                    {pay.products.map((product) =>
-                      productDetails[product.mainProductId]?.title || "Loading..."
-                    ).join(", ")}
-                  </div>
-                </td>
-                <td className="text-blue-500 border-r font-semibold">#{pay.tran_id}</td>
-                <td className="border-r font-semibold">{pay.totalAmount}</td>
-                <td className="border-r">{pay.paymentMethod}</td>
-                <td className="border-r">{pay.shipping}</td>
-                <td className={`border-r ${pay.paymentStatus === "pending" ? "text-red-500" : "text-green-400 font-semibold capitalize"}`}>
-                  {pay.paymentStatus}
-                </td>
-                <td className={`border-r ${pay.orderStatus === "Processing" ? "text-red-500" : "text-green-400 font-semibold capitalize"}`}>
-                  {pay.orderStatus}
-                </td>
-                <td className="border-r">
-                  <FaRegTrashAlt
-                    onClick={() => handleDeleteOrder(pay._id)}
-                    className="text-red-500 cursor-pointer text-xl font-bold"
-                  />
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
-    </div>
-  );
+
+
+
+
+    return (
+        <div className="pt-10">
+             <h1 className="font-semibold text-2xl mt-4 mb-4 ml-5"> Order List</h1>
+            <div className="overflow-x-auto md:overflow-x-auto  bg-white shadow-md">
+  <table className="table">
+    {/* head */}
+    <thead>
+      <tr className="bg-blue-50 text-md">
+        <th>
+        
+        </th>
+        <th>Product Name</th>
+        <th>Order ID</th>
+
+        <th>Price<span className=" font-semibold text-black ml-1 items-center ">( ৳ )</span> </th>
+        <th>Payment Method</th>
+        <th>Shipping Charge</th>
+        <th>Status</th>
+        <th>Action</th>
+
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      {/* row 1 */}
+     {
+      payments?.map((pay,indx) => <>
+       <tr key={indx} className="">
+        <th className="font-normal border">
+        {indx+1}
+        </th>
+        <td className="border-r border-gray-200">
+          <div className="flex  items-center ">
+            
+            <div>
+              <div className="font-normal ">{pay?.product_name} </div>
+            </div>
+          </div>
+        </td>
+        <td className="text-blue-500 border-r font-semibold">
+         #{pay?.paymentId}
+         
+        </td>
+        <td className="border-r font-semibold  ">{pay?.amount} </td>
+        <th className="border-r" >
+          <p className="font-normal text-[13px] ">{pay?.payment_method} </p>
+        </th>
+        <td className="border-r"> {pay?.shipping_method}  </td>
+        <td className={`border-r ${pay?.status === 'pending' ? 'text-red-500' : 'text-green-400 font-semibold capitalize'}`}>
+  {pay?.status}
+</td>
+      
+      
+       <td className="border-r ">   <FaRegTrashAlt  onClick={() => handleDeleteOrder(pay._id)} className="text-red-500 cursor-pointer text-xl font-bold"></FaRegTrashAlt> </td>
+       
+     
+
+
+      </tr>
+      </>)
+     }
+      
+
+     
+    </tbody>
+
+  </table>
+</div>
+        </div>
+    );
 };
 
 export default Order;

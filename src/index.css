@@ -8,6 +8,16 @@
 @tailwind components;
 @tailwind utilities;
 
+
+/* body {
+    cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 24 24' fill='black'%3E%3Cpath d='M10 20c1.104 0 1.99-.896 1.99-2h-3.98c0 1.104.886 2 1.99 2zm8.419-15l-1.611 7h-9.616l-1.561-7h-3.631v-2h4.999l1.561 7h10.193l1.388-6h2.208l-.86 4h-1.348l-.71 3h-2.152l-.641 3h-8.57l.57-2.5h3.57l-.5 2h3.159l1.5-7h2.001z'/%3E%3C/svg%3E"), auto;
+  
+
+  }
+   */
+
+
+
 .font_inter {
     font-family: "Inter", sans-serif;
 }
@@ -156,6 +166,7 @@
    
    
 }
+
 
 /* For Google Chrome, Edge, and Safari */
 ::-webkit-scrollbar {

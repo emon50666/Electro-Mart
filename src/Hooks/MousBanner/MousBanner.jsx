@@ -34,7 +34,7 @@ const MousBanner = () => {
                     <p className="mt-2 md:mt-4 text-sm md:text-md">
                         Dreamy new design shaped for smaller hands, contoured for comfort, and fully equipped for your best play experience yet.
                     </p>
-                    <button className="mt-4 md:mt-6 underline hover:translate-x-1 duration-700  flex items-center  text-[#2F3132] font-semibold rounded">
+                    <button className="mt-4  underline hover:translate-x-1 duration-700  flex items-center  text-[#2F3132] font-semibold rounded">
                         Shop G705 Now <IoMdArrowDropright className="items-center mt-1 text-xl"></IoMdArrowDropright>
                     </button>
                 </div>
