@@ -1,16 +1,20 @@
 import { FaRegTrashAlt } from "react-icons/fa";
-import useOrder from "../../../Hooks/useOrder";
+
 import useAxiosPublic from "../../../Hooks/useAxiosPublic";
 import Swal from "sweetalert2";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import Loader from "../../Loader/Loader";
+import useFilteredOrders from "../../../Hooks/useFilterOrder";
+import UserAuth from "../../../Hooks/useAuth";
 
-const Order = () => {
-  const { payments, refetch } = useOrder();
+const MemberOrder = () => {
+    const {user} = UserAuth();
+ 
   const axiosPublic = useAxiosPublic();
   const [productDetails, setProductDetails] = useState({});
   const [isLoading, setIsLoading] = useState(true);
+  const { orders } = useFilteredOrders(user);
 
   useEffect(() => {
     const fetchProductDetails = async () => {
@@ -18,7 +22,7 @@ const Order = () => {
         const allProductDetails = {};
         
         await Promise.all(
-          payments.flatMap(payment =>
+          orders.flatMap(payment =>
             payment.products.map(async (product) => {
               const response = await axios.get(`http://localhost:9000/products/${product.mainProductId}`);
               allProductDetails[product.mainProductId] = response.data;
@@ -34,8 +38,8 @@ const Order = () => {
       }
     };
 
-    if (payments) fetchProductDetails();
-  }, [payments]);
+    if (orders) fetchProductDetails();
+  }, [orders]);
 
   // Delete order
   const handleDeleteOrder = (id) => {
@@ -49,10 +53,8 @@ const Order = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        axiosPublic.delete(`/orders/${id}`).then((res) => {
-          if (res.data.deletedCount) {
-            refetch();
-          }
+        axiosPublic.delete(`/orders/${id}`).then(() => {
+         
         });
       }
     });
@@ -79,7 +81,7 @@ const Order = () => {
             </tr>
           </thead>
           <tbody>
-            {payments?.map((pay, indx) => (
+            {orders?.map((pay, indx) => (
               <tr key={pay._id}>
                 <td className="font-normal border">{indx + 1}</td>
                 <td className="border-r border-gray-200">
@@ -114,4 +116,4 @@ const Order = () => {
   );
 };
 
-export default Order;
+export default MemberOrder;
