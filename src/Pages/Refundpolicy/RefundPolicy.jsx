@@ -7,14 +7,12 @@ const RefundPolicy = () => {
           Refund Policy - Electro Mart
         </h1>
   
-        {/* Introduction */}
         <section className="mb-6">
           <p className="text-base sm:text-lg text-gray-700">
             At Electro Mart, we strive to ensure that our customers are completely satisfied with their purchases. If you are not satisfied with the product you received, our refund and return policy provides comprehensive guidelines to address your concerns. Please read the following information carefully.
           </p>
         </section>
   
-        {/* Eligibility for Returns */}
         <section className="mb-8">
           <h2 className="text-xl sm:text-2xl font-semibold text-gray-900 mb-2">
             Eligibility for Returns
