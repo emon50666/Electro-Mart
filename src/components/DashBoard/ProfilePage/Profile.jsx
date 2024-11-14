@@ -5,7 +5,7 @@ import Loader from "../../Loader/Loader";
 import UpdateUserProfile from "./UpdateUserProfile";
 
 const Profile = () => {
-  const { user, logOut } = UserAuth();
+  const { user,  } = UserAuth();
   const [role, isLoading] = useRoll();
   const [isModalOpen, setModalOpen] = useState(false); // State for modal visibility
 
@@ -55,19 +55,14 @@ const Profile = () => {
           </div>
 
           {/* Action Buttons */}
-          <div className="mt-6 flex justify-between">
+          <div className="mt-6 flex justify-center">
             <button
               onClick={handleEditClick} // Open modal on button click
               className="px-4 py-2 bg-blue-500 hover:bg-blue-600 text-white rounded-md"
             >
               Edit Profile
             </button>
-            <button
-              onClick={logOut}
-              className="px-4 py-2 bg-black hover:bg-gray-900 text-white rounded-md"
-            >
-              Logout
-            </button>
+           
           </div>
         </div>
       </div>

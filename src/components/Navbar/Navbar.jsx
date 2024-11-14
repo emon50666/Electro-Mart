@@ -1,11 +1,12 @@
 import { useState } from "react";
-import logo_1 from "../../assets/images/logo_1.png";
+import logo_1 from "../../assets/images/new1.png";
 import { Link } from "react-router-dom";
 
 import UserAuth from "../../Hooks/useAuth";
 import { FaCartShopping } from "react-icons/fa6";
 import { IoGitCompareOutline } from "react-icons/io5";
-import { FaHeart } from "react-icons/fa";
+import { FaPhoneAlt } from "react-icons/fa";
+import { FaHeart,  } from "react-icons/fa";
 import { MdAccountCircle } from "react-icons/md";
 import MobileNavBar from "../Navbar/MobileNavBar";
 import AddCart from "../AddToCart/AddCart";
@@ -36,7 +37,7 @@ const Navbar = () => {
 
   return (
     <div className="navbar bg-base-100 sticky top-0 px-3 z-20 ">
-      <div className="navbar-start">
+      <div className="navbar-start px-2 lg:px-0">
         {/* Mobile menu button */}
         <div className="lg:hidden">
           <button onClick={toggleMenu} className="">
@@ -73,9 +74,9 @@ const Navbar = () => {
             )}
           </button>
         </div>
-        <div className="hidden sm:block md:hidden lg:block">
+        <div className="hidden sm:block md:hidden  lg:block">
           <Link to={"/"}>
-            <img src={logo_1} alt="Logo" />
+            <img src={logo_1} alt="Logo"  />
           </Link>
         </div>
       </div>
@@ -92,13 +93,24 @@ const Navbar = () => {
         <SearchBar />
       </div>
 
+
+
       <div className="lg:hidden ">
         <Link to={"/"}>
           <img src={logo_1} alt="" />
         </Link>
       </div>
 
-      <div className="navbar-end gap-5">
+        {/* contact number */} 
+        <div className="hidden sm:block  pl-16  relative bottom-1  lg:block">
+          <sub className="pl-8 font-semibold">24/7 Support</sub>
+  <div className="flex items-center gap-2">
+  <FaPhoneAlt ume className="text-blue-500 text-[25px] relative bottom-1 "></FaPhoneAlt>
+
+  <Link to={'tel:01786397249'}><h1 className="font-semibold text-md text-blue-500">01786397249</h1></Link>
+  </div>
+</div>
+      <div className="navbar-end px-3 gap-5">
         <div className="hidden lg:flex space-x-3">
           <div
             onClick={handleAddToCart}

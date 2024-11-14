@@ -81,45 +81,28 @@ const AdminMenu = () => {
               </li>
             </ul>
           </li>
-
-          <li className=" group relative">
+          <li className="">
             <NavLink
+              to={'order-list'}
               className={({ isActive }) =>
-                `flex items-center text-[16px] gap-3 rounded p-3 transition-colors ${
-                  isActive ? ' ' : 'text-gray-400 hover:bg-[#22292F] hover:text-orange-500'
+                `flex items-center gap-3 rounded p-3 transition-colors ${
+                  isActive ? 'bg-black border-l-2 border-l-orange-500 text-orange-500' : 'text-gray-400 hover:bg-[#22292F] hover:text-orange-500'
                 }`
               }
-              to="order-list"
             >
-              <div className="flex text-md font-semibold items-center self-center">
+              <div className="flex text-[16px]  items-center self-center">
                 <HiOutlineShoppingBag />
               </div>
               <span className="flex  relative text-[16px] w-full flex-1 flex-col items-start justify-center gap-0 overflow-hidden truncate">
-                Order
-                <span className="absolute -right-0 -ml-1 left-[69px] -top-0   h-4 w-4 rounded-full bg-orange-500 px-1 py-0 text-[10px] text-white flex items-center justify-center">
+                Orders
+                <span className="absolute -right-0 -ml-1 left-[55px] -top-0   h-4 w-4 rounded-full bg-orange-500 px-1 py-0 text-[10px] text-white flex items-center justify-center">
               
                  {payments.length}
                 </span>
               </span>
             </NavLink>
-
-            {/* Submenu */}
-            <ul className="absolute w-full z-40 text-gray-400 top-full hidden group-hover:block bg-[#22292F] shadow-lg rounded-lg p-2">
-              <li className="">
-                <NavLink
-                  to="/complete-order"
-                  className={({ isActive }) =>
-                    `block py-2 px-4 text-sm font-medium hover:bg-[#22292F] hover:text-orange-500 ${
-                      isActive ? 'bg-black border-l-2 border-l-orange-500  text-orange-500' : 'text-gray-400'
-                    }`
-                  }
-                >
-                Complete Order
-                </NavLink>
-              </li>
-           
-            </ul>
           </li>
+          
 
           <li className="">
             <NavLink
