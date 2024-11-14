@@ -34,6 +34,7 @@ import Success from "../Pages/SuccessPage/Success";
 import Fail from "../Pages/FailPage/Fail";
 import Cancel from "../Pages/CancelPage/Cancel";
 import Thanks from "../Pages/TnaksPage/Thanks";
+import MemberOrder from "../components/DashBoard/MemberOrder/memberOrder";
 
 
 

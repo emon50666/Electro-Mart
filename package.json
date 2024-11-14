@@ -60,7 +60,7 @@
     "react-tooltip": "^5.28.0",
     "recharts": "^2.13.0",
     "sort-by": "^1.2.0",
-    "spinners-react": "^1.0.7",
+    "spinners-react": "^1.0.10",
     "sweetalert2": "^11.12.4",
     "swiper": "^11.1.14",
     "windy-ui": "^0.1.4"
