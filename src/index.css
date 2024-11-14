@@ -16,7 +16,9 @@
   }
    */
 
-
+   .navbar {
+    padding: var(--navbar-padding, 0px) !important;
+}
 
 .font_inter {
     font-family: "Inter", sans-serif;

@@ -36,6 +36,9 @@ import Cancel from "../Pages/CancelPage/Cancel";
 import Thanks from "../Pages/TnaksPage/Thanks";
 import MemberOrder from "../components/DashBoard/MemberOrder/memberOrder";
 
+import UserOrder from "../components/DashBoard/MemberDashboard/UserOrder";
+import TopProducts from "../Pages/TopProducts";
+
 
 
 const router = createBrowserRouter([
@@ -144,6 +147,16 @@ const router = createBrowserRouter([
   },
 
 
+  {
+    path:'/complete-order/:tranId',
+    element: <CompleteOrder/>
+  },
+  
+  {
+    path: '/top',
+    element: <TopProducts/>
+  },
+
 
   // dashboard route
   {
@@ -247,6 +260,14 @@ const router = createBrowserRouter([
         path: "dashboard-layout",
         element: <DashBoardProfile />,
       },
+
+     
+      {
+        path: 'orders',
+        element: <UserOrder/>,
+      
+      },
+
       
 
     ]

@@ -1,83 +1,47 @@
+import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Legend } from 'recharts';
+import useProduct from '../../../Hooks/useProduct';
 
-import {
-  ResponsiveContainer,
-  ComposedChart,
-  Line,
-  Area,
-  Bar,
-  XAxis,
-  YAxis,
-  CartesianGrid,
-  Tooltip,
-  Legend,
-} from 'recharts';
 const Chart = () => {
-    const data = [
-        {
-          name: 'Page A',
-          uv: 590,
-          pv: 800,
-          amt: 1400,
-        },
-        {
-          name: 'Page B',
-          uv: 868,
-          pv: 967,
-          amt: 1506,
-        },
-        {
-          name: 'Page C',
-          uv: 1397,
-          pv: 1098,
-          amt: 989,
-        },
-        {
-          name: 'Page D',
-          uv: 1480,
-          pv: 1200,
-          amt: 1228,
-        },
-        {
-          name: 'Page E',
-          uv: 1520,
-          pv: 1108,
-          amt: 1100,
-        },
-        {
-          name: 'Page F',
-          uv: 1400,
-          pv: 680,
-          amt: 1700,
-        },
-      ];
-    return (
-        <div>
-            <div style={{ width: '100%', height: 300 }}>
-        <ResponsiveContainer>
-          <ComposedChart
-            width={500}
-            height={400}
-            data={data}
-            margin={{
-              top: 20,
-              right: 20,
-              bottom: 20,
-              left: 20,
-            }}
-          >
-            <CartesianGrid stroke="#f5f5f5" />
-            <XAxis dataKey="name" scale="band" />
-            <YAxis />
-            <Tooltip />
-            <Legend />
-            <Area type="monotone" dataKey="amt" fill="#8884d8" stroke="#8884d8" />
-            <Bar dataKey="pv" barSize={20} fill="#413ea0" />
-            <Line type="monotone" dataKey="uv" stroke="#ff7300" />
-          </ComposedChart>
-        </ResponsiveContainer>
-      </div>
-        </div>
-    );
+  const { products } = useProduct();
+
+  // Prepare data with only product prices
+  const data = products.map(product => ({
+    name: product.name,           // Product name
+    price: product.price,         // Product price
+  }));
+
+  return (
+    <div>
+      <h2 className="text-xl font-bold mb-4">Product Prices</h2>
+      <ResponsiveContainer width="60%" height={350}>
+        <AreaChart
+          data={data}
+          margin={{
+            top: 10,
+            right: 30,
+            left: 20,
+            bottom: 0,
+          }}
+        >
+          <CartesianGrid strokeDasharray="1 5" />
+          <XAxis dataKey="name" />
+          <YAxis label={{ value: 'Price (৳)', angle: -90, position: 'insideLeft' }} />
+          <Tooltip formatter={(value) => `৳${value}`} />
+          <Legend />
+
+          {/* Product Price Area with solid color */}
+          <Area
+            type="natural"
+            dataKey="price"
+            stroke="#82ca9d"
+            fill="#82ca9d"
+            fillOpacity={0.5}
+            name="Product Price"
+          />
+        </AreaChart>
+      </ResponsiveContainer>
+    </div>
+  );
 };
 
 export default Chart;

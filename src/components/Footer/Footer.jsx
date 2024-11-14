@@ -1,4 +1,4 @@
-import { FaFacebookF, FaInstagram, FaLocationArrow, FaTelegramPlane } from "react-icons/fa";
+import { FaFacebookF, FaInstagram, FaTelegramPlane } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 import { Link } from "react-router-dom"; // Import Link from react-router-dom
 import FooterCategoryList from "./Shared/FooterCategoryList";
@@ -18,9 +18,9 @@ const Footer = () => {
                             +8801786397249
                         </p>
                     </div>
-                    <div className="pt-3 xl:pt-6 lg:max-w-sm">
+                    <div className=" xl:pt-6 lg:max-w-sm">
                         <p className="text-base xl:text-lg flex gap-2 items-center text-gray-400">
-                            <FaLocationArrow />
+                         
                             Dhaka,Bangladesh
                         </p>
                         <p className="text-base xl:text-lg flex gap-2 items-center text-gray-400 underline">
@@ -156,7 +156,7 @@ const Footer = () => {
             </div>
             <div className="flex flex-1 text-gray-400 justify-between pt-5 pb-20 lg:pb-3 border-gray-600 border-t xl:flex-row  xl:mb-auto gap-y-2">
                 <p className="text-[10px] lg:text-base">
-                    © 2024 Electro Mart. Develope by Elector Team.
+                    © 2024 Electro Mart. Develope by Electro Team.
                 </p>
                 <div className="flex  flex-col md:flex-row md:items-center  space-x-4 sm:mt-0">
                     <p className="text-[10px] text-center lg:text-base">

@@ -4,7 +4,10 @@ import { MdDashboardCustomize } from "react-icons/md";
 import { NavLink } from "react-router-dom";
 
 
+
+
 const MemberMenu = () => {
+
     return (
         <div>
         <ul className="flex font-serif flex-1 flex-col mt-12 text-gray-400 gap-1 py-3">
@@ -27,7 +30,11 @@ const MemberMenu = () => {
           </li>
           <li className="">
             <NavLink
+
               to={'member-order'}
+
+              to={`orders`}
+
               className={({ isActive }) =>
                 `flex mt-1 items-center gap-3 rounded p-3 transition-colors ${
                   isActive ? 'bg-black  text-orange-400 border-l-2 border-l-orange-500' : 'text-gray-400 hover:bg-[#22292F] hover:text-orange-500'

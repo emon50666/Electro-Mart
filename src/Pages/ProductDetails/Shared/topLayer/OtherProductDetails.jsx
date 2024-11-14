@@ -153,10 +153,12 @@ const OtherProductDetails = ({ product }) => {
                             className="px-9 md:px-14 py-2  text-sm lg:text-base bg-blue-500 text-white font-semibold rounded-md hover:bg-blue-600 duration-300 focus:bg-teal-600 focus:outline-none focus:ring-2 focus:ring-teal-300">
                             Add to cart
                         </button>
-                       <Link to={'/checkout-page'}>
+
+                        {theUserCarts.length < 1 && <Link to={'/checkout-page'}>
                        <button  onClick={handleAddToCart} className="px-9 md:px-14 py-2 text-sm lg:text-base   font-semibold rounded-md text-blue-500 border border-blue-500 hover:text-white duration-300 hover:bg-blue-500 focus:bg-teal-600 focus:outline-none focus:ring-2 focus:ring-teal-300">
                             Buy now
-                        </button></Link>
+                        </button></Link> }
+                       
                     </div>
 
                 </div>

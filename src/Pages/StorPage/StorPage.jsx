@@ -11,24 +11,24 @@ const StorPage = () => {
     setShowMore(!showMore);
   };
   return (
-    <div className="lg:px-10 md:px-5 px-2 font_cabin pt-20">
-      <div className="flex flex-col lg:flex-row items-center  bg-teal-500 p-5 rounded-md my-3">
-        <div className="text-slate-700 lg:w-1/2">
+    <div className="  px-2 font_cabin ">
+      <div className="flex flex-col lg:flex-row items-center  bg-blue-500 rounded-md my-3">
+        <div className="text-white lg:w-1/2 p-6">
           <h1 className="text-3xl font-semibold">Visit Our Stores</h1>
           <p className="mt-2 text-sm font-medium lg:text-base">
             You can receive an order from us, find many products with unique
             discounts, and also, if necessary, contact the service center.
           </p>
           <div className="flex flex-col sm:flex-row sm:space-x-3 font-bold mt-4 space-y-3 sm:space-y-0">
-            <button className="py-4 lg:flex-none flex items-center bg-teal-400 px-3 rounded-md w-full sm:w-auto">
+            <button className="py-4 lg:flex-none flex items-center bg-blue-700 px-3 rounded-md w-full sm:w-auto">
               <FiShoppingCart className="font-extrabold text-xl mr-2" />
               <h6>Convenient store</h6>
             </button>
-            <button className="py-4 lg:flex-none flex items-center bg-teal-400 px-3 rounded-md w-full sm:w-auto">
+            <button className="py-4 lg:flex-none flex items-center bg-blue-700 px-3 rounded-md w-full sm:w-auto">
               <CiShop className="font-extrabold text-xl mr-2" />
               <h6>Delivery point</h6>
             </button>
-            <button className="py-4 lg:flex-none flex items-center bg-teal-400 px-3 rounded-md w-full sm:w-auto">
+            <button className="py-4 lg:flex-none flex items-center bg-blue-700 px-3 rounded-md w-full sm:w-auto">
               <CiSettings className="font-extrabold text-xl mr-2" />
               <h6>Service center</h6>
             </button>
@@ -36,8 +36,8 @@ const StorPage = () => {
         </div>
         <div className="mt-6 lg:mt-0 lg:ml-16">
           <img
-            src="https://res.cloudinary.com/dqb5izi3a/image/upload/v1727279152/zdt2wfw5ugiwlltnv90t.png"
-            className="h-64 lg:w-96 md:w-96  w-full object-cover"
+            src="https://res.cloudinary.com/dpsgtszzi/image/upload/v1730735984/store_fkpulx.avif"
+            className="   w-full lg:h-full md:h-96 object-cover"
             alt="Store display"
           />
         </div>
