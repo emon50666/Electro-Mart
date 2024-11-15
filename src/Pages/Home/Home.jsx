@@ -4,8 +4,8 @@ import Popular from "../../components/PopularCategory/Popular";
 import BenifetService from "../../components/PopularCategory/BenifetService/BenifetService";
 import HomeSliderComponent from "../../components/HomeSliderComponent/SliderComponent";
 import Slider from "./Shared/Slider";
-import MousBanner from "../../components/MousBanner/MousBanner";
 import FeaturedProduct from "./FeaturedProduct";
+import MouseBanner from "../../components/MouseBanner/MouseBanner";
 
 const Home = () => {
   return (
@@ -22,7 +22,7 @@ const Home = () => {
       {/* <FilterProduct /> */}
       <HomeSliderComponent />
       <FeaturedProduct />
-      <MousBanner />
+      <MouseBanner />
     </div>
   );
 };
