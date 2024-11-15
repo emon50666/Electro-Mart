@@ -115,7 +115,7 @@ const ProductCard = ({ product, refetch }) => {
         </Link>
 
 
-        <div className="absolute top-1/3 z-50 right-4 transform -translate-y-1/2 translate-x-full group-hover:translate-x-0 group-hover:opacity-100 opacity-0 group-hover:pointer-events-auto pointer-events-none transition-all duration-300 ease-in-out bg-white p-2 rounded-md border shadow-lg flex flex-col space-y-4">
+        <div className="absolute top-1/3 z-50 right-4 transform -translate-y-1/2 translate-x-full group-hover:translate-x-0 group-hover:opacity-100 opacity-0 group-hover:pointer-events-auto pointer-events-none transition-all duration-500 ease-in-out bg-white p-2 rounded-md border shadow-lg flex flex-col space-y-4">
           <button onClick={handleAddToWishlist}>
             <FaHeart className="text-lg text-blue-600" />
           </button>
@@ -145,11 +145,11 @@ const ProductCard = ({ product, refetch }) => {
         </div> */}
         <div
   className={`mt-3 capitalize absolute  ${
-    product?.isHot === "yes" ? "bottom-[214px] md:bottom-[210px] lg:bottom-[330px]" : "bottom-[214px] md:bottom-[330px]  lg:bottom-[300px]"
+    product?.isHot === "yes" ? "bottom-[212px] md:bottom-[210px] lg:bottom-[333px]" : "bottom-[234px] md:bottom-[330px]  lg:bottom-[357px]"
   } md:bottom-[330px] inset-x-0 px-2`}
 >
   {product?.isNew === "yes" && (
-    <small className="bg-teal-500 px-2 pb-[2px] text-sm rounded-full font-bold text-white">
+    <small className="bg-teal-500 px-2 pb-[2px] lg:text-sm rounded-full font-bold text-white">
       New
     </small>
   )}
@@ -171,7 +171,7 @@ const ProductCard = ({ product, refetch }) => {
       </h4>
     </Link>
             <div className="flex items-center justify-between">
-            <small className="text-gray-600  lg:text-base capitalize font-semibold">{product?.brand}</small>
+            <small className="text-gray-400  lg:text-base capitalize font-semibold">{product?.brand}</small>
 
             <span className="flex items-center text-[12px] lg:text-base  mt-1 gap-1 font-semibold ">
             {isNaN(averageRating) ? '' : (
@@ -191,7 +191,7 @@ const ProductCard = ({ product, refetch }) => {
           :
           product?.discountPrice > 1 ? <div className="flex gap-2">
             <span className="line-through through-red-500  text-gray-500 font-semibold text-[13px] lg:text-base"> ৳{product?.price}</span>
-            <p className="font-bold text-blue-500 text-[13px] lg:text-base">{product?.discountPrice}</p>
+            <p className="font-bold text-blue-500 text-[13px] lg:text-base"> ৳ {product?.discountPrice} </p>
           </div>
             :
             <div className="flex gap-2">
@@ -207,14 +207,14 @@ const ProductCard = ({ product, refetch }) => {
           style={{ height: '2.5rem', width: '100%' }}
         >
           <span
-            className={`absolute transition-all flex gap-3 duration-300 ease-in-out ${isHovered ? 'translate-y-full opacity-0' : 'translate-y-0 opacity-100'
+            className={`absolute transition-all flex gap-3 duration-500 ease-in-out ${isHovered ? 'translate-y-full opacity-0' : 'translate-y-0 opacity-100'
               }`}
           >
             <FaCartShopping className="items-center  mt-1" /> Add To Cart
           </span>
           <BsCart
             size={20}
-            className={`absolute transition-all duration-300 ease-in-out ${isHovered ? 'translate-y-0 opacity-100' : 'translate-y-full opacity-0'
+            className={`absolute transition-all duration-500 ease-in-out ${isHovered ? 'translate-y-0 opacity-100' : 'translate-y-full opacity-0'
               }`}
           />
         </button>
