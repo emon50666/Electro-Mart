@@ -6,6 +6,7 @@ import HomeSliderComponent from "../../components/HomeSliderComponent/SliderComp
 import Slider from "./Shared/Slider";
 import FeaturedProduct from "./FeaturedProduct";
 import MouseBanner from "../../components/MouseBanner/MouseBanner";
+import NewHomeOffer from "./Shared/NewHomeOffer";
 
 const Home = () => {
   return (
@@ -23,6 +24,7 @@ const Home = () => {
       <HomeSliderComponent />
       <FeaturedProduct />
       <MouseBanner />
+      <NewHomeOffer />
     </div>
   );
 };

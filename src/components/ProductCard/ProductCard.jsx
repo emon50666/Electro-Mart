@@ -117,7 +117,7 @@ const ProductCard = ({ product, refetch }) => {
 
         {product?.discountPercentage > 1 && (
           <div className="mt-3 capitalize   text-end absolute -top-3 inset-x-0  px-2">
-            <small className="bg-blue-500 px-2    py-[1px] text-sm rounded-full font-bold text-white">
+            <small className="bg-blue-500 px-2 py-[1px] text-sm rounded-full font-bold text-white">
               -{product?.discountPercentage}%
             </small>
           </div>
@@ -125,8 +125,8 @@ const ProductCard = ({ product, refetch }) => {
         <div
           className={`mt-3 capitalize absolute  ${
             product?.isHot === "yes"
-              ? "bottom-[212px] md:bottom-[210px] lg:bottom-[333px]"
-              : "bottom-[234px] md:bottom-[330px]  lg:bottom-[357px]"
+              ? "bottom-[212px] md:bottom-[210px] lg:bottom-[333px] xl:bottom-[310px]"
+              : "bottom-[234px] md:bottom-[330px]  lg:bottom-[357px] xl:bottom-[340px]"
           } md:bottom-[330px] inset-x-0 px-2`}
         >
           {product?.isNew === "yes" && (
