@@ -45,7 +45,7 @@ const AddCart = ({ setCartOpen }) => {
           <div className="text-center mt-4">
             <p className="text-gray-600">
               Please{" "}
-              <Link to="/login" className="text-blue-500 underline">
+              <Link to="/register" className="text-blue-500 underline">
                 log in
               </Link>{" "}
               to view your cart.
