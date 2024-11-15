@@ -3,14 +3,9 @@ import HomeOffers from "./Shared/HomeOffers";
 import Popular from "../../components/PopularCategory/Popular";
 import BenifetService from "../../components/PopularCategory/BenifetService/BenifetService";
 import HomeSliderComponent from "../../components/HomeSliderComponent/SliderComponent";
-
-
-import Slider from './Shared/Slider';
-
-
-
-import LaptopProduct from "./LaptopProduct";
+import Slider from "./Shared/Slider";
 import MousBanner from "../../components/MousBanner/MousBanner";
+import FeaturedProduct from "./LaptopProduct";
 
 const Home = () => {
   return (
@@ -18,18 +13,16 @@ const Home = () => {
       <Helmet>
         <title>Home | Electro Mart</title>
       </Helmet>
-      <div >
-        <Slider/>
+      <div>
+        <Slider />
       </div>
       <BenifetService />
       <Popular />
       <HomeOffers />
-
       {/* <FilterProduct /> */}
       <HomeSliderComponent />
-      <LaptopProduct/>
-      <MousBanner/>
-
+      <FeaturedProduct />
+      <MousBanner />
     </div>
   );
 };
