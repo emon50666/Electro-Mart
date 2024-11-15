@@ -5,7 +5,7 @@ import BenifetService from "../../components/PopularCategory/BenifetService/Beni
 import HomeSliderComponent from "../../components/HomeSliderComponent/SliderComponent";
 import Slider from "./Shared/Slider";
 import MousBanner from "../../components/MousBanner/MousBanner";
-import FeaturedProduct from "./LaptopProduct";
+import FeaturedProduct from "./FeaturedProduct";
 
 const Home = () => {
   return (
