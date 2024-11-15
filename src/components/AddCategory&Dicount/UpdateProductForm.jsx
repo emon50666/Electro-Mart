@@ -151,7 +151,7 @@ const UpdateProductForm = () => {
                                 <form onSubmit={handleSubmit(onSubmit)}>
                                     <div className='mb-4'>
                                         <label className='block text-sm font-medium mb-2'>
-                                            New Category <span className="font-thin">(Only write the category name)</span>
+                                            New Category <span className="font-thin">(Only type the category name)</span>
                                         </label>
                                         <input
                                             type='text'
@@ -161,7 +161,7 @@ const UpdateProductForm = () => {
                                     </div>
                                     <div className='mb-4'>
                                         <label className='block text-sm font-medium mb-2'>
-                                            New Discount <span className="font-thin">(Only write the number)</span>
+                                            New Discount <span className="font-thin">(Only type the number)</span>
                                         </label>
                                         <input
                                             type='number'

@@ -192,7 +192,6 @@ const CheckoutPage = () => {
                 `${import.meta.env.VITE_API_URL}/order`,
                 formData
             );
-
             console.log(data)
 
             if (selectedPaymentMethod === 'cashOnDelivery') {
@@ -204,6 +203,7 @@ const CheckoutPage = () => {
                 window.location.replace(data.paymentUrl);
 
             } 
+            
         } catch (error) {
             console.error('Order placement error:', error);
             if (error.response) {
