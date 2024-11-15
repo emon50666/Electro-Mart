@@ -73,68 +73,6 @@ const CheckoutPage = () => {
     }
   }, [selectedDistrict, districts]);
 
-  // Handle form submission
-  // const handleSubmitData = async (e) => {
-  //     e.preventDefault();
-
-  //     const form = e.target;
-  //     const selectedShippingInput = form.querySelector(
-  //         'input[name="shipping"]:checked'
-  //     );
-
-  //     const shippingLabel = selectedShippingInput
-  //         ? form.querySelector(`label[for="${selectedShippingInput.id}"]`).innerText
-  //         : "";
-
-  //     //  payment
-
-  //     const selectedPaymentInput = form.querySelector(
-  //         'input[name="payment"]:checked'
-  //     );
-  //     const selectedPaymentMethod = selectedPaymentInput
-  //         ? selectedPaymentInput.value
-  //         : '';
-
-  //     const formData = {
-  //         name: form.name.value,
-  //         number: form.number.value,
-  //         address: form.address.value,
-  //         paymentMethod: selectedPaymentMethod,
-  //         city: form.city.value,
-  //         district: form.district.value,
-  //         division: form.division.value,
-  //         totalAmount,
-  //         shipping: shippingLabel,
-  //         orderStatus: 'processing', // Default status
-  //         products: theUserCarts,
-  //         user,
-  //     };
-
-  //     console.log(formData);
-
-  //     try {
-  //         const { data } = await axiosPublic.post(
-  //             `${import.meta.env.VITE_API_URL}/order`,
-  //             formData
-
-  //         );
-  //         toast.success('Order placed successfully');
-  //         // redirect url to ssl
-  //          // Check the payment method
-  //          if (selectedPaymentMethod === 'Cash on Delivery') {
-  //             toast.success('Order placed successfully!');
-  //             navigate('/thanks'); // Redirect to success page
-  //         } else if (selectedPaymentMethod === 'Bkash') {
-  //             toast.success('Redirecting to SSL payment gateway...');
-  //             window.location.replace(data.paymentUrl); // Redirect to SSL payment gateway
-  //         }
-
-  //         return data;
-  //     } catch (error) {
-  //         console.error(error);
-  //         toast.error('Order placement failed');
-  //     }
-  // };
   const handleSubmitData = async (e) => {
     e.preventDefault();
     const form = e.target;
@@ -176,7 +114,6 @@ const CheckoutPage = () => {
       products: theUserCarts,
       userId: user._id,
       userEmail: user.email,
-
       adderMail: user?.email,
     };
 
@@ -190,29 +127,11 @@ const CheckoutPage = () => {
       console.log(data);
 
       if (selectedPaymentMethod === "cashOnDelivery") {
-        axiosPublic
-          .post("/userOrders", userOrder)
-          .then((res) => {
-            if (res.data.insertCount) {
-              toast.success("Order placed successfully!");
-              navigate("/thanks");
-            }
-          })
-          .catch((err) => {
-            console.log(`err=>${err}`);
-          });
+        toast.success("Order placed successfully!");
+        navigate("/thanks");
       } else if (selectedPaymentMethod === "bkash") {
-        axiosPublic
-          .post("/userOrders", userOrder)
-          .then((res) => {
-            if (res.data.insertCount) {
-              toast.success("Redirecting to SSL payment gateway...");
-              window.location.replace(data.paymentUrl);
-            }
-          })
-          .catch((err) => {
-            console.log(`err=>${err}`);
-          });
+        toast.success("Redirecting to SSL payment gateway...");
+        window.location.replace(data.paymentUrl);
       }
     } catch (error) {
       console.error("Order placement error:", error);
@@ -439,5 +358,4 @@ const CheckoutPage = () => {
     </div>
   );
 };
-
 export default CheckoutPage;

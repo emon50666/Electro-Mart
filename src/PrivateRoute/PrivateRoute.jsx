@@ -11,7 +11,7 @@ const PrivateRoute = ({ children }) => {
       <span className="loading loading-dots loading-sm"></span>
     </div>;
   }
-  if (user) {
+  if (user?.email) {
     return children;
   }
   return <Navigate to="/register" state={location.pathname} />;
