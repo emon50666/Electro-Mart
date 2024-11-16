@@ -134,14 +134,18 @@ const Success = () => {
               <h2 className="font-semibold px-4 py-2 text-sm">Address:</h2>
               <h2 className="py-2">{payment?.address}</h2>
             </div>
+            <div className="border flex items-center">
+              <h2 className="font-semibold px-4 py-2 text-sm">Order Status:</h2>
+              <h2 className="py-2">{payment?.orderStatus}</h2>
+            </div>
           </div>
 
           <div className="lg:text-center mb-3">
             <Link
-              to="/"
+              to="../dashboard/my-account"
               className="bg-gradient-to-r from-[#A539D5] via-black to-violet-600 rounded-md py-2 px-4 text-white font-semibold"
             >
-              Go To Home Page
+              Go To Dashboard
             </Link>
           </div>
         </div>
