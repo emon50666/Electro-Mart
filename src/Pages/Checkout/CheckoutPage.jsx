@@ -178,7 +178,7 @@ const CheckoutPage = () => {
             orderStatus: 'processing', // Default status
             products: theUserCarts,
             userId:user._id,
-            userEmail:user.email
+            userEmail:user.email,
 
             adderMail: user?.email,
          
@@ -201,11 +201,7 @@ const CheckoutPage = () => {
 
             } else if (selectedPaymentMethod === 'bkash') {
                 toast.success('Redirecting to SSL payment gateway...');
-
-            } else if (selectedPaymentMethod === 'Bkash') {
-                
-
-                window.location.replace(data.paymentUrl); // Redirect to SSL payment gateway
+                window.location.replace(data.paymentUrl); 
 
             }
         } catch (error) {

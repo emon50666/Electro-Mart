@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { FaClipboardList, FaMapMarkerAlt, FaStoreAlt, FaUser } from "react-icons/fa";
 import { FaCartPlus } from "react-icons/fa6";
 import useCart from "../../../Hooks/useCart";
