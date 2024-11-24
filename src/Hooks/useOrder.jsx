@@ -8,7 +8,7 @@ const useOrder = () => {
     const { data: payments = [],  refetch ,isLoading} = useQuery({
         queryKey: ["payments"],
         queryFn: async () => {
-            const result = await axiosPublic.get("/payments");
+            const result = await axiosPublic.get("/allOrders");
             return result.data;
         },
     });

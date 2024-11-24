@@ -10,7 +10,7 @@ import AddNewProduct from "../components/DashBoard/AddNewProduct/AddNewProduct";
 import StoreDetails from "../Pages/StoreDetails/StoreDetails";
 import AllUser from "../components/DashBoard/AllUser/AllUser";
 import Order from "../components/DashBoard/Order/Order";
-import DashboardLayout from './../Layout/DashBoardLayout';
+import DashboardLayout from "./../Layout/DashBoardLayout";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import Error from "../components/404/Error";
 import Wishlist from "../Pages/Wishlist/Wishlist";
@@ -23,17 +23,22 @@ import AddNewStore from "../components/DashBoard/AddNewStore/AddNewStore";
 import UpdateStore from "../components/DashBoard/UpdateStore/UpdateStore";
 import ManageStore from "../components/DashBoard/ManageStore/ManageStore";
 import PromotionControl from "../components/DashBoard/PromotionControl/PromotionControl";
-import DashBoardProfile from "../components/DashBoard/DashBoardProfile/DashBoardProfile";
+
 import Promotion from "../Pages/Promotion/Promotion";
 import PromotionDetails from "../Pages/Promotion/PromotionDetails";
+
 
 import CheckoutPage from "../Pages/Checkout/CheckoutPage";
 import About from "../Pages/About/About";
 import Contacts from "../Pages/Contacts/Contacts";
+
+import CheckoutPage from "./../Pages/Checkout/CheckoutPage";
+
 import FilterProduct from "../components/FilterProduct/FilterProduct";
 import Success from "../Pages/SuccessPage/Success";
 import Fail from "../Pages/FailPage/Fail";
 import Cancel from "../Pages/CancelPage/Cancel";
+
 import CompleteOrder from "../components/DashBoard/Order/CompleteOrder";
 import Thanks from "../Pages/TnaksPage/Thanks";
 
@@ -43,6 +48,16 @@ import CookiePolicy from "../Pages/CookiePolicy/CookiePolicy";
 import PrivacyPolicy from "../Pages/PrivacyPolicy/PrivacyPolicy";
 import TermsAndConditions from "../Pages/TermsAndConditions/TermsAndConditions";
 import RefundPolicy from "../Pages/Refundpolicy/RefundPolicy";
+
+import Thanks from "../Pages/TnaksPage/Thanks";
+import MemberOrder from "../components/DashBoard/MemberOrder/memberOrder";
+import UserOrder from "../components/DashBoard/MemberDashboard/UserOrder";
+import TopProducts from "../Pages/TopProducts";
+import CompleteOrder from "../components/DashBoard/Order/CompleteOrder";
+
+import MemberOrder from "../components/DashBoard/MemberOrder/MemberOrder";
+
+
 
 
 
@@ -54,33 +69,44 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <Home />
+        element: <Home />,
       },
       {
         path: "/productDetails/:id",
-        element: <PrivateRoute> <ProductDetails /></PrivateRoute>,
+        element: (
+          <PrivateRoute>
+            <ProductDetails />
+          </PrivateRoute>
+        ),
         loader: () => fetch(`${import.meta.env.VITE_API_URL}/products/`),
       },
       {
         path: "/comparePage",
-        element: <PrivateRoute><ComparePage /></PrivateRoute>
+        element: (
+          <PrivateRoute>
+            <ComparePage />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/wishlist",
-        element: <PrivateRoute><Wishlist /></PrivateRoute>
+        element: (
+          <PrivateRoute>
+            <Wishlist />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/storesPage",
-        element: <StorPage />
+        element: <StorPage />,
       },
       {
         path: "/storeDetails/:id",
-        element: <StoreDetails />
+        element: <StoreDetails />,
       },
       {
-
         path: "/promotion",
-        element: <Promotion />
+        element: <Promotion />,
       },
       {
 
@@ -110,137 +136,123 @@ const router = createBrowserRouter([
       {
         path: "/promotionsDetails/:id",
         element: <PromotionDetails />,
-        loader: () => fetch(`${import.meta.env.VITE_API_URL}/promotions/`)
+        loader: () => fetch(`${import.meta.env.VITE_API_URL}/promotions/`),
       },
-
       {
         path: "manageCart",
-        element: <PrivateRoute><ManageCart /></PrivateRoute>
-
+        element: <PrivateRoute><ManageCart /></PrivateRoute>,
       },
-   
-
-    {
-      path: '/checkout-page',
-      element: <CheckoutPage/>
-    },
-    {
-      path: '/shop-page',
-      element: <FilterProduct/>
-    },
-  
-   
-    
-
+      {
+        path: '/checkout-page',
+        element: <CheckoutPage />,
+      },
+      {
+        path: '/shop-page',
+        element: <FilterProduct />,
+      },
     ],
-
   },
   {
-    path: '/login',
-    element: <Login />
+    path: "/login",
+    element: <Login />,
   },
   {
-    path: '/register',
-    element: <Register />
+    path: "/register",
+    element: <Register />,
   },
   {
-    path:'/thanks',
-    element: <Thanks/>
+    path: "/thanks",
+    element: <Thanks />,
   },
   {
-    path:'/success/:tranId',
-    element: <Success/>
+    path: "/success/:sTranId",
+    element: <Success />,
   },
   {
-    path: '/checkout-page',
-    element: <CheckoutPage/>
-  },
-  
-  {
-    path:'/fail',
-    element: <Fail/>
+    path: "/fail",
+    element: <Fail />,
   },
   {
-    path:'/cancel',
-    element: <Cancel/>
+    path: "/cancel",
+    element: <Cancel />,
   },
-
   {
-    path:'/complete-order/:tranId',
-    element: <CompleteOrder/>
+    path: '/complete-order/:tranId',
+    element: <CompleteOrder />,
   },
-  
   {
     path: '/top',
-    element: <TopProducts/>
+    element: <TopProducts />,
   },
 
+
+  // Dashboard routes
+
   // dashboard route
+
   {
-    path: '/dashboard',
-    element: <PrivateRoute><DashboardLayout /></PrivateRoute>,
+    path: "/dashboard",
+    element: (
+      <PrivateRoute>
+        <DashboardLayout />
+      </PrivateRoute>
+    ),
     children: [
       {
         path: "promotionControl",
-        element: <PrivateRoute><PromotionControl /></PrivateRoute>
+        element: <PromotionControl />,
       },
       {
         path: "manageProduct",
-        element: <PrivateRoute><ManageProduct /></PrivateRoute>
+        element: <ManageProduct />,
       },
       {
         path: "manageStore",
-        element: <PrivateRoute><ManageStore /></PrivateRoute>
+        element: <ManageStore />,
       },
       {
         path: "updateProduct/:id",
-        element: <PrivateRoute><UpdateProduct /></PrivateRoute>,
+        element: <UpdateProduct />,
       },
       {
         path: "updateStore/:id",
-        element: <PrivateRoute><UpdateStore /></PrivateRoute>,
+        element: <UpdateStore />,
       },
       {
         path: "addProduct",
-        element: <PrivateRoute><AddNewProduct /></PrivateRoute>
+        element: <AddNewProduct />,
       },
       {
         path: "addStore",
-        element: <PrivateRoute><AddNewStore /></PrivateRoute>
+        element: <AddNewStore />,
       },
       {
         path: "user",
-        element: <PrivateRoute> <AllUser /></PrivateRoute>
+        element: <AllUser />,
       },
       {
         path: "Order-List",
-        element: <PrivateRoute><Order /></PrivateRoute>
+        element: <Order />,
       },
       {
         path: "profile",
-        element: <PrivateRoute><Profile /></PrivateRoute>
+        element: <Profile />,
       },
       {
-        path: 'my-account',
-        element: <MemberDashBoard />
+        path: "my-account",
+        element: <MemberDashBoard />,
       },
       {
-        path: 'dashboard-layout',
-        element: <DashBoardProfile />
+        path: "member-order",
+        element: <MemberOrder />,
       },
-     
       {
-        path: 'orders',
-        element: <UserOrder/>,
-      
+        path: "userOrder",
+        element: <UserOrder />,
       },
-      
-
-    ]
-  }
-
+      // Add more dashboard routes as needed
+    ],
+  },
 ]);
-
-
 
 export default router;

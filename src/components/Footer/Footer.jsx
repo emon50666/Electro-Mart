@@ -11,7 +11,6 @@ const Footer = () => {
                     <h2 className="font-bold text-3xl text-gray-100 xl:text-5xl">Electro <span className="text-blue-500">Mart</span></h2>
                     <div className="pt-2  gap-2 items-center lg:max-w-md">
                         <p className="text-sm xl:text-lg text-[#B3B3B3]">
-
                             Call Us 24/7 <br />
                         </p>
                         <p className="font-normal text-base  xl:text-3xl text-gray-400">
@@ -156,7 +155,7 @@ const Footer = () => {
             </div>
             <div className="flex flex-1 text-gray-400 justify-between pt-5 pb-20 lg:pb-3 border-gray-600 border-t xl:flex-row  xl:mb-auto gap-y-2">
                 <p className="text-[10px] lg:text-base">
-                    © 2024 Electro Mart. Develope by Electro Team.
+                    © 2024 <span className="text-blue-500">Electro Mart</span>. Develope by <span className="text-blue-500">The Coder24</span>.
                 </p>
                 <div className="flex  flex-col md:flex-row md:items-center  space-x-4 sm:mt-0">
                     <p className="text-[10px] text-center lg:text-base">
