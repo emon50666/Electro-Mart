@@ -28,7 +28,7 @@ const CardOfCart = ({ cart }) => {
                 }
             })
             .catch(err => {
-                console.log(`err=> ${err}`);
+                // console.log(`err=> ${err}`);
             })
     }
 
@@ -53,7 +53,7 @@ const CardOfCart = ({ cart }) => {
                         }
                     })
                     .catch(err => {
-                        console.log(err);
+                        // console.log(err);
                     })
             }
         });

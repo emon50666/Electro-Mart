@@ -1,27 +1,18 @@
 import { FaRegTrashAlt } from "react-icons/fa";
 import { useState, useEffect } from "react";
-import axios from "axios";
 import Swal from "sweetalert2";
 import Loader from "../../Loader/Loader";
 import useFilteredOrders from "../../../Hooks/useFilterOrder";
 import useAxiosPublic from "../../../Hooks/useAxiosPublic";
-import useAuth from "../../../Hooks/useAuth";
+import UserAuth from "../../../Hooks/useAuth";
 
 const MemberOrder = () => {
-  const { user } = useAuth();
+  const { user } = UserAuth();
   const axiosPublic = useAxiosPublic();
   const { orders } = useFilteredOrders(user);
   const [productDetails, setProductDetails] = useState({});
   const [isLoading, setIsLoading] = useState(true);
-
   const [showDetails, setShowDetails] = useState({});
-
-
-  const [showDetails, setShowDetails] = useState({});
-
-  const [showDetails, setShowDetails] = useState({}); // For toggling product details visibility
-
-
 
   // Fetch product details for each order
   useEffect(() => {
@@ -32,12 +23,8 @@ const MemberOrder = () => {
         await Promise.all(
           orders.flatMap((payment) =>
             payment.products.map(async (product) => {
-              const response = await axios.get(
-
-                `http://localhost:3000/products/${product.mainProductId}`
-
-                `http://localhost:9000/products/${product.mainProductId}`
-
+              const response = await axiosPublic.get(
+                `/products/${product.mainProductId}`
               );
               allProductDetails[product.mainProductId] = response.data;
             })
@@ -53,7 +40,7 @@ const MemberOrder = () => {
     };
 
     if (orders) fetchProductDetails();
-  }, [orders]);
+  }, [axiosPublic, orders]);
 
   // Delete order
   const handleDeleteOrder = (id) => {
@@ -67,11 +54,7 @@ const MemberOrder = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-
-        axiosPublic.delete(`/orders/${ id }`).then(() => {
-
         axiosPublic.delete(`/orders/${id}`).then(() => {
-
           // Optionally refetch or update the UI after deletion
         });
       }
@@ -140,46 +123,22 @@ const MemberOrder = () => {
 
                 {/* Payment Status */}
                 <td
-
                   className={`border-r ${
                     pay.paymentStatus === "pending"
                       ? "text-red-500"
                       : "text-green-400 font-semibold capitalize"
                   }`}
-
-                  className={`border-r ${pay.paymentStatus === "pending"
-
-                      ? "text-red-500"
-                      : "text-green-400 font-semibold capitalize"
-
-                    ? "text-red-500"
-                    : "text-green-400 font-semibold capitalize"
-
-                    }`}
-
                 >
                   {pay.paymentStatus}
                 </td>
 
                 {/* Order Status */}
                 <td
-
                   className={`border-r ${
                     pay.orderStatus === "Processing"
                       ? "text-red-500"
                       : "text-green-400 font-semibold capitalize"
                   }`}
-
-                  className={`border-r ${pay.orderStatus === "Processing"
-
-                      ? "text-red-500"
-                      : "text-green-400 font-semibold capitalize"
-
-                    ? "text-red-500"
-                    : "text-green-400 font-semibold capitalize"
-
-                    }`}
-
                 >
                   {pay.orderStatus}
                 </td>
@@ -190,15 +149,7 @@ const MemberOrder = () => {
                     onClick={() => handleDeleteOrder(pay._id)}
                     className="text-red-500 cursor-pointer text-xl font-bold"
                   />
-
                   <hr className="border border-gray-200 w-full my-1" />
-
-
-                  <hr className="border border-gray-200 w-full my-1" />
-
-                  <hr className="border border-gray-200 w-full my-1"/>
-
-
                   <button
                     className="text-blue-500 ml-3"
                     onClick={() => toggleDetails(pay._id)}
@@ -213,7 +164,7 @@ const MemberOrder = () => {
             {orders?.map(
               (pay) =>
                 showDetails[pay._id] && (
-                  <tr key={`details-${pay._id}`} className="bg-gray-100">
+                  <tr key={`details - ${pay._id}`} className="bg-gray-100">
                     <td colSpan="9" className="p-4">
                       <div>
                         <h2 className="font-semibold text-xl mb-2">
@@ -232,12 +183,8 @@ const MemberOrder = () => {
                                   {productDetail?.title || "Loading..."}
                                 </span>
                                 <span>
-
-                                  {productDetail?.price ? `${productDetail.price} ৳`
-
                                   {productDetail?.price
                                     ? `${productDetail.price} ৳`
-
                                     : "Loading..."}
                                 </span>
                               </li>

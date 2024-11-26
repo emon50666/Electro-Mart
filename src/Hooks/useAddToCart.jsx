@@ -8,7 +8,7 @@ const useAddToCart = () => {
     const axiosPublic = useAxiosPublic();
     const { carts, refetch } = useCart();
 
-    // console.log(carts)
+    // // console.log(carts)
 
     const handleAddCart = (product, quantity = 1) => {
         quantity = quantity === 0 ? 1 : quantity; // Set quantity to 1 if it is 0

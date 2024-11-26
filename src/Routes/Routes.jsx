@@ -27,13 +27,9 @@ import PromotionControl from "../components/DashBoard/PromotionControl/Promotion
 import Promotion from "../Pages/Promotion/Promotion";
 import PromotionDetails from "../Pages/Promotion/PromotionDetails";
 
-
 import CheckoutPage from "../Pages/Checkout/CheckoutPage";
 import About from "../Pages/About/About";
 import Contacts from "../Pages/Contacts/Contacts";
-
-import CheckoutPage from "./../Pages/Checkout/CheckoutPage";
-
 import FilterProduct from "../components/FilterProduct/FilterProduct";
 import Success from "../Pages/SuccessPage/Success";
 import Fail from "../Pages/FailPage/Fail";
@@ -48,16 +44,9 @@ import CookiePolicy from "../Pages/CookiePolicy/CookiePolicy";
 import PrivacyPolicy from "../Pages/PrivacyPolicy/PrivacyPolicy";
 import TermsAndConditions from "../Pages/TermsAndConditions/TermsAndConditions";
 import RefundPolicy from "../Pages/Refundpolicy/RefundPolicy";
-
-import Thanks from "../Pages/TnaksPage/Thanks";
 import MemberOrder from "../components/DashBoard/MemberOrder/memberOrder";
-import UserOrder from "../components/DashBoard/MemberDashboard/UserOrder";
-import TopProducts from "../Pages/TopProducts";
-import CompleteOrder from "../components/DashBoard/Order/CompleteOrder";
-
-import MemberOrder from "../components/DashBoard/MemberOrder/MemberOrder";
 import SecureRoute from "../PrivateRoute/SecureRoute";
-
+import DashBoardProfile from "../components/DashBoard/DashBoardProfile/DashBoardProfile";
 
 const router = createBrowserRouter([
   {
@@ -81,17 +70,17 @@ const router = createBrowserRouter([
       {
         path: "/comparePage",
         element: (
-          <PrivateRoute>
+          <SecureRoute>
             <ComparePage />
-          </PrivateRoute>
+          </SecureRoute>
         ),
       },
       {
         path: "/wishlist",
         element: (
-          <PrivateRoute>
+          <SecureRoute>
             <Wishlist />
-          </PrivateRoute>
+          </SecureRoute>
         ),
       },
       {
@@ -107,29 +96,28 @@ const router = createBrowserRouter([
         element: <Promotion />,
       },
       {
-
         path: "/about",
-        element: <About />
+        element: <About />,
       },
       {
-        path:"/contacts",
-        element:<Contacts/>
+        path: "/contacts",
+        element: <Contacts />,
       },
       {
-        path:"/cookiePolicy",
-        element:<CookiePolicy></CookiePolicy>
+        path: "/cookiePolicy",
+        element: <CookiePolicy></CookiePolicy>,
       },
       {
-        path:"/privacyPolicy",
-        element:<PrivacyPolicy></PrivacyPolicy>
+        path: "/privacyPolicy",
+        element: <PrivacyPolicy></PrivacyPolicy>,
       },
       {
-        path:"/termsAndConditions",
-        element:<TermsAndConditions></TermsAndConditions>
+        path: "/termsAndConditions",
+        element: <TermsAndConditions></TermsAndConditions>,
       },
       {
-        path:"/refundPolicy",
-        element:<RefundPolicy></RefundPolicy>
+        path: "/refundPolicy",
+        element: <RefundPolicy></RefundPolicy>,
       },
       {
         path: "/promotionsDetails/:id",
@@ -138,7 +126,6 @@ const router = createBrowserRouter([
       },
       {
         path: "manageCart",
-<<<<<<< HEAD
         element: (
           <PrivateRoute>
             <ManageCart />
@@ -154,18 +141,6 @@ const router = createBrowserRouter([
         path: "/shop-page",
         element: <FilterProduct />,
       },
-=======
-        element: <PrivateRoute><ManageCart /></PrivateRoute>,
-      },
-      {
-        path: '/checkout-page',
-        element: <CheckoutPage />,
-      },
-      {
-        path: '/shop-page',
-        element: <FilterProduct />,
-      },
->>>>>>> 87defe66094a9c69b31850a4ce42b6ae882cb713
     ],
   },
   {
@@ -192,26 +167,14 @@ const router = createBrowserRouter([
     path: "/cancel",
     element: <Cancel />,
   },
-<<<<<<< HEAD
-
   {
     path: "/complete-order/:tranId",
     element: <CompleteOrder />,
   },
-
   {
     path: "/top",
-=======
-  {
-    path: '/complete-order/:tranId',
-    element: <CompleteOrder />,
-  },
-  {
-    path: '/top',
->>>>>>> 87defe66094a9c69b31850a4ce42b6ae882cb713
     element: <TopProducts />,
   },
-
 
   // Dashboard routes
 
@@ -266,6 +229,22 @@ const router = createBrowserRouter([
         element: <Profile />,
       },
       {
+        path: "dashboard-layout",
+        element: (
+          <SecureRoute>
+            <DashBoardProfile />
+          </SecureRoute>
+        ),
+      },
+      {
+        path: "dashboard-layout",
+        element: (
+          <SecureRoute>
+            <DashBoardProfile />
+          </SecureRoute>
+        ),
+      },
+      {
         path: "my-account",
         element: <MemberDashBoard />,
       },
@@ -281,15 +260,11 @@ const router = createBrowserRouter([
         path: "userOrder",
         element: <UserOrder />,
       },
-<<<<<<< HEAD
 
       {
         path: "orders",
         element: <UserOrder />,
       },
-=======
-      // Add more dashboard routes as needed
->>>>>>> 87defe66094a9c69b31850a4ce42b6ae882cb713
     ],
   },
 ]);

@@ -49,7 +49,7 @@ const Reviews = ({ mainId }) => {
         `${import.meta.env.VITE_API_URL}/reviews`,
         reviewData
       );
-      console.log("Review submitted successfully:", res.data);
+      // console.log("Review submitted successfully:", res.data);
 
       setName("");
       setReviewText("");

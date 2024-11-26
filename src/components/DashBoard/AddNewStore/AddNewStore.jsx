@@ -45,7 +45,7 @@ const AddNewStore = () => {
                 navigate("/dashboard/manageStore");
                 reset();
             }
-            console.log(storeInfo);
+            // console.log(storeInfo);
         } catch (error) {
             console.error("Error submitting form:", error);
             alert("Error adding store. Please try again.");

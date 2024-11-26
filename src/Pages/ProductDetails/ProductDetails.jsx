@@ -10,7 +10,7 @@ const ProductDetails = () => {
     const products = useLoaderData();
     const { id } = useParams();
     const product = products.find((pack) => pack._id == id);
-    // console.log(product);
+    // // console.log(product);
 
     return (
         <div className="space-y-9">

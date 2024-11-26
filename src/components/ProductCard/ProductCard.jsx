@@ -30,7 +30,7 @@ const ProductCard = ({ product, refetch }) => {
 
   // Usage
   const averageRating = calculateAverageRating(allReview);
-  // console.log(averageRating);
+  // // console.log(averageRating);
 
   const handleAddCart = useAddToCart();
   const handleAddCompare = useAddToCompare();
@@ -38,7 +38,7 @@ const ProductCard = ({ product, refetch }) => {
   const axiosPublic = useAxiosPublic();
   const [isHovered, setIsHovered] = useState(false);
   const [cartOpen, setCartOpen] = useState(false);
-  // console.log(user?.email);
+  // // console.log(user?.email);
   const handleViewCount = (_id) => {
     let currentView = product?.view || 0;
     const updateView = currentView + 1;
@@ -51,11 +51,11 @@ const ProductCard = ({ product, refetch }) => {
         }
       })
       .catch((err) => {
-        console.log(`Error = ${err}`);
+        // console.log(`Error = ${err}`);
       });
   };
 
-  // console.log(product.quantity);
+  // // console.log(product.quantity);
   const handleAddToCart = async () => {
     const updatedQuantity = parseInt(product?.quantity) - 1;
     const updatedQuantityInfo = { updatedQuantity };
