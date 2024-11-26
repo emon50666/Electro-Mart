@@ -26,11 +26,29 @@ import PromotionControl from "../components/DashBoard/PromotionControl/Promotion
 
 import Promotion from "../Pages/Promotion/Promotion";
 import PromotionDetails from "../Pages/Promotion/PromotionDetails";
+
+
+import CheckoutPage from "../Pages/Checkout/CheckoutPage";
+import About from "../Pages/About/About";
+import Contacts from "../Pages/Contacts/Contacts";
+
 import CheckoutPage from "./../Pages/Checkout/CheckoutPage";
+
 import FilterProduct from "../components/FilterProduct/FilterProduct";
 import Success from "../Pages/SuccessPage/Success";
 import Fail from "../Pages/FailPage/Fail";
 import Cancel from "../Pages/CancelPage/Cancel";
+
+import CompleteOrder from "../components/DashBoard/Order/CompleteOrder";
+import Thanks from "../Pages/TnaksPage/Thanks";
+
+import UserOrder from "../components/DashBoard/MemberDashboard/UserOrder";
+import TopProducts from "../Pages/TopProducts";
+import CookiePolicy from "../Pages/CookiePolicy/CookiePolicy";
+import PrivacyPolicy from "../Pages/PrivacyPolicy/PrivacyPolicy";
+import TermsAndConditions from "../Pages/TermsAndConditions/TermsAndConditions";
+import RefundPolicy from "../Pages/Refundpolicy/RefundPolicy";
+
 import Thanks from "../Pages/TnaksPage/Thanks";
 import MemberOrder from "../components/DashBoard/MemberOrder/memberOrder";
 import UserOrder from "../components/DashBoard/MemberDashboard/UserOrder";
@@ -87,6 +105,31 @@ const router = createBrowserRouter([
       {
         path: "/promotion",
         element: <Promotion />,
+      },
+      {
+
+        path: "/about",
+        element: <About />
+      },
+      {
+        path:"/contacts",
+        element:<Contacts/>
+      },
+      {
+        path:"/cookiePolicy",
+        element:<CookiePolicy></CookiePolicy>
+      },
+      {
+        path:"/privacyPolicy",
+        element:<PrivacyPolicy></PrivacyPolicy>
+      },
+      {
+        path:"/termsAndConditions",
+        element:<TermsAndConditions></TermsAndConditions>
+      },
+      {
+        path:"/refundPolicy",
+        element:<RefundPolicy></RefundPolicy>
       },
       {
         path: "/promotionsDetails/:id",
