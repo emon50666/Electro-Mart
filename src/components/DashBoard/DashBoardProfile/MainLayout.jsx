@@ -70,7 +70,11 @@ console.log(payments);
  <div className="  rounded-lg shadow-md bg-white hover:shadow-lg"  >
           {/* Icon and Title Section */}
           <div className="flex items-center  px-2 py-2 gap-2">
+
           <FaShoppingBag className="text-[#FF5200] text-[40px]  rounded-full p-2 bg-[#FB923C]/30 " />
+
+          <FaShoppingBag className="text-[#FF5200] text-[40px]  rounded-full p-2 bg-[#FB923C]/30"/>
+
             <div className="flex flex-col">
               <h3 className="text-md font-semibold text-gray-700">Total Orders</h3>
               <p className="text-lg font-bold text-gray-800">{payments.length } </p>

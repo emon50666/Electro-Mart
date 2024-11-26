@@ -41,10 +41,10 @@ const LeftSlide = () => {
                                <img
                                     src={slide.url}
                                     alt={`slide ${idx + 1}`}
-                                    className="w-full cursor-pointer lg:min-h-[300px] md:max-h-[300px] lg:max-h-[365px] h-[50vh] md:h-auto rounded-lg object-contain md:object-right lg:object-fill"
+                                    className="w-full cursor-pointer lg:min-h-[300px] md:max-h-[300px] lg:max-h-[392px] h-[50vh] md:h-auto rounded-lg object-contain md:object-right lg:object-fill"
                                 />
                               
-                                <div className="absolute inset-0 flex flex-col items-start justify-center space-y-4 md:left-5 lg:left-8 px-1">
+                                <div className="absolute inset-0 flex flex-col items-start justify-center md:left-5 lg:left-8 px-1">
                                     {slide.title !== "None" && (
                                         <h2 className="text-sm md:text-base md:font-medium lg:text-lg lg:font-semibold lg:w-1/2 text-white bg-black/50 p-4 rounded-lg">
                                             {slide.title}

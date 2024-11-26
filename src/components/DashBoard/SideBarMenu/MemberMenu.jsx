@@ -14,7 +14,7 @@ const MemberMenu = () => {
         <ul className="flex font-serif flex-1 flex-col mt-12 text-gray-400 gap-1 py-3">
         <li className="">
             <NavLink
-              to={'my-account'}
+              to='my-account'
               className={({ isActive }) =>
                 `flex mt-1 items-center gap-3 rounded p-3 transition-colors ${
                   isActive ? 'bg-black  text-orange-400 border-l-2 border-l-orange-500' : 'text-gray-400 hover:bg-[#22292F] hover:text-orange-500'
@@ -31,7 +31,6 @@ const MemberMenu = () => {
           </li>
           <li className="">
             <NavLink
-
               to={'member-order'}
 
 
