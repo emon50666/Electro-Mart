@@ -39,9 +39,7 @@ import UserOrder from "../components/DashBoard/MemberDashboard/UserOrder";
 import TopProducts from "../Pages/TopProducts";
 import CompleteOrder from "../components/DashBoard/Order/CompleteOrder";
 import MemberOrder from "../components/DashBoard/MemberOrder/MemberOrder";
-
-
-
+import SecureRoute from "../PrivateRoute/SecureRoute";
 
 const router = createBrowserRouter([
   {
@@ -99,23 +97,21 @@ const router = createBrowserRouter([
 
       {
         path: "manageCart",
-        element: <PrivateRoute><ManageCart /></PrivateRoute>
-
+        element: (
+          <PrivateRoute>
+            <ManageCart />
+          </PrivateRoute>
+        ),
       },
-   
 
-    {
-      path: '/checkout-page',
-      element: <CheckoutPage/>
-    },
-    {
-      path: '/shop-page',
-      element: <FilterProduct/>
-    }
-
-   
-    
-
+      {
+        path: "/checkout-page",
+        element: <CheckoutPage />,
+      },
+      {
+        path: "/shop-page",
+        element: <FilterProduct />,
+      },
     ],
   },
   {
@@ -148,15 +144,14 @@ const router = createBrowserRouter([
     element: <Cancel />,
   },
 
+  {
+    path: "/complete-order/:tranId",
+    element: <CompleteOrder />,
+  },
 
   {
-    path:'/complete-order/:tranId',
-    element: <CompleteOrder/>
-  },
-  
-  {
-    path: '/top',
-    element: <TopProducts/>
+    path: "/top",
+    element: <TopProducts />,
   },
 
   // dashboard route
@@ -255,25 +250,23 @@ const router = createBrowserRouter([
       },
       {
         path: "member-order",
-        element: <MemberOrder />,
+        element: (
+          <SecureRoute>
+            <MemberOrder />
+          </SecureRoute>
+        ),
       },
       {
         path: "dashboard-layout",
         element: <DashBoardProfile />,
       },
 
-     
       {
-        path: 'orders',
-        element: <UserOrder/>,
-      
+        path: "orders",
+        element: <UserOrder />,
       },
-
-      
-
-    ]
-  }
-
+    ],
+  },
 ]);
 
 export default router;

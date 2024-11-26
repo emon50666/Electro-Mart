@@ -21,10 +21,10 @@ const AddNewStore = () => {
             const formData = new FormData();
             formData.append("file", data.image[0]);
             formData.append("tags", `hello, medium, gist`);
-            formData.append("upload_preset", "elector_mart_key");
-            formData.append("api_key", "211491792754595");
+            formData.append("upload_preset", import.meta.env.VITE_CLOUDINARY_UPLOAD_PRESET);
+            formData.append("api_key", import.meta.env.VITE_CLOUDINARY_API_KEY);
 
-            const imageResponse = await axios.post('https://api.cloudinary.com/v1_1/duv5fiurz/image/upload', formData);
+            const imageResponse = await axios.post(`https://api.cloudinary.com/v1_1/${import.meta.env.VITE_CLOUDINARY_COULD_NAME}/image/uploa`, formData);
             const imageUrl = imageResponse.data.secure_url;
 
             // Prepare data to send to the backend

@@ -1,10 +1,10 @@
 import toast from "react-hot-toast";
-import UserAuth from "../Hooks/useAuth";
+import useAuth from "../Hooks/useAuth";
 import useAxiosPublic from "../Hooks/useAxiosPublic";
 import useCart from "./useCart";
 
 const useAddToCart = () => {
-    const { user } = UserAuth();
+    const { user } = useAuth();
     const axiosPublic = useAxiosPublic();
     const { carts, refetch } = useCart();
 

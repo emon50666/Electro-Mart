@@ -1,11 +1,11 @@
 import toast from "react-hot-toast";
-import UserAuth from "./useAuth";
+import useAuth from "./useAuth";
 import useAxiosPublic from "./useAxiosPublic";
 import useWishlist from "./useWishlist";
 
 
 const useAddToWishlist = () => {
-    const { user } = UserAuth();
+    const { user } = useAuth();
     const axiosPublic = useAxiosPublic();
     const { wishes, refetch } = useWishlist();
 

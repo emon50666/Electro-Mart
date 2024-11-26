@@ -1,5 +1,5 @@
 import { useState } from "react";
-import UserAuth from "../../../Hooks/useAuth";
+import useAuth from "../../../Hooks/useAuth";
 import toast from "react-hot-toast";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
@@ -24,7 +24,7 @@ const Register = () => {
 
     setShowPassword,
     signInWithGoogle,
-  } = UserAuth();
+  } = useAuth();
 
   // register form
   const handelRegister = async (e) => {
@@ -81,7 +81,6 @@ const Register = () => {
       console.log(user);
       toast.success("Account created successfully");
       navigate(location?.state ? location?.state : "/");
-      navigate("/");
 
       // Update the user state with the new profile information
       setUser({ ...user, displayName: name, photoURL: data.data.display_url });

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import UserAuth from "../../Hooks/useAuth";
+import useAuth from "../../Hooks/useAuth";
 import { Link } from "react-router-dom";
 import logo_1 from '../../assets/images/electro4.png'
 import { IoCloseOutline } from "react-icons/io5";
@@ -8,7 +8,7 @@ import useRoll from "../../Hooks/useRoll";
 
 const HeaderDashboard = () => {
 
-  const { user, loading, logOut } = UserAuth();
+  const { user, loading, logOut } = useAuth();
   const [isDropdownOpen, setDropdownOpen] = useState(false);
   const [role] = useRoll()
 

@@ -45,10 +45,10 @@ const UpdateStore = () => {
             if (data.image?.[0]) {
                 const formData = new FormData();
                 formData.append("file", data.image[0]);
-                formData.append("upload_preset", "elector_mart_key");
+                formData.append("upload_preset", import.meta.env.VITE_CLOUDINARY_UPLOAD_PRESET);
                 formData.append("cloud_name", "duv5fiurz");
 
-                const imageResponse = await axios.post('https://api.cloudinary.com/v1_1/duv5fiurz/image/upload', formData);
+                const imageResponse = await axios.post(`https://api.cloudinary.com/v1_1/${import.meta.env.VITE_CLOUDINARY_COULD_NAME}/image/uploa`, formData);
                 imageUrl = imageResponse.data.secure_url;
             }
 

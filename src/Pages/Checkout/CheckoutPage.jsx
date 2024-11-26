@@ -10,7 +10,7 @@ import useCart from '../../Hooks/useCart';
 import CheckoutTable from './Shared/CheckoutTable';
 
 // import Loader from '../../components/Loader/Loader';
-import UserAuth from '../../Hooks/useAuth';
+import useAuth from '../../Hooks/useAuth';
 import { useNavigate } from 'react-router-dom';
 import useTotalAmount from '../../Hooks/useTotalAmount';
 
@@ -18,7 +18,7 @@ import useTotalAmount from '../../Hooks/useTotalAmount';
 const CheckoutPage = () => {
     const { locations } = useLocation();
     const axiosPublic = useAxiosPublic();
-    const {user} = UserAuth()
+    const {user} = useAuth()
  const navigate = useNavigate()
   
     const {totalPrice} = useTotalAmount();

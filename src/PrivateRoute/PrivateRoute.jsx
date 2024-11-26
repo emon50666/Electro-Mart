@@ -1,9 +1,9 @@
 import { Navigate, useLocation } from "react-router-dom";
-import UserAuth from "../Hooks/useAuth";
+import useAuth from "../Hooks/useAuth";
 import PropTypes from "prop-types";
 
 const PrivateRoute = ({ children }) => {
-  const { user, loading } = UserAuth();
+  const { user, loading } = useAuth();
   const location = useLocation();
 
   if (loading) {
@@ -11,10 +11,10 @@ const PrivateRoute = ({ children }) => {
       <span className="loading loading-dots loading-sm"></span>
     </div>;
   }
-  if (user?.email) {
+  if (user) {
     return children;
   }
-  return <Navigate to="/register" state={location.pathname} />;
+  return <Navigate state={location.pathname} replace />;
 };
 
 PrivateRoute.propTypes = {
