@@ -73,7 +73,7 @@ const AddToPromotion = ({ setIndex }) => {
                 setIndex(1);
                 reset();
             }
-            console.log(promotionData);
+            // console.log(promotionData);
         } catch (error) {
             console.error('Error uploading promotion:', error);
             toast.error('Failed to upload promotion. Please try again.');

@@ -14,7 +14,7 @@ const MainLayout = () => {
   const { payments,isLoading } = useOrder(); // Use the hook
 const {users} = useUsers();
 const {products} = useProduct();
-console.log(users);
+// console.log(users);
 
   // Calculate total payment amount
   const totalAmount = payments?.reduce((total, pay) => total + (pay?.amount || 0), 0);

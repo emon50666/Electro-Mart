@@ -37,11 +37,11 @@ const UpdateUserProfile = ({ handleCloseModal }) => {
         try {
             if (name !== user.displayName) {
                 await updateProfile(user, { displayName: name });
-                console.log("User name updated successfully");
+                // console.log("User name updated successfully");
             }
 
             const response = await axiosPublic.put(`/user/${user?.email}`, info);
-            console.log("Response from server:", response.data);
+            // console.log("Response from server:", response.data);
 
             reset(data);
             handleCloseModal();

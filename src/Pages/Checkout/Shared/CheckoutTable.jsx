@@ -6,7 +6,7 @@ import Loader from '../../../components/Loader/Loader';
 const CheckoutTable = ({ cart, setGetProductId }) => {
     const { products,isLoading } = useProduct();
     const product = products.find(product => product?._id === cart?.mainProductId);
-    console.log(product?._id);
+    // console.log(product?._id);
 
    
   if (isLoading) return <Loader />;

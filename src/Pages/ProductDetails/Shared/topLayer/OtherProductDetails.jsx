@@ -37,7 +37,7 @@ const OtherProductDetails = ({ product }) => {
     const [disableBtn, setDisableBtn] = useState(false)
     const shareUrl = window.location.href;
     const [cartOpen, setCartOpen] = useState(false);
-    // console.log(theCart);
+    // // console.log(theCart);
 
     // Calculate average rating
     const calculateAverageRating = (products) => {
@@ -46,7 +46,7 @@ const OtherProductDetails = ({ product }) => {
         return averageRating.toFixed(2); // Round to 2 decimal places
     };
     const averageRating = calculateAverageRating(allReview);
-    // console.log(averageRating);
+    // // console.log(averageRating);
 
     const increaseCount = () => {
         if (quantityCount === parseInt(product?.quantity)) {

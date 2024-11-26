@@ -8,7 +8,7 @@ const CartPrice = ({ productTotal }) => {
     const axiosPublic = useAxiosPublic();
     const { theUser, refetch } = useUsers();
     const isSubtotalZero = parseFloat(productTotal) === 0;
-    // console.log(theUser);
+    // // console.log(theUser);
 
 
     const handleUserSubtotal = (mail) => {
@@ -20,7 +20,7 @@ const CartPrice = ({ productTotal }) => {
                 }
             })
             .catch(err => {
-                console.log(`err=> ${err}`);
+                // console.log(`err=> ${err}`);
             })
     }
 

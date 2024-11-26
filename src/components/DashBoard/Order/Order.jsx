@@ -1,15 +1,13 @@
-
 import React, { useEffect, useState } from "react";
-
 import { FaRegTrashAlt } from "react-icons/fa";
 import useOrder from "../../../Hooks/useOrder";
 import useAxiosPublic from "../../../Hooks/useAxiosPublic";
 import Swal from "sweetalert2";
-
 import { jsPDF } from "jspdf";
 import "jspdf-autotable";
 import logo from "../../../assets/images/logo_1.png"; // Adjust the path to your logo image
 import axios from "axios";
+import Loader from "../../Loader/Loader";
 
 const Order = () => {
   const { payments, refetch } = useOrder();
@@ -49,19 +47,9 @@ const Order = () => {
 
     if (payments) fetchProductDetails();
   }, [payments]);
+
   // Delete order
   const handleDeleteOrder = (id) => {
-
-
-const Order = () => {
-  const { payments ,refetch} = useOrder();
-  console.log(payments);
-const axiosPublic = useAxiosPublic()
-
-  // delete order 
-
-  const handleDeleteOrder= (id) => {
-
     Swal.fire({
       title: "Are you sure?",
       text: "You want to delete this order.",
@@ -71,7 +59,6 @@ const axiosPublic = useAxiosPublic()
       cancelButtonColor: "#d33",
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
-
       if (result.isConfirmed) {
         axiosPublic
           .delete(`/orders/${id}`)
@@ -119,7 +106,7 @@ const axiosPublic = useAxiosPublic()
     const data = [
       { detail: "Product", info: pay.product_name },
       { detail: "Product Category", info: pay.product_category },
-      { detail: "Order ID", info: `#${pay.paymentId}` },
+      { detail: "Order ID", info: `# ${pay.paymentId} ` },
       { detail: "Name", info: pay.cus_name },
       { detail: "Phone", info: pay.cus_phone },
       { detail: "Division", info: pay.cus_state },
@@ -155,6 +142,8 @@ const axiosPublic = useAxiosPublic()
     doc.save("customer_details.pdf");
   };
 
+  if (isLoading) return <Loader />;
+
   return (
     <div className="pt-10">
       <h1 className="font-semibold text-2xl mt-4 mb-4 ml-5">Order List</h1>
@@ -184,17 +173,15 @@ const axiosPublic = useAxiosPublic()
                     className="border-r cursor-pointer"
                     onClick={() => toggleAccordion(pay._id)}
                   >
-                    <td className="border-r border-gray-200">
-                      <div className="font-normal">
-                        {pay.products
-                          .map(
-                            (product) =>
-                              productDetails[product.mainProductId]?.title ||
-                              "Loading..."
-                          )
-                          .join(", ")}
-                      </div>
-                    </td>
+                    <div className="font-normal">
+                      {pay.products
+                        .map(
+                          (product) =>
+                            productDetails[product.mainProductId]?.title ||
+                            "Loading..."
+                        )
+                        .join(", ")}
+                    </div>
                   </td>
                   <td className="text-blue-500 border-r font-semibold">
                     #{pay?.tran_id}
@@ -273,7 +260,7 @@ const axiosPublic = useAxiosPublic()
                             <h2 className="font-semibold px-4 py-2 text-sm">
                               District:
                             </h2>
-                            <h2 className="py-2">{pay?.cus_add2}</h2>
+                            <h2 className="py-2">{pay?.district}</h2>
                           </div>
                           <div className="border flex items-center">
                             <h2 className="font-semibold px-4 py-2 text-sm">
@@ -291,7 +278,7 @@ const axiosPublic = useAxiosPublic()
                             <h2 className="font-semibold px-4 py-2 text-sm">
                               Payment Method:
                             </h2>
-                            <h2 className="py-2">{pay?.payment_method}</h2>
+                            <h2 className="py-2">{pay?.shipping}</h2>
                           </div>
                           <div className="border flex items-center">
                             <h2 className="font-semibold px-4 py-2 text-sm">
@@ -309,17 +296,16 @@ const axiosPublic = useAxiosPublic()
                             <h2 className="font-semibold px-4 py-2 text-sm">
                               Total Price:
                             </h2>
-                            <h2 className="py-2">{pay?.amount}</h2>
-                          </div>
-                          <div className="border">
-                            <button
-                              onClick={() => downloadPDF(pay)}
-                              className="border-r bg-gradient-to-r my-2 mx-2 from-[#A539D5] via-black to-violet-600 rounded-md py-2 px-6 text-white font-semibold"
-                            >
-                              Download PDF
-                            </button>
+                            <h2 className="py-2">{pay?.totalAmount} Taka</h2>
                           </div>
                         </div>
+                        {/* Download PDF Button */}
+                        <button
+                          onClick={() => downloadPDF(pay)}
+                          className="bg-blue-500 text-white px-4 py-2 rounded-md mt-4"
+                        >
+                          Download PDF
+                        </button>
                       </div>
                     </td>
                   </tr>
@@ -331,93 +317,6 @@ const axiosPublic = useAxiosPublic()
       </div>
     </div>
   );
-
-        if (result.isConfirmed) {
-          axiosPublic.delete(`/order/${id}`).then((res) => {
-                if (res.data.deletedCount) {
-                    refetch();
-                }
-            });
-        }
-    });
-};
-
-
-
-
-
-
-    return (
-        <div className="pt-10">
-             <h1 className="font-semibold text-2xl mt-4 mb-4 ml-5"> Order List</h1>
-            <div className="overflow-x-auto md:overflow-x-auto  bg-white shadow-md">
-  <table className="table">
-    {/* head */}
-    <thead>
-      <tr className="bg-blue-50 text-md">
-        <th>
-        
-        </th>
-        <th>Product Name</th>
-        <th>Order ID</th>
-
-        <th>Price<span className=" font-semibold text-black ml-1 items-center ">( ৳ )</span> </th>
-        <th>Payment Method</th>
-        <th>Shipping Charge</th>
-        <th>Status</th>
-        <th>Action</th>
-
-        <th></th>
-      </tr>
-    </thead>
-    <tbody>
-      {/* row 1 */}
-     {
-      payments?.map((pay,indx) => <>
-       <tr key={indx} className="">
-        <th className="font-normal border">
-        {indx+1}
-        </th>
-        <td className="border-r border-gray-200">
-          <div className="flex  items-center ">
-            
-            <div>
-              <div className="font-normal ">{pay?.product_name} </div>
-            </div>
-          </div>
-        </td>
-        <td className="text-blue-500 border-r font-semibold">
-         #{pay?.paymentId}
-         
-        </td>
-        <td className="border-r font-semibold  ">{pay?.amount} </td>
-        <th className="border-r" >
-          <p className="font-normal text-[13px] ">{pay?.payment_method} </p>
-        </th>
-        <td className="border-r"> {pay?.shipping_method}  </td>
-        <td className={`border-r ${pay?.status === 'pending' ? 'text-red-500' : 'text-green-400 font-semibold capitalize'}`}>
-  {pay?.status}
-</td>
-      
-      
-       <td className="border-r ">   <FaRegTrashAlt  onClick={() => handleDeleteOrder(pay._id)} className="text-red-500 cursor-pointer text-xl font-bold"></FaRegTrashAlt> </td>
-       
-     
-
-
-      </tr>
-      </>)
-     }
-      
-
-     
-    </tbody>
-
-  </table>
-</div>
-        </div>
-    );
-
 };
 
 export default Order;

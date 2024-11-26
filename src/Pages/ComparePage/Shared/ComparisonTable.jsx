@@ -16,7 +16,7 @@ const ComparisonTable = ({ compares }) => {
     const sliceTitle = (title) => {
         return title.length > 25 ? `${title.slice(0, 25)}...` : title;
     };
-    console.log(user);
+    // console.log(user);
     const handleDeleteCompare = (id) => {
 
         axiosPublic.delete(`/compares/${id}`)
@@ -26,7 +26,7 @@ const ComparisonTable = ({ compares }) => {
                 }
             })
             .catch(err => {
-                console.log(err);
+                // console.log(err);
             })
     }
 

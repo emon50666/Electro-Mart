@@ -51,7 +51,7 @@ const UpdateProductForm = () => {
             refetch();
         }
 
-        console.log(updateFormInfo);
+        // console.log(updateFormInfo);
     };
 
 
@@ -73,7 +73,7 @@ const UpdateProductForm = () => {
                         }
                     })
                     .catch(err => {
-                        console.log(err);
+                        // console.log(err);
                     })
             }
         });

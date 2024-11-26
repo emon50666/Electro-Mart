@@ -5,7 +5,7 @@ const useProductDetails = (products) => {
     const [productDetails, setProductDetails] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
 
-        console.log(products)
+        // console.log(products)
 
     useEffect(() => {
         const fetchProductDetails = async () => {
@@ -16,7 +16,7 @@ const useProductDetails = (products) => {
                 
                 const responses = await Promise.all(promises);
 
-                console.log(responses)
+                // console.log(responses)
                 
                 // Extract data from each response and set it in productDetails
                 setProductDetails(responses.map(response => response.data));
