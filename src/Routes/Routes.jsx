@@ -23,23 +23,23 @@ import AddNewStore from "../components/DashBoard/AddNewStore/AddNewStore";
 import UpdateStore from "../components/DashBoard/UpdateStore/UpdateStore";
 import ManageStore from "../components/DashBoard/ManageStore/ManageStore";
 import PromotionControl from "../components/DashBoard/PromotionControl/PromotionControl";
-import DashBoardProfile from "../components/DashBoard/DashBoardProfile/DashBoardProfile";
+
 import Promotion from "../Pages/Promotion/Promotion";
 import PromotionDetails from "../Pages/Promotion/PromotionDetails";
-
 import CheckoutPage from "./../Pages/Checkout/CheckoutPage";
 import FilterProduct from "../components/FilterProduct/FilterProduct";
-
 import Success from "../Pages/SuccessPage/Success";
 import Fail from "../Pages/FailPage/Fail";
 import Cancel from "../Pages/CancelPage/Cancel";
 import Thanks from "../Pages/TnaksPage/Thanks";
-
+import MemberOrder from "../components/DashBoard/MemberOrder/memberOrder";
 import UserOrder from "../components/DashBoard/MemberDashboard/UserOrder";
 import TopProducts from "../Pages/TopProducts";
 import CompleteOrder from "../components/DashBoard/Order/CompleteOrder";
+
 import MemberOrder from "../components/DashBoard/MemberOrder/MemberOrder";
 import SecureRoute from "../PrivateRoute/SecureRoute";
+
 
 const router = createBrowserRouter([
   {
@@ -55,7 +55,6 @@ const router = createBrowserRouter([
         path: "/productDetails/:id",
         element: (
           <PrivateRoute>
-            {" "}
             <ProductDetails />
           </PrivateRoute>
         ),
@@ -94,9 +93,9 @@ const router = createBrowserRouter([
         element: <PromotionDetails />,
         loader: () => fetch(`${import.meta.env.VITE_API_URL}/promotions/`),
       },
-
       {
         path: "manageCart",
+<<<<<<< HEAD
         element: (
           <PrivateRoute>
             <ManageCart />
@@ -112,6 +111,18 @@ const router = createBrowserRouter([
         path: "/shop-page",
         element: <FilterProduct />,
       },
+=======
+        element: <PrivateRoute><ManageCart /></PrivateRoute>,
+      },
+      {
+        path: '/checkout-page',
+        element: <CheckoutPage />,
+      },
+      {
+        path: '/shop-page',
+        element: <FilterProduct />,
+      },
+>>>>>>> 87defe66094a9c69b31850a4ce42b6ae882cb713
     ],
   },
   {
@@ -131,11 +142,6 @@ const router = createBrowserRouter([
     element: <Success />,
   },
   {
-    path: "/checkout-page",
-    element: <CheckoutPage />,
-  },
-
-  {
     path: "/fail",
     element: <Fail />,
   },
@@ -143,6 +149,7 @@ const router = createBrowserRouter([
     path: "/cancel",
     element: <Cancel />,
   },
+<<<<<<< HEAD
 
   {
     path: "/complete-order/:tranId",
@@ -151,10 +158,22 @@ const router = createBrowserRouter([
 
   {
     path: "/top",
+=======
+  {
+    path: '/complete-order/:tranId',
+    element: <CompleteOrder />,
+  },
+  {
+    path: '/top',
+>>>>>>> 87defe66094a9c69b31850a4ce42b6ae882cb713
     element: <TopProducts />,
   },
 
+
+  // Dashboard routes
+
   // dashboard route
+
   {
     path: "/dashboard",
     element: (
@@ -165,84 +184,43 @@ const router = createBrowserRouter([
     children: [
       {
         path: "promotionControl",
-        element: (
-          <PrivateRoute>
-            <PromotionControl />
-          </PrivateRoute>
-        ),
+        element: <PromotionControl />,
       },
       {
         path: "manageProduct",
-        element: (
-          <PrivateRoute>
-            <ManageProduct />
-          </PrivateRoute>
-        ),
+        element: <ManageProduct />,
       },
       {
         path: "manageStore",
-        element: (
-          <PrivateRoute>
-            <ManageStore />
-          </PrivateRoute>
-        ),
+        element: <ManageStore />,
       },
       {
         path: "updateProduct/:id",
-        element: (
-          <PrivateRoute>
-            <UpdateProduct />
-          </PrivateRoute>
-        ),
+        element: <UpdateProduct />,
       },
       {
         path: "updateStore/:id",
-        element: (
-          <PrivateRoute>
-            <UpdateStore />
-          </PrivateRoute>
-        ),
+        element: <UpdateStore />,
       },
       {
         path: "addProduct",
-        element: (
-          <PrivateRoute>
-            <AddNewProduct />
-          </PrivateRoute>
-        ),
+        element: <AddNewProduct />,
       },
       {
         path: "addStore",
-        element: (
-          <PrivateRoute>
-            <AddNewStore />
-          </PrivateRoute>
-        ),
+        element: <AddNewStore />,
       },
       {
         path: "user",
-        element: (
-          <PrivateRoute>
-            {" "}
-            <AllUser />
-          </PrivateRoute>
-        ),
+        element: <AllUser />,
       },
       {
         path: "Order-List",
-        element: (
-          <PrivateRoute>
-            <Order />
-          </PrivateRoute>
-        ),
+        element: <Order />,
       },
       {
         path: "profile",
-        element: (
-          <PrivateRoute>
-            <Profile />
-          </PrivateRoute>
-        ),
+        element: <Profile />,
       },
       {
         path: "my-account",
@@ -257,14 +235,18 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: "dashboard-layout",
-        element: <DashBoardProfile />,
+        path: "userOrder",
+        element: <UserOrder />,
       },
+<<<<<<< HEAD
 
       {
         path: "orders",
         element: <UserOrder />,
       },
+=======
+      // Add more dashboard routes as needed
+>>>>>>> 87defe66094a9c69b31850a4ce42b6ae882cb713
     ],
   },
 ]);

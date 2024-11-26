@@ -201,9 +201,15 @@ const CheckoutPage = () => {
 
             } else if (selectedPaymentMethod === 'bkash') {
                 toast.success('Redirecting to SSL payment gateway...');
+
+                window.location.replace(data.paymentUrl); 
+
+            }
+
                 window.location.replace(data.paymentUrl);
 
             } 
+
         } catch (error) {
             console.error('Order placement error:', error);
             if (error.response) {
