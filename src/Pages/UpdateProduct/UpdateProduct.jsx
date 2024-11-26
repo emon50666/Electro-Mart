@@ -113,11 +113,11 @@ const UpdateProduct = () => {
             const uploaded = imgGallery.map((file) => {
                 const formData = new FormData();
                 formData.append("file", file);
-                formData.append("upload_preset", "elector_mart_key");
-                formData.append("api_key", "211491792754595");
+                formData.append("upload_preset", import.meta.env.VITE_CLOUDINARY_UPLOAD_PRESET);
+                formData.append("api_key", import.meta.env.VITE_CLOUDINARY_API_KEY);
 
 
-                return axios.post('https://api.cloudinary.com/v1_1/duv5fiurz/image/upload', formData, {
+                return axios.post(`https://api.cloudinary.com/v1_1/${import.meta.env.VITE_CLOUDINARY_COULD_NAME}/image/uploa`, formData, {
                     headers: { "X-Requested-With": "XMLHttpRequest" }
                 }).then(res => {
                     return res.data.secure_url;

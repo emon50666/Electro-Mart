@@ -3,10 +3,10 @@ import PropType from "prop-types";
 import { Link } from "react-router-dom";
 import useCart from "../../Hooks/useCart";
 import CardOfCart from "./CardOfCart";
-import UserAuth from "../../Hooks/useAuth";
+import useAuth from "../../Hooks/useAuth";
 
 const AddCart = ({ setCartOpen }) => {
-  const { user } = UserAuth();
+  const { user } = useAuth();
   const { theUserCarts } = useCart();
   const [isOpen, setIsOpen] = useState(false);
 

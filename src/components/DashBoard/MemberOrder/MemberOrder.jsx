@@ -5,10 +5,10 @@ import Swal from "sweetalert2";
 import Loader from "../../Loader/Loader";
 import useFilteredOrders from "../../../Hooks/useFilterOrder";
 import useAxiosPublic from "../../../Hooks/useAxiosPublic";
-import UserAuth from "../../../Hooks/useAuth";
+import useAuth from "../../../Hooks/useAuth";
 
 const MemberOrder = () => {
-  const { user } = UserAuth();
+  const { user } = useAuth();
   const axiosPublic = useAxiosPublic();
   const { orders } = useFilteredOrders(user);
   const [productDetails, setProductDetails] = useState({});
@@ -16,7 +16,11 @@ const MemberOrder = () => {
 
   const [showDetails, setShowDetails] = useState({});
 
+
+  const [showDetails, setShowDetails] = useState({});
+
   const [showDetails, setShowDetails] = useState({}); // For toggling product details visibility
+
 
 
   // Fetch product details for each order
@@ -136,6 +140,13 @@ const MemberOrder = () => {
 
                 {/* Payment Status */}
                 <td
+
+                  className={`border-r ${
+                    pay.paymentStatus === "pending"
+                      ? "text-red-500"
+                      : "text-green-400 font-semibold capitalize"
+                  }`}
+
                   className={`border-r ${pay.paymentStatus === "pending"
 
                       ? "text-red-500"
@@ -145,12 +156,20 @@ const MemberOrder = () => {
                     : "text-green-400 font-semibold capitalize"
 
                     }`}
+
                 >
                   {pay.paymentStatus}
                 </td>
 
                 {/* Order Status */}
                 <td
+
+                  className={`border-r ${
+                    pay.orderStatus === "Processing"
+                      ? "text-red-500"
+                      : "text-green-400 font-semibold capitalize"
+                  }`}
+
                   className={`border-r ${pay.orderStatus === "Processing"
 
                       ? "text-red-500"
@@ -160,6 +179,7 @@ const MemberOrder = () => {
                     : "text-green-400 font-semibold capitalize"
 
                     }`}
+
                 >
                   {pay.orderStatus}
                 </td>
@@ -173,7 +193,11 @@ const MemberOrder = () => {
 
                   <hr className="border border-gray-200 w-full my-1" />
 
+
+                  <hr className="border border-gray-200 w-full my-1" />
+
                   <hr className="border border-gray-200 w-full my-1"/>
+
 
                   <button
                     className="text-blue-500 ml-3"

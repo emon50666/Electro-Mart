@@ -2,11 +2,11 @@
 import { FaHome, FaThList, FaShoppingCart, FaSearch } from 'react-icons/fa'; // Importing icons from react-icons
 import useCart from '../Hooks/useCart';
 import { Link } from 'react-router-dom';
-import UserAuth from '../Hooks/useAuth';
+import useAuth from '../Hooks/useAuth';
 
 const BottomNavigation = () => {
   const { theUserCarts } = useCart();
-  const {  loading,  } = UserAuth();
+  const {  loading,  } = useAuth();
   return (
     <div className="lg:hidden fixed bottom-0 left-0 right-0 bg-white z-30 shadow-lg border-t border-gray-200">
       <nav className="flex justify-between items-center h-16 px-4">

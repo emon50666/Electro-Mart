@@ -1,11 +1,11 @@
 import { useQuery } from "@tanstack/react-query";
-import UserAuth from "./useAuth";
+import useAuth from "./useAuth";
 import useAxiosPublic from "./useAxiosPublic";
 
 
 
 const useWishlist = () => {
-    const { user } = UserAuth();
+    const { user } = useAuth();
     const axiosPublic = useAxiosPublic();
     const { data: wishes = [], refetch } = useQuery({
         queryKey: ["wishlist"],

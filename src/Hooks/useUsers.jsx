@@ -1,9 +1,9 @@
 import { useQuery } from "@tanstack/react-query";
-import UserAuth from "./useAuth";
+import useAuth from "./useAuth";
 import useAxiosPublic from "./useAxiosPublic";
 
 const useUsers = () => {
-    const { user } = UserAuth();
+    const { user } = useAuth();
     const axiosPublic = useAxiosPublic();
     const { data: users = [], refetch, isPending } = useQuery({
         queryKey: ["users"],

@@ -56,9 +56,7 @@ import TopProducts from "../Pages/TopProducts";
 import CompleteOrder from "../components/DashBoard/Order/CompleteOrder";
 
 import MemberOrder from "../components/DashBoard/MemberOrder/MemberOrder";
-
-
-
+import SecureRoute from "../PrivateRoute/SecureRoute";
 
 
 const router = createBrowserRouter([
@@ -140,6 +138,23 @@ const router = createBrowserRouter([
       },
       {
         path: "manageCart",
+<<<<<<< HEAD
+        element: (
+          <PrivateRoute>
+            <ManageCart />
+          </PrivateRoute>
+        ),
+      },
+
+      {
+        path: "/checkout-page",
+        element: <CheckoutPage />,
+      },
+      {
+        path: "/shop-page",
+        element: <FilterProduct />,
+      },
+=======
         element: <PrivateRoute><ManageCart /></PrivateRoute>,
       },
       {
@@ -150,6 +165,7 @@ const router = createBrowserRouter([
         path: '/shop-page',
         element: <FilterProduct />,
       },
+>>>>>>> 87defe66094a9c69b31850a4ce42b6ae882cb713
     ],
   },
   {
@@ -176,12 +192,23 @@ const router = createBrowserRouter([
     path: "/cancel",
     element: <Cancel />,
   },
+<<<<<<< HEAD
+
+  {
+    path: "/complete-order/:tranId",
+    element: <CompleteOrder />,
+  },
+
+  {
+    path: "/top",
+=======
   {
     path: '/complete-order/:tranId',
     element: <CompleteOrder />,
   },
   {
     path: '/top',
+>>>>>>> 87defe66094a9c69b31850a4ce42b6ae882cb713
     element: <TopProducts />,
   },
 
@@ -244,13 +271,25 @@ const router = createBrowserRouter([
       },
       {
         path: "member-order",
-        element: <MemberOrder />,
+        element: (
+          <SecureRoute>
+            <MemberOrder />
+          </SecureRoute>
+        ),
       },
       {
         path: "userOrder",
         element: <UserOrder />,
       },
+<<<<<<< HEAD
+
+      {
+        path: "orders",
+        element: <UserOrder />,
+      },
+=======
       // Add more dashboard routes as needed
+>>>>>>> 87defe66094a9c69b31850a4ce42b6ae882cb713
     ],
   },
 ]);

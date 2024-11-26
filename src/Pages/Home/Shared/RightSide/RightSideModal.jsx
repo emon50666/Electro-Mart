@@ -29,14 +29,14 @@ const RightSideModal = ({ isOpen, onClose, number, sendImages, refetch }) => {
 
         const formData = new FormData();
         formData.append('file', file);
-        formData.append('upload_preset', 'elector_mart_key');
-        formData.append('api_key', '211491792754595');
+        formData.append('upload_preset', import.meta.env.VITE_CLOUDINARY_UPLOAD_PRESET);
+        formData.append('api_key', import.meta.env.VITE_CLOUDINARY_API_KEY);
 
         try {
             console.log("Uploading to Cloudinary:", formData);
 
             const res = await axios.post(
-                'https://api.cloudinary.com/v1_1/duv5fiurz/image/upload',
+                `https://api.cloudinary.com/v1_1/${import.meta.env.VITE_CLOUDINARY_COULD_NAME}/image/uploa`,
                 formData,
                 { headers: { 'X-Requested-With': 'XMLHttpRequest' } }
             );

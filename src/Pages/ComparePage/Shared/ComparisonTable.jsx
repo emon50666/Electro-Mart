@@ -5,11 +5,11 @@ import { Link } from 'react-router-dom';
 import useAxiosPublic from '../../../Hooks/useAxiosPublic';
 import useCompare from '../../../Hooks/useCompare';
 import useAddToCart from '../../../Hooks/useAddToCart';
-import UserAuth from '../../../Hooks/useAuth';
+import useAuth from '../../../Hooks/useAuth';
 import { FaBangladeshiTakaSign } from 'react-icons/fa6';
 
 const ComparisonTable = ({ compares }) => {
-    const { user } = UserAuth()
+    const { user } = useAuth()
     const axiosPublic = useAxiosPublic();
     const handleAddCart = useAddToCart();
     const { refetch } = useCompare();

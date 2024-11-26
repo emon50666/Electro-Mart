@@ -1,10 +1,10 @@
 import toast from "react-hot-toast";
-import UserAuth from "../Hooks/useAuth";
+import useAuth from "../Hooks/useAuth";
 import useAxiosPublic from "../Hooks/useAxiosPublic";
 import useCompare from "./useCompare";
 
 const useAddToCompare = () => {
-    const { user } = UserAuth();
+    const { user } = useAuth();
     const axiosPublic = useAxiosPublic();
     const { compares, refetch } = useCompare();
 
