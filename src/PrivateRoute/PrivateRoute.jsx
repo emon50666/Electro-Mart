@@ -2,22 +2,29 @@ import { Navigate, useLocation } from "react-router-dom";
 import UserAuth from "../Hooks/useAuth";
 import PropTypes from "prop-types";
 
-const PrivateRoute = ({children}) => {
-    const {user,loading} = UserAuth();
-    const location = useLocation()
+const PrivateRoute = ({ children }) => {
+    const { user, loading } = UserAuth();
+    const location = useLocation();
+    console.log(location);
 
-    if(loading){
-        <div className="justify-center mx-auto text-center min-h-min">
-        <span className="loading loading-dots loading-sm"></span>
-    </div>
+    if (loading) {
+        return (
+            <div className="justify-center mx-auto text-center min-h-min">
+                <span className="loading loading-dots loading-sm"></span>
+            </div>
+        );
     }
-   if(user) {
-    return children
-   }
-   return <Navigate state={location.pathname}  />;
+
+    if (user) {
+        return children;
+    }
+
+    // Pass the full location object in state to preserve the intended destination
+    return <Navigate to={'/register'} state={{ from: location }} />;
 };
 
 PrivateRoute.propTypes = {
-    children: PropTypes.node 
+    children: PropTypes.node,
 };
+
 export default PrivateRoute;

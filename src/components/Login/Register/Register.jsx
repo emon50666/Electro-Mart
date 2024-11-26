@@ -84,7 +84,7 @@ const Register = () => {
       console.log(user)
       toast.success("Account created successfully");
       navigate(location?.state ? location?.state : '/')
-      navigate('/')
+ 
 
       // Update the user state with the new profile information
       setUser({ ...user, displayName: name, photoURL: data.data.display_url });

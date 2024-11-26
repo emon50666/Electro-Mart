@@ -8,6 +8,7 @@ import { NavLink } from "react-router-dom";
 
 const MemberMenu = () => {
 
+
     return (
         <div>
         <ul className="flex font-serif flex-1 flex-col mt-12 text-gray-400 gap-1 py-3">
@@ -33,7 +34,6 @@ const MemberMenu = () => {
 
               to={'member-order'}
 
-              to={`orders`}
 
               className={({ isActive }) =>
                 `flex mt-1 items-center gap-3 rounded p-3 transition-colors ${
