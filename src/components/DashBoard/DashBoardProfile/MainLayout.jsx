@@ -14,10 +14,10 @@ const MainLayout = () => {
   const { payments,isLoading } = useOrder(); // Use the hook
 const {users} = useUsers();
 const {products} = useProduct();
-console.log(users);
+console.log(payments);
 
   // Calculate total payment amount
-  const totalAmount = payments?.reduce((total, pay) => total + (pay?.amount || 0), 0);
+  const totalAmount = payments?.reduce((total, pay) => total + (pay?.totalAmount || 0), 0);
 
 
   const data = [
@@ -70,7 +70,11 @@ console.log(users);
  <div className="  rounded-lg shadow-md bg-white hover:shadow-lg"  >
           {/* Icon and Title Section */}
           <div className="flex items-center  px-2 py-2 gap-2">
+
+          <FaShoppingBag className="text-[#FF5200] text-[40px]  rounded-full p-2 bg-[#FB923C]/30 " />
+
           <FaShoppingBag className="text-[#FF5200] text-[40px]  rounded-full p-2 bg-[#FB923C]/30"/>
+
             <div className="flex flex-col">
               <h3 className="text-md font-semibold text-gray-700">Total Orders</h3>
               <p className="text-lg font-bold text-gray-800">{payments.length } </p>
@@ -134,7 +138,7 @@ console.log(users);
         <div className="  rounded-lg shadow-md bg-white hover:shadow-lg"  >
           {/* Icon and Title Section */}
           <div className="flex items-center  px-2 py-2 gap-2">
-          <MdOutlineProductionQuantityLimits className="text-blue-500 text-[40px] rounded-full p-2 bg-[#60A5FA]/30 " />,
+          <MdOutlineProductionQuantityLimits className="text-blue-500 text-[40px] rounded-full p-2 bg-[#60A5FA]/30 " />
             <div className="flex flex-col">
               <h3 className="text-md font-semibold text-gray-700">Total Products</h3>
               <p className="text-lg font-bold text-gray-800">{products?.length } </p>

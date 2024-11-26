@@ -18,7 +18,7 @@ const Success = () => {
     const fetchPayment = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:9000/orders/${sTranId}`
+          `http://localhost:3000/orders/${sTranId}`
         );
         setPayment(response.data);
       } catch (error) {
