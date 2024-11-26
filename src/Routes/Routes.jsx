@@ -27,13 +27,9 @@ import PromotionControl from "../components/DashBoard/PromotionControl/Promotion
 import Promotion from "../Pages/Promotion/Promotion";
 import PromotionDetails from "../Pages/Promotion/PromotionDetails";
 
-
 import CheckoutPage from "../Pages/Checkout/CheckoutPage";
 import About from "../Pages/About/About";
 import Contacts from "../Pages/Contacts/Contacts";
-
-import CheckoutPage from "./../Pages/Checkout/CheckoutPage";
-
 import FilterProduct from "../components/FilterProduct/FilterProduct";
 import Success from "../Pages/SuccessPage/Success";
 import Fail from "../Pages/FailPage/Fail";
@@ -48,12 +44,7 @@ import CookiePolicy from "../Pages/CookiePolicy/CookiePolicy";
 import PrivacyPolicy from "../Pages/PrivacyPolicy/PrivacyPolicy";
 import TermsAndConditions from "../Pages/TermsAndConditions/TermsAndConditions";
 import RefundPolicy from "../Pages/Refundpolicy/RefundPolicy";
-
-import Thanks from "../Pages/TnaksPage/Thanks";
 import MemberOrder from "../components/DashBoard/MemberOrder/memberOrder";
-import UserOrder from "../components/DashBoard/MemberDashboard/UserOrder";
-import TopProducts from "../Pages/TopProducts";
-import CompleteOrder from "../components/DashBoard/Order/CompleteOrder";
 import SecureRoute from "../PrivateRoute/SecureRoute";
 import DashBoardProfile from "../components/DashBoard/DashBoardProfile/DashBoardProfile";
 
@@ -105,29 +96,28 @@ const router = createBrowserRouter([
         element: <Promotion />,
       },
       {
-
         path: "/about",
-        element: <About />
+        element: <About />,
       },
       {
-        path:"/contacts",
-        element:<Contacts/>
+        path: "/contacts",
+        element: <Contacts />,
       },
       {
-        path:"/cookiePolicy",
-        element:<CookiePolicy></CookiePolicy>
+        path: "/cookiePolicy",
+        element: <CookiePolicy></CookiePolicy>,
       },
       {
-        path:"/privacyPolicy",
-        element:<PrivacyPolicy></PrivacyPolicy>
+        path: "/privacyPolicy",
+        element: <PrivacyPolicy></PrivacyPolicy>,
       },
       {
-        path:"/termsAndConditions",
-        element:<TermsAndConditions></TermsAndConditions>
+        path: "/termsAndConditions",
+        element: <TermsAndConditions></TermsAndConditions>,
       },
       {
-        path:"/refundPolicy",
-        element:<RefundPolicy></RefundPolicy>
+        path: "/refundPolicy",
+        element: <RefundPolicy></RefundPolicy>,
       },
       {
         path: "/promotionsDetails/:id",
@@ -240,7 +230,19 @@ const router = createBrowserRouter([
       },
       {
         path: "dashboard-layout",
-        element: <DashBoardProfile />,
+        element: (
+          <SecureRoute>
+            <DashBoardProfile />
+          </SecureRoute>
+        ),
+      },
+      {
+        path: "dashboard-layout",
+        element: (
+          <SecureRoute>
+            <DashBoardProfile />
+          </SecureRoute>
+        ),
       },
       {
         path: "my-account",

@@ -1,7 +1,8 @@
-import { useState, useEffect } from 'react';
-import axios from 'axios';
+import { useState, useEffect } from "react";
+import useAxiosPublic from "./useAxiosPublic";
 
 const useFilteredOrders = (user) => {
+  const axiosPublic = useAxiosPublic();
   const [orders, setOrders] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -9,22 +10,14 @@ const useFilteredOrders = (user) => {
   useEffect(() => {
     const fetchOrders = async () => {
       if (!user || !user.email) {
-        setError('User is not authenticated');
+        setError("User is not authenticated");
         setLoading(false);
         return;
       }
-
       try {
-<<<<<<< HEAD
-        // console.log(user.email)
-=======
-
-        const response = await axios.get('http://localhost:3000/orders'); // Replace with your API endpoint
-
-        console.log(user.email)
->>>>>>> 670ba5beab5fe3ab8aa421bcd61e03440cd2abbb
-        const response = await axios.get('http://localhost:9000/orders', {
-          params: { email: user.email } // Pass the email in the query parameters
+        console.log(user.email);
+        const response = await axiosPublic.get(`/orders`, {
+          params: { email: user.email }, // Pass the email in the query parameters
         }); // Replace with your API endpoint
 
         const filteredOrders = response.data.filter(
@@ -32,14 +25,14 @@ const useFilteredOrders = (user) => {
         );
         setOrders(filteredOrders);
       } catch (err) {
-        setError('Error fetching orders',err);
+        setError("Error fetching orders", err);
       } finally {
         setLoading(false);
       }
     };
 
     fetchOrders();
-  }, [user]);
+  }, [axiosPublic, user]);
 
   return { orders, loading, error };
 };

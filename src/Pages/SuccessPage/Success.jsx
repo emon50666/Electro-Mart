@@ -7,8 +7,10 @@ import Loader from "../../components/Loader/Loader";
 import useProductDetails from "../../Hooks/useProductDetails";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import useAxiosPublic from "../../Hooks/useAxiosPublic";
 
 const Success = () => {
+  const axiosPublic = useAxiosPublic();
   const { sTranId } = useParams();
   const [payment, setPayment] = useState(null);
   const [productDetails, setProductDetails] = useState([]);
@@ -17,9 +19,7 @@ const Success = () => {
   useEffect(() => {
     const fetchPayment = async () => {
       try {
-        const response = await axios.get(
-          `http://localhost:3000/orders/${sTranId}`
-        );
+        const response = await axiosPublic.get(`orders/${sTranId}`);
         setPayment(response.data);
       } catch (error) {
         console.error("Error fetching payment details:", error);
@@ -27,14 +27,14 @@ const Success = () => {
     };
 
     if (sTranId) fetchPayment();
-  }, [sTranId]);
+  }, [axiosPublic, sTranId]);
 
   useEffect(() => {
     const fetchProductDetails = async () => {
       try {
         if (payment?.products) {
           const promises = payment.products.map((product) =>
-            axios.get(`http://localhost:9000/products/${product.mainProductId}`)
+            axiosPublic.get(`products/${product.mainProductId}`)
           );
           const responses = await Promise.all(promises);
           setProductDetails(responses.map((response) => response.data));
@@ -47,9 +47,7 @@ const Success = () => {
     };
 
     if (payment) fetchProductDetails();
-  }, [payment]);
-
-
+  }, [axiosPublic, payment]);
 
   if (isLoading) return <Loader />;
 
