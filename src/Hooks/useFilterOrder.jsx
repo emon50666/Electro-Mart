@@ -15,10 +15,18 @@ const useFilteredOrders = (user) => {
       }
 
       try {
+<<<<<<< HEAD
         // console.log(user.email)
+=======
+
+        const response = await axios.get('http://localhost:3000/orders'); // Replace with your API endpoint
+
+        console.log(user.email)
+>>>>>>> 670ba5beab5fe3ab8aa421bcd61e03440cd2abbb
         const response = await axios.get('http://localhost:9000/orders', {
           params: { email: user.email } // Pass the email in the query parameters
         }); // Replace with your API endpoint
+
         const filteredOrders = response.data.filter(
           (order) => order.userEmail === user.email
         );
