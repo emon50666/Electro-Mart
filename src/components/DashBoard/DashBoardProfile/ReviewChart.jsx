@@ -1,32 +1,41 @@
-
-import { PieChart, Pie, Legend, Tooltip, ResponsiveContainer } from 'recharts';
+import { PieChart, Pie, Legend, Tooltip, ResponsiveContainer, Cell } from 'recharts';
+import useReview from '../../../Hooks/useReview';
 
 const ReviewChart = () => {
-    const data01 = [
-        { name: 'Group A', value: 400 },
-        { name: 'Group B', value: 300 },
-        { name: 'Group C', value: 300 },
-        { name: 'Group D', value: 200 },
-        { name: 'Group E', value: 278 },
-        { name: 'Group F', value: 189 },
-    ];
+    const { reviews } = useReview();
+
+    // Example: Dynamic data transformation
+    const reviewData = reviews.reduce((acc, review) => {
+        const existing = acc.find(item => item.name === review.rating.toString());
+        if (existing) {
+            existing.value += 1;
+        } else {
+            acc.push({ name: `Rating ${review.rating}`, value: 1 });
+        }
+        return acc;
+    }, []);
+
+    // Define custom colors to match image style
+    const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042'];
 
     return (
-        <div>
-              <h2 className="text-md  font-medium  mt-2"> User Reviews </h2>
-            <ResponsiveContainer width="50%" height={350}>
+        <div className='justify-start'>
+            <h2 className="text-md px-2 font-medium mt-2">User Reviews</h2>
+            <ResponsiveContainer width="100%" height={350} >
                 <PieChart>
                     <Pie
+                        data={reviewData}
                         dataKey="value"
-                        isAnimationActive={false}
-                        data={data01}
-                        cx="50%"
+                        cx="29%"
                         cy="40%"
-                        outerRadius={60}
+                        outerRadius={80}
                         fill="#8884d8"
-                        label
-                    />
-                    
+                        label={({ name, percent }) => `${name}: ${(percent * 100).toFixed(0)}%`}
+                    >
+                        {reviewData.map((entry, index) => (
+                            <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+                        ))}
+                    </Pie>
                     <Tooltip />
                     <Legend />
                 </PieChart>

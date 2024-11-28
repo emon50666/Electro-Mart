@@ -1,13 +1,12 @@
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Legend } from 'recharts';
 import useProduct from '../../../Hooks/useProduct';
 import useOrder from '../../../Hooks/useOrder';
-import useReview from '../../../Hooks/useReview';
+
 
 const Chart = () => {
   const { products } = useProduct();
   const { payments } = useOrder();
-  const {reviews} = useReview()
-  console.log(reviews);
+
  
   
   // Combine products and payments data
