@@ -57,8 +57,10 @@ const Reviews = ({ mainId }) => {
       setReviewText("");
       setRating(0);
       setSelectedImages([]);
-      toast.success("Thanks for your review!");
-      refetch();
+      if (res.data.insertedId) {
+        toast.success("Thanks for your review!");
+        refetch();
+      }
     } catch (error) {
       console.error("Error submitting review:", error);
       toast.error("Failed to submit review");
@@ -79,7 +81,7 @@ const Reviews = ({ mainId }) => {
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-5">
-      {role === "user" && (
+      {role === "member" && (
         <div className="p-4">
           <div className="flex mb-5 gap-4 items-center">
             <h2>Your Rating:</h2>

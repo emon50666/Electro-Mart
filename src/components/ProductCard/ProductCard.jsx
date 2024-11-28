@@ -104,7 +104,7 @@ const ProductCard = ({ product, refetch }) => {
         </Link>
 
         <div className="absolute top-1/3 z-50 right-4 transform -translate-y-1/2 translate-x-full group-hover:translate-x-0 group-hover:opacity-100 opacity-0 group-hover:pointer-events-auto pointer-events-none transition-all duration-500 ease-in-out bg-white p-2 rounded-md border shadow-lg flex flex-col space-y-4">
-          {role == "user" && (
+          {role === "member" && (
             <>
               <button onClick={handleAddToWishlist}>
                 <FaHeart className="text-lg text-blue-600" />
@@ -198,7 +198,7 @@ const ProductCard = ({ product, refetch }) => {
           </div>
         )}
 
-        {role === "user" && (
+        {role === "member" && (
           <button
             className="py-2 font-semibold text-[12px] lg:text-base px-4 bg-blue-700 mt-4 text-white rounded flex items-center justify-center relative overflow-hidden"
             onClick={handleAddToCart}
