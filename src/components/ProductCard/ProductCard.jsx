@@ -12,8 +12,11 @@ import useAddToCart from "../../Hooks/useAddToCart";
 import useAddToCompare from "../../Hooks/useAddToCompare";
 import useAddToWishlist from "../../Hooks/useAddToWishlist";
 import useReview from "../../Hooks/useReview";
+import useRoll from "../../Hooks/useRoll";
 
 const ProductCard = ({ product, refetch }) => {
+  const [role] = useRoll();
+  console.log(role);
   const { reviews } = useReview();
 
   const allReview = reviews.filter((review) => review?.mainId === product?._id);
@@ -50,7 +53,7 @@ const ProductCard = ({ product, refetch }) => {
           refetch();
         }
       })
-      .catch((err) => {
+      .catch(() => {
         // console.log(`Error = ${err}`);
       });
   };
@@ -101,12 +104,16 @@ const ProductCard = ({ product, refetch }) => {
         </Link>
 
         <div className="absolute top-1/3 z-50 right-4 transform -translate-y-1/2 translate-x-full group-hover:translate-x-0 group-hover:opacity-100 opacity-0 group-hover:pointer-events-auto pointer-events-none transition-all duration-500 ease-in-out bg-white p-2 rounded-md border shadow-lg flex flex-col space-y-4">
-          <button onClick={handleAddToWishlist}>
-            <FaHeart className="text-lg text-blue-600" />
-          </button>
-          <button onClick={handleAddToCompare}>
-            <IoGitCompareOutline className="text-lg text-blue-600" />
-          </button>
+          {role == "user" && (
+            <>
+              <button onClick={handleAddToWishlist}>
+                <FaHeart className="text-lg text-blue-600" />
+              </button>
+              <button onClick={handleAddToCompare}>
+                <IoGitCompareOutline className="text-lg text-blue-600" />
+              </button>
+            </>
+          )}
           <Link
             to={`/productDetails/${product._id}`}
             onClick={() => handleViewCount(product._id)}
