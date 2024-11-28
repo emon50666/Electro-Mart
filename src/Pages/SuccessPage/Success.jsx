@@ -34,7 +34,7 @@ const Success = () => {
       try {
         if (payment?.products) {
           const promises = payment.products.map((product) =>
-            axios.get(`http://localhost:9000/products/${product.mainProductId}`)
+            axios.get(`http://localhost:3000/products/${product.mainProductId}`)
           );
           const responses = await Promise.all(promises);
           setProductDetails(responses.map((response) => response.data));
