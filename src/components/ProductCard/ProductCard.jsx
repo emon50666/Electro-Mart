@@ -198,31 +198,34 @@ const ProductCard = ({ product, refetch }) => {
           </div>
         )}
 
-        <button
-          className="py-2 font-semibold text-[12px] lg:text-base px-4 bg-blue-700 mt-4 text-white rounded flex items-center justify-center relative overflow-hidden"
-          onClick={handleAddToCart}
-          onMouseEnter={() => setIsHovered(true)}
-          onMouseLeave={() => setIsHovered(false)}
-          style={{ height: "2.5rem", width: "100%" }}
-        >
-          <span
-            className={`absolute transition-all flex gap-3 duration-500 ease-in-out ${
-              isHovered
-                ? "translate-y-full opacity-0"
-                : "translate-y-0 opacity-100"
-            }`}
+        {role === "user" && (
+          <button
+            className="py-2 font-semibold text-[12px] lg:text-base px-4 bg-blue-700 mt-4 text-white rounded flex items-center justify-center relative overflow-hidden"
+            onClick={handleAddToCart}
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
+            style={{ height: "2.5rem", width: "100%" }}
           >
-            <FaCartShopping className="items-center  mt-1" /> Add To Cart
-          </span>
-          <BsCart
-            size={20}
-            className={`absolute transition-all duration-500 ease-in-out ${
-              isHovered
-                ? "translate-y-0 opacity-100"
-                : "translate-y-full opacity-0"
-            }`}
-          />
-        </button>
+            <span
+              className={`absolute transition-all flex gap-3 duration-500 ease-in-out ${
+                isHovered
+                  ? "translate-y-full opacity-0"
+                  : "translate-y-0 opacity-100"
+              }`}
+            >
+              <FaCartShopping className="items-center  mt-1" /> Add To Cart
+            </span>
+            <BsCart
+              size={20}
+              className={`absolute transition-all duration-500 ease-in-out ${
+                isHovered
+                  ? "translate-y-0 opacity-100"
+                  : "translate-y-full opacity-0"
+              }`}
+            />
+          </button>
+        )}
+
         {cartOpen && <AddCart setCartOpen={setCartOpen} />}
       </div>
     </div>
