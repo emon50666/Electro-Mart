@@ -26,7 +26,7 @@ const MousBanner = () => {
                 {/* Text Content */}
                 <div
 
-                    data-aos="fade-right"
+                    data-aos="fade-left"
                     data-aos-offset="300"
                     data-aos-easing="ease-in-sine"
                     className="relative z-10 text-start  p-6 md:p-10 lg:p-20  text-[#2F3132] max-w-md">
