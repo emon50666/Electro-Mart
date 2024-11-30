@@ -3,14 +3,10 @@ import HomeOffers from "./Shared/HomeOffers";
 import Popular from "../../components/PopularCategory/Popular";
 import BenifetService from "../../components/PopularCategory/BenifetService/BenifetService";
 import HomeSliderComponent from "../../components/HomeSliderComponent/SliderComponent";
-
-
-import Slider from './Shared/Slider';
-
-
-
-import LaptopProduct from "./LaptopProduct";
-import MousBanner from "../../components/MousBanner/MousBanner";
+import Slider from "./Shared/Slider";
+import FeaturedProduct from "./FeaturedProduct";
+import MouseBanner from "../../components/MouseBanner/MouseBanner";
+import NewHomeOffer from "./Shared/NewHomeOffer";
 
 const Home = () => {
   return (
@@ -18,18 +14,17 @@ const Home = () => {
       <Helmet>
         <title>Home | Electro Mart</title>
       </Helmet>
-      <div >
-        <Slider/>
+      <div>
+        <Slider />
       </div>
       <BenifetService />
       <Popular />
       <HomeOffers />
-
       {/* <FilterProduct /> */}
       <HomeSliderComponent />
-      <LaptopProduct/>
-      <MousBanner/>
-
+      <FeaturedProduct />
+      <MouseBanner />
+      <NewHomeOffer />
     </div>
   );
 };
