@@ -18,9 +18,9 @@ const Chart = () => {
   }));
 
   return (
-    <div className='px-2'>
-      <h2 className="text-md  font-medium mb-4">Product & Order Prices</h2>
-      <ResponsiveContainer width="95%" height={350}>
+    <div className='px-2 bg-[#1E293B]  py-7 '>
+      <h2 className="text-md  font-medium text-gray-300 mb-4">Product & Order Prices</h2>
+      <ResponsiveContainer width="95%"   height={350}>
         <AreaChart
           data={combinedData}
           margin={{
@@ -28,9 +28,10 @@ const Chart = () => {
             right: 10,
             left: 10,
             bottom: 10,
+           
           }}
         >
-          <CartesianGrid strokeDasharray="3 3" />
+          <CartesianGrid strokeDasharray="1 3" />
           <XAxis dataKey="name" />
           <YAxis label={{ value: 'Price (৳)', angle: -90, position: 'insideLeft' }} />
           <Tooltip formatter={(value) => `৳${value}`} />

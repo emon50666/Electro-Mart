@@ -33,7 +33,15 @@ const ProductCard = ({ product, refetch }) => {
   // console.log(averageRating);
 
 
-
+  const [titleLength, setTitleLength] = useState(20);
+  useEffect(() => {
+    const updateTitleLength = () => {
+      setTitleLength(window.innerWidth >= 1024 ? 30 : 20);
+    };
+    window.addEventListener("resize", updateTitleLength);
+    updateTitleLength(); // Set initial length
+    return () => window.removeEventListener("resize", updateTitleLength);
+  }, []);
 
 
   const handleAddCart = useAddToCart();
@@ -77,18 +85,6 @@ const ProductCard = ({ product, refetch }) => {
   }
 
 
-  const [titleLength, setTitleLength] = useState(30);
-
-  useEffect(() => {
-    const handleResize = () => {
-      setTitleLength(window.innerWidth >= 1024 ? 37 : 30);
-    };
-
-    handleResize(); // Set initial length based on current screen size
-    window.addEventListener("resize", handleResize);
-
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
 
   return (
     <div
@@ -165,10 +161,10 @@ const ProductCard = ({ product, refetch }) => {
       
           <div>
           <Link to={`/productDetails/${product._id}`}>
-      <h4 className="font-semibold  text-[12px] lg:text-base capitalize">
-        {product?.title.slice(0, titleLength)}
-        {product?.title.length > titleLength ? '...' : ''}
-      </h4>
+          <h4 className="font-semibold text-[12px] lg:text-base capitalize">
+      {product?.title.slice(0, titleLength)}
+      {product?.title.length > titleLength ? "..." : ""}
+    </h4>
     </Link>
             <div className="flex items-center justify-between">
             <small className="text-gray-400  lg:text-base capitalize font-semibold">{product?.brand}</small>
@@ -200,7 +196,7 @@ const ProductCard = ({ product, refetch }) => {
         }
 
         <button
-          className="py-2 font-semibold text-[12px] lg:text-base px-4 bg-blue-700 mt-4 text-white rounded flex items-center justify-center relative overflow-hidden"
+          className="py-2 font-semibold text-[12px] lg:text-base px-4 bg-blue-700 mt-4 text-white rounded flex items-center justify-center relative h-auto overflow-hidden"
           onClick={handleAddToCart}
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
