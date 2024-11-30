@@ -14,7 +14,7 @@ const DashBoardProfile = () => {
              <Chart/>
          
            <div className="lg:flex mt-10  "> 
-        <div className="flex-1 ">
+        <div className="flex-1">
         <ReviewChart/>
         </div>
         <div className="flex-1">

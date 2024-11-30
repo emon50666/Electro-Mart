@@ -41,22 +41,22 @@ const UserChart = () => {
   };
 
   return (
-    <div className="">
-        <h2 className="text-md px-2 md-4 font-medium mt-2 text-center bg-orange-50 "> All Users</h2>
-      <ResponsiveContainer width="90%"  height={260}>
+    <div className=" ">
+        <h2 className="text-md px-2 md-4 font-medium mt-2 text-center bg-gray-50 "> All Users</h2>
+      <ResponsiveContainer width="90%"   height={260}>
         <PieChart>
           <Pie
             activeIndex={activeIndex}
             activeShape={renderActiveShape}
             data={chartData}
             cx="50%"
-            cy="40%"
+            cy="50%"
             innerRadius={60}
             outerRadius={90}
             fill="#8884d8"
             dataKey="value"
             onMouseEnter={onPieEnter}
-            paddingAngle={5}
+            paddingAngle={2}
             className='bg-red-100 animate-pulse duration-500'
           >
             {chartData.map((entry, index) => (

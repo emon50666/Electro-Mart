@@ -2,24 +2,28 @@
 // Success.js
 import { Link, useParams } from "react-router-dom";
 import { AiOutlineCheckCircle } from "react-icons/ai";
-import useSuccess from "../../Hooks/usesSuccess";
+
 import Loader from "../../components/Loader/Loader";
 import useProductDetails from "../../Hooks/useProductDetails";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import useAxiosPublic from "../../Hooks/useAxiosPublic";
 
 const Success = () => {
   const { sTranId } = useParams();
   const [payment, setPayment] = useState(null);
   const [productDetails, setProductDetails] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const useAxiospublic = useAxiosPublic()
 
   useEffect(() => {
     const fetchPayment = async () => {
       try {
-        const response = await axios.get(
-          `http://localhost:3000/orders/${sTranId}`
-        );
+        const response = await useAxiospublic.get(`/orders/${sTranId}`)
+
+        // const response = await axios.get(
+        //   `http://localhost:3000/orders/${sTranId}`
+        // );
         setPayment(response.data);
       } catch (error) {
         console.error("Error fetching payment details:", error);
@@ -27,14 +31,15 @@ const Success = () => {
     };
 
     if (sTranId) fetchPayment();
-  }, [sTranId]);
+  }, [sTranId,useAxiospublic]);
 
   useEffect(() => {
     const fetchProductDetails = async () => {
       try {
         if (payment?.products) {
           const promises = payment.products.map((product) =>
-            axios.get(`http://localhost:3000/products/${product.mainProductId}`)
+            useAxiosPublic.get(`/products/${product.mainProductId}`)
+          
           );
           const responses = await Promise.all(promises);
           setProductDetails(responses.map((response) => response.data));

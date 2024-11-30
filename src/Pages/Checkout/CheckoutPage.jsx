@@ -3,24 +3,23 @@ import toast from 'react-hot-toast';
 import useLocation from '../../Hooks/useLocation';
 import { useEffect, useState } from 'react';
 import ManageCartLink from '../../components/ManageCartLink/ManageCartLink';
-
-
-
 import useCart from '../../Hooks/useCart';
 import CheckoutTable from './Shared/CheckoutTable';
-
 // import Loader from '../../components/Loader/Loader';
 import UserAuth from '../../Hooks/useAuth';
 import { useNavigate } from 'react-router-dom';
 import useTotalAmount from '../../Hooks/useTotalAmount';
 
 
+
+
 const CheckoutPage = () => {
     const { locations } = useLocation();
     const axiosPublic = useAxiosPublic();
+ 
     const {user} = UserAuth()
  const navigate = useNavigate()
-  
+
     const {totalPrice} = useTotalAmount();
     
 
@@ -197,7 +196,7 @@ const CheckoutPage = () => {
 
             if (selectedPaymentMethod === 'cashOnDelivery') {
                 toast.success('Order placed successfully!');
-                navigate('/thanks'); // Redirect to success page
+                navigate(`/thanks`); // Redirect to success page
 
             } else if (selectedPaymentMethod === 'bkash') {
                 toast.success('Redirecting to SSL payment gateway...');
