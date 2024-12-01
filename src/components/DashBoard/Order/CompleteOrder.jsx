@@ -3,7 +3,7 @@ import useOrder from "../../../Hooks/useOrder";
 
 const CompleteOrder = () => {
     const { payments, } = useOrder();
-    console.log(payments);
+    // console.log(payments);
     return (
         <div className="mt-20">
             {

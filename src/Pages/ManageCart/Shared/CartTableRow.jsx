@@ -118,7 +118,7 @@ const CartTableRow = ({ item, refetchCart, setTotal }) => {
                         }
                     })
                     .catch(err => {
-                        console.log(err);
+                        // console.log(err);
                         toast.error("Failed to remove item!");
                     });
             }

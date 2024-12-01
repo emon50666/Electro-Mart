@@ -30,30 +30,15 @@ const ProductCard = ({ product, refetch }) => {
 
   // Usage
   const averageRating = calculateAverageRating(allReview);
-  // console.log(averageRating);
+  // // console.log(averageRating);
 
-<<<<<<< HEAD
-
-  const [titleLength, setTitleLength] = useState(20);
-  useEffect(() => {
-    const updateTitleLength = () => {
-      setTitleLength(window.innerWidth >= 1024 ? 30 : 20);
-    };
-    window.addEventListener("resize", updateTitleLength);
-    updateTitleLength(); // Set initial length
-    return () => window.removeEventListener("resize", updateTitleLength);
-  }, []);
-
-
-=======
->>>>>>> 0c1564099ff4cc9cc51b26025b96e783ae3672f2
   const handleAddCart = useAddToCart();
   const handleAddCompare = useAddToCompare();
   const handleAddWishlist = useAddToWishlist();
   const axiosPublic = useAxiosPublic();
   const [isHovered, setIsHovered] = useState(false);
   const [cartOpen, setCartOpen] = useState(false);
-  // console.log(user?.email);
+  // // console.log(user?.email);
   const handleViewCount = (_id) => {
     let currentView = product?.view || 0;
     const updateView = currentView + 1;
@@ -70,7 +55,7 @@ const ProductCard = ({ product, refetch }) => {
       });
   };
 
-  // console.log(product.quantity);
+  // // console.log(product.quantity);
   const handleAddToCart = async () => {
     const updatedQuantity = parseInt(product?.quantity) - 1;
     const updatedQuantityInfo = { updatedQuantity };
@@ -88,15 +73,8 @@ const ProductCard = ({ product, refetch }) => {
     handleAddCompare(product);
   };
   const handleAddToWishlist = () => {
-<<<<<<< HEAD
-    handleAddWishlist(product)
-  }
-
-
-=======
     handleAddWishlist(product);
   };
->>>>>>> 0c1564099ff4cc9cc51b26025b96e783ae3672f2
 
   return (
     <div className="    bg-[#F6F6F6]">
@@ -137,79 +115,11 @@ const ProductCard = ({ product, refetch }) => {
           </Link>
         </div>
 
-<<<<<<< HEAD
-
-        {product?.discountPercentage > 1 && <div className="mt-3 capitalize   text-end absolute -top-3 inset-x-0  px-2">
-          <small className="bg-blue-500 px-2    py-[1px] text-sm rounded-full font-bold text-white">
-            -{product?.discountPercentage}%
-          </small>
-        </div>}
-        {/* <div className="mt-3 capitalize   absolute bottom-[191px]  md:bottom-[330px] lg:bottom-[304px] inset-x-0  px-2">
-          {product?.isNew === "yes" && <small className="bg-teal-500 px-2   pb-[2px] text-sm  rounded-full font-bold text-white">
-            New
-          </small>
-          }
-          <br />
-          {product?.isHot === "yes" && <small className="bg-red-500 px-2   pb-[2px] text-sm  rounded-full font-bold text-white">
-            Hot
-          </small>}
-        </div> */}
-        <div
-  className={`mt-3 capitalize absolute  ${
-    product?.isHot === "yes" ? "bottom-[212px] md:bottom-[210px] lg:bottom-[333px]" : "bottom-[234px] md:bottom-[330px]  lg:bottom-[357px]"
-  } md:bottom-[330px] inset-x-0 px-2`}
->
-  {product?.isNew === "yes" && (
-    <small className="bg-teal-500 px-2 pb-[2px] lg:text-sm rounded-full font-bold text-white">
-      New
-    </small>
-  )}
-  <br />
-  {product?.isHot === "yes" && (
-    <small className="bg-red-500 px-2 pb-[2px] text-sm rounded-full font-bold text-white">
-      Hot
-    </small>
-  )}
-</div>
-
-
-      
-          <div>
-          <Link to={`/productDetails/${product._id}`}>
-          <h4 className="font-semibold text-[12px] lg:text-base capitalize">
-      {product?.title.slice(0, titleLength)}
-      {product?.title.length > titleLength ? "..." : ""}
-    </h4>
-    </Link>
-            <div className="flex items-center justify-between">
-            <small className="text-gray-400  lg:text-base capitalize font-semibold">{product?.brand}</small>
-
-            <span className="flex items-center text-[12px] lg:text-base  mt-1 gap-1 font-semibold ">
-            {isNaN(averageRating) ? '' : (
-              <p className="flex gap-1 items-center">
-                <FaStar className="text-[#ffd700]  " /> {averageRating}
-              </p>
-            )}
-          </span>
-            </div>
-    
-          
-        </div>
-
-        {product?.discountPrice == product?.price ? <div className="flex gap-2 ">
-          <p className="font-bold text-blue-500 text-[10px] lg:text-base"> ৳ {product?.price}</p>
-        </div>
-          :
-          product?.discountPrice > 1 ? <div className="flex gap-2">
-            <span className="line-through through-red-500  text-gray-500 font-semibold text-[13px] lg:text-base"> ৳{product?.price}</span>
-            <p className="font-bold text-blue-500 text-[13px] lg:text-base"> ৳ {product?.discountPrice} </p>
-=======
         {product?.discountPercentage > 1 && (
           <div className="mt-3 capitalize   text-end absolute -top-3 inset-x-0  px-2">
             <small className="bg-blue-500 px-2 py-[1px] text-sm rounded-full font-bold text-white">
               -{product?.discountPercentage}%
             </small>
->>>>>>> 0c1564099ff4cc9cc51b26025b96e783ae3672f2
           </div>
         )}
         <div
@@ -236,7 +146,7 @@ const ProductCard = ({ product, refetch }) => {
           <Link to={`/productDetails/${product._id}`}>
             <h4 className="font-semibold text-[12px] lg:text-base capitalize">
               {product?.title.length > 30
-                ? `${product?.title.slice(0, 30)}...`
+                ? `${product?.title.slice(0, 14)}...`
                 : product?.title}
             </h4>
           </Link>

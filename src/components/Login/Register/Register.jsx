@@ -1,5 +1,5 @@
 import { useState } from "react";
-import UserAuth from "../../../Hooks/useAuth";
+import useAuth from "../../../Hooks/useAuth";
 import toast from "react-hot-toast";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
@@ -24,7 +24,7 @@ const Register = () => {
 
     setShowPassword,
     signInWithGoogle,
-  } = UserAuth();
+  } = useAuth();
 
   // register form
   const handelRegister = async (e) => {
@@ -73,18 +73,17 @@ const Register = () => {
         }`,
         formData
       );
-      console.log(data.data.display_url);
+      // console.log(data.data.display_url);
 
       // user register
       const result = await createUser(email, password);
       const user = result.user;
-      console.log(user);
+      // console.log(user);
       toast.success("Account created successfully");
 
       navigate(location?.state ? location?.state : '/')
 
       navigate(location?.state ? location?.state : "/");
-      navigate("/");
 
 
       // Update the user state with the new profile information
@@ -109,11 +108,11 @@ const Register = () => {
       // Login user
       const result = await signIn(email, password);
       toast.success("Login successfully");
-      console.log(result);
+      // console.log(result);
       navigate(location?.state ? location?.state : "/");
     } catch (error) {
       toast.error("Email Don't Matched ");
-      console.log(error);
+      // console.log(error);
     }
   };
 
@@ -135,7 +134,7 @@ const Register = () => {
   // handel google register
   const handelGoogle = async () => {
     const { data } = await signInWithGoogle();
-    console.log(data);
+    // console.log(data);
     toast.success("Register Successfully");
     navigate("/");
   };

@@ -5,18 +5,18 @@ import { Link } from 'react-router-dom';
 import useAxiosPublic from '../../../Hooks/useAxiosPublic';
 import useCompare from '../../../Hooks/useCompare';
 import useAddToCart from '../../../Hooks/useAddToCart';
-import UserAuth from '../../../Hooks/useAuth';
+import useAuth from '../../../Hooks/useAuth';
 import { FaBangladeshiTakaSign } from 'react-icons/fa6';
 
 const ComparisonTable = ({ compares }) => {
-    const { user } = UserAuth()
+    const { user } = useAuth()
     const axiosPublic = useAxiosPublic();
     const handleAddCart = useAddToCart();
     const { refetch } = useCompare();
     const sliceTitle = (title) => {
         return title.length > 25 ? `${title.slice(0, 25)}...` : title;
     };
-    console.log(user);
+    // console.log(user);
     const handleDeleteCompare = (id) => {
 
         axiosPublic.delete(`/compares/${id}`)
@@ -26,7 +26,7 @@ const ComparisonTable = ({ compares }) => {
                 }
             })
             .catch(err => {
-                console.log(err);
+                // console.log(err);
             })
     }
 

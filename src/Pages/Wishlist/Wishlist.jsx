@@ -10,8 +10,8 @@ import WishlistCart from "./WishlistCart";
 const Wishlist = () => {
   const { products } = useProduct();
   const{theUserWishlist} = useWishlist()
-  console.log(theUserWishlist)
-  console.log(products)
+  // console.log(theUserWishlist)
+  // console.log(products)
 
 
   const [format, setFormat] = useState("card");

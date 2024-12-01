@@ -15,7 +15,7 @@ const UserOrder = () => {
     return matchingProduct ? { ...cartItem, productDetails: matchingProduct } : cartItem;
   });
 
-  console.log(matchedProducts);
+  // console.log(matchedProducts);
 
 if(isLoading) return <Loader/>
 

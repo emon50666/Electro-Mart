@@ -10,6 +10,7 @@ import axios from "axios";
 import useAxiosPublic from "../../Hooks/useAxiosPublic";
 
 const Success = () => {
+  const axiosPublic = useAxiosPublic();
   const { sTranId } = useParams();
   const [payment, setPayment] = useState(null);
   const [productDetails, setProductDetails] = useState([]);
@@ -52,9 +53,7 @@ const Success = () => {
     };
 
     if (payment) fetchProductDetails();
-  }, [payment]);
-
-
+  }, [axiosPublic, payment]);
 
   if (isLoading) return <Loader />;
 

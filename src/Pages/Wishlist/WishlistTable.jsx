@@ -13,7 +13,7 @@ import { FaBangladeshiTakaSign } from "react-icons/fa6";
 import useAddToCompare from "../../Hooks/useAddToCompare";
 
 const WishlistTable = ({ wishProduct }) => {
-  console.log(wishProduct)
+  // console.log(wishProduct)
   const { products } = useProduct();
   const axiosPublic = useAxiosPublic();
   const { refetch } = useWishlist();
@@ -31,7 +31,7 @@ const WishlistTable = ({ wishProduct }) => {
     handleAddCompare(product)
   };
 
-  // console.log(product)
+  // // console.log(product)
 
   const handleDeleteWishlist = (id) => {
 
@@ -42,7 +42,7 @@ const WishlistTable = ({ wishProduct }) => {
         }
       })
       .catch(err => {
-        console.log(err);
+        // console.log(err);
       })
   }
   return (

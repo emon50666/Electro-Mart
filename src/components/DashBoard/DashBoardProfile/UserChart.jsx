@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { PieChart, Pie, Cell, Tooltip, ResponsiveContainer, Sector } from 'recharts';
 import useUsers from '../../../Hooks/useUsers';
-
+import PropTypes from 'prop-types';
 const UserChart = () => {
   const { users } = useUsers(); // Fetch user data using your custom hook
   const [chartData, setChartData] = useState([]);
@@ -69,6 +69,19 @@ const UserChart = () => {
      
     </div>
   );
+};
+
+// Define prop types
+UserChart.propTypes = {
+  innerRadius: PropTypes.number, 
+  outerRadius: PropTypes.number, 
+  startAngle: PropTypes.number, 
+  endAngle: PropTypes.number, 
+  payload: PropTypes.string, 
+  fill: PropTypes.string, 
+  cy: PropTypes.string, 
+  cx: PropTypes.string, 
+
 };
 
 export default UserChart;

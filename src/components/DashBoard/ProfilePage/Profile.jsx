@@ -1,11 +1,11 @@
 import { useState } from "react";
-import UserAuth from "../../../Hooks/useAuth";
+import useAuth from "../../../Hooks/useAuth";
 import useRoll from "../../../Hooks/useRoll";
 import Loader from "../../Loader/Loader";
 import UpdateUserProfile from "./UpdateUserProfile";
 
 const Profile = () => {
-  const { user,  } = UserAuth();
+  const { user,  } = useAuth();
   const [role, isLoading] = useRoll();
   const [isModalOpen, setModalOpen] = useState(false); // State for modal visibility
 

@@ -1,36 +1,37 @@
 // useSuccess.js
 import { useState, useEffect } from "react";
-import axios from "axios";
 import { useParams } from "react-router-dom";
+import useAxiosPublic from "./useAxiosPublic";
 
 const useSuccess = () => {
-    const { sTranId } = useParams(); // Get sTranId from the URL
+  const axiosPublic = useAxiosPublic();
+  const { sTranId } = useParams(); // Get sTranId from the URL
 
-    console.log(sTranId)
-  
-    const [payment, setPayment] = useState(null); // Store payment details
-    const [isLoading, setIsLoading] = useState(true);
+  // console.log(sTranId)
 
-    useEffect(() => {
-        const fetchPayment = async () => {
-            try {
-                const response = await axios.get('http://localhost:9000/orders/39054');
-                setPayment(response.data);
-                
-                console.log(sTranId)
-            } catch (error) {
-                console.error("Error fetching payment details:", error);
-            } finally {
-                setIsLoading(false); // Stop loading
-            }
-        };
+  const [payment, setPayment] = useState(null); // Store payment details
+  const [isLoading, setIsLoading] = useState(true);
 
-        fetchPayment(); // Fetch payment data when component loads
-    }, [sTranId]);
+  useEffect(() => {
+    const fetchPayment = async () => {
+      try {
+        const response = await axiosPublic.get(`/orders/39054`);
+        setPayment(response.data);
 
-    console.log(payment)
+        // console.log(sTranId)
+      } catch (error) {
+        console.error("Error fetching payment details:", error);
+      } finally {
+        setIsLoading(false); // Stop loading
+      }
+    };
 
-    return { payment, isLoading, sTranId };
+    fetchPayment(); // Fetch payment data when component loads
+  }, [axiosPublic, sTranId]);
+
+  // console.log(payment)
+
+  return { payment, isLoading, sTranId };
 };
 
 export default useSuccess;

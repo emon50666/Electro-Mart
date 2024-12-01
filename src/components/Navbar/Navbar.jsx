@@ -2,7 +2,7 @@ import { useState } from "react";
 import logo_1 from "../../assets/images/new1.png";
 import { Link } from "react-router-dom";
 
-import UserAuth from "../../Hooks/useAuth";
+import useAuth from "../../Hooks/useAuth";
 import { FaCartShopping } from "react-icons/fa6";
 import { IoGitCompareOutline } from "react-icons/io5";
 import { FaPhoneAlt } from "react-icons/fa";
@@ -20,7 +20,7 @@ const Navbar = () => {
 
 
   const [role] = useRoll()
-  const { user, loading, logOut } = UserAuth();
+  const { user, loading, logOut } = useAuth();
   const { theUserCarts } = useCart();
   const { theUserCompares } = useCompare();
   const { theUserWishlist, } = useWishlist()

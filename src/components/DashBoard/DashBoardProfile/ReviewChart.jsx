@@ -1,7 +1,6 @@
-
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, Cell } from 'recharts';
 import useReview from '../../../Hooks/useReview';
-
+import PropTypes from 'prop-types';
 
 const ReviewChart = () => {
     const { reviews } = useReview();
@@ -19,7 +18,7 @@ const ReviewChart = () => {
 
     const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042', '#FF5733', '#C70039', '#900C3F'];
 
-    // Corrected Custom Shape
+    // Custom Shape
     const CustomBarShape = (props) => {
         const { x, y, width, height, fill } = props;
         return (
@@ -40,12 +39,21 @@ const ReviewChart = () => {
                             <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
                         ))}
                     </Bar>
-                   
                 </BarChart>
-                
             </ResponsiveContainer>
         </div>
     );
+};
+
+// Define prop types
+ReviewChart.propTypes = {
+    height: PropTypes.number, 
+    width: PropTypes.number, 
+    fill: PropTypes.number, 
+    x: PropTypes.number, 
+    y: PropTypes.number, 
+
+
 };
 
 export default ReviewChart;

@@ -6,7 +6,7 @@ function TopProducts() {
     const { products, isLoading: productsLoading } = useProduct();
     const { payments, isLoading: ordersLoading } = useOrder();
     const [topSellingProducts, setTopSellingProducts] = useState([]);
-    console.log(products);
+    // console.log(products);
 
     useEffect(() => {
         // Ensure both products and payments are arrays before proceeding
@@ -26,7 +26,7 @@ function TopProducts() {
                     });
                 }
             });
-            console.log(productSales);
+            // console.log(productSales);
 
             // Map aggregated data back to product details
             const sortedProducts = Object.keys(productSales)

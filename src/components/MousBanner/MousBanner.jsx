@@ -29,9 +29,9 @@ const MousBanner = () => {
                     data-aos="fade-left"
                     data-aos-offset="300"
                     data-aos-easing="ease-in-sine"
-                    className="relative z-10 text-start  p-6 md:p-10 lg:p-20  text-[#2F3132] max-w-md">
-                    <h2 className="text-3xl md:text-4xl font-bold">G705 WIRELESS GAMING MOUSE</h2>
-                    <p className="mt-2 md:mt-4 text-sm md:text-md">
+                    className="relative z-10 text-start  p-6 md:p-10 lg:p-20   max-w-md">
+                    <h2 className="text-3xl md:text-4xl text-[#2F3132] font-bold">G705 WIRELESS GAMING MOUSE</h2>
+                    <p className="mt-2 md:mt-4 text-sm text-[#2F3132] md:text-md">
                         Dreamy new design shaped for smaller hands, contoured for comfort, and fully equipped for your best play experience yet.
                     </p>
                     <button className="mt-4  underline hover:translate-x-1 duration-700  flex items-center  text-[#2F3132] font-semibold rounded">
