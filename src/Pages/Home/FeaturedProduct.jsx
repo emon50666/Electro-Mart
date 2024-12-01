@@ -15,6 +15,7 @@ const FeaturedProduct = () => {
         {products
           .filter(
             (product) =>
+              product?.title.length > 39 &&
               product?.isNew != "yes" &&
               (product?.isHot === "yes" ||
                 (product?.discountPercentage > 0 && product?.quantity > 0))
