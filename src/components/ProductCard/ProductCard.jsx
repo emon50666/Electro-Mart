@@ -51,7 +51,7 @@ const ProductCard = ({ product, refetch }) => {
         }
       })
       .catch((err) => {
-        // console.log(`Error = ${err}`);
+        console.log(`Error = ${err}`);
       });
   };
 
@@ -146,7 +146,7 @@ const ProductCard = ({ product, refetch }) => {
           <Link to={`/productDetails/${product._id}`}>
             <h4 className="font-semibold text-[12px] lg:text-base capitalize">
               {product?.title.length > 30
-                ? `${product?.title.slice(0, 30)}...`
+                ? `${product?.title.slice(0, 14)}...`
                 : product?.title}
             </h4>
           </Link>
@@ -192,7 +192,7 @@ const ProductCard = ({ product, refetch }) => {
         )}
 
         <button
-          className="py-2 font-semibold text-[12px] lg:text-base px-4 bg-blue-700 mt-4 text-white rounded flex items-center justify-center relative overflow-hidden"
+          className="py-2 font-semibold text-[12px] lg:text-base px-4 bg-blue-700 mt-4 text-white rounded flex items-center justify-center relative h-auto overflow-hidden"
           onClick={handleAddToCart}
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
