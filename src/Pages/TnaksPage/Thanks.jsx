@@ -1,9 +1,8 @@
 
-
 const Thanks = () => {
     return (
         <div>
-            your ordre rev
+            thanks page 
         </div>
     );
 };

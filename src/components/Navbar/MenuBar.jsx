@@ -23,19 +23,19 @@ const MenuBar = () => {
   if (isLoading) return <Loader />;
   return (
 
-    <div className="navbar hidden lg:flex   bg-[#030c35]  sm:hidden md:hidden ">
+    <div className="navbar  hidden lg:flex   bg-[#030c35]  sm:hidden md:hidden ">
 
     <div className="navbar hidden lg:flex  overflow-y-auto text-white sm:hidden md:hidden ">
 
       {/* All Category Hover Section */}
       <div
-        className=" relative "
+        className=" relative  px-2 "
         onMouseEnter={() => setIsOpen(true)}
         onMouseLeave={() => setIsOpen(false)}
       >
         {/* Toggle Button */}
         <div>
-          <button className="bg-blue-600 pt-1 pb-1 pl-3 pr-3  flex items-center rounded-full text-gray-100 text-md font-medium"> All Category <IoIosArrowUp className="items-center pt-1 text-2xl
+          <button className="bg-blue-600 pt-1 pb-1 pl-3 pr-3   flex items-center rounded-full text-gray-100 text-md font-medium"> All Category <IoIosArrowUp className="items-center pt-1 text-2xl
            font-bold"></IoIosArrowUp> </button>
         </div>
 

@@ -12,6 +12,8 @@ import UserAuth from "../../Hooks/useAuth";
 import { useNavigate } from "react-router-dom";
 import useTotalAmount from "../../Hooks/useTotalAmount";
 
+
+
 const CheckoutPage = () => {
   const { locations } = useLocation();
   const axiosPublic = useAxiosPublic();

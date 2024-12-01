@@ -7,6 +7,7 @@ import { useEffect } from "react";
 
 const Layout = () => {
     const location = useLocation();
+    
 
   useEffect(() => {
     // Scroll to the top of the page on every route change
@@ -22,6 +23,8 @@ const Layout = () => {
             </div>
             <BottomNavigation />
             <Footer />
+            
+            
         </div>
     );
 };

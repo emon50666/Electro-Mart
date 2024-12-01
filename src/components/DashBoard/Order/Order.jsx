@@ -5,7 +5,8 @@ import useAxiosPublic from "../../../Hooks/useAxiosPublic";
 import Swal from "sweetalert2";
 import { jsPDF } from "jspdf";
 import "jspdf-autotable";
-import logo from "../../../assets/images/logo_1.png"; 
+import logo from "../../../assets/images/new.png"; // Adjust the path to your logo image
+import axios from "axios";
 import Loader from "../../Loader/Loader";
 
 const Order = () => {
@@ -28,8 +29,8 @@ const Order = () => {
         await Promise.all(
           payments.flatMap((payment) =>
             payment.products.map(async (product) => {
-              const response = await axiosPublic.get(
-                `/products/${product.mainProductId}`
+              const response = await axios.get(
+                `http://localhost:3000/products/${product.mainProductId}`
               );
               allProductDetails[product.mainProductId] = response.data;
             })
@@ -45,7 +46,7 @@ const Order = () => {
     };
 
     if (payments) fetchProductDetails();
-  }, [axiosPublic, payments]);
+  }, [payments]);
 
   // Delete order
   const handleDeleteOrder = (id) => {
@@ -103,20 +104,38 @@ const Order = () => {
     ];
 
     const data = [
-      { detail: "Product", info: pay.product_name },
-      { detail: "Product Category", info: pay.product_category },
-      { detail: "Order ID", info: `#${pay.paymentId} ` },
-      { detail: "Name", info: pay.cus_name },
-      { detail: "Phone", info: pay.cus_phone },
-      { detail: "Division", info: pay.cus_state },
-      { detail: "District", info: pay.cus_add2 },
-      { detail: "City", info: pay.cus_city },
-      { detail: "Address", info: pay.cus_add1 },
-      { detail: "Payment Method", info: pay.payment_method },
-      { detail: "Shipping Method", info: pay.shipping_method },
-      { detail: "Status", info: pay.status },
-      { detail: "Total Price", info: `${pay.amount} Taka ` },
+      {
+        detail: "Product",
+        info: pay.products
+          .map(
+            (product, index) =>
+              `(${index + 1}): ${productDetails[product.mainProductId]?.title || "Loading..."}`
+          )
+          .join("\n"), // Use line breaks for multi-line display
+      },
+      {
+        detail: "Product Category",
+        info: pay.products
+          .map(
+            (product, index) =>
+              `${index + 1}. ${productDetails[product.mainProductId]?.category || "Loading..."}`
+          )
+          .join(", "),
+      },
+      { detail: "Order ID", info: `#${pay.tran_id}` },
+      { detail: "Name", info: pay.name },
+      { detail: "Phone", info: pay.number },
+      { detail: "Division", info: pay.division },
+      { detail: "District", info: pay.district },
+      { detail: "City", info: pay.city },
+      { detail: "Address", info: pay.address },
+      { detail: "Payment Method", info: pay.paymentMethod },
+      { detail: "Shipping Method", info: pay.shipping },
+      { detail: "Status", info: pay.orderStatus },
+      { detail: "Total Price", info: `${pay.totalAmount} Taka` },
     ];
+    
+    
 
     doc.autoTable(columns, data, {
       startY: 55,
@@ -141,7 +160,7 @@ const Order = () => {
     doc.save("customer_details.pdf");
   };
 
-  if (isLoading) return <Loader />;
+  if (isLoading) return <Loader />
 
   return (
     <div className="pt-10">
@@ -173,13 +192,15 @@ const Order = () => {
                     onClick={() => toggleAccordion(pay._id)}
                   >
                     <div className="font-normal">
-                      {pay.products
-                        .map(
-                          (product) =>
-                            productDetails[product.mainProductId]?.title ||
-                            "Loading..."
-                        )
-                        .join(", ")}
+                      <div>
+                        {pay.products.map((product, index) => (
+                          <div key={index}>
+                            {`(${index + 1}):  ${productDetails[product.mainProductId]?.title || "Loading..."}`}
+                            <br />
+                          </div>
+                        ))}
+                      </div>
+
                     </div>
                   </td>
                   <td className="text-blue-500 border-r font-semibold">
@@ -193,11 +214,10 @@ const Order = () => {
                   </td>
                   <td className="border-r">{pay?.shipping}</td>
                   <td
-                    className={`border-r ${
-                      pay?.orderStatus === "pending"
-                        ? "text-red-500"
-                        : "text-green-400 font-semibold capitalize"
-                    }`}
+                    className={`border-r ${pay?.orderStatus === "pending"
+                      ? "text-red-500"
+                      : "text-green-400 font-semibold capitalize"
+                      }`}
                   >
                     {pay?.orderStatus}
                   </td>
@@ -219,41 +239,60 @@ const Order = () => {
                             <h2 className="font-semibold px-4 py-2 text-sm">
                               Product:
                             </h2>
-                            <h2 className="pr-2 py-2 text-sm">
-                              ({pay?.product_name})
+                            <h2 className="pr-2 py-2 text-[13px]">
+                              <div>
+                                <div>
+                                  {pay.products.map((product, index) => (
+                                    <div key={index}>
+                                      {`(${index + 1}): ${productDetails[product.mainProductId]?.title || "Loading..."}`}
+                                      <br />
+                                    </div>
+                                  ))}
+                                </div>
+
+                              </div>
+
                             </h2>
                           </div>
                           <div className="border flex items-center">
                             <h2 className="font-semibold px-4 py-2 text-sm">
                               Product Category:
                             </h2>
-                            <h2 className="py-2">{pay?.product_category}</h2>
+                            <h2 className="py-2 flex gap-2">
+  {pay.products.map((product, index) => (
+    <span key={index} className="flex">
+      {productDetails[product.mainProductId]?.category || "Loading..."}
+      {index < pay.products.length - 1 && ","}
+    </span>
+  ))}
+</h2>
+
                           </div>
                           <div className="border flex items-center">
                             <h2 className="font-semibold px-4 py-2 text-sm">
                               Order ID:
                             </h2>
                             <h2 className="py-2 font-semibold">
-                              #{pay?.paymentId}
+                              #{pay?.tran_id}
                             </h2>
                           </div>
                           <div className="border flex items-center">
                             <h2 className="font-semibold px-4 py-2 text-sm">
                               Name:
                             </h2>
-                            <h2 className="py-2">{pay?.cus_name}</h2>
+                            <h2 className="py-2">{pay?.name}</h2>
                           </div>
                           <div className="border flex items-center">
                             <h2 className="font-semibold px-4 py-2 text-sm">
                               Phone:
                             </h2>
-                            <h2 className="py-2">{pay?.cus_phone}</h2>
+                            <h2 className="py-2">{pay?.number}</h2>
                           </div>
                           <div className="border flex items-center">
                             <h2 className="font-semibold px-4 py-2 text-sm">
                               Division:
                             </h2>
-                            <h2 className="py-2">{pay?.cus_state}</h2>
+                            <h2 className="py-2">{pay?.division}</h2>
                           </div>
                           <div className="border flex items-center">
                             <h2 className="font-semibold px-4 py-2 text-sm">
@@ -265,13 +304,13 @@ const Order = () => {
                             <h2 className="font-semibold px-4 py-2 text-sm">
                               City:
                             </h2>
-                            <h2 className="py-2">{pay?.cus_city}</h2>
+                            <h2 className="py-2">{pay?.city}</h2>
                           </div>
                           <div className="border flex items-center">
                             <h2 className="font-semibold px-4 py-2 text-sm">
                               Address:
                             </h2>
-                            <h2 className="py-2">{pay?.cus_add1}</h2>
+                            <h2 className="py-2">{pay?.division}</h2>
                           </div>
                           <div className="border flex items-center">
                             <h2 className="font-semibold px-4 py-2 text-sm">
@@ -283,28 +322,32 @@ const Order = () => {
                             <h2 className="font-semibold px-4 py-2 text-sm">
                               Shipping Method:
                             </h2>
-                            <h2 className="py-2">{pay?.shipping_method}</h2>
+                            <h2 className="py-2">{pay?.shipping}</h2>
                           </div>
                           <div className="border flex items-center">
                             <h2 className="font-semibold px-4 py-2 text-sm">
                               Status:
                             </h2>
-                            <h2 className="py-2">{pay?.status}</h2>
+                            <h2 className="py-2">{pay?.orderStatus}</h2>
                           </div>
                           <div className="border flex items-center">
                             <h2 className="font-semibold px-4 py-2 text-sm">
                               Total Price:
                             </h2>
                             <h2 className="py-2">{pay?.totalAmount} Taka</h2>
+
+                          </div>
+                          {/* Download PDF Button */}
+                          <div className="py-2 px-2 border">
+                            <button
+                              onClick={() => downloadPDF(pay)}
+                              className="bg-gradient-to-r from-[#A539D5] via-black to-violet-600 rounded-md py-2 px-4 text-white font-semibold"
+                            >
+                              Download PDF
+                            </button>
                           </div>
                         </div>
-                        {/* Download PDF Button */}
-                        <button
-                          onClick={() => downloadPDF(pay)}
-                          className="bg-blue-500 text-white px-4 py-2 rounded-md mt-4"
-                        >
-                          Download PDF
-                        </button>
+
                       </div>
                     </td>
                   </tr>
