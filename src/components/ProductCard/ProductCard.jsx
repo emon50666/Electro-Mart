@@ -12,11 +12,14 @@ import useAddToCart from "../../Hooks/useAddToCart";
 import useAddToCompare from "../../Hooks/useAddToCompare";
 import useAddToWishlist from "../../Hooks/useAddToWishlist";
 import useReview from "../../Hooks/useReview";
+import useRoll from "../../Hooks/useRoll";
 
 const ProductCard = ({ product, refetch }) => {
+  const [role] = useRoll();
+  console.log(role);
   const { reviews } = useReview();
-
   const allReview = reviews.filter((review) => review?.mainId === product?._id);
+  const [lengthTitle, setLengthTitle] = useState(product?.title.slice(0, 20));
 
   // Calculate average rating
   const calculateAverageRating = (products) => {
@@ -50,8 +53,8 @@ const ProductCard = ({ product, refetch }) => {
           refetch();
         }
       })
-      .catch((err) => {
-        console.log(`Error = ${err}`);
+      .catch(() => {
+        // console.log(`Error = ${err}`);
       });
   };
 
@@ -77,8 +80,8 @@ const ProductCard = ({ product, refetch }) => {
   };
 
   return (
-    <div className="    bg-[#F6F6F6]">
-      <div className="relative p-3 hover:shadow-lg rounded-md bg-white group">
+    <div className="bg-[#F6F6F6] h-full">
+      <div className="relative p-3 hover:shadow-lg rounded-md bg-white group h-full">
         <Link to={`/productDetails/${product._id}`}>
           {product.images.length > 1 && (
             <HoverImage
@@ -101,12 +104,16 @@ const ProductCard = ({ product, refetch }) => {
         </Link>
 
         <div className="absolute top-1/3 z-50 right-4 transform -translate-y-1/2 translate-x-full group-hover:translate-x-0 group-hover:opacity-100 opacity-0 group-hover:pointer-events-auto pointer-events-none transition-all duration-500 ease-in-out bg-white p-2 rounded-md border shadow-lg flex flex-col space-y-4">
-          <button onClick={handleAddToWishlist}>
-            <FaHeart className="text-lg text-blue-600" />
-          </button>
-          <button onClick={handleAddToCompare}>
-            <IoGitCompareOutline className="text-lg text-blue-600" />
-          </button>
+          {role === "member" && (
+            <>
+              <button onClick={handleAddToWishlist}>
+                <FaHeart className="text-lg text-blue-600" />
+              </button>
+              <button onClick={handleAddToCompare}>
+                <IoGitCompareOutline className="text-lg text-blue-600" />
+              </button>
+            </>
+          )}
           <Link
             to={`/productDetails/${product._id}`}
             onClick={() => handleViewCount(product._id)}
@@ -125,8 +132,8 @@ const ProductCard = ({ product, refetch }) => {
         <div
           className={`mt-3 capitalize absolute  ${
             product?.isHot === "yes"
-              ? "bottom-[212px] md:bottom-[210px] lg:bottom-[333px] xl:bottom-[340px]"
-              : "bottom-[234px] md:bottom-[330px]  lg:bottom-[357px] xl:bottom-[340px]"
+              ? "bottom-[212px] md:bottom-[210px] lg:bottom-[333px] xl:bottom-[330px]"
+              : "bottom-[234px] md:bottom-[330px]  lg:bottom-[357px] xl:bottom-[330px]"
           } md:bottom-[330px] inset-x-0 px-2`}
         >
           {product?.isNew === "yes" && (
@@ -144,10 +151,8 @@ const ProductCard = ({ product, refetch }) => {
 
         <div>
           <Link to={`/productDetails/${product._id}`}>
-            <h4 className="font-semibold text-[12px] lg:text-base capitalize">
-              {product?.title.length > 30
-                ? `${product?.title.slice(0, 14)}...`
-                : product?.title}
+            <h4 className={`font-semibold text-[12px] lg:text-base capitalize`}>
+              {lengthTitle}...
             </h4>
           </Link>
           <div className="flex items-center justify-between">
@@ -182,7 +187,7 @@ const ProductCard = ({ product, refetch }) => {
             </span>
             <p className="font-bold text-blue-500 text-[13px] lg:text-base">
               {" "}
-              ৳ {product?.discountPrice}{" "}
+              ৳ {parseInt(product?.discountPrice)}{" "}
             </p>
           </div>
         ) : (
@@ -192,10 +197,13 @@ const ProductCard = ({ product, refetch }) => {
         )}
 
         <button
-          className="py-2 font-semibold text-[12px] lg:text-base px-4 bg-blue-700 mt-4 text-white rounded flex items-center justify-center relative h-auto overflow-hidden"
+          className={`py-2 font-semibold text-[12px] lg:text-base px-4 bg-blue-700 mt-4 text-white rounded flex items-center justify-center relative overflow-hidden ${
+            role === "admin" && "cursor-not-allowed"
+          }`}
           onClick={handleAddToCart}
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
+          disabled={role === "admin"}
           style={{ height: "2.5rem", width: "100%" }}
         >
           <span
@@ -216,6 +224,7 @@ const ProductCard = ({ product, refetch }) => {
             }`}
           />
         </button>
+
         {cartOpen && <AddCart setCartOpen={setCartOpen} />}
       </div>
     </div>

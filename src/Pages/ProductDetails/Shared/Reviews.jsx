@@ -5,7 +5,9 @@ import ReactStars from "react-stars";
 import useReview from "../../../Hooks/useReview";
 import Loader from "../../../components/Loader/Loader";
 import PropType from "prop-types";
+import useRoll from "../../../Hooks/useRoll";
 const Reviews = ({ mainId }) => {
+  const [role] = useRoll();
   const { reviews, refetch, isLoading } = useReview();
   const [name, setName] = useState("");
   const [rating, setRating] = useState(0);
@@ -55,8 +57,10 @@ const Reviews = ({ mainId }) => {
       setReviewText("");
       setRating(0);
       setSelectedImages([]);
-      toast.success("Thanks for your review!");
-      refetch();
+      if (res.data.insertedId) {
+        toast.success("Thanks for your review!");
+        refetch();
+      }
     } catch (error) {
       console.error("Error submitting review:", error);
       toast.error("Failed to submit review");
@@ -77,57 +81,59 @@ const Reviews = ({ mainId }) => {
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-5">
-      <div className="p-4">
-        <div className="flex mb-5 gap-4 items-center">
-          <h2>Your Rating:</h2>
-          <ReactStars
-            count={5}
-            value={rating}
-            onChange={ratingChanged}
-            size={24}
-            color2={"#ffd700"}
-          />
-        </div>
-        <div>
-          <input
-            type="text"
-            placeholder="Your Name"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            className="input outline-none focus:border-none input-bordered input-warning w-full"
-          />
-          <textarea
-            value={reviewText}
-            onChange={(e) => setReviewText(e.target.value)}
-            className="textarea textarea-warning w-full outline-none mt-2 focus:border-none"
-            placeholder="Review Message"
-          ></textarea>
-          <input
-            type="file"
-            name="images"
-            multiple
-            onChange={handleFileChange}
-            className="file-input outline-none focus:border-none mt-2 file-input-bordered w-full"
-          />
-          <div className="mt-2 flex gap-">
-            {selectedImages.length > 0 &&
-              selectedImages.map((image, index) => (
-                <img
-                  key={index}
-                  src={URL.createObjectURL(image)}
-                  alt="Selected"
-                  className="w-10 h-10 object-cover mr-2 mt-2"
-                />
-              ))}
+      {role === "member" && (
+        <div className="p-4">
+          <div className="flex mb-5 gap-4 items-center">
+            <h2>Your Rating:</h2>
+            <ReactStars
+              count={5}
+              value={rating}
+              onChange={ratingChanged}
+              size={24}
+              color2={"#ffd700"}
+            />
           </div>
-          <button
-            onClick={handleReviewSubmit}
-            className="px-4 py-2 w-full mt-2 rounded-full text-white font-semibold hover:bg-black hover:text-blue-50 duration-300 bg-blue-500"
-          >
-            Submit
-          </button>
+          <div>
+            <input
+              type="text"
+              placeholder="Your Name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              className="input outline-none focus:border-none input-bordered input-warning w-full"
+            />
+            <textarea
+              value={reviewText}
+              onChange={(e) => setReviewText(e.target.value)}
+              className="textarea textarea-warning w-full outline-none mt-2 focus:border-none"
+              placeholder="Review Message"
+            ></textarea>
+            <input
+              type="file"
+              name="images"
+              multiple
+              onChange={handleFileChange}
+              className="file-input outline-none focus:border-none mt-2 file-input-bordered w-full"
+            />
+            <div className="mt-2 flex gap-">
+              {selectedImages.length > 0 &&
+                selectedImages.map((image, index) => (
+                  <img
+                    key={index}
+                    src={URL.createObjectURL(image)}
+                    alt="Selected"
+                    className="w-10 h-10 object-cover mr-2 mt-2"
+                  />
+                ))}
+            </div>
+            <button
+              onClick={handleReviewSubmit}
+              className="px-4 py-2 w-full mt-2 rounded-full text-white font-semibold hover:bg-black hover:text-blue-50 duration-300 bg-blue-500"
+            >
+              Submit
+            </button>
+          </div>
         </div>
-      </div>
+      )}
 
       <div className="p-4 border-l-2 border-gray-200">
         <h3 className="text-lg font-semibold border-b w-40 border-gray-200 mb-4">
