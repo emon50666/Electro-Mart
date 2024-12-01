@@ -18,8 +18,8 @@ const ProductCard = ({ product, refetch }) => {
   const [role] = useRoll();
   console.log(role);
   const { reviews } = useReview();
-
   const allReview = reviews.filter((review) => review?.mainId === product?._id);
+  const [lengthTitle, setLengthTitle] = useState(product?.title.slice(0, 20));
 
   // Calculate average rating
   const calculateAverageRating = (products) => {
@@ -80,8 +80,8 @@ const ProductCard = ({ product, refetch }) => {
   };
 
   return (
-    <div className="    bg-[#F6F6F6]">
-      <div className="relative p-3 hover:shadow-lg rounded-md bg-white group">
+    <div className="bg-[#F6F6F6] h-full">
+      <div className="relative p-3 hover:shadow-lg rounded-md bg-white group h-full">
         <Link to={`/productDetails/${product._id}`}>
           {product.images.length > 1 && (
             <HoverImage
@@ -132,8 +132,8 @@ const ProductCard = ({ product, refetch }) => {
         <div
           className={`mt-3 capitalize absolute  ${
             product?.isHot === "yes"
-              ? "bottom-[212px] md:bottom-[210px] lg:bottom-[333px] xl:bottom-[340px]"
-              : "bottom-[234px] md:bottom-[330px]  lg:bottom-[357px] xl:bottom-[340px]"
+              ? "bottom-[212px] md:bottom-[210px] lg:bottom-[333px] xl:bottom-[330px]"
+              : "bottom-[234px] md:bottom-[330px]  lg:bottom-[357px] xl:bottom-[330px]"
           } md:bottom-[330px] inset-x-0 px-2`}
         >
           {product?.isNew === "yes" && (
@@ -151,10 +151,8 @@ const ProductCard = ({ product, refetch }) => {
 
         <div>
           <Link to={`/productDetails/${product._id}`}>
-            <h4 className="font-semibold text-[12px] lg:text-base capitalize">
-              {product?.title.length > 30
-                ? `${product?.title.slice(0, 30)}...`
-                : product?.title}
+            <h4 className={`font-semibold text-[12px] lg:text-base capitalize`}>
+              {lengthTitle}...
             </h4>
           </Link>
           <div className="flex items-center justify-between">
@@ -189,7 +187,7 @@ const ProductCard = ({ product, refetch }) => {
             </span>
             <p className="font-bold text-blue-500 text-[13px] lg:text-base">
               {" "}
-              ৳ {product?.discountPrice}{" "}
+              ৳ {parseInt(product?.discountPrice)}{" "}
             </p>
           </div>
         ) : (
@@ -198,33 +196,34 @@ const ProductCard = ({ product, refetch }) => {
           </div>
         )}
 
-        {role === "member" && (
-          <button
-            className="py-2 font-semibold text-[12px] lg:text-base px-4 bg-blue-700 mt-4 text-white rounded flex items-center justify-center relative overflow-hidden"
-            onClick={handleAddToCart}
-            onMouseEnter={() => setIsHovered(true)}
-            onMouseLeave={() => setIsHovered(false)}
-            style={{ height: "2.5rem", width: "100%" }}
+        <button
+          className={`py-2 font-semibold text-[12px] lg:text-base px-4 bg-blue-700 mt-4 text-white rounded flex items-center justify-center relative overflow-hidden ${
+            role === "admin" && "cursor-not-allowed"
+          }`}
+          onClick={handleAddToCart}
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => setIsHovered(false)}
+          disabled={role === "admin"}
+          style={{ height: "2.5rem", width: "100%" }}
+        >
+          <span
+            className={`absolute transition-all flex gap-3 duration-500 ease-in-out ${
+              isHovered
+                ? "translate-y-full opacity-0"
+                : "translate-y-0 opacity-100"
+            }`}
           >
-            <span
-              className={`absolute transition-all flex gap-3 duration-500 ease-in-out ${
-                isHovered
-                  ? "translate-y-full opacity-0"
-                  : "translate-y-0 opacity-100"
-              }`}
-            >
-              <FaCartShopping className="items-center  mt-1" /> Add To Cart
-            </span>
-            <BsCart
-              size={20}
-              className={`absolute transition-all duration-500 ease-in-out ${
-                isHovered
-                  ? "translate-y-0 opacity-100"
-                  : "translate-y-full opacity-0"
-              }`}
-            />
-          </button>
-        )}
+            <FaCartShopping className="items-center  mt-1" /> Add To Cart
+          </span>
+          <BsCart
+            size={20}
+            className={`absolute transition-all duration-500 ease-in-out ${
+              isHovered
+                ? "translate-y-0 opacity-100"
+                : "translate-y-full opacity-0"
+            }`}
+          />
+        </button>
 
         {cartOpen && <AddCart setCartOpen={setCartOpen} />}
       </div>

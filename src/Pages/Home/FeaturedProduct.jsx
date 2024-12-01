@@ -11,18 +11,20 @@ const FeaturedProduct = () => {
       <div>
         <h3 className="text-2xl mb-5 font-bold">Featured Products</h3>
       </div>
-      <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-3">
+      <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-3">
         {products
           .filter(
             (product) =>
-              product?.isHot === "yes" &&
               product?.isNew != "yes" &&
-              product?.discountPercentage > 0 &&
-              product?.quantity > 0
+              (product?.isHot === "yes" ||
+                (product?.discountPercentage > 0 && product?.quantity > 0))
           )
           .slice(0, 10)
           .map((product, idx) => (
-            <div key={idx} className="snap-start flex-shrink-0 w-full sm:w-auto">
+            <div
+              key={idx}
+              className="snap-start flex-shrink-0 w-full sm:w-auto"
+            >
               <ProductCard product={product} refetch={refetch} />
             </div>
           ))}
