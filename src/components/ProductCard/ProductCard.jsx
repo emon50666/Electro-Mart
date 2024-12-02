@@ -19,7 +19,7 @@ const ProductCard = ({ product, refetch }) => {
   console.log(role);
   const { reviews } = useReview();
   const allReview = reviews.filter((review) => review?.mainId === product?._id);
-  const [lengthTitle, ] = useState(product?.title.slice(0, 40));
+  const [lengthTitle, ] = useState(product?.title.slice(0, 35));
 
   // Calculate average rating
   const calculateAverageRating = (products) => {
@@ -81,7 +81,7 @@ const ProductCard = ({ product, refetch }) => {
 
   return (
     <div className="bg-[#F6F6F6] h-full">
-      <div className="relative p-3 hover:shadow-lg rounded-md bg-white group h-full">
+      <div className="relative  hover:shadow-lg rounded-md bg-white  px-2 py-2 group h-full">
         <Link to={`/productDetails/${product._id}`}>
           {product.images.length > 1 && (
             <HoverImage
