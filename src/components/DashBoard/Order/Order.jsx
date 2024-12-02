@@ -30,7 +30,7 @@ const Order = () => {
           payments.flatMap((payment) =>
             payment.products.map(async (product) => {
               const response = await axios.get(
-                `http://localhost:9000/products/${product.mainProductId}`
+                `https://electro-mart-server-sable.vercel.app/products/${product.mainProductId}`
               );
               allProductDetails[product.mainProductId] = response.data;
             })
