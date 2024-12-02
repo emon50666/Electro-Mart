@@ -10,7 +10,7 @@ import NewHomeOffer from "./Shared/NewHomeOffer";
 
 const Home = () => {
   return (
-    <div className="bg-[#F6F6F6]">
+    <div className="bg-[#F6F6F6] pb-16">
       <Helmet>
         <title>Home | Electro Mart</title>
       </Helmet>
