@@ -19,7 +19,7 @@ const ProductCard = ({ product, refetch }) => {
   console.log(role);
   const { reviews } = useReview();
   const allReview = reviews.filter((review) => review?.mainId === product?._id);
-  const [lengthTitle, setLengthTitle] = useState(product?.title.slice(0, 20));
+  const [lengthTitle, ] = useState(product?.title.slice(0, 40));
 
   // Calculate average rating
   const calculateAverageRating = (products) => {

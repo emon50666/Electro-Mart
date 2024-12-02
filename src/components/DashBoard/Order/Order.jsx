@@ -30,7 +30,7 @@ const Order = () => {
           payments.flatMap((payment) =>
             payment.products.map(async (product) => {
               const response = await axios.get(
-                `http://localhost:3000/products/${product.mainProductId}`
+                `http://localhost:9000/products/${product.mainProductId}`
               );
               allProductDetails[product.mainProductId] = response.data;
             })
@@ -109,7 +109,9 @@ const Order = () => {
         info: pay.products
           .map(
             (product, index) =>
-              `(${index + 1}): ${productDetails[product.mainProductId]?.title || "Loading..."}`
+              `(${index + 1}): ${
+                productDetails[product.mainProductId]?.title || "Loading..."
+              }`
           )
           .join("\n"), // Use line breaks for multi-line display
       },
@@ -118,7 +120,9 @@ const Order = () => {
         info: pay.products
           .map(
             (product, index) =>
-              `${index + 1}. ${productDetails[product.mainProductId]?.category || "Loading..."}`
+              `${index + 1}. ${
+                productDetails[product.mainProductId]?.category || "Loading..."
+              }`
           )
           .join(", "),
       },
@@ -134,8 +138,6 @@ const Order = () => {
       { detail: "Status", info: pay.orderStatus },
       { detail: "Total Price", info: `${pay.totalAmount} Taka` },
     ];
-    
-    
 
     doc.autoTable(columns, data, {
       startY: 55,
@@ -160,7 +162,7 @@ const Order = () => {
     doc.save("customer_details.pdf");
   };
 
-  if (isLoading) return <Loader />
+  if (isLoading) return <Loader />;
 
   return (
     <div className="pt-10">
@@ -195,12 +197,14 @@ const Order = () => {
                       <div>
                         {pay.products.map((product, index) => (
                           <div key={index}>
-                            {`(${index + 1}):  ${productDetails[product.mainProductId]?.title || "Loading..."}`}
+                            {`(${index + 1}):  ${
+                              productDetails[product.mainProductId]?.title ||
+                              "Loading..."
+                            }`}
                             <br />
                           </div>
                         ))}
                       </div>
-
                     </div>
                   </td>
                   <td className="text-blue-500 border-r font-semibold">
@@ -214,10 +218,11 @@ const Order = () => {
                   </td>
                   <td className="border-r">{pay?.shipping}</td>
                   <td
-                    className={`border-r ${pay?.orderStatus === "pending"
-                      ? "text-red-500"
-                      : "text-green-400 font-semibold capitalize"
-                      }`}
+                    className={`border-r ${
+                      pay?.orderStatus === "pending"
+                        ? "text-red-500"
+                        : "text-green-400 font-semibold capitalize"
+                    }`}
                   >
                     {pay?.orderStatus}
                   </td>
@@ -244,14 +249,15 @@ const Order = () => {
                                 <div>
                                   {pay.products.map((product, index) => (
                                     <div key={index}>
-                                      {`(${index + 1}): ${productDetails[product.mainProductId]?.title || "Loading..."}`}
+                                      {`(${index + 1}): ${
+                                        productDetails[product.mainProductId]
+                                          ?.title || "Loading..."
+                                      }`}
                                       <br />
                                     </div>
                                   ))}
                                 </div>
-
                               </div>
-
                             </h2>
                           </div>
                           <div className="border flex items-center">
@@ -259,14 +265,14 @@ const Order = () => {
                               Product Category:
                             </h2>
                             <h2 className="py-2 flex gap-2">
-  {pay.products.map((product, index) => (
-    <span key={index} className="flex">
-      {productDetails[product.mainProductId]?.category || "Loading..."}
-      {index < pay.products.length - 1 && ","}
-    </span>
-  ))}
-</h2>
-
+                              {pay.products.map((product, index) => (
+                                <span key={index} className="flex">
+                                  {productDetails[product.mainProductId]
+                                    ?.category || "Loading..."}
+                                  {index < pay.products.length - 1 && ","}
+                                </span>
+                              ))}
+                            </h2>
                           </div>
                           <div className="border flex items-center">
                             <h2 className="font-semibold px-4 py-2 text-sm">
@@ -335,7 +341,6 @@ const Order = () => {
                               Total Price:
                             </h2>
                             <h2 className="py-2">{pay?.totalAmount} Taka</h2>
-
                           </div>
                           {/* Download PDF Button */}
                           <div className="py-2 px-2 border">
@@ -347,7 +352,6 @@ const Order = () => {
                             </button>
                           </div>
                         </div>
-
                       </div>
                     </td>
                   </tr>
