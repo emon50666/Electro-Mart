@@ -16,7 +16,7 @@ import useRoll from "../../Hooks/useRoll";
 
 const ProductCard = ({ product, refetch }) => {
   const [role] = useRoll();
-  console.log(role);
+  // console.log(role);
   const { reviews } = useReview();
   const allReview = reviews.filter((review) => review?.mainId === product?._id);
   const [lengthTitle, ] = useState(product?.title.slice(0, 40));
