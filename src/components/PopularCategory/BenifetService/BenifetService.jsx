@@ -6,7 +6,7 @@ const BenifetService = () => {
     { icon: <FaStore />, text: "Open new stores in your city" },
     { icon: <FaTruck />, text: "Free fast express delivery with tracking" },
     { icon: <FaShieldAlt />, text: "Equipment loose and damage insurance" },
-    { icon: <FaCreditCard />, text: "Installment without overpayments" },
+    { icon: <FaCreditCard />, text: "Installment without over payments" },
     { icon: <RiDiscountPercentFill />, text: "Log in get up to 50% discounts" },
   ];
   return (
