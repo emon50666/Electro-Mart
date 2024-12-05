@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { IoIosArrowUp } from "react-icons/io";
+import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 
 import Loader from "../Loader/Loader";
 import useCategory from "../../Hooks/useCategory";
@@ -43,10 +43,15 @@ const MenuBar = () => {
         {/* Toggle Button */}
         <button
           onMouseEnter={() => setIsOpen(true)}
+          onClick={() => setIsOpen(false)}
           className="bg-blue-600 pt-1 pb-1 pl-3 pr-3 flex items-center rounded-full text-gray-100 text-md font-medium"
         >
           All Category
-          <IoIosArrowUp className="items-center pt-1 text-2xl font-bold" />
+          {isOpen ? (
+            <IoIosArrowDown className="items-center pt-1 text-2xl font-bold" />
+          ) : (
+            <IoIosArrowUp className="items-center pt-1 text-2xl font-bold" />
+          )}
         </button>
 
         {/* Dropdown Menu */}
