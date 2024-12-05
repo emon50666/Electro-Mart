@@ -32,7 +32,6 @@ Welcome to **Electro Mart** – your go-to eCommerce platform for electronic pro
 - **MongoDB**: NoSQL database for storing product, user, and order data.
 
 ### **Payment Methods**:
-- **Firebase**: For secure user authentication and data storage.
 - **Stripe**: For handling secure payments online.
 - **Bkash, Nagad, Rocket**: Integrated local payment gateways for seamless transactions.
 
