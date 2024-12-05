@@ -56,7 +56,7 @@ const MenuBar = () => {
   if (isLoading) return <Loader />;
 
   return (
-    <div className="navbar hidden lg:flex bg-gradient-to-r from-blue-600 via-teal-400 to-indigo-600 text-white w-full">
+    <div className="navbar hidden lg:flex bg-gradient-to-r from-blue-600 to-indigo-600 text-white w-full">
       {/* left side */}
       <div
         className="relative px-2 w-full gap-x-5 font_inter"
@@ -111,8 +111,8 @@ const MenuBar = () => {
                   to={link.path}
                   className={({ isActive }) =>
                     `text-md font-medium hover:text-teal-300 ${
-                      isActive ? "text-cyan-200 underline" : "text-white"
-                    }`
+                      isActive ? "bg-gray-50/40 underline rounded" : "text-white"
+                    }  bg-gray-50/25 px-5 py-1`
                   }
                 >
                   {link.title}
