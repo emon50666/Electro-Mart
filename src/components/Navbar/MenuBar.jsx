@@ -39,10 +39,12 @@ const MenuBar = () => {
       <div
         className="relative px-2 w-full"
         ref={dropdownRef} // Attach ref to the dropdown container
-        onMouseEnter={() => setIsOpen(true)}
       >
         {/* Toggle Button */}
-        <button className="bg-blue-600 pt-1 pb-1 pl-3 pr-3 flex items-center rounded-full text-gray-100 text-md font-medium">
+        <button
+          onMouseEnter={() => setIsOpen(true)}
+          className="bg-blue-600 pt-1 pb-1 pl-3 pr-3 flex items-center rounded-full text-gray-100 text-md font-medium"
+        >
           All Category
           <IoIosArrowUp className="items-center pt-1 text-2xl font-bold" />
         </button>
@@ -75,7 +77,7 @@ const MenuBar = () => {
       </div>
 
       {/* Horizontal Menu */}
-      <div className="flex-1">
+      {/* <div className="flex-1">
         <ul className="menu-horizontal px-1 space-x-2">
           {categories.map(
             (cat, idx) =>
@@ -94,7 +96,7 @@ const MenuBar = () => {
               )
           )}
         </ul>
-      </div>
+      </div> */}
     </div>
   );
 };

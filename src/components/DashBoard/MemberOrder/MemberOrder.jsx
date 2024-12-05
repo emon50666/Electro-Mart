@@ -5,6 +5,7 @@ import Loader from "../../Loader/Loader";
 import useFilteredOrders from "../../../Hooks/useFilterOrder";
 import useAxiosPublic from "../../../Hooks/useAxiosPublic";
 import UserAuth from "../../../Hooks/useAuth";
+import useOrder from "../../../Hooks/useOrder";
 
 const MemberOrder = () => {
   const { user } = UserAuth();
@@ -13,6 +14,7 @@ const MemberOrder = () => {
   const [productDetails, setProductDetails] = useState({});
   const [isLoading, setIsLoading] = useState(true);
   const [showDetails, setShowDetails] = useState({});
+  const { refetch } = useOrder();
 
   // Fetch product details for each order
   useEffect(() => {
@@ -55,6 +57,7 @@ const MemberOrder = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         axiosPublic.delete(`/orders/${id}`).then(() => {
+          refetch();
           // Optionally refetch or update the UI after deletion
         });
       }
