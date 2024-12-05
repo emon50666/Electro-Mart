@@ -48,7 +48,7 @@ const MenuBar = () => {
       path: "/promotion",
     },
     {
-      title: "Contact",
+      title: "Contact Us",
       path: "/contacts",
     },
   ];
@@ -56,7 +56,7 @@ const MenuBar = () => {
   if (isLoading) return <Loader />;
 
   return (
-    <div className="navbar hidden lg:flex bg-gradient-to-r from-blue-600 to-indigo-600 text-white w-full">
+    <div className="navbar hidden lg:flex bg-gradient-to-r from-blue-700 via-blue-600 to-blue-500 text-white w-full">
       {/* left side */}
       <div
         className="relative px-2 w-full gap-x-5 font_inter"
@@ -67,7 +67,7 @@ const MenuBar = () => {
           <button
             onMouseEnter={() => setIsOpen(true)}
             onClick={() => setIsOpen(false)}
-            className="bg-blue-700 pt-1 pb-1 pl-3 pr-3 flex items-center rounded-full shadow-white text-gray-100 text-md font-medium"
+            className="bg-blue-500 pt-1 pb-1 pl-3 pr-3 flex items-center rounded-full shadow-white text-gray-100 text-md font-medium"
           >
             All Category
             {isOpen ? (
@@ -111,7 +111,9 @@ const MenuBar = () => {
                   to={link.path}
                   className={({ isActive }) =>
                     `text-md font-medium hover:text-teal-300 ${
-                      isActive ? "bg-gray-50/40 underline rounded" : "text-white"
+                      isActive
+                        ? "bg-gray-50/40 underline rounded text-teal-300"
+                        : "text-white"
                     }  bg-gray-50/25 px-5 py-1`
                   }
                 >
