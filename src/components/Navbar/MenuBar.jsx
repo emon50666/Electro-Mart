@@ -1,11 +1,11 @@
 import { useState, useEffect, useRef } from "react";
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 import Loader from "../Loader/Loader";
-import useCategory from "../../Hooks/useCategory";
 import { Link, NavLink } from "react-router-dom";
+import useCategories from "../../Hooks/useCategories";
 
 const MenuBar = () => {
-  const { category: categories, isLoading } = useCategory();
+  const { categories, isLoading } = useCategories();
   const [isOpen, setIsOpen] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState("");
   const dropdownRef = useRef(null);
@@ -31,36 +31,21 @@ const MenuBar = () => {
   }, []);
 
   const navLinks = [
-    {
-      title: "Home",
-      path: "/",
-    },
-    {
-      title: "Shop",
-      path: "/shop-page",
-    },
-    {
-      title: "Store",
-      path: "/storesPage",
-    },
-    {
-      title: "Promotion",
-      path: "/promotion",
-    },
-    {
-      title: "Contact Us",
-      path: "/contacts",
-    },
+    { title: "Home", path: "/" },
+    { title: "Shop", path: "/shop-page" },
+    { title: "Store", path: "/storesPage" },
+    { title: "Promotion", path: "/promotion" },
+    { title: "Contact Us", path: "/contacts" },
   ];
 
   if (isLoading) return <Loader />;
 
   return (
     <div className="navbar hidden lg:flex bg-gradient-to-r from-blue-700 via-blue-600 to-blue-500 text-white w-full">
-      {/* left side */}
+      {/* Left side */}
       <div
         className="relative px-2 w-full gap-x-5 font_inter"
-        ref={dropdownRef} // Attach ref to the dropdown container
+        ref={dropdownRef}
       >
         {/* Toggle Button */}
         <div>
@@ -78,22 +63,22 @@ const MenuBar = () => {
           </button>
           {/* Dropdown Menu */}
           {isOpen && (
-            <div className="absolute top-full left-5 z-40 w-full bg-white shadow-lg border border-gray-200 mt-2 rounded-lg overflow-hidden">
-              <ul className="space-y-2 p-4">
+            <div className="absolute top-full left-5 z-40 w-full bg-white shadow-lg border border-gray-200 mt-2 rounded-lg overflow-hidden px-5 py-3">
+              <ul className="grid lg:grid-cols-10 xl:grid-cols-12 gap-y-2">
                 {categories.map(
                   (cat, idx) =>
-                    cat && (
+                    cat.newCategory && (
                       <li key={idx}>
                         <Link
-                          to={`/shop-page?category=${cat}`}
-                          className={`text-md font-medium px-2 py-1 block hover:bg-gray-100 hover:text-blue-500 ${
-                            selectedCategory === cat
+                          to={`/shop-page?category=${cat.newCategory}`}
+                          className={`text-md font-medium px-2 py-1 block text-gray-600 hover:text-blue-500 hover:underline ${
+                            selectedCategory === cat.newCategory
                               ? "text-blue-600"
                               : "text-black"
                           }`}
-                          onClick={() => handleCategoryClick(cat)}
+                          onClick={() => handleCategoryClick(cat.newCategory)}
                         >
-                          {cat}
+                          {cat.newCategory}
                         </Link>
                       </li>
                     )
@@ -102,7 +87,8 @@ const MenuBar = () => {
             </div>
           )}
         </div>
-        {/* navigation btn */}
+
+        {/* Navigation Buttons */}
         <div>
           <ul className="flex gap-x-3">
             {navLinks.map((link, idx) => (
@@ -114,7 +100,7 @@ const MenuBar = () => {
                       isActive
                         ? "bg-gray-50/40 underline rounded text-teal-300"
                         : "text-white"
-                    }  bg-gray-50/25 px-5 py-1`
+                    } bg-gray-50/25 px-5 py-1`
                   }
                 >
                   {link.title}
@@ -124,8 +110,6 @@ const MenuBar = () => {
           </ul>
         </div>
       </div>
-      {/* right side */}
-      <div></div>
     </div>
   );
 };
