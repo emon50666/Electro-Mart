@@ -16,10 +16,10 @@ import useRoll from "../../Hooks/useRoll";
 
 const ProductCard = ({ product, refetch }) => {
   const [role] = useRoll();
-  console.log(role);
+  // console.log(role);
   const { reviews } = useReview();
   const allReview = reviews.filter((review) => review?.mainId === product?._id);
-  const [lengthTitle, ] = useState(product?.title.slice(0, 40));
+  const [lengthTitle] = useState(product?.title.slice(0, 40));
 
   // Calculate average rating
   const calculateAverageRating = (products) => {
@@ -174,7 +174,7 @@ const ProductCard = ({ product, refetch }) => {
 
         {product?.discountPrice == product?.price ? (
           <div className="flex gap-2 ">
-            <p className="font-bold text-blue-500 text-[10px] lg:text-base">
+            <p className="font-bold text-blue-500 text-sm lg:text-base">
               {" "}
               ৳ {product?.price}
             </p>
@@ -185,7 +185,7 @@ const ProductCard = ({ product, refetch }) => {
               {" "}
               ৳{product?.price}
             </span>
-            <p className="font-bold text-blue-500 text-[13px] lg:text-base">
+            <p className="font-bold text-blue-500 text-sm lg:text-base">
               {" "}
               ৳ {parseInt(product?.discountPrice)}{" "}
             </p>
@@ -197,7 +197,7 @@ const ProductCard = ({ product, refetch }) => {
         )}
 
         <button
-          className={`py-2 font-semibold text-[12px] lg:text-base px-4 bg-blue-700 mt-4 text-white rounded flex items-center justify-center relative overflow-hidden ${
+          className={`py-2 font-semibold text-sm lg:text-base px-4 bg-blue-700 mt-4 text-white rounded flex items-center justify-center relative overflow-hidden ${
             role === "admin" && "cursor-not-allowed"
           }`}
           onClick={handleAddToCart}

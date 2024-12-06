@@ -1,12 +1,11 @@
 import { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
-import useProduct from "../../Hooks/useProduct"; 
-import { FaBangladeshiTakaSign } from 'react-icons/fa6';
-
+import useProduct from "../../Hooks/useProduct";
+import { FaBangladeshiTakaSign } from "react-icons/fa6";
 
 const SearchBar = () => {
   const { products } = useProduct();
-  const [search, setSearch] = useState('');
+  const [search, setSearch] = useState("");
   const [showResults, setShowResults] = useState(true);
   const searchRef = useRef(null);
 
@@ -17,10 +16,10 @@ const SearchBar = () => {
       }
     };
 
-    document.addEventListener('mousedown', handleClickOutside);
+    document.addEventListener("mousedown", handleClickOutside);
 
     return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener("mousedown", handleClickOutside);
     };
   }, []);
 
@@ -28,11 +27,7 @@ const SearchBar = () => {
   const filteredProducts = products.filter((product) => {
     const searchTerm = search.toLocaleLowerCase();
     return (
-
       product?.title?.toLocaleLowerCase().includes(searchTerm) ||
-
-      product?.title?.toLocaleLowerCase().includes(searchTerm) ||
-
       product?.brand?.toLocaleLowerCase().includes(searchTerm) ||
       product?.category?.toLocaleLowerCase().includes(searchTerm)
     );
@@ -51,8 +46,8 @@ const SearchBar = () => {
         <input
           type="text"
           name="search"
-          placeholder="Search Category, Brand..."
-          className="border-l border-t border-b border-blue-400 w-96 pt-2 pb-2 px-2 py-2 border-dashed rounded-l-full focus:outline-dashed outline-blue-400 focus:ring-0"
+          placeholder="Search Product, Category, Brand..."
+          className="border-l border-t border-b border-blue-400 w-96 xl:w-[700px] pt-2 pb-2 px-2 py-2 border-dashed rounded-l-full focus:outline-dashed outline-blue-400 focus:ring-0"
         />
         <button className="relative right-12 bg-blue-500 rounded-l-none border-b border-blue-500 border-t-border-blue-500 flex text-white pt-[9px] pr-3 pb-[9px] pl-5 rounded-r-full focus:outline-none focus:ring-0">
           Search
@@ -83,23 +78,21 @@ const SearchBar = () => {
                     <h3 className="text-sm font-semibold">
                       {product.title.slice(0, 50)}..
                     </h3>
-                    <p className="text-blue-500 font-medium flex items-center"><FaBangladeshiTakaSign />{product.price}</p>
+                    <p className="text-blue-500 font-medium flex items-center">
+                      <FaBangladeshiTakaSign />
+                      {product.price}
+                    </p>
                   </div>
                 </Link>
               ))
             ) : (
               <>
                 <div className="col-span-2 text-center  ">
-
-                  <p className="inline font-bold text-slate-600 m-auto">Product Not Matched</p>
+                  <p className="inline font-bold text-slate-600 m-auto">
+                    Product Not Matched
+                  </p>
                 </div>
-
-
-
-
               </>
-
-
             )}
           </div>
         </div>

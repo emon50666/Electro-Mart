@@ -17,7 +17,7 @@ const CardOfCart = ({ cart }) => {
   const { products } = useProduct();
   const handleQuantityUpdate = useIncreaseUpdateQuantity();
   const product = products.find((pack) => pack?._id == cart?.mainProductId);
-  const [price, setPrice] = useState(product?.price);
+  const [price, setPrice] = useState(parseInt(product?.price));
 
   useEffect(() => {
     if (product?.discountPrice !== product?.price) {

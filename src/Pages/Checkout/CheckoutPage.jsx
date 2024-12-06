@@ -12,8 +12,6 @@ import UserAuth from "../../Hooks/useAuth";
 import { useNavigate } from "react-router-dom";
 import useTotalAmount from "../../Hooks/useTotalAmount";
 
-
-
 const CheckoutPage = () => {
   const { locations } = useLocation();
   const axiosPublic = useAxiosPublic();
@@ -167,22 +165,19 @@ const CheckoutPage = () => {
       number: form.number.value,
       address: form.address.value,
       paymentMethod: selectedPaymentMethod,
-
       getProductId,
       userOrder,
-
       city: form.city.value,
       district: form.district.value,
       division: form.division.value,
       totalAmount,
       shipping: shippingLabel,
-
       orderStatus: "processing", // Default status
       products: theUserCarts,
       userId: user._id,
       userEmail: user.email,
-
       adderMail: user?.email,
+      cartIds: theUserCarts.map((cart) => cart._id),
     };
 
     // console.log(formData);
