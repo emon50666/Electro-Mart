@@ -63,8 +63,8 @@ const MenuBar = () => {
           </button>
           {/* Dropdown Menu */}
           {isOpen && (
-            <div className="absolute top-full left-5 z-40 w-full bg-white shadow-lg border border-gray-200 mt-2 rounded-lg overflow-hidden px-5 py-3">
-              <ul className="grid lg:grid-cols-10 xl:grid-cols-12 gap-y-2">
+            <div className="absolute top-full left-5 z-40 w-full bg-white shadow-lg border border-gray-200 mt-2 rounded-lg overflow-hidden px-5 py-3 max-w-[1700px]">
+              <ul className="grid lg:grid-cols-7 xl:grid-cols-10 gap-y-2">
                 {categories.map(
                   (cat, idx) =>
                     cat.newCategory && (
