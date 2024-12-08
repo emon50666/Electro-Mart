@@ -98,7 +98,7 @@ const MenuBar = () => {
                   className={({ isActive }) =>
                     `text-md font-medium hover:text-teal-300 ${
                       isActive
-                        ? "bg-gray-50/40 underline rounded text-teal-300"
+                        ? "bg-gray-50/40 underline rounded"
                         : "text-white"
                     } bg-gray-50/25 px-5 py-1`
                   }
