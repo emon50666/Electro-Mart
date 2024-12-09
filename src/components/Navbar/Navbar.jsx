@@ -33,7 +33,7 @@ const Navbar = () => {
   };
 
   return (
-    <div className="navbar bg-base-100 sticky top-0 px-3 z-20 ">
+    <div className="navbar bg-base-100 sticky top-0 px-3 z-50 ">
       <div className="navbar-start px-2 lg:px-0">
         {/* Mobile menu button */}
         <div className="lg:hidden">
@@ -186,7 +186,7 @@ const Navbar = () => {
           {user && (
             <ul
               tabIndex={0}
-              className="menu menu-sm font-semibold right-0 dropdown-content bg-[#030C35] text-gray-300 overflow-hidden rounded-box w-36 shadow-md"
+              className="menu menu-sm font-semibold right-0 dropdown-content bg-[#030C35] text-gray-300 overflow-hidden rounded-box w-36 shadow-md z-50"
             >
               <Link
                 to={
