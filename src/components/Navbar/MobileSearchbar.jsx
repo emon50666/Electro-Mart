@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import useProduct from "../../Hooks/useProduct";
 import { FaBangladeshiTakaSign } from "react-icons/fa6";
 
-const SearchBar = () => {
+const MobileSearchBar = () => {
   const { products } = useProduct();
   const [search, setSearch] = useState("");
   const [showResults, setShowResults] = useState(true);
@@ -34,24 +34,27 @@ const SearchBar = () => {
   });
 
   return (
-    <div className="navbar bg-base-100 sticky top-0 z-40 md:px-10">
+    <div className="navbar bg-base-100 sticky top-0 z-40 md:px-10 lg:hidden px-2">
+      {/* Hide on large screens and show on small/medium */}
       {/* Search form */}
       <form
         onChange={(e) => {
           setSearch(e.target.value.toLocaleLowerCase());
           setShowResults(true);
         }}
-        className=""
+        className="w-full mx-auto flex justify-center"
       >
-        <input
-          type="text"
-          name="search"
-          placeholder="Search Product, Category, Brand..."
-          className="border-l border-t border-b border-blue-400 w-96 xl:w-[700px] pt-2 pb-2 px-2 py-2 border-dashed rounded-l-full focus:outline-dashed outline-blue-400 focus:ring-0"
-        />
-        <button className="relative right-12 bg-blue-500 rounded-l-none border-b border-blue-500 border-t-border-blue-500 flex text-white pt-[9px] pr-3 pb-[9px] pl-5 rounded-r-full focus:outline-none focus:ring-0">
-          Search
-        </button>
+        <span className="flex w-full">
+          <input
+            type="text"
+            name="search"
+            placeholder="Search Product, Category, Brand..."
+            className="border-l border-t border-b border-blue-400 pt-2 pb-2 px-2 border-dashed rounded-l-sm w-full focus:outline-dashed outline-blue-400 focus:ring-0 ml-14 -mr-5"
+          />
+          <button className="relative right-12 bg-blue-500 rounded-l-none border-b border-blue-500 border-t-border-blue-500 flex text-white pt-[9px] pr-3 pb-[9px] pl-5 rounded-r-sm focus:outline-none focus:ring-0">
+            Search
+          </button>
+        </span>
       </form>
 
       {/* Conditionally Render Search Results */}
@@ -59,15 +62,15 @@ const SearchBar = () => {
         <div
           id="search_id"
           ref={searchRef} // Reference for clicking outside detection
-          className="absolute top-14  left-1/2 transform mt-2 -translate-x-1/2 w-[600px] max-h-80 bg-gray-200 shadow-lg rounded-lg overflow-auto p-4 z-50"
+          className="absolute top-14 left-1/2 transform mt-2 -translate-x-1/2 w-full max-h-80 bg-gray-200 shadow-lg rounded-lg overflow-auto p-4 z-50"
         >
-          <div className="grid grid-cols-2 mt-auto gap-4 w-full">
+          <div className="grid grid-cols-2 sm:grid-cols-1 mt-auto gap-4 w-full">
             {filteredProducts.length > 0 ? (
               filteredProducts.map((product) => (
                 <Link
                   to={`/productDetails/${product?._id}`}
                   key={product.id}
-                  className="flex items-center pt-7 space-x-3 bg-white rounded-md px-2"
+                  className="flex items-center space-x-3 bg-white rounded-md px-2 py-3"
                 >
                   <img
                     src={product.images[0]} // Assuming your API returns image URL as 'images[0]'
@@ -86,13 +89,11 @@ const SearchBar = () => {
                 </Link>
               ))
             ) : (
-              <>
-                <div className="col-span-2 text-center  ">
-                  <p className="inline font-bold text-slate-600 m-auto">
-                    Product Not Matched
-                  </p>
-                </div>
-              </>
+              <div className="col-span-2 text-center">
+                <p className="inline font-bold text-slate-600 m-auto">
+                  Product Not Matched
+                </p>
+              </div>
             )}
           </div>
         </div>
@@ -101,4 +102,4 @@ const SearchBar = () => {
   );
 };
 
-export default SearchBar;
+export default MobileSearchBar;

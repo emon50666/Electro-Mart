@@ -11,10 +11,10 @@ const BottomNavigation = () => {
     <div className="lg:hidden fixed bottom-0 left-0 right-0 bg-white z-30 shadow-lg border-t border-gray-200">
       <nav className="flex justify-between items-center h-16 px-4">
         {/* Home Icon */}
-        <div className="flex flex-col items-center text-gray-600">
+        <Link to="/" className="flex flex-col items-center text-gray-600">
           <FaHome className="text-2xl" />
           <span className="text-xs">Home</span>
-        </div>
+        </Link>
 
         {/* Category Icon */}
         <Link
