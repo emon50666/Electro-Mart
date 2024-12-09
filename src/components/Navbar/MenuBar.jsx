@@ -139,7 +139,7 @@ const MenuBar = () => {
               }`}
             >
               <FaLocationDot className="text-[22px] bg-white text-blue-600 p-1 rounded-full shadow-md" />
-              <p className="text-sm font-medium flex">Track Order</p>
+              <p className="font-medium flex">Track Order</p>
             </Link>
           </button>
           <div className="divider lg:divider-horizontal"></div>
