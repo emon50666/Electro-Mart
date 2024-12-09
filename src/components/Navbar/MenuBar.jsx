@@ -3,6 +3,8 @@ import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 import Loader from "../Loader/Loader";
 import { Link, NavLink } from "react-router-dom";
 import useCategories from "../../Hooks/useCategories";
+import { FaPhoneAlt } from "react-icons/fa";
+import { FaLocationDot } from "react-icons/fa6";
 
 const MenuBar = () => {
   const { categories, isLoading } = useCategories();
@@ -44,7 +46,7 @@ const MenuBar = () => {
     <div className="navbar hidden lg:flex bg-gradient-to-r from-blue-700 via-blue-600 to-blue-500 text-white w-full">
       {/* Left side */}
       <div
-        className="relative px-2 w-full gap-x-5 font_inter"
+        className="relative px-2 w-full gap-x-5 font_inter flex-1"
         ref={dropdownRef}
       >
         {/* Toggle Button */}
@@ -109,6 +111,33 @@ const MenuBar = () => {
             ))}
           </ul>
         </div>
+      </div>
+      {/* Right side */}
+      <div className="">
+        {/* Track Order Section */}
+
+        <div className="flex items-center justify-end gap-x-10 px-5 flex-1">
+          <div className="flex flex-col items-center justify-center text-center">
+            <Link
+              to="/dashboard/trackOrder"
+              className="flex items-center gap-2 text-white"
+            >
+              <FaLocationDot className="text-[22px] bg-white text-blue-600 p-1 rounded-full shadow-md" />
+              <p className="text-sm font-medium flex">Track Order</p>
+            </Link>
+          </div>
+          <div className="divider lg:divider-horizontal"></div>
+          <div className="hidden lg:flex gap-x-3 items-center justify-center">
+            <div className="flex items-center gap-2 mt-1">
+              <FaPhoneAlt className="text-blue-600 text-[22px] bg-white p-1 rounded-full shadow-md" />
+              <h1 className="font-semibold text-white hover:underline">
+                01786397249
+              </h1>
+            </div>
+            <p className="font-semibold">24/7 Support</p>
+          </div>
+        </div>
+        {/* Contact Section */}
       </div>
     </div>
   );
