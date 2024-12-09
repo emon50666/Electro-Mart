@@ -5,12 +5,20 @@ import { Link, NavLink } from "react-router-dom";
 import useCategories from "../../Hooks/useCategories";
 import { FaPhoneAlt } from "react-icons/fa";
 import { FaLocationDot } from "react-icons/fa6";
+import useRoll from "../../Hooks/useRoll";
 
 const MenuBar = () => {
   const { categories, isLoading } = useCategories();
   const [isOpen, setIsOpen] = useState(false);
+  const [role] = useRoll();
   const [selectedCategory, setSelectedCategory] = useState("");
+  const [disable, setDisable] = useState(false);
   const dropdownRef = useRef(null);
+  useEffect(() => {
+    if (role == "admin") {
+      setDisable(true);
+    }
+  }, [role]);
 
   const handleCategoryClick = (cat) => {
     setSelectedCategory(cat);
@@ -39,6 +47,7 @@ const MenuBar = () => {
     { title: "Promotion", path: "/promotion" },
     { title: "Contact Us", path: "/contacts" },
   ];
+  // console.log(role);
 
   if (isLoading) return <Loader />;
 
@@ -117,15 +126,22 @@ const MenuBar = () => {
         {/* Track Order Section */}
 
         <div className="flex items-center justify-end gap-x-10 px-5 flex-1">
-          <div className="flex flex-col items-center justify-center text-center">
+          <button
+            disabled={disable}
+            className={`flex flex-col items-center justify-center text-center ${
+              disable ? "cursor-not-allowed" : ""
+            }`}
+          >
             <Link
               to="/dashboard/trackOrder"
-              className="flex items-center gap-2 text-white"
+              className={`flex items-center gap-2 ${
+                disable ? "pointer-events-none" : "text-white"
+              }`}
             >
               <FaLocationDot className="text-[22px] bg-white text-blue-600 p-1 rounded-full shadow-md" />
               <p className="text-sm font-medium flex">Track Order</p>
             </Link>
-          </div>
+          </button>
           <div className="divider lg:divider-horizontal"></div>
           <div className="hidden lg:flex gap-x-3 items-center justify-center">
             <div className="flex items-center gap-2 mt-1">
