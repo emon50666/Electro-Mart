@@ -35,7 +35,7 @@
 /* Tablet responsiveness */
 @media (max-width: 1024px) {
   .grid-filter-column {
-    grid-template-columns: 0.4fr 1fr;
+    grid-template-columns:1fr;
     gap: 1.5rem;
   }
   
@@ -47,7 +47,7 @@
 /* Mobile responsiveness */
 @media (max-width: 768px) {
   .grid-filter-column {
-    grid-template-columns: 1fr;
+    grid-template-columns:1fr;
     gap: 1rem;
   }
 

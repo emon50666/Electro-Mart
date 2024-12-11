@@ -47,6 +47,8 @@ import RefundPolicy from "../Pages/Refundpolicy/RefundPolicy";
 import MemberOrder from "../components/DashBoard/MemberOrder/memberOrder";
 import SecureRoute from "../PrivateRoute/SecureRoute";
 import DashBoardProfile from "../components/DashBoard/DashBoardProfile/DashBoardProfile";
+import TrackOrder from "../Pages/TrackOrder/TrackOrder";
+import UserRoute from "../PrivateRoute/UserRoute";
 
 const router = createBrowserRouter([
   {
@@ -246,7 +248,11 @@ const router = createBrowserRouter([
       },
       {
         path: "my-account",
-        element: <MemberDashBoard />,
+        element: (
+          <SecureRoute>
+            <MemberDashBoard />
+          </SecureRoute>
+        ),
       },
       {
         path: "member-order",
@@ -260,10 +266,17 @@ const router = createBrowserRouter([
         path: "userOrder",
         element: <UserOrder />,
       },
-
       {
         path: "orders",
         element: <UserOrder />,
+      },
+      {
+        path: "trackOrder",
+        element: (
+          <UserRoute>
+            <TrackOrder />
+          </UserRoute>
+        ),
       },
     ],
   },

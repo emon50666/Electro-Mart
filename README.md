@@ -1,7 +1,7 @@
 
 # Electro Mart
 
-![Electro Mart](https://via.placeholder.com/150)
+( Live Link ) [https://electros-mart.netlify.app/]
 
 Welcome to **Electro Mart** – your go-to eCommerce platform for electronic products! We provide a seamless shopping experience with a wide range of electronics at competitive prices. Whether you're looking for the latest gadgets, home appliances, or accessories, we’ve got it all!
 
@@ -32,7 +32,6 @@ Welcome to **Electro Mart** – your go-to eCommerce platform for electronic pro
 - **MongoDB**: NoSQL database for storing product, user, and order data.
 
 ### **Payment Methods**:
-- **Firebase**: For secure user authentication and data storage.
 - **Stripe**: For handling secure payments online.
 - **Bkash, Nagad, Rocket**: Integrated local payment gateways for seamless transactions.
 

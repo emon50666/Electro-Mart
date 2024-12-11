@@ -15,11 +15,6 @@ const Contacts = () => {
   const toggleFAQ = (index) => {
     setActiveIndex(activeIndex === index ? null : index);
   };
-  const [showMore, setShowMore] = useState(false);
-  const handleReadMore = () => {
-    setShowMore(!showMore);
-  };
-
   const faqData = [
     {
       question: "Can I add multiple products to my cart?",
@@ -195,70 +190,6 @@ const Contacts = () => {
           </div>
         </div>
       </div>
-      {/* ---------------------------------------------------- */}
-      <div className="container  mt-2 bg-gray-50 p-4 rounded-md mb-5 lg:px-20">
-      <h3 className="text-xl font-bold mt-4">
-        Were Here to Help You!
-        </h3>
-        <p className="text-md">
-        At our e-commerce store, customer satisfaction is our top priority. Whether you have questions about our extensive range of household appliances and electronics, need assistance with your order, or seek advice on product selection, our friendly customer service team is just a message away. We aim to provide you with all the support you need to make informed purchasing decisions. Your feedback is essential, and we’re here to ensure your shopping experience is smooth and enjoyable.
-        </p>
-      <h3 className="text-xl font-bold mt-4">
-      Your Satisfaction is Our Mission
-        </h3>
-        <p className="text-md">
-        We understand that shopping online can sometimes raise questions. That's why our dedicated customer service team is here to assist you every step of the way. From inquiries about product specifications to tracking your order or understanding our return policies, we’re committed to providing you with clear and prompt assistance. We value your feedback and strive to enhance your shopping experience, so please don’t hesitate to reach out—we’re here to help!
-        </p>
-      <h3 className="text-xl font-bold mt-4">
-      Contact Us for Exceptional Support
-        </h3>
-        <p className="text-md">
-        Our goal is to ensure you receive the best possible service while shopping with us. If you have any questions regarding our products, need guidance on making a purchase, or want to know about shipping options, our knowledgeable support team is here for you. We believe that every inquiry is important, and we take pride in providing timely and helpful responses. Your satisfaction matters to us, and we look forward to assisting you with your needs!
-        </p>
-      </div>
-      <div className="container  mt-2 bg-gray-50 p-4 rounded-md mb-5 lg:px-20">
-        <h2 className="text-xl font-bold">
-          Welcome to Our Online Store for Household Appliances and Electronics
-        </h2>
-        <p className="text-md">
-          {showMore ? (
-            <>
-              We are here to assist you with any questions you may have
-              regarding our wide range of products and services. Our goal is to
-              ensure you have the best shopping experience possible, and we
-              understand that navigating through various options can sometimes
-              be overwhelming. Whether you need help finding the right appliance
-              that fits your needs, checking the status of your order, or have
-              inquiries about our shipping and return policies, our dedicated
-              customer service team is always ready to help.
-              <br />
-              <br />
-              We pride ourselves on providing personalized assistance tailored
-              to your unique requirements. Our knowledgeable staff is available
-              to offer recommendations based on your preferences and to guide
-              you through the features and benefits of each product.
-              Additionally, if you have any concerns or feedback about your
-              experience, we encourage you to share it with us. Your insights
-              are invaluable in helping us improve our services and offerings.
-              <br />
-              <br />
-              Should you have any questions, don’t hesitate to reach out to us
-              at any time. We are committed to addressing your inquiries
-              promptly and ensuring your satisfaction with every aspect of your
-              shopping journey.
-            </>
-          ) : (
-            "We are here to assist you with any questions you may have regarding our wide range of products and services. Our goal is to ensure you have the best shopping experience possible, and we understand that navigating through various options can sometimes be overwhelming. Whether you need help finding the right appliance that fits your needs,....."
-          )}
-        </p>
-        <button
-          onClick={handleReadMore}
-          className="mt-3 px-3 py-2 text-md bg-white rounded hover:bg-gray-100"
-        >
-          {showMore ? "Show Less" : "Read More"}
-        </button>
-      </div>
-
       {/* --------------------------------------------------------------- */}
       <div className="rounded-2xl px-2 mx-auto h-auto xl:h-full my-10">
         <iframe
