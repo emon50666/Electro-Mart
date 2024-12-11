@@ -55,7 +55,7 @@ const MenuBar = () => {
     <div className="navbar hidden lg:flex bg-gradient-to-r from-blue-700 via-blue-600 to-blue-500 text-white w-full">
       {/* Left side */}
       <div
-        className="relative px-2 w-full gap-x-5 font_inter flex-1"
+        className="relative px-2 w-full gap-x-5 font_inter xl:flex-1"
         ref={dropdownRef}
       >
         {/* Toggle Button */}
@@ -74,8 +74,8 @@ const MenuBar = () => {
           </button>
           {/* Dropdown Menu */}
           {isOpen && (
-            <div className="absolute top-full left-5 z-40 w-full bg-white shadow-lg border border-gray-200 mt-2 rounded-lg overflow-hidden px-5 py-3 max-w-[1700px]">
-              <ul className="grid lg:grid-cols-7 xl:grid-cols-10 gap-y-2">
+            <div className="absolute top-full left-1 z-40 w-full bg-white shadow-lg border border-gray-200 mt-2 rounded-lg overflow-hidden px-5 py-3 lg:min-w-[1165px] max-w-[1700px]">
+              <ul className="xl:grid lg:flex lg:flex-wrap  xl:grid-cols-10  gap-y-2 ">
                 {categories.map(
                   (cat, idx) =>
                     cat.newCategory && (
@@ -107,7 +107,7 @@ const MenuBar = () => {
                 <NavLink
                   to={link.path}
                   className={({ isActive }) =>
-                    `text-md font-medium hover:text-teal-300 ${
+                    `text-md font-medium lg:text-sm xl:base hover:text-teal-300 ${
                       isActive
                         ? "bg-gray-50/40 underline rounded"
                         : "text-white"
@@ -125,7 +125,7 @@ const MenuBar = () => {
       <div className="">
         {/* Track Order Section */}
 
-        <div className="flex items-center justify-end gap-x-10 px-5 flex-1">
+        <div className="flex lg:text-sm items-center justify-end gap-x-10 px-5 xl:flex-1">
           <button
             disabled={disable}
             className={`flex flex-col items-center justify-center text-center ${

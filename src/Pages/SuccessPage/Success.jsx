@@ -6,7 +6,7 @@ import { AiOutlineCheckCircle } from "react-icons/ai";
 import Loader from "../../components/Loader/Loader";
 import useProductDetails from "../../Hooks/useProductDetails";
 import { useEffect, useState } from "react";
-import axios from "axios";
+
 import useAxiosPublic from "../../Hooks/useAxiosPublic";
 
 const Success = () => {
@@ -15,12 +15,12 @@ const Success = () => {
   const [payment, setPayment] = useState(null);
   const [productDetails, setProductDetails] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  const useAxiospublic = useAxiosPublic()
+  
 
   useEffect(() => {
     const fetchPayment = async () => {
       try {
-        const response = await useAxiospublic.get(`/orders/${sTranId}`)
+        const response = await axiosPublic.get(`/orders/${sTranId}`)
 
         // const response = await axios.get(
         //   `http://localhost:3000/orders/${sTranId}`
@@ -32,14 +32,14 @@ const Success = () => {
     };
 
     if (sTranId) fetchPayment();
-  }, [sTranId,useAxiospublic]);
+  }, [sTranId,axiosPublic]);
 
   useEffect(() => {
     const fetchProductDetails = async () => {
       try {
         if (payment?.products) {
           const promises = payment.products.map((product) =>
-            useAxiosPublic.get(`/products/${product.mainProductId}`)
+            axiosPublic.get(`/products/${product.mainProductId}`)
           
           );
           const responses = await Promise.all(promises);

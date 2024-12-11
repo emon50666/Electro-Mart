@@ -81,7 +81,7 @@ const ProductCard = ({ product, refetch }) => {
 
   return (
     <div className="bg-[#F6F6F6] h-full">
-      <div className="relative p-3 hover:shadow-lg rounded-md bg-white group h-full">
+      <div className="relative  hover:shadow-lg rounded-md bg-white  px-2 py-2 group h-full">
         <Link to={`/productDetails/${product._id}`}>
           {product.images.length > 1 && (
             <HoverImage

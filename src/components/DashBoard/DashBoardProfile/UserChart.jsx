@@ -26,6 +26,8 @@ const UserChart = () => {
       <g>
         <text x={cx} y={cy} dy={8} textAnchor="middle" fill={fill} className="font-bold">
           {payload?.name}
+          
+
         </text>
         <Sector
           cx={cx}
