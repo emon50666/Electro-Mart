@@ -11,7 +11,7 @@ const PrivateRoute = ({ children }) => {
   if (loading) {
     return (
       <div className="justify-center mx-auto text-center min-h-min">
-        <span className="loading loading-dots loading-sm"></span>
+    
       </div>
     );
   }

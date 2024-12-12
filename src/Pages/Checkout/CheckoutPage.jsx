@@ -9,14 +9,35 @@ import CheckoutTable from "./Shared/CheckoutTable";
 
 // import Loader from '../../components/Loader/Loader';
 import UserAuth from "../../Hooks/useAuth";
-import { useNavigate } from "react-router-dom";
+
 import useTotalAmount from "../../Hooks/useTotalAmount";
+
+import useFilteredOrders from "../../Hooks/useFilterOrder";
+
 
 const CheckoutPage = () => {
   const { locations } = useLocation();
   const axiosPublic = useAxiosPublic();
   const { user } = UserAuth();
-  const navigate = useNavigate();
+
+  const [recent,setRecent] = useState();
+
+
+  const { orders } = useFilteredOrders(user);
+
+  // Check if the orders array is not empty
+ useEffect(()=>{
+  if (orders && orders.length > 0) {
+    const lastOrder = orders[orders.length - 1]; // Get the last order
+    setRecent(lastOrder)
+    console.log('Last order:', lastOrder);
+  } else {
+    console.log('No orders found.');
+  }
+ },[orders])
+  console.log('recent id',recent);
+  
+
 
   const { totalPrice } = useTotalAmount();
 
@@ -73,68 +94,7 @@ const CheckoutPage = () => {
     }
   }, [selectedDistrict, districts]);
 
-  // Handle form submission
-  // const handleSubmitData = async (e) => {
-  //     e.preventDefault();
-
-  //     const form = e.target;
-  //     const selectedShippingInput = form.querySelector(
-  //         'input[name="shipping"]:checked'
-  //     );
-
-  //     const shippingLabel = selectedShippingInput
-  //         ? form.querySelector(label[for="${selectedShippingInput.id}"]).innerText
-  //         : "";
-
-  //     //  payment
-
-  //     const selectedPaymentInput = form.querySelector(
-  //         'input[name="payment"]:checked'
-  //     );
-  //     const selectedPaymentMethod = selectedPaymentInput
-  //         ? selectedPaymentInput.value
-  //         : '';
-
-  //     const formData = {
-  //         name: form.name.value,
-  //         number: form.number.value,
-  //         address: form.address.value,
-  //         paymentMethod: selectedPaymentMethod,
-  //         city: form.city.value,
-  //         district: form.district.value,
-  //         division: form.division.value,
-  //         totalAmount,
-  //         shipping: shippingLabel,
-  //         orderStatus: 'processing', // Default status
-  //         products: theUserCarts,
-  //         user,
-  //     };
-
-  //     // console.log(formData);
-
-  //     try {
-  //         const { data } = await axiosPublic.post(
-  //             ${import.meta.env.VITE_API_URL}/order,
-  //             formData
-
-  //         );
-  //         toast.success('Order placed successfully');
-  //         // redirect url to ssl
-  //          // Check the payment method
-  //          if (selectedPaymentMethod === 'Cash on Delivery') {
-  //             toast.success('Order placed successfully!');
-  //             navigate('/thanks'); // Redirect to success page
-  //         } else if (selectedPaymentMethod === 'Bkash') {
-  //             toast.success('Redirecting to SSL payment gateway...');
-  //             window.location.replace(data.paymentUrl); // Redirect to SSL payment gateway
-  //         }
-
-  //         return data;
-  //     } catch (error) {
-  //         console.error(error);
-  //         toast.error('Order placement failed');
-  //     }
-  // };
+ 
   const handleSubmitData = async (e) => {
     e.preventDefault();
     const form = e.target;
@@ -192,7 +152,8 @@ const CheckoutPage = () => {
 
       if (selectedPaymentMethod === "cashOnDelivery") {
         toast.success("Order placed successfully!");
-        navigate("/thanks"); // Redirect to success page
+     
+        window.location.replace(`/thanks/${recent.tran_id}`);
       } else if (selectedPaymentMethod === "bkash") {
         toast.success("Redirecting to SSL payment gateway...");
         window.location.replace(data.paymentUrl);

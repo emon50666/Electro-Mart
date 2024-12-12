@@ -11,6 +11,7 @@ const MemberOrder = () => {
   const { user } = UserAuth();
   const axiosPublic = useAxiosPublic();
   const { orders } = useFilteredOrders(user);
+  console.log(orders);
   const [productDetails, setProductDetails] = useState({});
   const [isLoading, setIsLoading] = useState(true);
   const [showDetails, setShowDetails] = useState({});
@@ -45,7 +46,7 @@ const MemberOrder = () => {
   }, [axiosPublic, orders]);
 
   // Delete order
-  const handleDeleteOrder = (id) => {
+  const handleDeleteOrder = async (id) => {
     Swal.fire({
       title: "Are you sure?",
       text: "You want to delete this product",
