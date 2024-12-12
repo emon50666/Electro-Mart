@@ -70,7 +70,7 @@ const WishlistCart = ({ wishProduct }) => {
         <h2 className="font-semibold text-sm sm:text-base overflow-hidden text-ellipsis whitespace-nowrap">
           {product?.title}
         </h2>
-        <p className="text-blue-500 font-bold text-sm lg:text-lg flex items-center justify-center gap-1">
+        <p className="text-blue-500 font-bold text-sm lg:text-lg flex items-center  gap-1">
           <FaBangladeshiTakaSign />
           {product?.price}
         </p>
@@ -83,10 +83,6 @@ const WishlistCart = ({ wishProduct }) => {
           className="text-blue-500 hover:text-blue-600 transition-colors"
         >
           <FaShoppingCart className="w-5 h-5" />
-        </button>
-
-        <button className="bg-blue-500 text-white text-xs sm:text-sm lg:text-base px-4 py-2 rounded-lg hover:bg-blue-600 transition-colors">
-          Buy Now
         </button>
 
         <button

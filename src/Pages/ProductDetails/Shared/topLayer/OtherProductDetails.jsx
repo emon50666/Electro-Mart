@@ -127,7 +127,7 @@ const OtherProductDetails = ({ product }) => {
               </div>
             </div>
             <div className="font_cabin rounded-full  text-sm bg-[#FEF4F4] lg:text-lg text-blue-500   px-4">
-              {product.quantity <= 0 ? (
+              {product?.quantity <= 0 ? (
                 <p>Stock Out</p>
               ) : (
                 <p>( {product?.quantity} )In Stock </p>
