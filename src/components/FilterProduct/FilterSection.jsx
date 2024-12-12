@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import { useState } from "react";
 import "./FilterSection.css";
-import Loader from "../Loader/Loader";
+
 import useBrands from "./../../Hooks/useBrands";
 import useCategory from "../../Hooks/useCategory";
 
@@ -52,7 +52,7 @@ const FilterSection = ({ onFilterChange, filters }) => {
   };
 
   if (loadingCategories || loadingBrands) {
-    return <Loader />;
+    return ''
   }
 
   return (
