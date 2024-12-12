@@ -52,10 +52,10 @@ const MenuBar = () => {
   if (isLoading) return <Loader />;
 
   return (
-    <div className="navbar hidden lg:flex bg-gradient-to-r from-blue-700 via-blue-600 to-blue-500 text-white w-full">
+    <div className="navbar hidden lg:flex bg-gradient-to-r from-blue-700 via-blue-900 to-blue-500 text-white w-full">
       {/* Left side */}
       <div
-        className="relative px-2 w-full gap-x-5 font_inter xl:flex-1"
+        className="relative  px-2 w-full gap-x-5 font_inter xl:flex-1"
         ref={dropdownRef}
       >
         {/* Toggle Button */}
@@ -101,7 +101,7 @@ const MenuBar = () => {
 
         {/* Navigation Buttons */}
         <div>
-          <ul className="flex gap-x-3">
+          <ul className="flex gap-x-3 ">
             {navLinks.map((link, idx) => (
               <li key={idx}>
                 <NavLink
@@ -109,9 +109,9 @@ const MenuBar = () => {
                   className={({ isActive }) =>
                     `text-md font-medium lg:text-sm xl:base hover:text-teal-300 ${
                       isActive
-                        ? "bg-gray-50/40 underline rounded"
+                        ? "bg-gray-50/30 underline rounded"
                         : "text-white"
-                    } bg-gray-50/25 px-5 py-1`
+                    } bg-gray-50/20 px-5 py-1 rounded-sm`
                   }
                 >
                   {link.title}
@@ -125,7 +125,7 @@ const MenuBar = () => {
       <div className="">
         {/* Track Order Section */}
 
-        <div className="flex lg:text-sm items-center justify-end gap-x-10 px-5 xl:flex-1">
+        <div className="flex lg:text-sm  items-center justify-end gap-x-10 px-5 xl:flex-1">
           <button
             disabled={disable}
             className={`flex flex-col items-center justify-center text-center ${

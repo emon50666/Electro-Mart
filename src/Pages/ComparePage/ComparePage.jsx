@@ -7,7 +7,7 @@ const ComparePage = () => {
     const { theUserCompares } = useCompare();
 
     return (
-        <div className="space-y-10 mb-12">
+        <div className="space-y-10 ">
             <Helmet>
                 <title>Compare | Elector Mart</title>
             </Helmet>
@@ -22,13 +22,13 @@ const ComparePage = () => {
                 </div>
             )}
 
-            <div className="flex justify-center items-center mt-10  min-h-[50vh]">
+            <div className="flex justify-center items-center   min-h-[50vh]">
                 {theUserCompares.length > 0 ? (
                     // If there are products to compare, show the comparison table
                     <ComparisonTable compares={theUserCompares} />
                 ) : (
                     // Centering the message using flex and ensuring full height alignment
-                    <div className="flex items-center justify-center min-h-[50vh] mx-2 my-16">
+                    <div className="flex items-center justify-center min-h-[50vh] mx-2 mt-4 mb-4">
                         <div className="text-center">
                             <div className="bg-gradient-to-r from-gray-100 to-gray-200 border border-gray-300 text-teal-900 p-8 md:p-10 lg:p-12 rounded-xl shadow-lg max-w-lg mx-auto space-y-8">
                                 <p className="text-lg md:text-3xl font-semibold">
@@ -39,7 +39,7 @@ const ComparePage = () => {
                                 </p>
                                 <Link
                                     to="/"
-                                    className="mt-6 inline-block text-white bg-teal-600 hover:bg-teal-700 transition-colors px-6 py-3 md:px-8 md:py-4 rounded-full font-medium shadow-md hover:shadow-lg"
+                                    className="mt-6 inline-block text-white bg-blue-600 hover:bg-blue-700 transition-colors px-6 py-3 md:px-8 md:py-4 rounded-full font-medium shadow-md hover:shadow-lg"
                                 >
                                     Go back to Home
                                 </Link>

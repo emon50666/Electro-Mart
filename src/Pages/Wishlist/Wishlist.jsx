@@ -1,14 +1,14 @@
 import { Link } from "react-router-dom";
-import { FaTable } from "react-icons/fa";
+import { FaTableCellsLarge } from "react-icons/fa6";
 import { useState } from "react";
 import { MdTableRows } from "react-icons/md";
-import useProduct from "../../Hooks/useProduct";
+
 import WishlistTable from "./WishlistTable";
 import useWishlist from "../../Hooks/useWishlist";
 import WishlistCart from "./WishlistCart";
 
 const Wishlist = () => {
-  const { products } = useProduct();
+
   const { theUserWishlist } = useWishlist();
   // console.log(theUserWishlist)
   // console.log(products)
@@ -42,16 +42,16 @@ const Wishlist = () => {
               Your wishlist products
             </h3>
 
-            <div className="join lg:mt-5 md:mt-5 mt-2 ">
+            <div className="join border border-dotted border-blue-500 py-1 px-4 gap-6  lg:mt-5 md:mt-5 mt-2 ">
               <button
                 onClick={() => handleFormat("card")}
-                className="btn join-item lg:text-xl text-sm"
+                className="text-blue-500  join-item lg:text-[30px] text-sm"
               >
-                <FaTable />
+                <FaTableCellsLarge />
               </button>
               <button
                 onClick={() => handleFormat("table")}
-                className="btn join-item lg:text-2xl text-sm"
+                className=" text-blue-500 join-item lg:text-[30px] text-sm"
               >
                 <MdTableRows />
               </button>
@@ -137,7 +137,7 @@ const Wishlist = () => {
           )}
 
           {format === "card" && (
-            <div className="my-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-4 md:gap-y-10 px-20">
+            <div className="my-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-4 md:gap-y-10 px-20">
               {theUserWishlist.map((wishProduct, index) => (
                 <WishlistCart key={index} wishProduct={wishProduct} />
               ))}
@@ -145,9 +145,9 @@ const Wishlist = () => {
           )}
         </>
       ) : (
-        <div className="flex items-center justify-center min-h-[50vh] mx-2 my-16">
+        <div className="flex items-center justify-center min-h-[50vh] mx-2 my-8">
           <div className="text-center">
-            <div className="bg-gradient-to-r from-gray-100 to-gray-200 border border-gray-300 text-teal-900 p-8 md:p-10 lg:p-12 rounded-xl shadow-lg max-w-lg mx-auto space-y-8">
+            <div className="bg-gradient-to-r from-gray-100 to-gray-200 border border-gray-300 text-black p-8 md:p-10 lg:p-12 rounded-xl shadow-lg max-w-lg mx-auto space-y-8">
               <p className="text-lg md:text-3xl font-semibold">
                 Your Wishlist is empty!
               </p>
@@ -157,7 +157,7 @@ const Wishlist = () => {
               </p>
               <Link
                 to="/"
-                className="mt-6 inline-block text-white bg-teal-600 hover:bg-teal-700 transition-colors px-6 py-3 md:px-8 md:py-4 rounded-full font-medium shadow-md hover:shadow-lg"
+                className="mt-6 inline-block text-white bg-blue-600 hover:bg-blue-700 transition-colors px-6 py-3 md:px-8 md:py-4 rounded-full font-medium shadow-md hover:shadow-lg"
               >
                 Go back to Home
               </Link>

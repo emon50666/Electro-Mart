@@ -129,25 +129,30 @@ const ProductCard = ({ product, refetch }) => {
             </small>
           </div>
         )}
-        <div
-          className={`mt-3 capitalize absolute  ${
-            product?.isHot === "yes"
-              ? "bottom-[212px] md:bottom-[210px] lg:bottom-[333px] xl:bottom-[330px]"
-              : "bottom-[234px] md:bottom-[330px]  lg:bottom-[357px] xl:bottom-[330px]"
-          } md:bottom-[330px] inset-x-0 px-2`}
-        >
-          {product?.isNew === "yes" && (
-            <small className="bg-teal-500 px-2 pb-[2px] lg:text-sm rounded-full font-bold text-white">
+
+        {/* product hot new % badge */}
+        <div className="absolute top-[10px] w-full ">
+  <div className="grid grid-cols-2 justify-between items-center">
+    {/* Left side: "New" and "Hot" */}
+    <div className="flex flex-col items-start gap-y-0.5">
+    {product?.isNew === "yes" && (
+            <small className="bg-green-500 px-2 pb-[2px] lg:text-sm rounded-full font-bold text-white">
               New
             </small>
           )}
-          <br />
-          {product?.isHot === "yes" && (
-            <small className="bg-red-500 px-2 pb-[2px] text-sm rounded-full font-bold text-white">
+      {product?.isHot === "yes" && (
+            <small className="bg-teal-500 px-2 pb-[2px] lg:text-sm rounded-full font-bold text-white">
               Hot
             </small>
           )}
-        </div>
+    </div>
+
+    {/* Right side: "10%" */}
+    
+  </div>
+</div>
+
+
 
         <div>
           <Link to={`/productDetails/${product._id}`}>
@@ -174,18 +179,18 @@ const ProductCard = ({ product, refetch }) => {
 
         {product?.discountPrice == product?.price ? (
           <div className="flex gap-2 ">
-            <p className="font-bold text-blue-500 text-sm lg:text-base">
+            <p className="font-bold text-blue-500 text-[12px] lg:text-base">
               {" "}
               ৳ {product?.price}
             </p>
           </div>
         ) : product?.discountPrice > 1 ? (
           <div className="flex gap-2">
-            <span className="line-through through-red-500  text-gray-500 font-semibold text-[13px] lg:text-base">
+            <span className="line-through through-red-500  text-gray-500 font-semibold text-[12px] lg:text-base">
               {" "}
               ৳{product?.price}
             </span>
-            <p className="font-bold text-blue-500 text-sm lg:text-base">
+            <p className="font-bold text-blue-500 text-[12px] lg:text-base">
               {" "}
               ৳ {parseInt(product?.discountPrice)}{" "}
             </p>

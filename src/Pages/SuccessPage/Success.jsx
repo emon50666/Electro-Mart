@@ -1,10 +1,9 @@
-/* eslint-disable no-unused-vars */
-// Success.js
+
 import { Link, useParams } from "react-router-dom";
 import { AiOutlineCheckCircle } from "react-icons/ai";
 
 import Loader from "../../components/Loader/Loader";
-import useProductDetails from "../../Hooks/useProductDetails";
+
 import { useEffect, useState } from "react";
 
 import useAxiosPublic from "../../Hooks/useAxiosPublic";
@@ -13,6 +12,7 @@ const Success = () => {
   const axiosPublic = useAxiosPublic();
   const { sTranId } = useParams();
   const [payment, setPayment] = useState(null);
+   
   const [productDetails, setProductDetails] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   
@@ -21,10 +21,6 @@ const Success = () => {
     const fetchPayment = async () => {
       try {
         const response = await axiosPublic.get(`/orders/${sTranId}`)
-
-        // const response = await axios.get(
-        //   `http://localhost:3000/orders/${sTranId}`
-        // );
         setPayment(response.data);
       } catch (error) {
         console.error("Error fetching payment details:", error);

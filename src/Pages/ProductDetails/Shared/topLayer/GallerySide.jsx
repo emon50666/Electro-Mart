@@ -15,8 +15,8 @@ const GallerySide = ({ images }) => {
 
     const handleThumbnailClick = (index) => {
         setSelectedImage(images[index]);
-        if (swiperRef.current) {
-            swiperRef.current.slideTo(index); // Sync the swiper with the selected thumbnail
+        if (swiperRef?.current) {
+            swiperRef?.current.slideTo(index); // Sync the swiper with the selected thumbnail
         }
     };
 

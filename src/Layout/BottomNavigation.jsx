@@ -1,4 +1,4 @@
-import { FaHome, FaShoppingCart, FaSearch } from "react-icons/fa";
+import { FaHome, FaShoppingCart } from "react-icons/fa";
 import { FaShop } from "react-icons/fa6";
 import useCart from "../Hooks/useCart";
 import { Link } from "react-router-dom";
@@ -40,8 +40,8 @@ const BottomNavigation = () => {
         </Link>
         {/* Category Icon */}
         <div className="flex flex-col items-center text-gray-600">
-          <FaSearch className="text-2xl" />
-          <span className="text-xs">Search</span>
+         
+          <span className="text-xs"></span>
         </div>
       </nav>
     </div>

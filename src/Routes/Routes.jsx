@@ -154,7 +154,7 @@ const router = createBrowserRouter([
     element: <Register />,
   },
   {
-    path: "/thanks",
+    path: "/thanks/:sTranId",
     element: <Thanks />,
   },
   {
