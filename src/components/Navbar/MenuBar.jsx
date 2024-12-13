@@ -52,7 +52,7 @@ const MenuBar = () => {
   if (isLoading) return <Loader />;
 
   return (
-    <div className="navbar hidden lg:flex bg-gradient-to-r from-blue-700 via-blue-600 to-blue-500 text-white w-full">
+    <div className="navbar hidden lg:flex bg-gradient-to-r from-blue-700 via-blue-900 to-blue-500 text-white w-full">
       {/* Left side */}
       <div
         className="relative px-2 w-full gap-x-5 font_inter xl:flex-1"
