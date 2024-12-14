@@ -72,6 +72,9 @@
     "swiper": "^11.1.14",
     "windy-ui": "^0.1.4"
   },
+  "resolutions": {
+    "react-hover-image/react": "^18.3.1"
+  },
   "devDependencies": {
     "@eslint/js": "^9.9.0",
     "@types/react": "^18.3.3",
