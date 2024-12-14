@@ -147,12 +147,12 @@ const ProductCard = ({ product, refetch }) => {
     {/* Left side: "New" and "Hot" */}
     <div className="flex flex-col items-start gap-y-0.5">
     {product?.isNew === "yes" && (
-            <small className="bg-green-600 px-2 pb-[2px] lg:text-sm rounded-full font-bold text-white">
+            <small className="bg-green-600 px-2 pb-0 lg:text-sm rounded-full font-bold text-white">
               New
             </small>
           )}
       {product?.isHot === "yes" && (
-            <small className="bg-red-500 px-2 pb-[2px] lg:text-sm rounded-full font-bold text-white">
+            <small className="bg-red-500 px-3 pb-[1px] lg:text-sm rounded-full font-bold text-white">
               Hot
             </small>
           )}

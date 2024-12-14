@@ -7,7 +7,7 @@ import FooterCategoryList from "./Shared/FooterCategoryList";
 const Footer = () => {
     return (
         <div className="px-4 pt-16 md:px-4  lg:px-8 bg-gradient-to-b from-[#281367] via-[#4a18b4] to-[#000000] font_inter">
-            <div className="grid  row-gap-10 mb-8 grid-cols-1 md:grid-cols-6 md:text-sm  lg:grid-cols-6 xl:grid-cols-6">
+            <div className="grid  row-gap-10 mb-8 grid-cols-1 md:grid-cols-6 md:text-sm  lg:flex lg:justify-between xl:grid-cols-6">
                 <div className=" md:max-w-md  col-span-1 md:col-span-2 ">
                     <h2 className="font-bold text-3xl text-gray-100 xl:text-5xl">Electro <span className="text-blue-500">Mart</span></h2>
               
@@ -59,7 +59,7 @@ const Footer = () => {
                     </p>
                     <ul className="mt-2 space-y-1 md:space-y-2 text-md xl:text-lg">
                         <li>
-                            <Link to="/about" className="text-gray-300 underline-hover">
+                            <Link to="/about" className="text-gray-300  underline-hover">
                                 About
                             </Link>
                         </li>
