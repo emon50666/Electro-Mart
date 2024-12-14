@@ -46,9 +46,7 @@ const PrivacyPolicy = () => {
           </section>
         </div>
 
-        {/* Right Column - Complementary Sections */}
         <div className="space-y-8">
-          {/* How We Use Your Information */}
           <section>
             <h2 className="text-3xl font-semibold text-gray-700 mb-3">How We Use Your Information</h2>
             <ul className="list-inside list-disc text-gray-600 space-y-2">
@@ -59,7 +57,6 @@ const PrivacyPolicy = () => {
             </ul>
           </section>
 
-          {/* Sharing Your Information */}
           <section>
             <h2 className="text-3xl font-semibold text-gray-700 mb-3">Sharing Your Information</h2>
             <p className="text-gray-600 leading-relaxed">
