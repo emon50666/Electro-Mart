@@ -96,7 +96,7 @@ const Navbar = () => {
         </Link>
       </div>
 
-      <div className=" block lg:block md:block xl:hidden 2xl:hidden sm:hidden md:ml-20 lg:ml-10">
+      <div className=" hidden  lg:block xl:hidden 2xl:hidden md:ml-20 lg:ml-10">
         
         <div className="flex items-center gap-2 mt-1">
           <FaPhoneAlt className="text-blue-500 md:text-[30px] lg:text-[25px] p-1 rounded-full shadow-md" />

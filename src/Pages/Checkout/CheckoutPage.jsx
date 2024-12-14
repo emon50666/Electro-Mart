@@ -176,11 +176,11 @@ const CheckoutPage = () => {
     <div className="md:flex-row gap-10 md:px-10 pb-10">
       <ManageCartLink />
       <form className="space-y-4 mt-10" onSubmit={handleSubmitData}>
-        <div className="grid grid-cols-2 gap-5">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
           <div className="w-full bg-white p-6 rounded-lg shadow-md">
             <h2 className="text-xl font-semibold mb-4">Billing Details</h2>
 
-            <div className="grid grid-cols-2 gap-2">
+            <div className="grid lg:grid-cols-2 gap-2">
               <div>
                 <label className="block text-sm mt-2 text-gray-600 font-medium mb-1">
                   Name
@@ -308,7 +308,7 @@ const CheckoutPage = () => {
             </div>
           </div>
 
-          <div className="w-full bg-white p-6 rounded-lg shadow-md">
+          <div className="w-full bg-white max-h-[450px] sticky top-0 p-6 rounded-lg shadow-md">
             <h2 className="text-xl font-semibold mb-4">Your Order</h2>
             <div className="space-y-4">
               <div className="flex justify-between">
@@ -374,7 +374,7 @@ const CheckoutPage = () => {
                 type="submit"
                 className="w-full bg-blue-500 text-white py-3 rounded-md mt-4"
               >
-                Place Order {totalAmount}
+                Place Order {totalAmount} ৳
               </button>
             </div>
           </div>
