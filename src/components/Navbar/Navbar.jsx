@@ -86,7 +86,7 @@ const Navbar = () => {
       </div>
 
       {/* Center the SearchBar */}
-      <div className="hidden ml-20 lg:flex flex-1 justify-center">
+      <div className="hidden lg:ml-20 lg:flex flex-1 justify-center">
         <SearchBar />
       </div>
 
