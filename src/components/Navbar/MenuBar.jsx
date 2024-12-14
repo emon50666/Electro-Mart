@@ -3,6 +3,7 @@ import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 import Loader from "../Loader/Loader";
 import { Link, NavLink } from "react-router-dom";
 import useCategories from "../../Hooks/useCategories";
+import { FaPhoneAlt } from "react-icons/fa";
 import { FaLocationDot } from "react-icons/fa6";
 import useRoll from "../../Hooks/useRoll";
 
@@ -75,7 +76,7 @@ const MenuBar = () => {
           {/* Dropdown Menu */}
           {isOpen && (
             <div className="absolute lg:w-[1175px]  w-full top-full left-0 z-40  bg-white shadow-lg border border-gray-200 mt-2 overflow-hidden overflow-x-hidden py-3">
-            <ul className="grid grid-cols-12 gap-y-2 border-t border-gray-200 pt-2">
+            <ul className="grid grid-cols-12 gap-y-2  pt-2">
               {categories.map(
                 (cat, idx) =>
                   cat.newCategory && (
@@ -145,7 +146,18 @@ const MenuBar = () => {
               </p>
             </Link>
           </button>
-         
+          <div className=" block lg:hidden xl:flex-row gap-x-3 items-center justify-center">
+            <div className="flex items-center gap-2 mt-1">
+              <FaPhoneAlt className="text-blue-600 text-lg bg-white p-1 rounded-full shadow-md" /> 
+
+              <h1 className="text-sm xl:text-base xl:font-semibold text-white hover:underline">
+                01786397249
+              </h1>
+            </div>
+            <p className="text-sm xl:text-base xl:font-semibold border-b border-white xl:border-0">
+              24/7 Support
+            </p>
+          </div>
         </div>
         {/* Contact Section */}
       </div>

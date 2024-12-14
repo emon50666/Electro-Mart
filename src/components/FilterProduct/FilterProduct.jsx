@@ -84,7 +84,7 @@ const FilterProduct = () => {
                 refetch={refetch}
               />
             ) : (
-              <div className="no-product-alert">
+              <div className="no-product-alert ">
                 <p>No products found matching the selected filters.</p>
               </div>
             )}

@@ -47,7 +47,7 @@ const SearchBar = () => {
           type="text"
           name="search"
           placeholder="Search Product, Category, Brand..."
-          className="border-l border-t border-b border-blue-400 w-96 xl:w-[700px] pt-2 pb-2 px-2 py-2 border-dashed rounded-l-full focus:outline-dashed outline-blue-400 focus:ring-0"
+          className="border-l border-t border-b border-blue-400 w-96 xl:w-[700px] pt-2 pb-2 px-2 py-2 border-dashed rounded-l-full focus:outline-none  focus:bg-blue-50/30 outline-blue-400 focus:ring-0"
         />
         <button className="relative right-12 bg-blue-500 rounded-l-none border-b border-blue-500 border-t-border-blue-500 flex text-white pt-[9px] pr-3 pb-[9px] pl-5 rounded-r-full focus:outline-none focus:ring-0">
           Search
