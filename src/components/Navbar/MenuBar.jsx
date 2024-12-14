@@ -3,7 +3,6 @@ import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 import Loader from "../Loader/Loader";
 import { Link, NavLink } from "react-router-dom";
 import useCategories from "../../Hooks/useCategories";
-import { FaPhoneAlt } from "react-icons/fa";
 import { FaLocationDot } from "react-icons/fa6";
 import useRoll from "../../Hooks/useRoll";
 
@@ -45,6 +44,7 @@ const MenuBar = () => {
     { title: "Shop", path: "/shop-page" },
     { title: "Store", path: "/storesPage" },
     { title: "Promotion", path: "/promotion" },
+    { title: "About Us", path: "/about" },
     { title: "Contact Us", path: "/contacts" },
   ];
   // console.log(role);
@@ -74,28 +74,29 @@ const MenuBar = () => {
           </button>
           {/* Dropdown Menu */}
           {isOpen && (
-            <div className="absolute top-full left-5 z-40 w-full bg-white shadow-lg border border-gray-200 mt-2 overflow-hidden px-5 py-3 xl:min-w-[1790px]">
-              <ul className="grid lg:grid-cols-7 xl:grid-cols-11 gap-y-2">
-                {categories.map(
-                  (cat, idx) =>
-                    cat.newCategory && (
-                      <li key={idx}>
-                        <Link
-                          to={`/shop-page?category=${cat.newCategory}`}
-                          className={`text-md font-medium px-2 py-1 block text-gray-600 hover:text-blue-500 hover:underline ${
-                            selectedCategory === cat.newCategory
-                              ? "text-blue-600"
-                              : "text-black"
-                          }`}
-                          onClick={() => handleCategoryClick(cat.newCategory)}
-                        >
-                          {cat.newCategory}
-                        </Link>
-                      </li>
-                    )
-                )}
-              </ul>
-            </div>
+            <div className="absolute lg:w-[1175px]  w-full top-full left-0 z-40  bg-white shadow-lg border border-gray-200 mt-2 overflow-hidden overflow-x-hidden py-3">
+            <ul className="grid grid-cols-12 gap-y-2 border-t border-gray-200 pt-2">
+              {categories.map(
+                (cat, idx) =>
+                  cat.newCategory && (
+                    <li key={idx} className="col-span-1">
+                      <Link
+                        to={`/shop-page?category=${cat.newCategory}`}
+                        className={`text-md font-medium px-2 py-1 block text-gray-600 hover:text-blue-500 hover:underline truncate ${
+                          selectedCategory === cat.newCategory
+                            ? "text-blue-600"
+                            : "text-black"
+                        }`}
+                        onClick={() => handleCategoryClick(cat.newCategory)}
+                      >
+                        {cat.newCategory}
+                      </Link>
+                    </li>
+                  )
+              )}
+            </ul>
+          </div>
+          
           )}
         </div>
 
@@ -111,7 +112,7 @@ const MenuBar = () => {
                       isActive
                         ? "bg-gray-50/40 underline rounded"
                         : "text-white"
-                    } bg-gray-50/25 px-5 py-1 text-sm xl:text-base`
+                    } bg-gray-50/10 px-5 py-1 rounded text-sm xl:text-base`
                   }
                 >
                   {link.title}
@@ -125,10 +126,10 @@ const MenuBar = () => {
       <div className="">
         {/* Track Order Section */}
 
-        <div className="flex items-center justify-end gap-x-5 xl:gap-x-10 px-2 xl:px-5 xl:flex-1">
+        <div className="flex items-center justify-end  xl:gap-x-10 px-2 xl:px-5 xl:flex-1">
           <button
             disabled={disable}
-            className={`flex flex-col items-center justify-center text-center ${
+            className={`flex flex-col lg:w-[120px] items-center  text-center ${
               disable ? "cursor-not-allowed" : ""
             }`}
           >
@@ -139,23 +140,12 @@ const MenuBar = () => {
               }`}
             >
               <FaLocationDot className="text-xl xl:text-base bg-white text-blue-600 p-1 rounded-full shadow-md" />
-              <p className="text-sm xl:text-base xl:font-medium flex">
+              <p className="text-md xl:text-base xl:font-medium ">
                 Track Order
               </p>
             </Link>
           </button>
-          <div className="divider lg:divider-horizontal lg:m-0"></div>
-          <div className="hidden lg:flex flex-col-reverse xl:flex-row gap-x-3 items-center justify-center">
-            <div className="flex items-center gap-2 mt-1">
-              <FaPhoneAlt className="text-blue-600 text-lg bg-white p-1 rounded-full shadow-md" />
-              <h1 className="text-sm xl:text-base xl:font-semibold text-white hover:underline">
-                01786397249
-              </h1>
-            </div>
-            <p className="text-sm xl:text-base xl:font-semibold border-b border-white xl:border-0">
-              24/7 Support
-            </p>
-          </div>
+         
         </div>
         {/* Contact Section */}
       </div>

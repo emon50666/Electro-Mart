@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import useAuth from "../../Hooks/useAuth";
 import { FaCartShopping } from "react-icons/fa6";
 import { IoGitCompareOutline } from "react-icons/io5";
-import { FaHeart } from "react-icons/fa";
+import { FaHeart, FaPhoneAlt } from "react-icons/fa";
 import { MdAccountCircle } from "react-icons/md";
 import MobileNavBar from "../Navbar/MobileNavBar";
 import AddCart from "../AddToCart/AddCart";
@@ -79,15 +79,14 @@ const Navbar = () => {
       </div>
 
       <div
-        className={`fixed inset-y-0 right-0 z-50 overflow-y-scroll w-64 transform bg-base-100 shadow-md p-4 transition-transform duration-300 ease-in-out ${
-          isOpen ? "translate-x-0" : "translate-x-full"
-        }`}
+        className={`fixed inset-y-0 right-0 z-50 overflow-y-scroll w-64 transform bg-base-100 shadow-md p-4 transition-transform duration-300 ease-in-out ${isOpen ? "translate-x-0" : "translate-x-full"
+          }`}
       >
         <MobileNavBar></MobileNavBar>
       </div>
 
       {/* Center the SearchBar */}
-      <div className="hidden lg:flex flex-1 justify-center">
+      <div className="hidden ml-20 lg:flex flex-1 justify-center">
         <SearchBar />
       </div>
 
@@ -97,7 +96,19 @@ const Navbar = () => {
         </Link>
       </div>
 
-      
+      <div className=" hidden xl:block 2xl:block sm:block md:ml-20 lg:ml-10">
+        
+        <div className="flex items-center gap-2 mt-1">
+          <FaPhoneAlt className="text-blue-500 md:text-[30px] lg:text-[25px] p-1 rounded-full shadow-md" />
+          <a href="tel:01786397249" className="text-[13px] lg:font-semibold xl:text-base xl:font-semibold text-black ">
+          <p className="text-[11px] lg:font-normal  xl:text-base xl:font-semibold border-b border-white xl:border-0">
+              24/7 Support
+            </p>
+            01786397249
+            
+          </a>
+        </div>
+      </div>
       <div className="navbar-end px-3 gap-5">
         <div className="hidden lg:flex space-x-3">
           <div
