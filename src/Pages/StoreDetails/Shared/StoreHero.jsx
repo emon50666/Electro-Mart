@@ -16,8 +16,8 @@ const StoreHero = ({ store }) => {
             >
                 <div className="absolute inset-0 bg-black opacity-20 rounded-2xl"></div>
 
-                <div className="hero-content text-white text-left absolute bottom-2  md:bottom-5 md:left-5">
-                    <div className="max-w-md">
+                <div className="items-center flex px-3 text-white sm:justify-center lg:justify-start h-[250px]  lg:h-[300px] ">
+                    <div className="max-w-md bg-[#0009]/50 p-2 rounded">
                         <p className="font-medium text-sm md:text-base lg:text-lg">
                             {store?.shopAddress}
                         </p>

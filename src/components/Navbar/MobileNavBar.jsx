@@ -37,9 +37,9 @@ const MobileNavBar = () => {
     <div className="relative">
       <div className="sticky top-0 z-40 pt-10 bg-white">
         <Tabs>
-          <TabList className="border-b-2 border-blue-500">
+          <TabList className=" shadow-sm flex ">
             <Tab
-              selectedClassName="w-full text-blue-600 underline"
+              selectedClassName="w-full  text-blue-600 underline"
               className="pr-4 py-0 cursor-pointer rounded-lg"
             >
               Menu
@@ -55,7 +55,7 @@ const MobileNavBar = () => {
           <div className="overflow-y-auto h-[calc(100vh-100px)]">
             <TabPanel>
               {/* Add your content here */}
-              <ul className="space-y-3 mt-5 text-lg font-medium">
+              <ul className="space-y-3 mt-5 text-md font-medium">
                 {navLinks.map((link, idx) => (
                   <li key={idx}>
                     <NavLink

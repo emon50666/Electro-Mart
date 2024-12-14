@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { BsCart } from "react-icons/bs";
 import { FaCartShopping, FaHeart, FaStar } from "react-icons/fa6";
 import { IoGitCompareOutline } from "react-icons/io5";
@@ -19,7 +19,18 @@ const ProductCard = ({ product, refetch }) => {
   // console.log(role);
   const { reviews } = useReview();
   const allReview = reviews.filter((review) => review?.mainId === product?._id);
-  const [lengthTitle] = useState(product?.title.slice(0, 40));
+  const [title, setTitle] = useState("");
+  useEffect(() => {
+    // Adjust title based on screen size
+    const updateTitle = () => {
+      const titleLength = window.innerWidth >= 1024 ? 40 : 20;
+      setTitle(product?.title.slice(0, titleLength));
+    };
+
+    updateTitle();
+    window.addEventListener("resize", updateTitle);
+    return () => window.removeEventListener("resize", updateTitle);
+  }, [product]);
 
   // Calculate average rating
   const calculateAverageRating = (products) => {
@@ -131,17 +142,17 @@ const ProductCard = ({ product, refetch }) => {
         )}
 
         {/* product hot new % badge */}
-        <div className="absolute top-[10px] w-full ">
+        <div className="absolute top-[2px] w-full ">
   <div className="grid grid-cols-2 justify-between items-center">
     {/* Left side: "New" and "Hot" */}
     <div className="flex flex-col items-start gap-y-0.5">
     {product?.isNew === "yes" && (
-            <small className="bg-green-500 px-2 pb-[2px] lg:text-sm rounded-full font-bold text-white">
+            <small className="bg-green-600 px-2 pb-0 lg:text-sm rounded-full font-bold text-white">
               New
             </small>
           )}
       {product?.isHot === "yes" && (
-            <small className="bg-teal-500 px-2 pb-[2px] lg:text-sm rounded-full font-bold text-white">
+            <small className="bg-red-500 px-3 pb-[1px] lg:text-sm rounded-full font-bold text-white">
               Hot
             </small>
           )}
@@ -156,8 +167,8 @@ const ProductCard = ({ product, refetch }) => {
 
         <div>
           <Link to={`/productDetails/${product._id}`}>
-            <h4 className={`font-semibold text-[12px] lg:text-base capitalize`}>
-              {lengthTitle}...
+            <h4 className={`font-semibold text-[10px] lg:text-base capitalize`}>
+            {title}...
             </h4>
           </Link>
           <div className="flex items-center justify-between">
@@ -186,7 +197,7 @@ const ProductCard = ({ product, refetch }) => {
           </div>
         ) : product?.discountPrice > 1 ? (
           <div className="flex gap-2">
-            <span className="line-through through-red-500  text-gray-500 font-semibold text-[12px] lg:text-base">
+            <span className="line-through text-red-500  text-gray-500 font-semibold text-[12px] lg:text-base">
               {" "}
               ৳{product?.price}
             </span>
