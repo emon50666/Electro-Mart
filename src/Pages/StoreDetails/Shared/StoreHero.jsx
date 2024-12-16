@@ -4,7 +4,7 @@ const StoreHero = ({ store }) => {
   return (
     <section className="mx-auto">
       <div
-        className=" min-h-[40vh] w-full relative rounded-2xl"
+        className="  min-h-[40vh] lg:min-h-[60vh] xl:min-h-[60vh] w-full relative rounded-2xl"
         style={{
           backgroundImage: `url(${store?.image})`,
           backgroundRepeat: "no-repeat",
