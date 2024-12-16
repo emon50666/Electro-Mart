@@ -173,7 +173,7 @@ const ProductCard = ({ product, refetch, shop }) => {
                 shop ? "lg:w-[180px] lg:h-[47px]  xl:h-auto xl:w-[250px]" : "w-auto"
               }`}
             >
-              {title}...
+              {title}
             </h4>
           </Link>
           <div className="flex items-center justify-between">

@@ -50,7 +50,7 @@ const PromotionDetails = () => {
   return (
     <div className="lg:mt-2 lg:mx-10 md:mx-5 p-5">
       <div
-        className="relative overflow-hidden rounded-xl shadow-lg group font_lexend mb-16"
+        className="relative overflow-hidden rounded-xl shadow-lg group font_lexend mb-2"
         style={{
           backgroundImage: `url(${promotion?.image})`,
           backgroundSize: "cover",
