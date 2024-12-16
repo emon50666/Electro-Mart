@@ -132,27 +132,24 @@ const ProductCard = ({ product, refetch }) => {
 
         {/* product hot new % badge */}
         <div className="absolute top-[10px] w-full ">
-  <div className="grid grid-cols-2 justify-between items-center">
-    {/* Left side: "New" and "Hot" */}
-    <div className="flex flex-col items-start gap-y-0.5">
-    {product?.isNew === "yes" && (
-            <small className="bg-green-500 px-2 pb-[2px] lg:text-sm rounded-full font-bold text-white">
-              New
-            </small>
-          )}
-      {product?.isHot === "yes" && (
-            <small className="bg-teal-500 px-2 pb-[2px] lg:text-sm rounded-full font-bold text-white">
-              Hot
-            </small>
-          )}
-    </div>
+          <div className="grid grid-cols-2 justify-between items-center">
+            {/* Left side: "New" and "Hot" */}
+            <div className="flex flex-col items-start gap-y-0.5">
+              {product?.isNew === "yes" && (
+                <small className="bg-green-500 px-2 pb-[2px] lg:text-sm rounded-full font-bold text-white">
+                  New
+                </small>
+              )}
+              {product?.isHot === "yes" && (
+                <small className="bg-teal-500 px-2 pb-[2px] lg:text-sm rounded-full font-bold text-white">
+                  Hot
+                </small>
+              )}
+            </div>
 
-    {/* Right side: "10%" */}
-    
-  </div>
-</div>
-
-
+            {/* Right side: "10%" */}
+          </div>
+        </div>
 
         <div>
           <Link to={`/productDetails/${product._id}`}>
