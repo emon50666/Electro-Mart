@@ -24,7 +24,7 @@ const FooterCategoryList = () => {
               <li key={idx}>
                 <Link
                   to={`/shop-page?category=${cat.newCategory}`}
-                  className="text-gray-400 xl:text-white underline-hover"
+                  className="text-gray-300 xl:text-white underline-hover"
                   onClick={handleCategoryClick}
                 >
                   {cat.newCategory}

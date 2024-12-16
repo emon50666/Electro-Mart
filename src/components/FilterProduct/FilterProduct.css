@@ -2,7 +2,7 @@
 .grid-filter-column {
   display: grid;
   grid-template-columns: 0.3fr 1fr;
-  gap: 5rem;
+  gap: 10px;
 
 }
 
@@ -26,10 +26,9 @@
 
 .no-product-alert {
   padding: 20px;
-  text-align: center;
   font-size: 1.2rem;
   color: blue;
-  font-weight: bold;
+
 }
 
 /* Tablet responsiveness */

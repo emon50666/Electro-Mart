@@ -1,5 +1,5 @@
 import { Link, useParams } from "react-router-dom";
-import Map from "./Shared/Map";
+
 import ServiceHour from "./Shared/ServiceHour";
 import StoreAddress from "./Shared/StoreAddress";
 import StoreHero from "./Shared/StoreHero";
@@ -14,7 +14,7 @@ const StoreDetails = () => {
     const oneStore = stores.find(store => store?._id === id)
 
     return (
-        <div className="lg:px-10 mx-auto space-y-10 font_cabin bg-gray-100 py-1 lg:pt-[80px] px-2">
+        <div className="lg:px-10 mx-auto space-y-10 pb-5 font_cabin bg-gray-100 py-1 lg:pt-[80px] px-2">
             <Helmet>
                 <title>Store Details | Elector Mart</title>
             </Helmet>
@@ -34,7 +34,16 @@ const StoreDetails = () => {
             <StoreHero store={oneStore} />
             <div className="grid grid-cols-1 md:grid-cols-4 xl:grid-cols-3 gap-8 md:gap-x-3">
                 <div className="col-span-1 md:col-span-5 xl:col-span-1">
-                    <Map />
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d233667.499951088!2d90.25452512197852!3d23.781066877945634!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755b8b087026b81%3A0x8fa563bbdd5904c2!2sDhaka!5e0!3m2!1sen!2sbd!4v1734190324310!5m2!1sen!2sbd"
+                        width="100%"
+                        height="300"
+                        style={{ border: 0 }}
+                        allowFullScreen
+                        loading="lazy"
+                        referrerPolicy="no-referrer-when-downgrade"
+                    />
+
                 </div>
                 <div className="col-span-1 md:col-span-2 xl:col-span-1">
                     <StoreAddress store={oneStore} />

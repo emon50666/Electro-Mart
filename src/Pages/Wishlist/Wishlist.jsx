@@ -21,18 +21,25 @@ const Wishlist = () => {
   return (
     <div className="">
       {theUserWishlist.length > 0 && (
-        <div className="font_lexend min-h-[30vh] h-auto md:min-h-[40vh] lg:min-h-[50vh] bg-[url('https://res.cloudinary.com/duv5fiurz/image/upload/v1726674456/page-title-shop_ue5dxm.jpg')] bg-cover bg-center flex flex-col items-center justify-center">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-7xl text-white font-semibold">
-            Wishlist
-          </h2>
-          <div className="flex gap-x-1 gap-y-0 md:mt-2 text-white text-sm">
-            <Link to="/" className="cursor-pointer hover:text-blue-500">
-              Home
-            </Link>
-            <span>/</span>
-            <p>Wishlist</p>
-          </div>
+      <div className="font_lexend min-h-[30vh] h-auto md:min-h-[40vh] lg:min-h-[50vh] relative bg-[url('https://res.cloudinary.com/dpsgtszzi/image/upload/v1734188066/wish_zs7hew.jpg')] bg-cover  flex flex-col items-center justify-center">
+      {/* Black Overlay */}
+      <div className="absolute inset-0 bg-black opacity-60"></div>
+    
+      {/* Content */}
+      <div className="relative z-10 text-center">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-7xl text-gray-100 font-semibold">
+          Wishlist
+        </h2>
+        <div className="flex gap-x-1 gap-y-0 md:mt-2 text-white text-sm">
+          <Link to="/" className="cursor-pointer hover:text-blue-600">
+            Home
+          </Link>
+          <span>/</span>
+          <p>Wishlist</p>
         </div>
+      </div>
+    </div>
+    
       )}
 
       {theUserWishlist.length > 0 ? (
