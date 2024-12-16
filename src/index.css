@@ -1,13 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap');
-
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap");
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
 
 /* body {
     cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 24 24' fill='black'%3E%3Cpath d='M10 20c1.104 0 1.99-.896 1.99-2h-3.98c0 1.104.886 2 1.99 2zm8.419-15l-1.611 7h-9.616l-1.561-7h-3.631v-2h4.999l1.561 7h10.193l1.388-6h2.208l-.86 4h-1.348l-.71 3h-2.152l-.641 3h-8.57l.57-2.5h3.57l-.5 2h3.159l1.5-7h2.001z'/%3E%3C/svg%3E"), auto;
@@ -15,216 +13,204 @@
 
   }
    */
+body,
+html {
+  width: auto;
+  overflow-x: hidden;
+}
 
-   .navbar {
-    padding: var(--navbar-padding, 0px) !important;
+.navbar {
+  padding: var(--navbar-padding, 0px) !important;
 }
 
 .font_inter {
-    font-family: "Inter", sans-serif;
+  font-family: "Inter", sans-serif;
 }
 
 .font_open_sense {
-    font-family: "Open Sans", sans-serif
+  font-family: "Open Sans", sans-serif;
 }
 
 .font_cabin {
-    font-family: "Cabin", sans-serif;
+  font-family: "Cabin", sans-serif;
 }
 
 .font_lexend {
-    font-family: "Lexend", sans-serif;
-
+  font-family: "Lexend", sans-serif;
 }
 
 #product_details_top_layer a.active {
-    color: #767695;
+  color: #767695;
 }
 
 #magnify {
-    width: 800px;
-    height: 800px;
+  width: 800px;
+  height: 800px;
 }
 
 #updateUserId::-webkit-scrollbar,
 #search_id::-webkit-scrollbar,
 #categoryListId::-webkit-scrollbar {
-    display: none;
+  display: none;
 }
 
 #updateUserId,
 #search_id,
 #categoryListId {
-    scrollbar-width: none;
+  scrollbar-width: none;
 }
 
 #updateUserId,
 #search_id,
 #categoryListId {
-    -ms-overflow-style: none;
+  -ms-overflow-style: none;
 }
 
 .custom-scrollbar::-webkit-scrollbar {
-    height: 2px;
+  height: 2px;
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb {
-    background-color: #a0aec0;
-    border-radius: 10px;
+  background-color: #a0aec0;
+  border-radius: 10px;
 }
 
 .custom-scrollbar::-webkit-scrollbar-track {
-    background: #edf2f7;
+  background: #edf2f7;
 }
 
 .custom-scrollbar {
-    scrollbar-width: thin;
-    scrollbar-color: #a0aec0 #edf2f7;
+  scrollbar-width: thin;
+  scrollbar-color: #a0aec0 #edf2f7;
 }
 
-
-
 .underline-hover {
-    position: relative;
-    display: inline-block;
-    overflow: hidden;
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
 }
 
 .underline-hover::before {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 2px;
-    bottom: 0;
-    left: 0;
-    background-color: #00796b;
-    transform: translateX(-100%);
-    transition: transform 0.3s ease;
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #00796b;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
 }
 
 .underline-hover:hover::before {
-    transform: translateX(0);
+  transform: translateX(0);
 }
 
 .underline-hover:hover {
-    color: #00796b;
-    transition: color 0.3s ease;
+  color: #00796b;
+  transition: color 0.3s ease;
 }
 
-
-
-
 .swiper-button-prev:after {
-    font-size: 20px !important;
-    color: white;
+  font-size: 20px !important;
+  color: white;
 }
 
 .swiper-button-next::after {
-    font-size: 20px !important;
-    color: white;
+  font-size: 20px !important;
+  color: white;
 }
 
 .react-tabs__tab--selected {
-    border-color: blue !important;
+  border-color: blue !important;
 }
 
 .react-tabs__tab-list {
-    border-bottom: 1px solid blue !important;
+  border-bottom: 1px solid blue !important;
 }
 
 .skeleton {
-    background-color: #e0e0e0;
-    border-radius: 4px;
-    animation: shimmer 1.5s infinite;
+  background-color: #e0e0e0;
+  border-radius: 4px;
+  animation: shimmer 1.5s infinite;
 }
 
 @keyframes shimmer {
-    0% {
-        background-position: -500px 0;
-    }
+  0% {
+    background-position: -500px 0;
+  }
 
-    100% {
-        background-position: 500px 0;
-    }
+  100% {
+    background-position: 500px 0;
+  }
 }
-
 
 #cartLink a.active {
-    color: rgb(189, 235, 250);
+  color: rgb(189, 235, 250);
 }
-
-
-
 
 .swiper-pagination.swiper-pagination-clickable.swiper-pagination-bullets.swiper-pagination-horizontal {
-    position: absolute; /* Ensure it's positioned relative to its container */
-   
-    left: 50%; /* Align it horizontally */
-    transform: translateX(-50%); /* Ensure proper centering */
-  
-    width: 100px;
-    text-align: center;
-    
-   
-   
-}
+  position: absolute; /* Ensure it's positioned relative to its container */
 
+  left: 50%; /* Align it horizontally */
+  transform: translateX(-50%); /* Ensure proper centering */
+
+  width: 100px;
+  text-align: center;
+}
 
 /* For Google Chrome, Edge, and Safari */
 ::-webkit-scrollbar {
-    width: 1px;  /* Scrollbar width */
-    height: 3px; /* Horizontal scrollbar height */
-  }
-  
-  /* Scrollbar track (background) */
-  ::-webkit-scrollbar-track {
-    background: #f0f0f0; /* Light background color */
-    border-radius: 10px; /* Optional rounded edges */
-  }
-  
-  /* Scrollbar thumb (the draggable part) */
-  ::-webkit-scrollbar-thumb {
-    background-color: #0011ff; /* Blue thumb color */
-    border-radius: 10px; /* Optional rounded edges */
-  }
-  
-  /* Optional: On hover, change thumb color */
-  ::-webkit-scrollbar-thumb:hover {
-    background-color: #057eff;
-  }
-  /* Firefox */
+  width: 1px; /* Scrollbar width */
+  height: 3px; /* Horizontal scrollbar height */
+}
+
+/* Scrollbar track (background) */
+::-webkit-scrollbar-track {
+  background: #f0f0f0; /* Light background color */
+  border-radius: 10px; /* Optional rounded edges */
+}
+
+/* Scrollbar thumb (the draggable part) */
+::-webkit-scrollbar-thumb {
+  background-color: #0011ff; /* Blue thumb color */
+  border-radius: 10px; /* Optional rounded edges */
+}
+
+/* Optional: On hover, change thumb color */
+::-webkit-scrollbar-thumb:hover {
+  background-color: #057eff;
+}
+/* Firefox */
 html {
-    scrollbar-width: thin;         /* Controls the width: thin, auto, none */
-    scrollbar-color: #007bff; /* thumb color track color */
-  }
-  /* Chrome, Edge, Safari */
+  scrollbar-width: thin; /* Controls the width: thin, auto, none */
+  scrollbar-color: #007bff; /* thumb color track color */
+}
+/* Chrome, Edge, Safari */
 ::-webkit-scrollbar {
-    width: 1px; /* Width of the scrollbar */
+  width: 1px; /* Width of the scrollbar */
 }
 
 ::-webkit-scrollbar-track {
-    background: #0212ff; /* Track color */
+  background: #0212ff; /* Track color */
 }
 
 ::-webkit-scrollbar-thumb {
-    background: #0230ff; /* Scrollbar color */
-    border-radius: 10px; /* Rounded corners */
+  background: #0230ff; /* Scrollbar color */
+  border-radius: 10px; /* Rounded corners */
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: #0532ff; /* Color on hover */
+  background: #0532ff; /* Color on hover */
 }
 
 /* Firefox */
 * {
-    scrollbar-width: thin; /* Scrollbar width */
-    scrollbar-color: #0540ff ; /* Scrollbar color and track color */
+  scrollbar-width: thin; /* Scrollbar width */
+  scrollbar-color: #0540ff; /* Scrollbar color and track color */
 }
 
 /* For all other browsers */
 body {
-    overflow-y: scroll; /* Ensure scrollbar is always shown */
- 
+  overflow-y: scroll; /* Ensure scrollbar is always shown */
 }
-
-
