@@ -108,7 +108,7 @@ const OtherProductDetails = ({ product }) => {
       <div className="lg:space-y-3 ">
         {/* Title & Rating start */}
         <div>
-          <h3 className="text-md md:text-2xl lg:text-[23px] font-bold lg:font-semibold ">
+          <h3 className="text-[15px] md:text-2xl lg:text-[23px] font-semibold lg:font-semibold ">
             {product?.title}
           </h3>
           <div className="flex items-center justify-between mt-3">
