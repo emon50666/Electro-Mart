@@ -1,11 +1,8 @@
-import { FaRegTrashAlt } from "react-icons/fa";
 import { useState, useEffect } from "react";
-import Swal from "sweetalert2";
 import Loader from "../../Loader/Loader";
 import useFilteredOrders from "../../../Hooks/useFilterOrder";
 import useAxiosPublic from "../../../Hooks/useAxiosPublic";
 import UserAuth from "../../../Hooks/useAuth";
-import useOrder from "../../../Hooks/useOrder";
 
 const MemberOrder = () => {
   const { user } = UserAuth();
@@ -15,8 +12,6 @@ const MemberOrder = () => {
   const [productDetails, setProductDetails] = useState({});
   const [isLoading, setIsLoading] = useState(true);
   const [showDetails, setShowDetails] = useState({});
-  const { refetch } = useOrder();
-
   // Fetch product details for each order
   useEffect(() => {
     const fetchProductDetails = async () => {
@@ -44,26 +39,6 @@ const MemberOrder = () => {
 
     if (orders) fetchProductDetails();
   }, [axiosPublic, orders]);
-
-  // Delete order
-  const handleDeleteOrder = async (id) => {
-    Swal.fire({
-      title: "Are you sure?",
-      text: "You want to delete this product",
-      icon: "warning",
-      showCancelButton: true,
-      confirmButtonColor: "#3B82F6",
-      cancelButtonColor: "#d33",
-      confirmButtonText: "Yes, delete it!",
-    }).then((result) => {
-      if (result.isConfirmed) {
-        axiosPublic.delete(`/orders/${id}`).then(() => {
-          refetch();
-          // Optionally refetch or update the UI after deletion
-        });
-      }
-    });
-  };
 
   // Toggle order details visibility
   const toggleDetails = (orderId) => {
@@ -149,11 +124,6 @@ const MemberOrder = () => {
 
                 {/* Action Column */}
                 <td className="border-r flex flex-col justify-center items-center">
-                  <FaRegTrashAlt
-                    onClick={() => handleDeleteOrder(pay._id)}
-                    className="text-red-500 cursor-pointer text-xl font-bold"
-                  />
-                  <hr className="border border-gray-200 w-full my-1" />
                   <button
                     className="text-blue-500 ml-3"
                     onClick={() => toggleDetails(pay._id)}
