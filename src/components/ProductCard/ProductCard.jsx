@@ -197,7 +197,7 @@ const ProductCard = ({ product, refetch }) => {
           </div>
         ) : product?.discountPrice > 1 ? (
           <div className="flex gap-2">
-            <span className="line-through text-red-500  text-gray-500 font-semibold text-[12px] lg:text-base">
+            <span className="line-through text-red-500  font-semibold text-[12px] lg:text-base">
               {" "}
               ৳{product?.price}
             </span>
