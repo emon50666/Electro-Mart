@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import useOrder from "../../../../Hooks/useOrder";
 import useProduct from "../../../../Hooks/useProduct";
 import ReactHtmlParser from "react-html-parser";
+import { FaBangladeshiTakaSign } from "react-icons/fa6";
 const TopSaleProduct = () => {
   const { products } = useProduct();
   const { payments } = useOrder();
@@ -56,11 +57,13 @@ const TopSaleProduct = () => {
             <strong>Brand:</strong> {brand}
           </p>
           <div className="flex items-center space-x-4">
-            <p className="text-2xl font-semibold text-red-600">
-              ${discountPrice.toFixed(2)}
+            <p className="text-2xl font-semibold text-red-600 flex items-center">
+              <FaBangladeshiTakaSign />
+              {discountPrice.toFixed(2)}
             </p>
-            <p className="text-sm line-through text-gray-500">
-              ${price.toFixed(2)}
+            <p className="text-sm line-through text-gray-500 flex items-center">
+              <FaBangladeshiTakaSign />
+              {price.toFixed(2)}
             </p>
             <p className="text-sm text-green-600 font-semibold">
               {discountPercentage}% off

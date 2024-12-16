@@ -14,17 +14,23 @@ const PromotionDetails = () => {
     days: 0,
     hours: 0,
     minutes: 0,
-    seconds: 0
+    seconds: 0,
   });
 
   const calculateRemainingTime = () => {
     const today = new Date();
-    const targetDate = new Date(today.getFullYear(), parseInt(month) - 1, parseInt(day)); // Adjust month as it's 0-indexed
+    const targetDate = new Date(
+      today.getFullYear(),
+      parseInt(month) - 1,
+      parseInt(day)
+    ); // Adjust month as it's 0-indexed
     const difference = targetDate - today; // Time difference in milliseconds
 
     if (difference > 0) {
       const days = Math.floor(difference / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const hours = Math.floor(
+        (difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+      );
       const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
       const seconds = Math.floor((difference % (1000 * 60)) / 1000);
 
@@ -42,13 +48,25 @@ const PromotionDetails = () => {
   }, [day, month]);
 
   return (
-    <div className="lg:mt-28 lg:mx-10 md:mx-5 p-5">
-      <div className="relative overflow-hidden bg-teal-400 rounded-xl shadow-lg group font_lexend mb-16">
-        <div className="p-3 md:p-10 lg:flex items-center justify-between lg:gap-x-6 xl:gap-x-8">
+    <div className="lg:mt-2 lg:mx-10 md:mx-5 p-5">
+      <div
+        className="relative overflow-hidden rounded-xl shadow-lg group font_lexend mb-16"
+        style={{
+          backgroundImage: `url(${promotion?.image})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+        }}
+      >
+        <div className="absolute inset-0 bg-black bg-opacity-50"></div>{" "}
+        {/* Overlay */}
+        <div className="relative p-3 md:p-10 lg:flex items-center justify-between lg:gap-x-6 xl:gap-x-8">
           {/* Info Side */}
           <div className="lg:w-1/2 mb-5 md:mb-0">
             {/* Description */}
-            <h2 className="text-xl xl:text-3xl font-medium 2xl:font-semibold text-white">{promotion?.description}</h2>
+            <h2 className="text-xl xl:text-3xl font-medium 2xl:font-semibold text-white">
+              {promotion?.description}
+            </h2>
             {/* Offer */}
             <div className="md:text-xl text-gray-200 mt-3 flex items-center gap-3">
               <p>{promotion?.offerStartDate.slice(0, 6)}</p>
@@ -88,7 +106,7 @@ const PromotionDetails = () => {
             <img
               src={promotion?.image}
               alt={promotion?.description}
-              className="w-full h-auto md:h-[200px] lg:h-auto object-cover rounded-lg"
+              className="w-full h-auto md:h-[200px] lg:h-auto object-cover rounded-lg opacity-90"
             />
           </div>
         </div>
