@@ -14,7 +14,7 @@ import useAddToWishlist from "../../Hooks/useAddToWishlist";
 import useReview from "../../Hooks/useReview";
 import useRoll from "../../Hooks/useRoll";
 
-const ProductCard = ({ product, refetch }) => {
+const ProductCard = ({ product, refetch, shop }) => {
   const [role] = useRoll();
   // console.log(role);
   const { reviews } = useReview();
@@ -41,6 +41,11 @@ const ProductCard = ({ product, refetch }) => {
     const averageRating = totalRating / products.length;
     return averageRating.toFixed(2); // Round to 2 decimal places
   };
+  useEffect(() => {
+    if (shop) {
+      setTitle(product?.title.slice(0, 25));
+    }
+  }, [shop, product.title]);
 
   // Usage
   const averageRating = calculateAverageRating(allReview);
@@ -52,7 +57,6 @@ const ProductCard = ({ product, refetch }) => {
   const axiosPublic = useAxiosPublic();
   const [isHovered, setIsHovered] = useState(false);
   const [cartOpen, setCartOpen] = useState(false);
-  // // console.log(user?.email);
   const handleViewCount = (_id) => {
     let currentView = product?.view || 0;
     const updateView = currentView + 1;
@@ -65,7 +69,7 @@ const ProductCard = ({ product, refetch }) => {
         }
       })
       .catch(() => {
-        // console.log(`Error = ${err}`);
+        // console.log(Error = ${err});
       });
   };
 
@@ -143,32 +147,33 @@ const ProductCard = ({ product, refetch }) => {
 
         {/* product hot new % badge */}
         <div className="absolute top-[2px] w-full ">
-  <div className="grid grid-cols-2 justify-between items-center">
-    {/* Left side: "New" and "Hot" */}
-    <div className="flex flex-col items-start gap-y-0.5">
-    {product?.isNew === "yes" && (
-            <small className="bg-green-600 px-2 pb-0 lg:text-sm rounded-full font-bold text-white">
-              New
-            </small>
-          )}
-      {product?.isHot === "yes" && (
-            <small className="bg-red-500 px-3 pb-[1px] lg:text-sm rounded-full font-bold text-white">
-              Hot
-            </small>
-          )}
-    </div>
+          <div className="grid grid-cols-2 justify-between items-center">
+            {/* Left side: "New" and "Hot" */}
+            <div className="flex flex-col items-start gap-y-0.5">
+              {product?.isNew === "yes" && (
+                <small className="bg-green-600 px-2 pb-0 lg:text-sm rounded-full font-bold text-white">
+                  New
+                </small>
+              )}
+              {product?.isHot === "yes" && (
+                <small className="bg-red-500 px-3 pb-[1px] lg:text-sm rounded-full font-bold text-white">
+                  Hot
+                </small>
+              )}
+            </div>
 
-    {/* Right side: "10%" */}
-    
-  </div>
-</div>
-
-
+            {/* Right side: "10%" */}
+          </div>
+        </div>
 
         <div>
           <Link to={`/productDetails/${product._id}`}>
-            <h4 className={`font-semibold text-[10px] lg:text-base capitalize`}>
-            {title}...
+            <h4
+              className={`font-semibold text-[10px] lg:text-base capitalize ${
+                shop ? "w-[250px]" : "w-auto"
+              }`}
+            >
+              {title}...
             </h4>
           </Link>
           <div className="flex items-center justify-between">
@@ -249,6 +254,7 @@ const ProductCard = ({ product, refetch }) => {
 ProductCard.propTypes = {
   product: PropType.object,
   refetch: PropType.func,
+  shop: PropType.string,
 };
 
 export default ProductCard;

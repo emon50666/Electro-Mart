@@ -49,9 +49,6 @@ const LeftSlide = () => {
                       {slide.title}
                     </h2>
                   )}
-                  {/* <Link to="/" className="bg-blue-500 text-white py-2 px-4 rounded-lg shadow-lg hover:bg-blue-600 transition">
-                                        Shop Now
-                                    </Link> */}
                 </div>
                 {role === "admin" && (
                   <span
