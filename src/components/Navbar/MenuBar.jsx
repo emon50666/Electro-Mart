@@ -75,22 +75,22 @@ const MenuBar = () => {
           </button>
           {/* Dropdown Menu */}
           {isOpen && (
-            <div className="absolute lg:w-[1175px]  w-full top-full left-0 z-40  bg-white shadow-lg border border-gray-200 mt-2 overflow-hidden overflow-x-hidden py-3">
-            <ul className="grid grid-cols-12 gap-y-2  pt-2">
+            <div className="absolute lg:w-[1160px]  w-full top-full left-0 z-40 ml-2 bg-white shadow-lg border border-gray-200 mt-4 overflow-hidden overflow-x-hidden py-3">
+            <ul className=" grid grid-cols-8 gap-y-2  pt-2">
               {categories.map(
                 (cat, idx) =>
                   cat.newCategory && (
                     <li key={idx} className="col-span-1">
                       <Link
                         to={`/shop-page?category=${cat.newCategory}`}
-                        className={`text-md font-medium px-2 py-1 block text-gray-600 hover:text-blue-500 hover:underline truncate ${
+                        
+                        onClick={() => handleCategoryClick(cat.newCategory)}
+                      >
+                        <span className={`text-md font-medium px-2 py-1 block text-gray-600 hover:text-blue-500 hover:underline truncate ${
                           selectedCategory === cat.newCategory
                             ? "text-blue-600"
                             : "text-black"
-                        }`}
-                        onClick={() => handleCategoryClick(cat.newCategory)}
-                      >
-                        {cat.newCategory}
+                        }`}>{cat.newCategory}</span>
                       </Link>
                     </li>
                   )
@@ -146,7 +146,7 @@ const MenuBar = () => {
               </p>
             </Link>
           </button>
-          <div className=" block lg:hidden xl:flex-row gap-x-3 items-center justify-center">
+          <div className=" block lg:hidden xl:block  xl:flex-row gap-x-3 items-center justify-center">
             <div className="flex items-center gap-2 mt-1">
               <FaPhoneAlt className="text-blue-600 text-lg bg-white p-1 rounded-full shadow-md" /> 
 
