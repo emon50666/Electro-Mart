@@ -19,7 +19,7 @@ const Layout = () => {
     setIsLoading(true);
     const timer = setTimeout(() => {
       setIsLoading(false);
-    }, 3000); // Adjust timing as needed
+    }, 2000); // Adjust timing as needed
 
     return () => clearTimeout(timer);
   }, [location]);

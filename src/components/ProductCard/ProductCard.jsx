@@ -14,7 +14,7 @@ import useAddToWishlist from "../../Hooks/useAddToWishlist";
 import useReview from "../../Hooks/useReview";
 import useRoll from "../../Hooks/useRoll";
 
-const ProductCard = ({ product, refetch }) => {
+const ProductCard = ({ product, refetch, shop }) => {
   const [role] = useRoll();
   // console.log(role);
   const { reviews } = useReview();
@@ -41,6 +41,11 @@ const ProductCard = ({ product, refetch }) => {
     const averageRating = totalRating / products.length;
     return averageRating.toFixed(2); // Round to 2 decimal places
   };
+  useEffect(() => {
+    if (shop) {
+      setTitle(product?.title.slice(0, 25));
+    }
+  }, [shop, product.title]);
 
   // Usage
   const averageRating = calculateAverageRating(allReview);
@@ -163,7 +168,11 @@ const ProductCard = ({ product, refetch }) => {
 
         <div>
           <Link to={`/productDetails/${product._id}`}>
-            <h4 className={`font-semibold text-[10px] lg:text-base capitalize`}>
+            <h4
+              className={`font-semibold text-[10px] lg:text-base capitalize ${
+                shop ? "w-[250px]" : "w-auto"
+              }`}
+            >
               {title}...
             </h4>
           </Link>
@@ -245,6 +254,7 @@ const ProductCard = ({ product, refetch }) => {
 ProductCard.propTypes = {
   product: PropType.object,
   refetch: PropType.func,
+  shop: PropType.string,
 };
 
 export default ProductCard;
