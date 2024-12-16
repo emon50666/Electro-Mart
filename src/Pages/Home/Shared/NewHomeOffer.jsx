@@ -9,7 +9,7 @@ const NewHomeOffer = () => {
   // Filter products based on discountPercentage
   const filteredProducts = products.filter(
     (product) =>
-      product?.title.length > 20 &&
+      product?.title.length > 25 &&
       product?.isHot != "yes" &&
       product?.isNew === "yes" &&
       !product?.discountPercentage &&

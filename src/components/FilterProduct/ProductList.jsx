@@ -34,7 +34,7 @@ const ProductList = ({ filteredProducts }) => {
   return (
     <div>
       {/* Products Grid */}
-      <div className="grid lg:grid-cols-3 xl:grid-cols-5 md:gap-6 bg-[#F6F6F6] p-2 lg:p-5 md:grid-cols-3 grid-cols-2 gap-2 overflow-x-auto lg:overflow-hidden no-scrollbar">
+      <div className="grid lg:grid-cols-4 xl:grid-cols-5 md:gap-3 bg-[#F6F6F6] p-2 lg:p-5 md:grid-cols-3 grid-cols-2 gap-2 overflow-x-auto lg:overflow-hidden no-scrollbar">
         {currentProducts.map((product) => (
           <div
             key={product._id}

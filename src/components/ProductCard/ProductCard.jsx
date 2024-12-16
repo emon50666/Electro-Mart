@@ -170,7 +170,7 @@ const ProductCard = ({ product, refetch, shop }) => {
           <Link to={`/productDetails/${product._id}`}>
             <h4
               className={`font-semibold text-[10px] lg:text-base capitalize ${
-                shop ? "w-[250px]" : "w-auto"
+                shop ? "lg:w-[180px] lg:h-[47px]  xl:h-auto xl:w-[250px]" : "w-auto"
               }`}
             >
               {title}...
