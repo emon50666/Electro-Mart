@@ -26,9 +26,8 @@ const Layout = () => {
 
   return (
     <div className="mx-w[2550px] mx-auto">
-      {/* Show Skeleton Loader while loading */}
       {isLoading ? (
-        <Skeleton /> // Replace with your Skeleton component or design
+        <Skeleton />
       ) : (
         <>
           <Navbar />
