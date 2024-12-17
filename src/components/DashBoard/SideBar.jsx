@@ -64,7 +64,7 @@ const SideBar = () => {
             <AdminMenu setIsSideNavOpen={setIsSideNavOpen} />
           )}
 
-          {role === "member" && <MemberMenu />}
+          {role === "member" && <MemberMenu setIsSideNavOpen={setIsSideNavOpen}/>}
           {role === "seller" && <AdminMenu />}
         </nav>
         <li onClick={logOut} className=" ">
