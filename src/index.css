@@ -207,6 +207,6 @@ html {
 }
 
 /* For all other browsers */
-body {
-  overflow-y: scroll; /* Ensure scrollbar is always shown */
-}
+/* body {
+  overflow-y: scroll;
+} */
