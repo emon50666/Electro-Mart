@@ -9,7 +9,7 @@ const HeaderDashboard = () => {
   const { user, loading, logOut } = useAuth();
   const [isDropdownOpen, setDropdownOpen] = useState(false);
   const [role] = useRoll();
-
+  // console.log(role);
   const dropdownRef = useRef(null); // Ref for dropdown container
 
   const toggleDropdown = () => {
@@ -107,7 +107,7 @@ const HeaderDashboard = () => {
               <ul className="py-1 text-sm text-gray-700 text-left">
                 <li>
                   <Link
-                    to={"profile"}
+                    to={role == "admin" ? "dashboard-layout" : "my-account"}
                     onClick={closeDropdown}
                     className="block px-4 py-2 hover:bg-blue-50 hover:text-blue-500 lg:hidden"
                   >
