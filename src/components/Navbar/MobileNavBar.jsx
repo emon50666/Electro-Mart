@@ -1,10 +1,16 @@
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
 import useCategories from "../../Hooks/useCategories";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
+import { useState } from "react";
 
 const MobileNavBar = () => {
   const { categories } = useCategories();
+  const [selectedCategory, setSelectedCategory] = useState("");
+
+  const handleCategoryClick = (cat) => {
+    setSelectedCategory(cat);
+  };
 
   const navLinks = [
     {
@@ -78,9 +84,20 @@ const MobileNavBar = () => {
                   (cat, idx) =>
                     cat?.newCategory && (
                       <li key={idx}>
-                        <a className="text-md font-medium text-black px-2 py-1 hover:bg-white hover:text-blue-500">
-                          {cat?.newCategory}
-                        </a>
+                        <Link
+                          to={`/shop-page?category=${cat.newCategory}`}
+                          onClick={() => handleCategoryClick(cat.newCategory)}
+                        >
+                          <span
+                            className={`text-md font-medium py-0 text-gray-600 hover:text-blue-500 hover:underline ${
+                              selectedCategory === cat.newCategory
+                                ? "text-blue-600"
+                                : "text-black"
+                            }`}
+                          >
+                            {cat.newCategory}
+                          </span>
+                        </Link>
                       </li>
                     )
                 )}
