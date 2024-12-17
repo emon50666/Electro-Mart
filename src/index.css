@@ -13,11 +13,7 @@
 
   }
    */
-body,
-html {
-  width: auto;
-  overflow-x: hidden;
-}
+
 
 .navbar {
   padding: var(--navbar-padding, 0px) !important;
