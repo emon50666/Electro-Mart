@@ -196,7 +196,7 @@ const Order = () => {
                     <div className="font-normal">
                       <div>
                         {pay.products.map((product, index) => (
-                          <div key={index}>
+                          <div key={index} className="w-96 lg:w-auto">
                             {`(${index + 1}):  ${
                               productDetails[product.mainProductId]?.title ||
                               "Loading..."

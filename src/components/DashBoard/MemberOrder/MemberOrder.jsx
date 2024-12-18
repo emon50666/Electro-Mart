@@ -75,7 +75,7 @@ const MemberOrder = () => {
 
                 {/* Product Name(s) */}
                 <td className="border-r border-gray-200">
-                  <div className="font-normal">
+                  <div className="font-normal w-56 lg:w-auto">
                     {pay.products
                       .map(
                         (product) =>
