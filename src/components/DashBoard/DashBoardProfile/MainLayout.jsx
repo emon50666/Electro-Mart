@@ -77,7 +77,7 @@ const MainLayout = () => {
       </div>
 
       <Link
-        to={"/dashboard/order-list"}
+        to={"../order-list"}
         className="  rounded-lg shadow-md bg-white hover:shadow-lg"
       >
         {/* Icon and Title Section */}
@@ -117,7 +117,7 @@ const MainLayout = () => {
       </Link>
 
       <Link
-        to="/dashboard/user"
+        to="../user"
         className="  rounded-lg shadow-md bg-white hover:shadow-lg"
       >
         {/* Icon and Title Section */}

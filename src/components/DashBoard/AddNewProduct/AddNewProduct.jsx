@@ -87,15 +87,6 @@ const AddNewProduct = () => {
     },
   };
 
-
-
-
-
-
-
-
-
-
   useEffect(() => {
     const discountPrice = calculateDiscountPrice();
     setValue('discountPrice', discountPrice);
