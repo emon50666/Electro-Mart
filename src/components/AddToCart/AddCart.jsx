@@ -5,6 +5,7 @@ import useCart from "../../Hooks/useCart";
 import CardOfCart from "./CardOfCart";
 import useAuth from "../../Hooks/useAuth";
 
+
 const AddCart = ({ setCartOpen }) => {
   const { user } = useAuth();
   const { theUserCarts } = useCart();
@@ -20,6 +21,7 @@ const AddCart = ({ setCartOpen }) => {
       setCartOpen(false);
     }, 300);
   };
+  
 
   return (
     <div className="fixed inset-0 flex items-center justify-start z-50">

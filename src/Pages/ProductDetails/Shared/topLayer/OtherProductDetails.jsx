@@ -126,11 +126,11 @@ const OtherProductDetails = ({ product }) => {
                 ( customer Review)
               </div>
             </div>
-            <div className="font_cabin rounded-full  text-sm bg-[#FEF4F4] lg:text-lg text-blue-500   px-4">
+            <div className=" rounded-full  text-sm bg-gray-50 lg:text-lg text-blue-500   px-4">
               {product?.quantity <= 0 ? (
                 <p>Stock Out</p>
               ) : (
-                <p>( {product?.quantity} )In Stock </p>
+                <p>({product?.quantity}) In Stock </p>
               )}
             </div>
           </div>
@@ -183,7 +183,7 @@ const OtherProductDetails = ({ product }) => {
                 Add to cart
               </button>
 
-              {theUserCarts.length < 1 && (
+      
                 <Link to={"/checkout-page"}>
                   <button
                     onClick={handleAddToCart}
@@ -192,7 +192,7 @@ const OtherProductDetails = ({ product }) => {
                     Buy now
                   </button>
                 </Link>
-              )}
+              
             </div>
           </div>
         )}

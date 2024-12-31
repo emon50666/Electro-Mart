@@ -35,8 +35,8 @@ const CartTable = ({ setTotalPrice }) => {
                 <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
                     <input
                         type="text"
-                        placeholder="Coupon code"
-                        className="px-4 py-2 border rounded w-full sm:w-1/2"
+                        placeholder="Coupon Code"
+                        className="px-4 py-2 border outline-none  rounded w-full sm:w-1/2"
                     />
                     <button className="bg-blue-500 text-white px-6 py-2 rounded w-full sm:w-auto">
                         Apply Coupon

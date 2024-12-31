@@ -6,7 +6,7 @@ import useCart from "./useCart";
 const useAddToCart = () => {
     const { user } = useAuth();
     const axiosPublic = useAxiosPublic();
-    const { carts, refetch } = useCart();
+    const { carts, refetch, } = useCart();
 
     // // console.log(carts)
 
