@@ -74,9 +74,11 @@ const HeaderDashboard = () => {
                 <li>
                   <Link to={'profile'} className="block px-4 py-2 hover:bg-blue-50 hover:text-blue-500" >Profile</Link>
                 </li>
-                <li>
-                  <a href="/settings" className="block px-4 py-2 hover:bg-blue-50 hover:text-blue-500">Settings</a>
+                {role === 'admin' && (
+                  <li>
+                  <Link to={'setting'} className="block px-4 py-2 hover:bg-blue-50 hover:text-blue-500">Settings</Link>
                 </li>
+                )}
                 <li>
                   <Link to={'/register'} onClick={logOut} className="block px-4 py-2 hover:bg-blue-50 hover:text-blue-500">LogOut</Link>
                 </li>

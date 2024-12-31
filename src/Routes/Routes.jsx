@@ -44,11 +44,13 @@ import CookiePolicy from "../Pages/CookiePolicy/CookiePolicy";
 import PrivacyPolicy from "../Pages/PrivacyPolicy/PrivacyPolicy";
 import TermsAndConditions from "../Pages/TermsAndConditions/TermsAndConditions";
 import RefundPolicy from "../Pages/Refundpolicy/RefundPolicy";
-import MemberOrder from "../components/DashBoard/MemberOrder/memberOrder";
+
 import SecureRoute from "../PrivateRoute/SecureRoute";
 import DashBoardProfile from "../components/DashBoard/DashBoardProfile/DashBoardProfile";
 import TrackOrder from "../Pages/TrackOrder/TrackOrder";
 import UserRoute from "../PrivateRoute/UserRoute";
+import Setting from "../components/DashBoard/Setting/Setting";
+import MemberOrder from "../components/DashBoard/MemberOrder/MemberOrder";
 
 const router = createBrowserRouter([
   {
@@ -278,6 +280,10 @@ const router = createBrowserRouter([
           </UserRoute>
         ),
       },
+      {
+        path:'setting',
+        element:<Setting/>
+      }
     ],
   },
 ]);

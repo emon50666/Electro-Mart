@@ -205,23 +205,25 @@ const Navbar = () => {
                     ? "dashboard/dashboard-layout"
                     : "dashboard/my-account"
                 }
-                className="hover:bg-blue-50 p-2 rounded-md hover:text-blue-500"
+                className=" p-2 rounded-md hover:text-blue-500"
               >
                 <li>DashBoard</li>
               </Link>
 
               <Link
                 to={"dashboard/profile"}
-                className="hover:bg-blue-50 p-2 rounded-md hover:text-blue-500"
+                className=" p-2 rounded-md hover:text-blue-500"
               >
                 <li>Profile</li>
               </Link>
-              <Link className="hover:bg-blue-50 p-2 rounded-md hover:text-blue-500">
+              {role === 'admin' && (
+                <Link to={'dashboard/setting'} className=" p-2 rounded-md hover:text-blue-500">
                 <li>Setting</li>
               </Link>
+              )}
               <Link
                 to={"/register"}
-                className="hover:bg-blue-50 p-2 rounded-md hover:text-blue-500"
+                className=" p-2 rounded-md hover:text-blue-500"
               >
                 <button onClick={logOut}>Logout</button>
               </Link>
