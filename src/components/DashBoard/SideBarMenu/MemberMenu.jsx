@@ -5,7 +5,7 @@ import {
   FaUser,
 } from "react-icons/fa";
 import { MdDashboardCustomize } from "react-icons/md";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 const MemberMenu = () => {
   return (
     <div>
@@ -50,7 +50,7 @@ const MemberMenu = () => {
         </li>
         <li className="">
           <NavLink
-            to={"/"}
+            to={"/storesPage"}
             className={({ isActive }) =>
               `flex mt-1 items-center gap-3 rounded p-3 transition-colors ${
                 isActive
@@ -81,9 +81,9 @@ const MemberMenu = () => {
             <div className="flex items-center self-center">
               <FaMapMarkerAlt />
             </div>
-            <p className="flex  w-full flex-1 flex-col items-start justify-center gap-0 overflow-hidden truncate">
-              Address
-            </p>
+           <Link to={'trackOrder'}>  <p className="flex  w-full flex-1 flex-col items-start justify-center gap-0 overflow-hidden truncate">
+              Track Order
+            </p></Link>
           </NavLink>
         </li>
         <li className="">

@@ -76,13 +76,15 @@ const MemberOrder = () => {
                 {/* Product Name(s) */}
                 <td className="border-r border-gray-200">
                   <div className="font-normal">
-                    {pay.products
-                      .map(
-                        (product) =>
-                          productDetails[product.mainProductId]?.title ||
-                          "Loading..."
-                      )
-                      .join(", ")}
+                  {pay.products.map((product, index) => (
+                          <div key={index}>
+                            {`(${index + 1})  ${
+                              productDetails[product.mainProductId]?.title ||
+                              "Loading..."
+                            }`}
+                            <br />
+                          </div>
+                        ))}
                   </div>
                 </td>
 
