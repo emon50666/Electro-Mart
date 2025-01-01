@@ -43,7 +43,7 @@ const AddCart = ({ setCartOpen }) => {
         <h2 className="font-semibold text-xl mb-4 pb-2 border-b">
           Cart Details
         </h2>
-        {user ? (
+        {!user ? (
           <div className="text-center mt-4">
             <p className="text-gray-600">
               Please{" "}

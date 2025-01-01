@@ -13,6 +13,7 @@ import UserAuth from "../../Hooks/useAuth";
 import useTotalAmount from "../../Hooks/useTotalAmount";
 
 import useFilteredOrders from "../../Hooks/useFilterOrder";
+import { Link } from "react-router-dom";
 
 
 const CheckoutPage = () => {
@@ -20,23 +21,23 @@ const CheckoutPage = () => {
   const axiosPublic = useAxiosPublic();
   const { user } = UserAuth();
 
-  const [recent,setRecent] = useState();
+  const [recent, setRecent] = useState();
 
 
   const { orders } = useFilteredOrders(user);
 
   // Check if the orders array is not empty
- useEffect(()=>{
-  if (orders && orders.length > 0) {
-    const lastOrder = orders[orders.length - 1]; // Get the last order
-    setRecent(lastOrder)
-    console.log('Last order:', lastOrder);
-  } else {
-    console.log('No orders found.');
-  }
- },[orders])
-  console.log('recent id',recent);
-  
+  useEffect(() => {
+    if (orders && orders.length > 0) {
+      const lastOrder = orders[orders.length - 1]; // Get the last order
+      setRecent(lastOrder)
+      console.log('Last order:', lastOrder);
+    } else {
+      console.log('No orders found.');
+    }
+  }, [orders])
+  console.log('recent id', recent);
+
 
 
   const { totalPrice } = useTotalAmount();
@@ -94,7 +95,7 @@ const CheckoutPage = () => {
     }
   }, [selectedDistrict, districts]);
 
- 
+
   const handleSubmitData = async (e) => {
     e.preventDefault();
     const form = e.target;
@@ -152,7 +153,7 @@ const CheckoutPage = () => {
 
       if (selectedPaymentMethod === "cashOnDelivery") {
         toast.success("Order placed successfully!");
-     
+
         window.location.replace(`/thanks/${recent.tran_id}`);
       } else if (selectedPaymentMethod === "bkash") {
         toast.success("Redirecting to SSL payment gateway...");
@@ -308,7 +309,7 @@ const CheckoutPage = () => {
             </div>
           </div>
 
-          <div className="w-full bg-white max-h-[490px] sticky top-0 p-6 rounded-lg shadow-md">
+          <div className="w-full bg-white max-h-auto sticky top-0 p-6 rounded-lg shadow-md">
             <h2 className="text-xl font-semibold mb-4">Your Order</h2>
             <div className="space-y-4">
               <div className="flex justify-between">
@@ -369,7 +370,10 @@ const CheckoutPage = () => {
                 <span>Total</span>
                 <span>{totalAmount} ৳</span>
               </div>
-
+              <div className="flex gap-1 capitalize text-sm">
+                <input required type="checkbox" name="" id="" />
+                <p>i agree to the <Link to={'/termsAndConditions'} className="text-blue-500 underline">privacy & policy</Link> </p>
+              </div>
               <button
                 type="submit"
                 className="w-full bg-blue-500 text-white py-3 rounded-md mt-4"
@@ -377,6 +381,7 @@ const CheckoutPage = () => {
                 Place Order {totalAmount} ৳
               </button>
             </div>
+
           </div>
         </div>
       </form>
