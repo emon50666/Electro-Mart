@@ -149,7 +149,7 @@ const OtherProductDetails = ({ product }) => {
           <div className="divider my-2 md:my-0 lg:my-auto"></div>
         )}
         {/* Quantity & cart start */}
-        {role === "member" && (
+    
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-y-2">
             <div className="py-2 px-2 inline-block bg-white border border-gray-200 rounded-lg w-1/2 md:w-1/4">
               <div className="flex items-center justify-between gap-x-3.5">
@@ -195,13 +195,12 @@ const OtherProductDetails = ({ product }) => {
               
             </div>
           </div>
-        )}
-
+     
         {/* Quantity & cart end */}
         <div className="divider  my-2 md:my-0 lg:my-auto"></div>
         {/* Share & compare start */}
         <div className="lg:my-5 flex flex-col xl:flex-row justify-between gap-y-1 ">
-          {role === "member" && (
+        
             <div className="flex text-sm md:text-base lg:text-lg">
               <button
                 onClick={handleAddToCompare}
@@ -222,7 +221,7 @@ const OtherProductDetails = ({ product }) => {
                 <h3 className="font-medium  font_cabin">Add to wishlist</h3>
               </button>
             </div>
-          )}
+          
 
           <div className="flex items-center">
             <h3 className="font-medium font_cabin text-sm md:text-base lg:text-lg">

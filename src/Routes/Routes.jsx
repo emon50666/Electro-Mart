@@ -65,26 +65,26 @@ const router = createBrowserRouter([
       {
         path: "/productDetails/:id",
         element: (
-          <PrivateRoute>
+          
             <ProductDetails />
-          </PrivateRoute>
+        
         ),
         loader: () => fetch(`${import.meta.env.VITE_API_URL}/products/`),
       },
       {
         path: "/comparePage",
         element: (
-          <SecureRoute>
+         
             <ComparePage />
-          </SecureRoute>
+         
         ),
       },
       {
         path: "/wishlist",
         element: (
-          <SecureRoute>
+         
             <Wishlist />
-          </SecureRoute>
+          
         ),
       },
       {
@@ -131,9 +131,9 @@ const router = createBrowserRouter([
       {
         path: "manageCart",
         element: (
-          <PrivateRoute>
+          
             <ManageCart />
-          </PrivateRoute>
+          
         ),
       },
 
