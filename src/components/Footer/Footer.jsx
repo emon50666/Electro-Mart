@@ -6,7 +6,7 @@ import FooterCategoryList from "./Shared/FooterCategoryList";
 
 const Footer = () => {
     return (
-        <div className="px-4 pt-16 md:px-4  lg:px-8 bg-gradient-to-t from-[#281367] via-[#160737] to-[#39128d] font_inter">
+        <div className="px-4 pt-16 md:px-4  lg:px-8 bg-gradient-to-t from-[#281367f7] via-[#0d0420] to-[#39128d] font_inter">
             <div className="grid  row-gap-10 mb-8 grid-cols-1 md:grid-cols-6 md:text-sm  lg:flex lg:justify-between xl:grid-cols-6">
                 <div className=" md:max-w-md  col-span-1 md:col-span-2 ">
                     <h2 className="font-bold text-3xl text-gray-100 xl:text-5xl">Electro <span className="text-blue-500">Mart</span></h2>
@@ -155,16 +155,14 @@ const Footer = () => {
                     </ul>
                 </div>
             </div>
-            <div className="flex flex-1 text-gray-300 justify-between pt-5 pb-20 lg:pb-3 border-gray-600 border-t xl:flex-row  xl:mb-auto gap-y-2">
+            <div className="flex flex-1 text-gray-300 items-center justify-between pt-5 pb-20 lg:pb-3 border-gray-600 border-t xl:flex-row  xl:mb-auto gap-y-2">
                 <p className="text-[10px] lg:text-base">
                     © 2024 <span className="text-blue-500">Electro Mart</span>. Develope by <span className="text-blue-500">The Coder24</span>.
                 </p>
                 <div className="flex  flex-col md:flex-row md:items-center  space-x-4 sm:mt-0">
-                    <p className="text-[10px] text-center lg:text-base">
-                        We using safe payment for
-                    </p>
+                    
                     <div>
-                        <img src="https://res.cloudinary.com/duv5fiurz/image/upload/v1728717572/Payment_2_yu9afc.svg" alt="" />
+                    <img src="https://res.cloudinary.com/dpsgtszzi/image/upload/v1735829187/Screenshot_20-removebg-preview_qgafcc.png" className="w-56" alt="" />
                     </div>
                 </div>
             </div>
