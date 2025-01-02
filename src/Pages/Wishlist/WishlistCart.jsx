@@ -68,7 +68,7 @@ const WishlistCart = ({ wishProduct }) => {
           refetch();
         }
       })
-      .catch((err) => {
+      .catch(() => {
         // console.log(err);
       });
   };

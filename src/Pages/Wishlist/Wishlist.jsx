@@ -110,6 +110,12 @@ const Wishlist = () => {
                       scope="col"
                       className="h-12 px-6 lg:text-[18px] md:text-[18px] text-[12px] font-semibold  border-l first:border-l-0 text-slate-700 bg-slate-100"
                     >
+                      Rating
+                    </th>
+                    <th
+                      scope="col"
+                      className="h-12 px-6 lg:text-[18px] md:text-[18px] text-[12px] font-semibold  border-l first:border-l-0 text-slate-700 bg-slate-100"
+                    >
                       Details
                     </th>
                     <th
