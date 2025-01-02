@@ -219,7 +219,7 @@ const CheckoutPage = () => {
                   value={selectedState}
                   onChange={(e) => setSelectedState(e.target.value)}
                 >
-                  <option value="">Select Division</option>
+                  <option required value="">Select Division</option>
                   {locations.map((location) => (
                     <option key={location.division} value={location.division}>
                       {location.division}
@@ -237,7 +237,7 @@ const CheckoutPage = () => {
                   value={selectedDistrict}
                   onChange={(e) => setSelectedDistrict(e.target.value)}
                 >
-                  <option value="">Select District</option>
+                  <option required value="">Select District</option>
                   {districts.map((district, index) => (
                     <option key={index} value={district.name}>
                       {district.name}
@@ -252,7 +252,7 @@ const CheckoutPage = () => {
                 Upazila/City
               </label>
               <select className="border w-full outline-none focus:bg-gray-50 p-2 rounded-md" name="city">
-                <option value="">Select City</option>
+                <option required value="">Select City</option>
                 {cities.map((city, index) => (
                   <option key={index} value={city}>
                     {city}

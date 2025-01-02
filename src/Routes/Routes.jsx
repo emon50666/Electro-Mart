@@ -139,7 +139,7 @@ const router = createBrowserRouter([
 
       {
         path: "/checkout-page",
-        element: <CheckoutPage />,
+        element: <SecureRoute><CheckoutPage /></SecureRoute>
       },
       {
         path: "/shop-page",
