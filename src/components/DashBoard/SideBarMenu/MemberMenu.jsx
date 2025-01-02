@@ -6,13 +6,19 @@ import {
 } from "react-icons/fa";
 import { MdDashboardCustomize } from "react-icons/md";
 import { Link, NavLink } from "react-router-dom";
-const MemberMenu = () => {
+import PropType from "prop-types";
+
+const MemberMenu = ({ setIsSideNavOpen }) => {
+  const handleClick = () => {
+    setIsSideNavOpen(false);
+  };
   return (
     <div>
       <ul className="flex font-serif flex-1 flex-col mt-12 text-gray-400 gap-1 py-3">
         <li className="">
           <NavLink
             to="my-account"
+            onClick={handleClick}
             className={({ isActive }) =>
               `flex mt-1 items-center gap-3 rounded p-3 transition-colors ${
                 isActive
@@ -32,6 +38,7 @@ const MemberMenu = () => {
         <li className="">
           <NavLink
             to={"member-order"}
+            onClick={handleClick}
             className={({ isActive }) =>
               `flex mt-1 items-center gap-3 rounded p-3 transition-colors ${
                 isActive
@@ -70,6 +77,7 @@ const MemberMenu = () => {
         <li className="">
           <NavLink
             to={"/"}
+            onClick={handleClick}
             className={({ isActive }) =>
               `flex mt-1 items-center gap-3 rounded p-3 transition-colors ${
                 isActive
@@ -89,6 +97,7 @@ const MemberMenu = () => {
         <li className="">
           <NavLink
             to={"/"}
+            onClick={handleClick}
             className={({ isActive }) =>
               `flex mt-1 items-center gap-3 rounded p-3 transition-colors ${
                 isActive
@@ -108,5 +117,8 @@ const MemberMenu = () => {
       </ul>
     </div>
   );
+};
+MemberMenu.propTypes = {
+  setIsSideNavOpen: PropType.func,
 };
 export default MemberMenu;

@@ -17,6 +17,7 @@ const LeftSlide = () => {
 
   const openModal = () => {
     setModalOpen(true);
+    // console.log("clicked");
   };
 
   return (
@@ -67,7 +68,7 @@ const LeftSlide = () => {
           <SwiperSlide>
             <div className="relative">
               <img
-                src="https://placehold.co/620x400" // Static placeholder image
+                src="https://placehold.co/620x400"
                 alt="default slide"
                 className="w-full lg:min-h-[300px] md:max-h-[300px] lg:max-h-[351px] xl:max-h-[648px] h-[30vh] md:h-full rounded-lg object-contain md:object-right lg:object-fill"
               />

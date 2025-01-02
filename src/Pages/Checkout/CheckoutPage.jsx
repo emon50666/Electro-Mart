@@ -15,7 +15,6 @@ import useTotalAmount from "../../Hooks/useTotalAmount";
 import useFilteredOrders from "../../Hooks/useFilterOrder";
 import { Link } from "react-router-dom";
 
-
 const CheckoutPage = () => {
   const { locations } = useLocation();
   const axiosPublic = useAxiosPublic();
@@ -23,22 +22,19 @@ const CheckoutPage = () => {
 
   const [recent, setRecent] = useState();
 
-
   const { orders } = useFilteredOrders(user);
 
   // Check if the orders array is not empty
   useEffect(() => {
     if (orders && orders.length > 0) {
       const lastOrder = orders[orders.length - 1]; // Get the last order
-      setRecent(lastOrder)
-      console.log('Last order:', lastOrder);
+      setRecent(lastOrder);
+      console.log("Last order:", lastOrder);
     } else {
-      console.log('No orders found.');
+      console.log("No orders found.");
     }
-  }, [orders])
-  console.log('recent id', recent);
-
-
+  }, [orders]);
+  console.log("recent id", recent);
 
   const { totalPrice } = useTotalAmount();
 
@@ -95,7 +91,6 @@ const CheckoutPage = () => {
     }
   }, [selectedDistrict, districts]);
 
-
   const handleSubmitData = async (e) => {
     e.preventDefault();
     const form = e.target;
@@ -133,7 +128,7 @@ const CheckoutPage = () => {
       division: form.division.value,
       totalAmount,
       shipping: shippingLabel,
-      orderStatus: "processing", // Default status
+      orderStatus: "processing",
       products: theUserCarts,
       userId: user._id,
       userEmail: user.email,

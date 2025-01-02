@@ -1,5 +1,10 @@
 import { DiGitCompare } from "react-icons/di";
-import { FaShoppingCart } from "react-icons/fa";
+import {
+  FaShoppingCart,
+  FaStar,
+  FaRegStar,
+  FaStarHalfAlt,
+} from "react-icons/fa";
 import useProduct from "../../Hooks/useProduct";
 import PropType from "prop-types";
 import { Link } from "react-router-dom";
@@ -10,10 +15,12 @@ import useAxiosPublic from "../../Hooks/useAxiosPublic";
 import useWishlist from "../../Hooks/useWishlist";
 import { FaBangladeshiTakaSign } from "react-icons/fa6";
 import useAddToCompare from "../../Hooks/useAddToCompare";
+import useReview from "../../Hooks/useReview";
 
 const WishlistCart = ({ wishProduct }) => {
   const { products } = useProduct();
   const { refetch } = useWishlist();
+  const { reviews } = useReview();
   const axiosPublic = useAxiosPublic();
   const [, setCartOpen] = useState(false);
   const handleAddCart = useAddToCart();
@@ -21,15 +28,37 @@ const WishlistCart = ({ wishProduct }) => {
   const product = products.find(
     (pack) => pack?._id === wishProduct?.mainProductId
   );
+  const proReviews = reviews.filter((rev) => rev.mainId === product?._id);
+
+  // Calculate average rating
+  const averageRating =
+    proReviews.reduce((acc, review) => acc + review.rating, 0) /
+    (proReviews.length || 1); // Avoid division by zero
+
+  const renderStars = (rating) => {
+    const stars = [];
+    for (let i = 1; i <= 5; i++) {
+      if (i <= rating) {
+        stars.push(<FaStar key={i} className="text-yellow-500 w-4 h-4" />);
+      } else if (i - rating < 1) {
+        stars.push(
+          <FaStarHalfAlt key={i} className="text-yellow-500 w-4 h-4" />
+        );
+      } else {
+        stars.push(<FaRegStar key={i} className="text-yellow-500 w-4 h-4" />);
+      }
+    }
+    return stars;
+  };
+
   const handleAddToCart = () => {
     handleAddCart(product);
     setCartOpen(true);
   };
 
   const handleAddToCompare = () => {
-    handleAddCompare(product)
+    handleAddCompare(product);
   };
-
 
   const handleDeleteWishlist = (id) => {
     axiosPublic
@@ -39,15 +68,13 @@ const WishlistCart = ({ wishProduct }) => {
           refetch();
         }
       })
-      .catch((err) => {
+      .catch(() => {
         // console.log(err);
       });
   };
 
   return (
-    <div
-      className="card bg-white shadow-lg w-full sm:w-64 md:w-80 rounded-lg overflow-hidden relative group border transition-transform duration-300 transform hover:scale-105"
-    >
+    <div className="card bg-white shadow-lg w-full sm:w-64 md:w-80 rounded-lg overflow-hidden relative group border transition-transform duration-300 transform hover:scale-105">
       {/* Remove Button */}
       <button
         onClick={() => handleDeleteWishlist(wishProduct?._id)}
@@ -70,7 +97,7 @@ const WishlistCart = ({ wishProduct }) => {
         <h2 className="font-semibold text-sm sm:text-base overflow-hidden text-ellipsis whitespace-nowrap">
           {product?.title}
         </h2>
-        <p className="text-blue-500 font-bold text-sm lg:text-lg flex items-center  gap-1">
+        <p className="text-blue-500 font-bold text-sm lg:text-lg flex items-center  gap-1 justify-center">
           <FaBangladeshiTakaSign />
           {product?.price}
         </p>
@@ -85,9 +112,15 @@ const WishlistCart = ({ wishProduct }) => {
           <FaShoppingCart className="w-5 h-5" />
         </button>
 
+        {/* Average Rating */}
+        <div className="flex justify-center items-center gap-1 mt-2">
+          {renderStars(averageRating)}
+        </div>
+
         <button
           onClick={handleAddToCompare}
-          className="text-blue-500 hover:text-blue-600 transition-colors">
+          className="text-blue-500 hover:text-blue-600 transition-colors"
+        >
           <DiGitCompare className="w-5 h-5" />
         </button>
       </div>

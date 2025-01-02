@@ -15,6 +15,7 @@ import useProduct from "../../../Hooks/useProduct";
 
 import "react-loading-skeleton/dist/skeleton.css";
 import Loader from "../../Loader/Loader";
+import { Link } from "react-router-dom";
 
 const MainLayout = () => {
   const { payments, isLoading } = useOrder(); // Use the hook
@@ -75,7 +76,10 @@ const MainLayout = () => {
         </ResponsiveContainer>
       </div>
 
-      <div className="  rounded-lg shadow-md bg-white hover:shadow-lg">
+      <Link
+        to={"../order-list"}
+        className="  rounded-lg shadow-md bg-white hover:shadow-lg"
+      >
         {/* Icon and Title Section */}
         <div className="flex items-center  px-2 py-2 gap-2">
           <FaShoppingBag className="text-[#FF5200] text-[40px]  rounded-full p-2 bg-[#FB923C]/30 " />
@@ -110,9 +114,12 @@ const MainLayout = () => {
             />
           </AreaChart>
         </ResponsiveContainer>
-      </div>
+      </Link>
 
-      <div className="  rounded-lg shadow-md bg-white hover:shadow-lg">
+      <Link
+        to="../user"
+        className="  rounded-lg shadow-md bg-white hover:shadow-lg"
+      >
         {/* Icon and Title Section */}
         <div className="flex items-center  px-2 py-2 gap-2">
           <FaUsers className="text-purple-500 text-[40px] rounded-full p-2 bg-[#A78BFA]/30 " />
@@ -143,9 +150,12 @@ const MainLayout = () => {
             />
           </AreaChart>
         </ResponsiveContainer>
-      </div>
+      </Link>
 
-      <div className="  rounded-lg shadow-md bg-white hover:shadow-lg">
+      <Link
+        to="/dashboard/manageProduct"
+        className="  rounded-lg shadow-md bg-white hover:shadow-lg"
+      >
         {/* Icon and Title Section */}
         <div className="flex items-center  px-2 py-2 gap-2">
           <MdOutlineProductionQuantityLimits className="text-blue-500 text-[40px] rounded-full p-2 bg-[#60A5FA]/30 " />
@@ -180,7 +190,7 @@ const MainLayout = () => {
             />
           </AreaChart>
         </ResponsiveContainer>
-      </div>
+      </Link>
     </div>
   );
 };
