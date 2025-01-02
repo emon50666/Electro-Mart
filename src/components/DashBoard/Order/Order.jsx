@@ -219,7 +219,7 @@ const Order = () => {
                   <td className="border-r">{pay?.shipping}</td>
                   <td
                     className={`border-r ${
-                      pay?.orderStatus === "pending"
+                      pay?.orderStatus === "Processing"
                         ? "text-red-500"
                         : "text-green-400 font-semibold capitalize"
                     }`}

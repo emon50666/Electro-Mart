@@ -20,7 +20,6 @@ const Home = () => {
       <BenifetService />
       <Popular />
       <HomeOffers />
-      {/* <FilterProduct /> */}
       <HomeSliderComponent />
       <FeaturedProduct />
       <MouseBanner />

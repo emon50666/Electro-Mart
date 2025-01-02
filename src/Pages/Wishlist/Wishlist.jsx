@@ -110,6 +110,12 @@ const Wishlist = () => {
                       scope="col"
                       className="h-12 px-6 lg:text-[18px] md:text-[18px] text-[12px] font-semibold  border-l first:border-l-0 text-slate-700 bg-slate-100"
                     >
+                      Rating
+                    </th>
+                    <th
+                      scope="col"
+                      className="h-12 px-6 lg:text-[18px] md:text-[18px] text-[12px] font-semibold  border-l first:border-l-0 text-slate-700 bg-slate-100"
+                    >
                       Details
                     </th>
                     <th
@@ -142,7 +148,7 @@ const Wishlist = () => {
           )}
 
           {format === "card" && (
-            <div className="my-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-4 md:gap-y-10 px-20">
+            <div className="my-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-4 md:gap-y-10 px-20 md:border-2 md:mx-10 py-4 border-gray-300">
               {theUserWishlist.map((wishProduct, index) => (
                 <WishlistCart key={index} wishProduct={wishProduct} />
               ))}

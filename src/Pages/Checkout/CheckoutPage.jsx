@@ -14,30 +14,26 @@ import useTotalAmount from "../../Hooks/useTotalAmount";
 
 import useFilteredOrders from "../../Hooks/useFilterOrder";
 
-
 const CheckoutPage = () => {
   const { locations } = useLocation();
   const axiosPublic = useAxiosPublic();
   const { user } = UserAuth();
 
-  const [recent,setRecent] = useState();
-
+  const [recent, setRecent] = useState();
 
   const { orders } = useFilteredOrders(user);
 
   // Check if the orders array is not empty
- useEffect(()=>{
-  if (orders && orders.length > 0) {
-    const lastOrder = orders[orders.length - 1]; // Get the last order
-    setRecent(lastOrder)
-    console.log('Last order:', lastOrder);
-  } else {
-    console.log('No orders found.');
-  }
- },[orders])
-  console.log('recent id',recent);
-  
-
+  useEffect(() => {
+    if (orders && orders.length > 0) {
+      const lastOrder = orders[orders.length - 1]; // Get the last order
+      setRecent(lastOrder);
+      console.log("Last order:", lastOrder);
+    } else {
+      console.log("No orders found.");
+    }
+  }, [orders]);
+  console.log("recent id", recent);
 
   const { totalPrice } = useTotalAmount();
 
@@ -94,7 +90,6 @@ const CheckoutPage = () => {
     }
   }, [selectedDistrict, districts]);
 
- 
   const handleSubmitData = async (e) => {
     e.preventDefault();
     const form = e.target;
@@ -132,7 +127,7 @@ const CheckoutPage = () => {
       division: form.division.value,
       totalAmount,
       shipping: shippingLabel,
-      orderStatus: "processing", // Default status
+      orderStatus: "processing",
       products: theUserCarts,
       userId: user._id,
       userEmail: user.email,
@@ -152,7 +147,7 @@ const CheckoutPage = () => {
 
       if (selectedPaymentMethod === "cashOnDelivery") {
         toast.success("Order placed successfully!");
-     
+
         window.location.replace(`/thanks/${recent.tran_id}`);
       } else if (selectedPaymentMethod === "bkash") {
         toast.success("Redirecting to SSL payment gateway...");

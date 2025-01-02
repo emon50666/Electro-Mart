@@ -22,6 +22,12 @@ const Reviews = ({ mainId }) => {
   const handleFileChange = (e) => setSelectedImages([...e.target.files]);
 
   const handleReviewSubmit = async () => {
+    // Check if the rating is less than 1
+    if (rating < 1) {
+      toast.error("Please provide a rating of at least 1 star.");
+      return; // Prevent review submission
+    }
+
     const imageUploadPromises = selectedImages.map(async (image) => {
       const formData = new FormData();
       formData.append("image", image);
@@ -51,7 +57,6 @@ const Reviews = ({ mainId }) => {
         `${import.meta.env.VITE_API_URL}/reviews`,
         reviewData
       );
-      // console.log("Review submitted successfully:", res.data);
 
       setName("");
       setReviewText("");
