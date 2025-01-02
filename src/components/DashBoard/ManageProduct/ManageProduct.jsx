@@ -1,5 +1,6 @@
 import { Helmet } from "react-helmet";
 import ManageProductTable from "./Shared/ManageProductTable";
+import SearchBar from "../../Navbar/SearchBar";
 
 const ManageProduct = () => {
     return (
@@ -7,7 +8,11 @@ const ManageProduct = () => {
             <Helmet>
                 <title>Manage Product | Elector Mart</title>
             </Helmet>
-           <p className="font-semibold text-lg">Manage All Products</p>
+            <p className="font-semibold text-lg">Manage All Products</p>
+           <div className="">
+          
+           <SearchBar/>
+           </div>
 
             {/* product table */}
             <ManageProductTable />

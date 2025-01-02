@@ -114,15 +114,11 @@ const HeaderDashboard = () => {
                     Dashboard
                   </Link>
                 </li>
-                <li>
-                  <Link
-                    to={"profile"}
-                    onClick={closeDropdown}
-                    className="block px-4 py-2 hover:bg-blue-50 hover:text-blue-500"
-                  >
-                    Profile
-                  </Link>
+                {role === 'admin' && (
+                  <li>
+                  <Link to={'setting'} className="block px-4 py-2 hover:bg-blue-50 hover:text-blue-500">Settings</Link>
                 </li>
+                )}
                 <li>
                   <Link
                     to={"/settings"}

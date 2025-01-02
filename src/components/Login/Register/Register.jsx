@@ -175,9 +175,9 @@ const Register = () => {
               className="flex items-center justify-center w-full  space-x-4 border rounded-md "
             >
               <img
-                src="https://i.ibb.co.com/0BxDjqX/download.png"
+                src="https://res.cloudinary.com/dpsgtszzi/image/upload/v1735646563/download_1_swgqpp.png"
                 alt=""
-                className="w-10 h-10"
+                className="w-14 h-10"
               />
               <p>Login with Google</p>
             </button>

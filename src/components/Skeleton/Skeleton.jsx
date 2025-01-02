@@ -1,10 +1,16 @@
+import { SpinnerRoundFilled } from "spinners-react";
+
 const Skeleton = () => {
   return (
-    <div className="animate-pulse">
-      <div className="h-6 bg-gray-300 rounded w-3/4 mx-auto my-4"></div>
-      <div className="h-6 bg-gray-300 rounded w-2/3 mx-auto my-4"></div>
-      <div className="h-6 bg-gray-300 rounded w-5/6 mx-auto my-4"></div>
-    </div>
+     <div className="flex justify-center items-center h-[350px] ">
+         <SpinnerRoundFilled
+           size={100}         // Size of the spinner
+           thickness={100}   // Thickness of the spinner
+                // Speed of rotation
+           color="#4f46e5"   // Primary color of the spinner
+           secondaryColor="rgba(0, 0, 0, 0.1)" // Secondary color
+         />
+       </div>
   );
 };
 

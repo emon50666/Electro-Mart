@@ -159,13 +159,13 @@ const Navbar = () => {
         <div className="dropdown dropdown-end z-50">
           <div tabIndex={0} role="button" className=" rounded-full">
             {user ? (
-              <div className="relative inline-block">
+              <div className="relative inline-block  w-9">
                 <img
-                  referrerPolicy="no-referrer"
-                  title={user?.displayName}
-                  src={user?.photoURL}
-                  className="w-10 h-10 rounded-full border-2 border-blue-600 p-0.5"
-                />
+                       referrerPolicy="no-referrer"
+                       title={user?.displayName}
+                       src={user?.photoURL}
+                      className="w-9  h-9 rounded-full border-2 border-blue-600 p-0.5"
+                    />
                 <span className="h-3 w-3 rounded-full border border-white bg-green-500 block absolute top-1 right-0"></span>
               </div>
             ) : (
@@ -173,8 +173,9 @@ const Navbar = () => {
                 {loading ? (
                   <div className="relative inline-block">
                     <img
-                      referrerPolicy="no-referrer"
-                      src={user?.photoURL}
+                       referrerPolicy="no-referrer"
+                       title={user?.displayName}
+                       src={user?.photoURL}
                       className="w-10 h-10 rounded-full border-2 border-blue-600 p-0.5"
                     />
                     <span className="h-3 w-3 rounded-full border border-white bg-green-500 block absolute top-1 right-0"></span>
@@ -205,23 +206,25 @@ const Navbar = () => {
                     ? "dashboard/dashboard-layout"
                     : "dashboard/my-account"
                 }
-                className="hover:bg-blue-50 p-2 rounded-md hover:text-blue-500"
+                className=" p-2 rounded-md hover:text-blue-500"
               >
                 <li>DashBoard</li>
               </Link>
 
               <Link
                 to={"dashboard/profile"}
-                className="hover:bg-blue-50 p-2 rounded-md hover:text-blue-500"
+                className=" p-2 rounded-md hover:text-blue-500"
               >
                 <li>Profile</li>
               </Link>
-              <Link className="hover:bg-blue-50 p-2 rounded-md hover:text-blue-500">
+              {role === 'admin' && (
+                <Link to={'dashboard/setting'} className=" p-2 rounded-md hover:text-blue-500">
                 <li>Setting</li>
               </Link>
+              )}
               <Link
                 to={"/register"}
-                className="hover:bg-blue-50 p-2 rounded-md hover:text-blue-500"
+                className=" p-2 rounded-md hover:text-blue-500"
               >
                 <button onClick={logOut}>Logout</button>
               </Link>

@@ -67,47 +67,49 @@ const ProductList = ({ filteredProducts }) => {
         ))}
       </div>
 
-      {/* Pagination Controls */}
-      <div className="flex justify-center items-center mt-4 space-x-2">
-        <button
-          onClick={goToPreviousPage}
-          disabled={currentPage === 1}
-          className={`px-4 py-2 rounded ${
-            currentPage === 1
-              ? "bg-gray-300 cursor-not-allowed"
-              : "bg-blue-500 text-white hover:bg-blue-600"
-          }`}
-        >
-          <MdKeyboardArrowLeft />
-        </button>
-
-        {/* Page Numbers */}
-        {[...Array(totalPages)].map((_, index) => (
+      {/* Pagination Controls - Only show when there are more than 10 products */}
+      {filteredProducts.length > 10 && (
+        <div className="flex justify-center items-center mt-4 space-x-2">
           <button
-            key={index}
-            onClick={() => setPage(index + 1)}
-            className={`px-3 py-1 rounded ${
-              currentPage === index + 1
-                ? "bg-blue-500 text-white"
-                : "bg-gray-200 hover:bg-gray-300"
+            onClick={goToPreviousPage}
+            disabled={currentPage === 1}
+            className={`px-4 py-2 rounded ${
+              currentPage === 1
+                ? "bg-gray-300 cursor-not-allowed"
+                : "bg-blue-500 text-white hover:bg-blue-600"
             }`}
           >
-            {index + 1}
+            <MdKeyboardArrowLeft />
           </button>
-        ))}
 
-        <button
-          onClick={goToNextPage}
-          disabled={currentPage === totalPages}
-          className={`px-4 py-2 rounded ${
-            currentPage === totalPages
-              ? "bg-gray-300 cursor-not-allowed"
-              : "bg-blue-500 text-white hover:bg-blue-600"
-          }`}
-        >
-          <MdKeyboardArrowRight />
-        </button>
-      </div>
+          {/* Page Numbers */}
+          {[...Array(totalPages)].map((_, index) => (
+            <button
+              key={index}
+              onClick={() => setPage(index + 1)}
+              className={`px-3 py-1 rounded ${
+                currentPage === index + 1
+                  ? "bg-blue-500 text-white"
+                  : "bg-gray-200 hover:bg-gray-300"
+              }`}
+            >
+              {index + 1}
+            </button>
+          ))}
+
+          <button
+            onClick={goToNextPage}
+            disabled={currentPage === totalPages}
+            className={`px-4 py-2 rounded ${
+              currentPage === totalPages
+                ? "bg-gray-300 cursor-not-allowed"
+                : "bg-blue-500 text-white hover:bg-blue-600"
+            }`}
+          >
+            <MdKeyboardArrowRight />
+          </button>
+        </div>
+      )}
     </div>
   );
 };

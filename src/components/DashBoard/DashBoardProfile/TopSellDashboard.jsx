@@ -1,10 +1,9 @@
 import { Link } from "react-router-dom";
 import { FaBangladeshiTakaSign } from "react-icons/fa6";
-import useProduct from "../../../../Hooks/useProduct";
-import useOrder from "../../../../Hooks/useOrder";
+import useProduct from "../../../Hooks/useProduct";
+import useOrder from "../../../Hooks/useOrder";
 
-
-const TopSaleProduct = () => {
+const TopSellDashboard = () => {
   const { products } = useProduct();
   const { payments } = useOrder();
 
@@ -41,11 +40,11 @@ const TopSaleProduct = () => {
 
   return (
     <div className="p-2 bg-white rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
-      <h2 className="text-md font-semibold text-gray-800 mb-6">
+      <h2 className="text-sm font-semibold text-gray-800 mb-6">
         Top Selling Products: {parseInt(topSellingProducts?.length)}
       </h2>
-      <div className="space-y-1 grid-cols-1 md:grid-cols-3 grid lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-5">
-        {topSellingProducts?.slice(0,20).map((product) => {
+      <div className="space-y-1">
+        {topSellingProducts.map((product) => {
           const {
             _id,
             title,
@@ -59,7 +58,7 @@ const TopSaleProduct = () => {
           const displayPrice = discountPrice || price;
 
           return (
-            <div key={_id} className="flex gap-2 p-2 border-r border-b hover:bg-gray-50 hover:shadow-md border-gray-200">
+            <div key={_id} className="flex gap-2 p-2 border-b border-gray-200">
               {/* Product Image */}
               <Link to={`/productDetails/${_id}`} className="w-12">
                 <img
@@ -69,12 +68,12 @@ const TopSaleProduct = () => {
                 />
               </Link>
               {/* Product Details */}
-              <div> 
+              <div>
                 <Link
                   to={`/productDetails/${_id}`}
-                  className="text-[13px] font-semibold text-gray-900"
+                  className="text-[12px] font-semibold text-gray-900"
                 >
-                  {title.slice(0,20) + "..."}
+                  {title.slice(0, 15) + "..."}
                 </Link>
                 <p className="text-gray-600 text-[12px]">
                   <strong>Brand:</strong> {brand}
@@ -94,4 +93,4 @@ const TopSaleProduct = () => {
   );
 };
 
-export default TopSaleProduct;
+export default TopSellDashboard;

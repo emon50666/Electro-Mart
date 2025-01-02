@@ -46,7 +46,7 @@ const TopOfDashboard = () => {
         <div className="text-4xl mb-4">
           <FaMapMarkerAlt className="text-[#FF5200] " />{" "}
         </div>
-        <h3 className="text-gray-700 text-lg font-semibold"> Addresses </h3>
+        <Link to={'../trackOrder'} className="text-gray-700 text-lg font-semibold"> Track Order </Link>
       </div>
 
       <div className="flex flex-col items-center justify-center border border-blue-500 rounded-lg p-2 hover:shadow-lg transition-all">
@@ -59,7 +59,7 @@ const TopOfDashboard = () => {
         </h3>
       </div>
 
-      <Link className="flex flex-col items-center justify-center border border-blue-500 rounded-lg p-2 hover:shadow-lg transition-all">
+      <Link to={'/manageCart'} className="flex flex-col items-center justify-center border border-blue-500 rounded-lg p-2 hover:shadow-lg transition-all">
         <div className="text-4xl mb-4">
           <FaCartPlus className="text-[rgb(35,119,252)] " />{" "}
         </div>
