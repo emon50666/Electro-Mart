@@ -97,7 +97,7 @@ const WishlistCart = ({ wishProduct }) => {
         <h2 className="font-semibold text-sm sm:text-base overflow-hidden text-ellipsis whitespace-nowrap">
           {product?.title}
         </h2>
-        <p className="text-blue-500 font-bold text-sm lg:text-lg flex items-center  gap-1">
+        <p className="text-blue-500 font-bold text-sm lg:text-lg flex items-center  gap-1 justify-center">
           <FaBangladeshiTakaSign />
           {product?.price}
         </p>

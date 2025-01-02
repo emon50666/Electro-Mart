@@ -94,7 +94,7 @@ const WishlistTable = ({ wishProduct }) => {
       </td>
       <td className="px-5 md:text-base text-xs text-center transition duration-300 border-t border-l first:border-l-0 border-slate-300">
         <div className="text-gray-500 font-medium flex items-center gap-x-1 justify-center">
-          <FaStar className="text-yellow-500"/>
+          <FaStar className="text-yellow-500" />
           {averageRating}
         </div>
       </td>
