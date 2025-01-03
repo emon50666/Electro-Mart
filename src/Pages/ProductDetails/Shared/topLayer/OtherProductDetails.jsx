@@ -1,8 +1,7 @@
 import { GoGitCompare } from "react-icons/go";
 import { GoHeart } from "react-icons/go";
 import { LuFacebook } from "react-icons/lu";
-import { FaStar, FaWhatsapp, FaXTwitter } from "react-icons/fa6";
-import { SlSocialLinkedin } from "react-icons/sl";
+import { FaLinkedinIn, FaStar, FaWhatsapp, FaXTwitter } from "react-icons/fa6";
 import { BsTelegram } from "react-icons/bs";
 import { FaRegEye } from "react-icons/fa";
 import { useState } from "react";
@@ -157,7 +156,7 @@ const OtherProductDetails = ({ product }) => {
                   type="button"
                   onClick={() => decreaseCount()}
                   disabled={theCart}
-                  className="size-6 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-md border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 focus:outline-none focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none"
+                  className="size-6 inline-flex justify-center items-center pb-1 text-lg gap-x-2  font-medium rounded-md border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 focus:outline-none focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none"
                   tabIndex="-1"
                   aria-label="Decrease"
                   data-hs-input-number-decrement=""
@@ -169,7 +168,7 @@ const OtherProductDetails = ({ product }) => {
                   type="button"
                   onClick={() => increaseCount()}
                   disabled={disableBtn || theCart}
-                  className="size-6 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-md border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 focus:outline-none focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none"
+                  className="size-6 inline-flex justify-center items-center pb-1 bg-white gap-x-2 text-lg font-medium rounded-md border border-gray-200  text-gray-800 shadow-sm hover:bg-gray-50 focus:outline-none focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none"
                 >
                   +
                 </button>
@@ -187,7 +186,7 @@ const OtherProductDetails = ({ product }) => {
                 <Link to={"/checkout-page"}>
                   <button
                     onClick={handleAddToCart}
-                    className="px-9 md:px-14 py-2 text-sm lg:text-base   font-semibold rounded-md text-blue-500 border border-blue-500 hover:text-white duration-300 hover:bg-blue-500 focus:bg-teal-600 focus:outline-none focus:ring-2 focus:ring-teal-300"
+                    className="px-9 md:px-14 py-2 text-sm lg:text-base  bg-[#1c1240]  font-semibold rounded-md text-white hover:border border-blue-500 hover:text-white duration-300 hover:bg-blue-500 focus:bg-teal-600 focus:outline-none focus:ring-2 focus:ring-teal-300"
                   >
                     Buy now
                   </button>
@@ -229,19 +228,19 @@ const OtherProductDetails = ({ product }) => {
             </h3>
             <div className="flex items-center space-x-2 ml-1 lg:text-xl text-blue-500 gap-4">
               <FacebookShareButton url={shareUrl}>
-                <LuFacebook className="cursor-pointer " />
+                <LuFacebook className="cursor-pointer text-3xl bg-blue-100 rounded-full p-2  hover:bg-blue-500 hover:text-white duration-700" />
               </FacebookShareButton>
               <TwitterShareButton url={shareUrl}>
-                <FaXTwitter className="cursor-pointer" />
+                <FaXTwitter className="cursor-pointer text-3xl bg-blue-100 rounded-full p-2  hover:bg-blue-500 hover:text-white duration-700" />
               </TwitterShareButton>
               <LinkedinShareButton url={shareUrl}>
-                <SlSocialLinkedin className="cursor-pointer" />
+                <FaLinkedinIn className="cursor-pointer text-3xl bg-blue-100 rounded-full p-2  hover:bg-blue-500 hover:text-white duration-700" />
               </LinkedinShareButton>
               <TelegramShareButton url={shareUrl}>
-                <BsTelegram className="cursor-pointer" />
+                <BsTelegram className="cursor-pointer text-3xl bg-blue-100 rounded-full p-2  hover:bg-blue-500 hover:text-white duration-700" />
               </TelegramShareButton>
               <WhatsappShareButton url={shareUrl}>
-                <FaWhatsapp className="cursor-pointer" />
+                <FaWhatsapp className="cursor-pointer text-3xl bg-blue-100 rounded-full p-2  hover:bg-blue-500 hover:text-white duration-700" />
               </WhatsappShareButton>
             </div>
           </div>
@@ -249,7 +248,7 @@ const OtherProductDetails = ({ product }) => {
         {/* Share & compare end */}
       </div>
       <div className="divider my-2 md:my-0 lg:my-auto"></div>
-      <div className="flex items-center justify-center gap-x-1 mb-5 mx-2 px-2 xl:px-4 py-2  bg-slate-200 rounded-lg text-sm md:text-base">
+      <div className="flex items-center justify-center gap-x-1 mb-5 mx-2 px-2 xl:px-4 py-2  bg-blue-50 rounded-lg text-sm md:text-base">
         <FaRegEye className="mt-1 " />
         <p>{product?.view || 0} People Watching this product now!</p>
       </div>

@@ -75,7 +75,7 @@ const MenuBar = () => {
           </button>
           {/* Dropdown Menu */}
           {isOpen && (
-            <div className="absolute lg:w-[1160px] xl:w-[1790px]  w-full top-full left-0 z-40 ml-2 xl:ml-4 bg-white shadow-lg border border-gray-200 mt-4 overflow-hidden overflow-x-hidden py-3">
+            <div className="absolute lg:w-[1160px] xl:w-[1790px]  w-full top-full left-0 z-40 xl:ml-4 bg-white shadow-lg border border-gray-200 mt-4 overflow-hidden overflow-x-hidden py-3">
               <ul className=" grid grid-cols-8 xl:grid-cols-12 gap-y-2  pt-2">
                 {categories.map(
                   (cat, idx) =>

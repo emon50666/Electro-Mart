@@ -24,7 +24,7 @@ const TopLayerOfDetails = ({ title, id }) => {
         </li>
         <li className="items-center  flex text-gray-900">
           <Link to="#" className="hover:text-gray-600">
-            {title.length > 150 ? title.slice(0, 150) + "..." : title}
+            {title.length > 115 ? title.slice(0, 115) + "..." : title}
           </Link>
         </li>
       </ul>

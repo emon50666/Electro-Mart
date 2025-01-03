@@ -40,7 +40,7 @@ const ComparePage = () => {
           // Centering the message using flex and ensuring full height alignment
           <div className="flex items-center justify-center min-h-[50vh] mx-2 mt-4 mb-4">
             <div className="text-center">
-              <div className="bg-gradient-to-r from-gray-100 to-gray-200 border border-gray-300 text-teal-900 p-8 md:p-10 lg:p-12 rounded-xl shadow-lg max-w-lg mx-auto space-y-8">
+              <div className="bg-gradient-to-r from-gray-100 to-gray-200 border border-gray-300 text-black p-8 md:p-10 lg:p-12 rounded-xl shadow-lg max-w-lg mx-auto space-y-8">
                 <p className="text-lg md:text-3xl font-semibold">
                   Your comparison list is empty!
                 </p>
