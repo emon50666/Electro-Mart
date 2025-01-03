@@ -74,7 +74,7 @@ const WishlistCart = ({ wishProduct }) => {
   };
 
   return (
-    <div className="card bg-white shadow-lg w-full sm:w-64 md:w-80 rounded-lg overflow-hidden relative group border transition-transform duration-300 transform hover:scale-105">
+    <div className="card max-w-72 bg-white shadow-lg w-full sm:w-64 md:w-80 rounded-lg overflow-hidden relative group border transition-transform duration-300 transform hover:scale-105">
       {/* Remove Button */}
       <button
         onClick={() => handleDeleteWishlist(wishProduct?._id)}
