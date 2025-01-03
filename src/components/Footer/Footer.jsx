@@ -157,7 +157,7 @@ const Footer = () => {
             </div>
             <div className="flex flex-1 text-gray-300 items-center justify-between pt-5 pb-20 lg:pb-3 border-gray-600 border-t xl:flex-row  xl:mb-auto gap-y-2">
                 <p className="text-[10px] lg:text-base">
-                    © 2024 <span className="text-blue-500">Electro Mart</span>. Develope by <span className="text-blue-500">The Coder24</span>.
+                    © 2025 <span className="text-blue-500">Electro Mart</span>. Develope by <span className="text-blue-500">The Coder24</span>.
                 </p>
                 <div className="flex  flex-col md:flex-row md:items-center  space-x-4 sm:mt-0">
                     

@@ -30,7 +30,7 @@ const products = [
 
 const Popular = () => {
   return (
-    <div className=" mb-10 px-4">
+    <div className="  px-4">
       {/* Grid Layout on larger screens, Horizontal Scroll on Mobile */}
       <div className="flex lg:grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 gap-10 xl:gap-x-20 overflow-x-auto lg:overflow-hidden no-scrollbar">
         {products.map((product, idx) => (
