@@ -22,7 +22,7 @@ const products = [
   {
     id: 4,
     name: "Wearable",
-    imageUrl: "https://i.ibb.co.com/S3RCYKX/remove4.png",
+    imageUrl: "https://res.cloudinary.com/dpsgtszzi/image/upload/v1735901120/Screenshot_25_qmyryb.png",
     cat: "Headphones",
   },
   // Add more product objects as needed...
@@ -37,7 +37,7 @@ const Popular = () => {
           <Link
             key={idx}
             to={`/shop-page?category=${product?.cat}`}
-            className="min-w-[250px] rounded-lg overflow-hidden shadow-md bg-gray-200/60 hover:shadow-2xl transform transition duration-500 hover:scale-105 flex-shrink-0 lg:flex-shrink lg:w-auto"
+            className="min-w-[250px] rounded-lg overflow-hidden shadow-md bg-white/50 hover:shadow-2xl transform transition duration-500 hover:scale-105 flex-shrink-0 lg:flex-shrink lg:w-auto"
           >
             {/* Text Section */}
             <div className="text-center p-4">
