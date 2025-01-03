@@ -8,9 +8,8 @@ const ManageProduct = () => {
             <Helmet>
                 <title>Manage Product | Elector Mart</title>
             </Helmet>
-            <p className="font-semibold text-lg">Manage All Products</p>
+            <p className="font-semibold text-lg ">Manage All Products</p>
            <div className="">
-          
            <SearchBar/>
            </div>
 

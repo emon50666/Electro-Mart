@@ -213,7 +213,7 @@ const Register = () => {
 
               <label
                 htmlFor="dropzone-file"
-                className="flex items-center bg-gray-50 px-3 py-3 mx-auto mt-6 text-center border border-dashed rounded-lg cursor-pointer  border-gray-400"
+                className="flex items-center bg-gray-50 px-3 py-3  gap-2 mx-auto mt-6 text-center border border-dashed rounded-lg cursor-pointer  border-gray-400"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -230,13 +230,12 @@ const Register = () => {
                   />
                 </svg>
 
-                <h2 className="mx-3 ">Profile Photo</h2>
 
                 <input
                   name="image"
                   id="dropzone-file"
                   type="file"
-                  className="hidden  "
+                  className="  "
                 />
               </label>
 
