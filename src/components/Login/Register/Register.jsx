@@ -236,6 +236,7 @@ const Register = () => {
                   id="dropzone-file"
                   type="file"
                   className="  "
+                  
                 />
               </label>
 
