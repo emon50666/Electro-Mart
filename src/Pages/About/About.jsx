@@ -6,28 +6,31 @@ const About = () => {
     {
       name: "MD Emon Talukdar Team Leader",
       title: "Full Stack Developer ",
-     
+
       image: "https://res.cloudinary.com/dpsgtszzi/image/upload/v1735997749/emon_rhj883.png", // Replace with actual image URL
     },
     {
-      name: "Image 2",
-      title: "Leader",
+      name: "MD Ridwanul Islam       Team Leader",
+      title: "Full Stack Developer ",
       image: "https://res.cloudinary.com/dpsgtszzi/image/upload/v1736002287/467748360_950999440461908_6032397009052311263_n_upgxkp.jpg", // Replace with actual image URL
 
     },
     {
-      name: "Image 3",
-      title: "Leader",
-      image: "https://res.cloudinary.com/dpsgtszzi/image/upload/v1735997749/emon_rhj883.png", // Replace with actual image URL
+      name: "Mohammed Rasif",
+      title: "Front-end Developer ",
+      image: "https://res.cloudinary.com/dpsgtszzi/image/upload/v1736002363/471898051_1797182027697229_1934842080457666092_n_msnvgy.jpg", // Replace with actual image URL
 
     },
     {
-      name: "Image 4",
-      title: "Leader",
-      image: "https://res.cloudinary.com/dpsgtszzi/image/upload/v1735997749/emon_rhj883.png", // Replace with actual image URL
+      name: "Kazi Ahammad Ullah",
+      title: "Back-end Developer ",
+      image: "https://res.cloudinary.com/dpsgtszzi/image/upload/v1736002970/images_kcr5fs.png", // Replace with actual image URL
 
     },
   ];
+
+
+
 
 
   return (
@@ -173,47 +176,98 @@ const About = () => {
 
       {/* Team Section (With Images) */}
       <div className="bg-gray-100 mb-16 ">
-        <h2 className="text-center mb-44 text-3xl font-bold text-gray-800 ">
+        <h2 className="text-center hidden sm:block mb-44 text-3xl font-bold text-gray-800 ">
           Meet Our Team
         </h2>
-        <div className="relative flex items-center justify-center min-h-screen bg-gray-100">
+        <div className="relative  hidden sm:block md:px-4 lg:flex items-center justify-center min-h-screen bg-gray-100">
           {/* Diamond Container */}
-          <div className="relative w-8/12 h-[510px] ">
+          <div className="relative justify-center mx-auto  md:w-7/12 md:h-[400px] lg:w-8/12 lg:h-[510px] ">
             {/* Image 1 (Top) */}
             <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-            <Link to={'https://md-emon.vercel.app/'} className="absolute top-1/2 left-0 transform -translate-y-1/2 -translate-x-1/2">
-              <div className="flex flex-col items-center">
-                <div className="relative w-56 h-56 mx-auto transform rotate-45 overflow-hidden bg-white shadow-md">
-                  {/* Image */}
-                 
-                
-                 <img
-                    src={teamMembers[0].image}
-                    alt={teamMembers[0].name}
-                    className="w-full h-full bg-gray-300 bg-opacity-80 transform object-cover -rotate-45 transition-all duration-300"
-                  />
+              <Link to={'https://md-emon.vercel.app/'} className="absolute top-1/2 left-0 transform -translate-y-1/2 -translate-x-1/2">
+                <div className="flex-col lg:flex lg:flex-col items-center">
+                  <div className="relative w-56 h-56 mx-auto transform rotate-45 overflow-hidden bg-white shadow-md">
+                    {/* Image */}
 
-                  {/* Overlay */}
-                  <div className="absolute inset-0 bg-black bg-opacity-50 flex  text-start flex-col justify-center items-center opacity-0 hover:opacity-100 transition-opacity duration-300">
-                  <p className="text-white text-xl font-bold -rotate-45">
-                      {teamMembers[0].name}
-                    </p> 
-                    
-                    
-                    <p className="text-white  text-md mt-4 -rotate-45">
-                      {teamMembers[0].title}
-                    </p>
-                   
+
+                    <img
+                      src={teamMembers[0].image}
+                      alt={teamMembers[0].name}
+                      className="w-full h-full bg-gray-300 bg-opacity-80 transform object-cover -rotate-45 transition-all duration-300"
+                    />
+
+                    {/* Overlay */}
+                    <div className="absolute inset-0 bg-black bg-opacity-50 flex  text-start flex-col justify-center items-center opacity-0 hover:opacity-100 transition-opacity duration-300">
+                      <p className="text-white text-xl font-bold -rotate-45">
+                        {teamMembers[0].name}
+                      </p>
+
+
+                      <p className="text-white  text-md mt-4 -rotate-45">
+                        {teamMembers[0].title}
+                      </p>
+
+                    </div>
                   </div>
                 </div>
-              </div>
-            </Link>
+              </Link>
             </div>
 
             {/* Image 2 (Right) */}
             <div className="absolute top-1/2 right-0 transform -translate-y-1/2 translate-x-1/2">
+              <div className="absolute top-1/2 left-0 transform -translate-y-1/2 -translate-x-1/2">
+                <div className=" flex-col lg:flex lg:flex-col items-center">
+                  <div className="relative w-56 h-56 mx-auto transform rotate-45 overflow-hidden bg-white shadow-md">
+                    {/* Image */}
+                    <img
+                      src={teamMembers[3].image}
+                      alt={teamMembers[3].name}
+                      className="w-full h-full bg-gray-300 bg-opacity-80 transform object-cover -rotate-45 transition-all duration-300"
+                    />
+
+                    {/* Overlay */}
+                    <div className="absolute inset-0 bg-black bg-opacity-50 flex  flex-col justify-center items-center opacity-0 hover:opacity-100 transition-opacity duration-300">
+                      <p className="text-white text-lg font-bold -rotate-45">
+                        {teamMembers[3].name}
+                      </p>
+                      <p className="text-white text-sm -rotate-45">
+                        {teamMembers[3].title}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Image 3 (Bottom) */}
+            <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/2">
+              <div className="absolute top-1/2 left-0 transform -translate-y-1/2 -translate-x-1/2">
+                <div className="flex-col lg:flex lg:flex-col items-center">
+                  <div className="relative w-56 h-56 mx-auto transform rotate-45 overflow-hidden bg-white shadow-md">
+                    {/* Image */}
+                    <img
+                      src={teamMembers[2].image}
+                      alt={teamMembers[2].name}
+                      className="w-full h-full bg-gray-300 bg-opacity-80 transform object-cover -rotate-45 transition-all duration-300"
+                    />
+
+                    {/* Overlay */}
+                    <div className="absolute inset-0 bg-black bg-opacity-50 flex  flex-col justify-center items-center opacity-0 hover:opacity-100 transition-opacity duration-300">
+                      <p className="text-white text-lg font-bold -rotate-45">
+                        {teamMembers[2].name}
+                      </p>
+                      <p className="text-white text-sm -rotate-45">
+                        {teamMembers[2].title}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Image 4 (Left) */}
             <div className="absolute top-1/2 left-0 transform -translate-y-1/2 -translate-x-1/2">
-              <div className="flex flex-col items-center">
+              <div className="flex-col lg:flex lg:flex-col items-center">
                 <div className="relative w-56 h-56 mx-auto transform rotate-45 overflow-hidden bg-white shadow-md">
                   {/* Image */}
                   <img
@@ -223,63 +277,12 @@ const About = () => {
                   />
 
                   {/* Overlay */}
-                  <div className="absolute inset-0 bg-black bg-opacity-50 flex  flex-col justify-center items-center opacity-0 hover:opacity-100 transition-opacity duration-300">
+                  <div className="absolute inset-0 bg-black bg-opacity-50 flex  text-start flex-col justify-center items-center opacity-0 hover:opacity-100 transition-opacity duration-300">
                     <p className="text-white text-lg font-bold -rotate-45">
                       {teamMembers[1].name}
                     </p>
-                    <p className="text-white text-sm -rotate-45">
+                    <p className="text-white  text-md mt-4 -rotate-45">
                       {teamMembers[1].title}
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            </div>
-
-            {/* Image 3 (Bottom) */}
-            <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/2">
-            <div className="absolute top-1/2 left-0 transform -translate-y-1/2 -translate-x-1/2">
-              <div className="flex flex-col items-center">
-                <div className="relative w-56 h-56 mx-auto transform rotate-45 overflow-hidden bg-white shadow-md">
-                  {/* Image */}
-                  <img
-                    src={teamMembers[2].image}
-                    alt={teamMembers[2].name}
-                    className="w-full h-full bg-gray-300 bg-opacity-80 transform object-cover -rotate-45 transition-all duration-300"
-                  />
-
-                  {/* Overlay */}
-                  <div className="absolute inset-0 bg-black bg-opacity-50 flex  flex-col justify-center items-center opacity-0 hover:opacity-100 transition-opacity duration-300">
-                    <p className="text-white text-lg font-bold -rotate-45">
-                      {teamMembers[2].name}
-                    </p>
-                    <p className="text-white text-sm -rotate-45">
-                      {teamMembers[2].title}
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            </div>
-
-            {/* Image 4 (Left) */}
-            <div className="absolute top-1/2 left-0 transform -translate-y-1/2 -translate-x-1/2">
-              <div className="flex flex-col items-center">
-                <div className="relative w-56 h-56 mx-auto transform rotate-45 overflow-hidden bg-white shadow-md">
-                  {/* Image */}
-                  <img
-                    src={teamMembers[3].image}
-                    alt={teamMembers[3].name}
-                    className="w-full h-full bg-gray-300 bg-opacity-80 transform object-cover -rotate-45 transition-all duration-300"
-                  />
-
-                  {/* Overlay */}
-                  <div className="absolute inset-0 bg-black bg-opacity-50 flex  flex-col justify-center items-center opacity-0 hover:opacity-100 transition-opacity duration-300">
-                    <p className="text-white text-lg font-bold -rotate-45">
-                      {teamMembers[3].name}
-                    </p>
-                    <p className="text-white text-sm -rotate-45">
-                      {teamMembers[3].title}
                     </p>
                   </div>
                 </div>
@@ -292,6 +295,14 @@ const About = () => {
         </div>
       </div>
 
+
+
+      {/* mobile device show */}
+
+      {/* Image 1 (Top) */}
+      
+ 
+ 
 
     </div>
   );
