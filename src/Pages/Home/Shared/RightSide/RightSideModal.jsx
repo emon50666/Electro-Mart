@@ -36,7 +36,7 @@ const RightSideModal = ({ isOpen, onClose, number, sendImages, refetch }) => {
             // console.log("Uploading to Cloudinary:", formData);
 
             const res = await axios.post(
-                `https://api.cloudinary.com/v1_1/${import.meta.env.VITE_CLOUDINARY_COULD_NAME}/image/uploa`,
+                `https://api.cloudinary.com/v1_1/${import.meta.env.VITE_CLOUDINARY_COULD_NAME}/image/upload`,
                 formData,
                 { headers: { 'X-Requested-With': 'XMLHttpRequest' } }
             );
