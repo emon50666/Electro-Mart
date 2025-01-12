@@ -138,7 +138,8 @@ const OtherProductDetails = ({ product }) => {
         {/* Price & description start */}
         <div className="text-xl gap-2 mb-2 lg:text-4xl text-blue-500 font-semibold flex items-center font_cabin">
           <p>৳</p>
-          <h3> {product?.price}</h3>
+          {product?.discountPrice != product?.price ? <h3> {product?.discountPrice}</h3> : <h3> {product?.price}</h3> }
+          
         </div>
         <div className="font_cabin text-sm lg:text-base text-gray-700">
           <p>{ReactHtmlParser(product?.shortDescription)}</p>
