@@ -117,7 +117,7 @@ const UpdateProduct = () => {
                 formData.append("api_key", import.meta.env.VITE_CLOUDINARY_API_KEY);
 
 
-                return axios.post(`https://api.cloudinary.com/v1_1/${import.meta.env.VITE_CLOUDINARY_COULD_NAME}/image/uploa`, formData, {
+                return axios.post(`https://api.cloudinary.com/v1_1/${import.meta.env.VITE_CLOUDINARY_COULD_NAME}/image/upload`, formData, {
                     headers: { "X-Requested-With": "XMLHttpRequest" }
                 }).then(res => {
                     return res.data.secure_url;

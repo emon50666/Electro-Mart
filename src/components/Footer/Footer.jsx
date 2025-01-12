@@ -114,11 +114,7 @@ const Footer = () => {
                                 Promotion
                             </Link>
                         </li>
-                        <li>
-                            <Link to="/" className="text-gray-300 underline-hover">
-                                Brochure
-                            </Link>
-                        </li>
+                        
 
                         <li>
                             <Link to="/" className="text-gray-300 underline-hover">
@@ -134,22 +130,22 @@ const Footer = () => {
                     <ul className="mt-2 space-y-1 md:space-y-2 text-md xl:text-lg">
                         <li>
                             <Link to="/" className="text-gray-300 underline-hover">
-                                Infopreneur
+                                Facebook
                             </Link>
                         </li>
                         <li>
                             <Link to="/" className="text-gray-300 underline-hover">
-                                Personal
+                                Twitter
                             </Link>
                         </li>
                         <li>
                             <Link to="/" className="text-gray-300 underline-hover">
-                                Wiki
+                                Instagram
                             </Link>
                         </li>
                         <li>
                             <Link to="/" className="text-gray-300 underline-hover">
-                                Forum
+                                Telegram
                             </Link>
                         </li>
                     </ul>

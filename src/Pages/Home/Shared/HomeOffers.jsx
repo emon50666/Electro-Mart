@@ -20,7 +20,7 @@ const HomeOffers = () => {
     <div className="px-2 lg:px-8 font_open_sense">
       <div>
         {filteredProducts.length > 0 ? (
-          <h3 className="text-2xl mb-5 font-bold">The Best Offers</h3>
+          <h3 className="text-2xl mt-8 mb-8 font-bold">The Best Offers</h3>
         ) : null}
       </div>
       {/* Preview cards */}

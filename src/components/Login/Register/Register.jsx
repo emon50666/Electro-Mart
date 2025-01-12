@@ -18,9 +18,11 @@ const Register = () => {
     setUser,
     updateUserProfile,
     setLoading,
+    loading,
     error,
     setError,
     showPassword,
+   
 
     setShowPassword,
     signInWithGoogle,
@@ -213,7 +215,7 @@ const Register = () => {
 
               <label
                 htmlFor="dropzone-file"
-                className="flex items-center bg-gray-50 px-3 py-3 mx-auto mt-6 text-center border border-dashed rounded-lg cursor-pointer  border-gray-400"
+                className="flex items-center bg-gray-50 px-3 py-3  gap-2 mx-auto mt-6 text-center border border-dashed rounded-lg cursor-pointer  border-gray-400"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -230,13 +232,13 @@ const Register = () => {
                   />
                 </svg>
 
-                <h2 className="mx-3 ">Profile Photo</h2>
 
                 <input
                   name="image"
                   id="dropzone-file"
                   type="file"
-                  className="hidden  "
+                  className="  "
+                  
                 />
               </label>
 
@@ -304,7 +306,7 @@ const Register = () => {
               </div>
 
               <div className="mt-6">
-                <button className="w-full px-6 py-3 tracking-wide text-white capitalize transition-colors duration-300 transform bg-blue-500 rounded-md font-bold text-base focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-50 ">
+                <button  className="w-full px-6 py-3 tracking-wide text-white capitalize transition-colors duration-300 transform bg-blue-500 rounded-md font-bold text-base focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-50 ">
                   Register
                 </button>
               </div>
