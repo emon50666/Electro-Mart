@@ -35,7 +35,9 @@ const Layout = () => {
   if (isLoading) {
     return (
       <div className="flex items-center justify-center min-h-screen bg-blue-100">
-        <div className="spinner border-t-4 border-b-4 border-blue-500 w-14 h-14 rounded-full animate-spin"></div>
+        <div className="spinner absolute ml-3 border-t-4 border-b-4 border-blue-500 w-12 h-12 rounded-full animate-spin"></div>
+        <div className="spinner absolute ml-3 border-t-4 border-b-4 border-blue-500 w-12 h-12 rounded-full animate-spin"></div>
+
         <p className="ml-4 text-lg font-semibold">Electro Mart</p>
       </div>
     );
