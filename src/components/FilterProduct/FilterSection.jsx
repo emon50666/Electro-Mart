@@ -5,6 +5,7 @@ import "./FilterSection.css";
 import useBrands from "./../../Hooks/useBrands";
 import useCategory from "../../Hooks/useCategory";
 
+
 const FilterSection = ({ onFilterChange, filters }) => {
   const { category: categories, isLoading: loadingCategories } = useCategory();
   const { brands, isLoading: loadingBrands } = useBrands();
@@ -54,6 +55,7 @@ const FilterSection = ({ onFilterChange, filters }) => {
   if (loadingCategories || loadingBrands) {
     return ''
   }
+
 
   return (
     <div className="filter-section  ">

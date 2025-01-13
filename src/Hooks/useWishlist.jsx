@@ -7,7 +7,7 @@ import useAxiosPublic from "./useAxiosPublic";
 const useWishlist = () => {
     const { user } = useAuth();
     const axiosPublic = useAxiosPublic();
-    const { data: wishes = [], refetch } = useQuery({
+    const { data: wishes = [], refetch,isLoading } = useQuery({
         queryKey: ["wishlist"],
         queryFn: async () => {
             const result = await axiosPublic.get("/wishlist");
@@ -15,7 +15,7 @@ const useWishlist = () => {
         },
     });
     const theUserWishlist = wishes.filter(wishlist => wishlist?.adderMail == user?.email)
-    return { wishes, theUserWishlist, refetch };
+    return { wishes, theUserWishlist, refetch ,isLoading};
 };
 
 export default useWishlist;

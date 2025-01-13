@@ -8,7 +8,7 @@ import { FaLocationDot } from "react-icons/fa6";
 import useRoll from "../../Hooks/useRoll";
 
 const MenuBar = () => {
-  const { categories, isLoading } = useCategories();
+  const { categories,  } = useCategories();
   const [isOpen, setIsOpen] = useState(false);
   const [role] = useRoll();
   const [selectedCategory, setSelectedCategory] = useState("");
@@ -50,7 +50,7 @@ const MenuBar = () => {
   ];
   // console.log(role);
 
-  if (isLoading) return <Loader />;
+ 
 
   return (
     <div className="navbar hidden lg:flex bg-gradient-to-r from-blue-700 via-blue-900 to-blue-500 text-white w-full">

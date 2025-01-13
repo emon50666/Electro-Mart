@@ -7,7 +7,7 @@ import { FaDeleteLeft } from "react-icons/fa6";
 import axios from "axios";
 import PropTypes from "prop-types";
 import toast from "react-hot-toast";
-import Loader from "../../../components/Loader/Loader";
+
 
 const SlideTable = ({ onClose }) => {
     const axiosPublic = useAxiosPublic();
@@ -70,7 +70,7 @@ const SlideTable = ({ onClose }) => {
     };
 
 
-    if (isLoading) return <Loader />;
+   
 
     return (
         <div className="py-5">

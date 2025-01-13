@@ -2,9 +2,11 @@ import { Link } from "react-router-dom";
 import ComparisonTable from "./Shared/ComparisonTable";
 import useCompare from "../../Hooks/useCompare";
 import { Helmet } from "react-helmet";
+import Loader from "../../components/Loader/Loader";
 
 const ComparePage = () => {
-  const { theUserCompares } = useCompare();
+  const { theUserCompares,isLoading} = useCompare();
+  if(isLoading) return <Loader/>
 
   return (
     <div className="space-y-10 md:mb-20 lg:mb-24">
