@@ -22,7 +22,7 @@ const NewHomeOffer = () => {
         <h3 className="text-2xl mb-5 font-bold">Our New Products</h3>
       </div>
       {/* Preview cards */}
-      <div className="grid grid-rows-4 grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3">
+      <div className="grid  grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3">
         {filteredProducts.slice(0, 5).map((product, idx) => (
           <div key={idx} className="snap-start flex-shrink-0 w-full sm:w-auto">
             <ProductCard product={product} refetch={refetch} />
