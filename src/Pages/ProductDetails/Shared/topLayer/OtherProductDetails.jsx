@@ -135,21 +135,25 @@ const OtherProductDetails = ({ product }) => {
           </div>
         </div>
         {/* Title & Rating end */}
+
         {/* Price & description start */}
-        <div className="text-xl gap-2 mb-2 lg:text-4xl text-blue-500 font-semibold flex items-center font_cabin">
-          <p>৳</p>
-          {product?.discountPrice != product?.price ? <h3> {product?.discountPrice}</h3> : <h3> {product?.price}</h3> }
-          
-        </div>
-        <div className="font_cabin text-sm lg:text-base text-gray-700">
-          <p>{ReactHtmlParser(product?.shortDescription)}</p>
-        </div>
-        {/* Price & description end */}
-        {role === "member" && (
-          <div className="divider my-2 md:my-0 lg:my-auto"></div>
-        )}
-        {/* Quantity & cart start */}
-    
+        <div>
+          <div className="text-xl gap-2 mb-2 lg:text-4xl text-blue-500 font-semibold flex items-center font_cabin">
+            <p>৳</p>
+            {product?.discountPrice != product?.price ? (
+              <h3> {product?.discountPrice}</h3>
+            ) : (
+              <h3> {product?.price}</h3>
+            )}
+          </div>
+          <div className="font_cabin text-sm lg:text-base text-gray-700">
+            <p>{ReactHtmlParser(product?.shortDescription)}</p>
+          </div>
+          {/* Price & description end */}
+          {role === "member" && (
+            <div className="divider my-2 md:my-0 lg:my-auto"></div>
+          )}
+          {/* Quantity & cart start */}
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-y-2">
             <div className="py-2 px-2 inline-block bg-white border border-gray-200 rounded-lg w-1/2 md:w-1/4">
               <div className="flex items-center justify-between gap-x-3.5">
@@ -175,26 +179,26 @@ const OtherProductDetails = ({ product }) => {
                 </button>
               </div>
             </div>
-          </div>
-          <div className="space-x-3 md:space-x-5">
-            <button
-              onClick={handleAddToCart}
-              className="px-9 md:px-14 py-2  text-sm lg:text-base bg-blue-500 text-white font-semibold rounded-md hover:bg-blue-600 duration-300 focus:bg-teal-600 focus:outline-none focus:ring-2 focus:ring-teal-300"
-            >
-              Add to cart
-            </button>
 
-            <Link to={"/checkout-page"}>
+            <div className="space-x-3 md:space-x-5">
               <button
                 onClick={handleAddToCart}
-                className="px-9 md:px-14 py-2 text-sm lg:text-base   font-semibold rounded-md text-blue-500 border border-blue-500 hover:text-white duration-300 hover:bg-blue-500 focus:bg-teal-600 focus:outline-none focus:ring-2 focus:ring-teal-300"
+                className="px-9 md:px-14 py-2  text-sm lg:text-base bg-blue-500 text-white font-semibold rounded-md hover:bg-blue-600 duration-300 focus:bg-teal-600 focus:outline-none focus:ring-2 focus:ring-teal-300"
               >
-                Buy now
+                Add to cart
               </button>
-            </Link>
+
+              <Link to={"/checkout-page"}>
+                <button
+                  onClick={handleAddToCart}
+                  className="px-9 md:px-14 py-2 text-sm lg:text-base   font-semibold rounded-md text-blue-500 border border-blue-500 hover:text-white duration-300 hover:bg-blue-500 focus:bg-teal-600 focus:outline-none focus:ring-2 focus:ring-teal-300"
+                >
+                  Buy now
+                </button>
+              </Link>
+            </div>
           </div>
         </div>
-
         {/* Quantity & cart end */}
         <div className="divider  my-2 md:my-0 lg:my-auto"></div>
         {/* Share & compare start */}

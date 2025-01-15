@@ -26,7 +26,10 @@ const useAddToCart = () => {
       return;
     }
 
-    const subtotal = (product?.price * quantity).toFixed(2);
+    const subtotal =
+      product?.discountPrice != product?.price
+        ? (product?.discountPrice * quantity).toFixed(2)
+        : (product?.price * quantity).toFixed(2);
 
     const cartProductInfo = {
       mainProductId: product._id,
