@@ -139,11 +139,27 @@ const OtherProductDetails = ({ product }) => {
         {/* Price & description start */}
         <div>
           <div className="text-xl gap-2 mb-2 lg:text-4xl text-blue-500 font-semibold flex items-center font_cabin">
-            <p>৳</p>
-            {product?.discountPrice != product?.price ? (
-              <h3> {product?.discountPrice}</h3>
+            {product?.discountPrice == product?.price ? (
+              <div className="flex gap-2 ">
+                <p className="font-bold text-blue-500 text-[12px] lg:text-base">
+                  {" "}
+                  ৳ {product?.price}
+                </p>
+              </div>
+            ) : product?.discountPrice > 1 ? (
+              <div className="flex gap-x-1 items-baseline">
+                <p className="text-blue-500 font-semibold text-sm md-text-xl lg:text-3xl space-x-0">
+                  ৳ {parseInt(product?.discountPrice)}
+                </p>
+                <span className="line-through text-red-500  font-semibold text-xs md:text-lg">
+                  {" "}
+                  ৳{product?.price}
+                </span>
+              </div>
             ) : (
-              <h3> {product?.price}</h3>
+              <div className="flex gap-2">
+                <p className="font-bold text-blue-500"> ৳ {product?.price}</p>
+              </div>
             )}
           </div>
           <div className="font_cabin text-sm lg:text-base text-gray-700">
