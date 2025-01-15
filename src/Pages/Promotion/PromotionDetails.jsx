@@ -1,14 +1,17 @@
 import { useEffect, useState } from "react";
 import { useLoaderData, useParams } from "react-router-dom";
 
+
 const PromotionDetails = () => {
   const promotionDetails = useLoaderData();
   const { id } = useParams();
   const promotion = promotionDetails.find((promotion) => promotion._id == id);
 
+
   // Get the start day and month of the promotion
   const day = promotion?.offerStartDay[0];
   const month = promotion?.offerStartDay[1];
+
 
   const [timeRemaining, setTimeRemaining] = useState({
     days: 0,
@@ -16,6 +19,7 @@ const PromotionDetails = () => {
     minutes: 0,
     seconds: 0,
   });
+
 
   const calculateRemainingTime = () => {
     const today = new Date();
@@ -26,6 +30,7 @@ const PromotionDetails = () => {
     ); // Adjust month as it's 0-indexed
     const difference = targetDate - today; // Time difference in milliseconds
 
+
     if (difference > 0) {
       const days = Math.floor(difference / (1000 * 60 * 60 * 24));
       const hours = Math.floor(
@@ -34,11 +39,13 @@ const PromotionDetails = () => {
       const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
       const seconds = Math.floor((difference % (1000 * 60)) / 1000);
 
+
       setTimeRemaining({ days, hours, minutes, seconds });
     } else {
       setTimeRemaining({ days: 0, hours: 0, minutes: 0, seconds: 0 });
     }
   };
+
 
   // Countdown effect
   useEffect(() => {
@@ -46,6 +53,7 @@ const PromotionDetails = () => {
     return () => clearInterval(interval);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [day, month]);
+
 
   return (
     <div className="lg:mt-2 lg:mx-10 md:mx-5 p-5">
@@ -115,4 +123,7 @@ const PromotionDetails = () => {
   );
 };
 
+
 export default PromotionDetails;
+
+
