@@ -1,9 +1,30 @@
+import { useState, useEffect } from "react";
 import Loader from "../../components/Loader/Loader";
 import ProductCard from "../../components/ProductCard/ProductCard";
 import useProduct from "../../Hooks/useProduct";
 
 const FeaturedProduct = () => {
   const { products, refetch, isLoading } = useProduct();
+  const [visibleProducts, setVisibleProducts] = useState(10);
+
+  useEffect(() => {
+    const updateVisibleProducts = () => {
+      const screenWidth = window.innerWidth;
+      if (screenWidth >= 1280) {
+        // XL screens
+        setVisibleProducts(12);
+      } else {
+        // Large screens
+        setVisibleProducts(10);
+      }
+    };
+
+    updateVisibleProducts();
+    window.addEventListener("resize", updateVisibleProducts);
+
+    return () => window.removeEventListener("resize", updateVisibleProducts);
+  }, []);
+
   if (isLoading) return <Loader />;
 
   return (
@@ -17,16 +38,20 @@ const FeaturedProduct = () => {
             (product) =>
               product?.title.length > 39 &&
               product?.isNew != "yes" &&
-              (product?.isHot === "yes" &&
-                (product?.discountPercentage > 0 && product?.quantity > 0))
+              product?.isHot === "yes" &&
+              product?.discountPercentage > 0 &&
+              product?.quantity > 0
           )
-          .slice(0, 10)
+          .slice(0, visibleProducts)
           .map((product, idx) => (
             <div
               key={idx}
               className="snap-start flex-shrink-0 w-full sm:w-auto"
             >
-              <ProductCard product={product} refetch={refetch} />
+              <ProductCard
+                product={product}
+                refetch={refetch}
+              />
             </div>
           ))}
       </div>

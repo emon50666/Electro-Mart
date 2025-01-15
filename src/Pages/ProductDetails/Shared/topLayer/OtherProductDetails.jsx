@@ -135,21 +135,41 @@ const OtherProductDetails = ({ product }) => {
           </div>
         </div>
         {/* Title & Rating end */}
+
         {/* Price & description start */}
-        <div className="text-xl gap-2 mb-2 lg:text-4xl text-blue-500 font-semibold flex items-center font_cabin">
-          <p>৳</p>
-          {product?.discountPrice != product?.price ? <h3> {product?.discountPrice}</h3> : <h3> {product?.price}</h3> }
-          
-        </div>
-        <div className="font_cabin text-sm lg:text-base text-gray-700">
-          <p>{ReactHtmlParser(product?.shortDescription)}</p>
-        </div>
-        {/* Price & description end */}
-        {role === "member" && (
-          <div className="divider my-2 md:my-0 lg:my-auto"></div>
-        )}
-        {/* Quantity & cart start */}
-    
+        <div>
+          <div className="text-xl gap-2 mb-2 lg:text-4xl text-blue-500 font-semibold flex items-center font_cabin">
+            {product?.discountPrice == product?.price ? (
+              <div className="flex gap-2 ">
+                <p className="font-bold text-blue-500 text-[12px] lg:text-base">
+                  {" "}
+                  ৳ {product?.price}
+                </p>
+              </div>
+            ) : product?.discountPrice > 1 ? (
+              <div className="flex gap-x-1 items-baseline">
+                <p className="text-blue-500 font-semibold text-sm md-text-xl lg:text-3xl space-x-0">
+                  ৳ {parseInt(product?.discountPrice)}
+                </p>
+                <span className="line-through text-red-500  font-semibold text-xs md:text-lg">
+                  {" "}
+                  ৳{product?.price}
+                </span>
+              </div>
+            ) : (
+              <div className="flex gap-2">
+                <p className="font-bold text-blue-500"> ৳ {product?.price}</p>
+              </div>
+            )}
+          </div>
+          <div className="font_cabin text-sm lg:text-base text-gray-700">
+            <p>{ReactHtmlParser(product?.shortDescription)}</p>
+          </div>
+          {/* Price & description end */}
+          {role === "member" && (
+            <div className="divider my-2 md:my-0 lg:my-auto"></div>
+          )}
+          {/* Quantity & cart start */}
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-y-2">
             <div className="py-2 px-2 inline-block bg-white border border-gray-200 rounded-lg w-1/2 md:w-1/4">
               <div className="flex items-center justify-between gap-x-3.5">
@@ -175,6 +195,7 @@ const OtherProductDetails = ({ product }) => {
                 </button>
               </div>
             </div>
+
             <div className="space-x-3 md:space-x-5">
               <button
                 onClick={handleAddToCart}
@@ -183,45 +204,41 @@ const OtherProductDetails = ({ product }) => {
                 Add to cart
               </button>
 
-      
-                <Link to={"/checkout-page"}>
-                  <button
-                    onClick={handleAddToCart}
-                    className="px-9 md:px-14 py-2 text-sm lg:text-base  bg-[#1c1240]  font-semibold rounded-md text-white hover:border border-blue-500 hover:text-white duration-300 hover:bg-blue-500 focus:bg-teal-600 focus:outline-none focus:ring-2 focus:ring-teal-300"
-                  >
-                    Buy now
-                  </button>
-                </Link>
-              
+              <Link to={"/checkout-page"}>
+                <button
+                  onClick={handleAddToCart}
+                  className="px-9 md:px-14 py-2 text-sm lg:text-base   font-semibold rounded-md text-blue-500 border border-blue-500 hover:text-white duration-300 hover:bg-blue-500 focus:bg-teal-600 focus:outline-none focus:ring-2 focus:ring-teal-300"
+                >
+                  Buy now
+                </button>
+              </Link>
             </div>
           </div>
-     
+        </div>
         {/* Quantity & cart end */}
         <div className="divider  my-2 md:my-0 lg:my-auto"></div>
         {/* Share & compare start */}
         <div className="lg:my-5 flex flex-col xl:flex-row justify-between gap-y-1 ">
-        
-            <div className="flex text-sm md:text-base lg:text-lg">
-              <button
-                onClick={handleAddToCompare}
-                className="flex items-center hover:text-[#666666] space-x-1"
-              >
-                <div>
-                  <GoGitCompare className="text-blue-500" />
-                </div>
-                <h3 className="font-medium  font_cabin">Compare</h3>
-              </button>
-              <button
-                onClick={handleAddToWishlist}
-                className="flex items-center hover:text-[#666666] pl-8 space-x-1"
-              >
-                <div>
-                  <GoHeart className="text-blue-500" />
-                </div>
-                <h3 className="font-medium  font_cabin">Add to wishlist</h3>
-              </button>
-            </div>
-          
+          <div className="flex text-sm md:text-base lg:text-lg">
+            <button
+              onClick={handleAddToCompare}
+              className="flex items-center hover:text-[#666666] space-x-1"
+            >
+              <div>
+                <GoGitCompare className="text-blue-500" />
+              </div>
+              <h3 className="font-medium  font_cabin">Compare</h3>
+            </button>
+            <button
+              onClick={handleAddToWishlist}
+              className="flex items-center hover:text-[#666666] pl-8 space-x-1"
+            >
+              <div>
+                <GoHeart className="text-blue-500" />
+              </div>
+              <h3 className="font-medium  font_cabin">Add to wishlist</h3>
+            </button>
+          </div>
 
           <div className="flex items-center">
             <h3 className="font-medium font_cabin text-sm md:text-base lg:text-lg">
