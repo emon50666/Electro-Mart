@@ -149,79 +149,75 @@ const OtherProductDetails = ({ product }) => {
           <div className="divider my-2 md:my-0 lg:my-auto"></div>
         )}
         {/* Quantity & cart start */}
-    
-          <div className="flex flex-col md:flex-row md:items-center justify-between gap-y-2">
-            <div className="py-2 px-2 inline-block bg-white border border-gray-200 rounded-lg w-1/2 md:w-1/4">
-              <div className="flex items-center justify-between gap-x-3.5">
-                <button
-                  type="button"
-                  onClick={() => decreaseCount()}
-                  disabled={theCart}
-                  className="size-6 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-md border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 focus:outline-none focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none"
-                  tabIndex="-1"
-                  aria-label="Decrease"
-                  data-hs-input-number-decrement=""
-                >
-                  &minus;
-                </button>
-                <span>{quantityCount}</span>
-                <button
-                  type="button"
-                  onClick={() => increaseCount()}
-                  disabled={disableBtn || theCart}
-                  className="size-6 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-md border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 focus:outline-none focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none"
-                >
-                  +
-                </button>
-              </div>
-            </div>
-            <div className="space-x-3 md:space-x-5">
-              <button
-                onClick={handleAddToCart}
-                className="px-9 md:px-14 py-2  text-sm lg:text-base bg-blue-500 text-white font-semibold rounded-md hover:bg-blue-600 duration-300 focus:bg-teal-600 focus:outline-none focus:ring-2 focus:ring-teal-300"
-              >
-                Add to cart
-              </button>
 
-      
-                <Link to={"/checkout-page"}>
-                  <button
-                    onClick={handleAddToCart}
-                    className="px-9 md:px-14 py-2 text-sm lg:text-base   font-semibold rounded-md text-blue-500 border border-blue-500 hover:text-white duration-300 hover:bg-blue-500 focus:bg-teal-600 focus:outline-none focus:ring-2 focus:ring-teal-300"
-                  >
-                    Buy now
-                  </button>
-                </Link>
-              
+        <div className="flex flex-col md:flex-row md:items-center justify-between gap-y-2">
+          <div className="py-2 px-2 inline-block bg-white border border-gray-200 rounded-lg w-1/2 md:w-1/4">
+            <div className="flex items-center justify-between gap-x-3.5">
+              <button
+                type="button"
+                onClick={() => decreaseCount()}
+                disabled={theCart}
+                className="size-6 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-md border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 focus:outline-none focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none"
+                tabIndex="-1"
+                aria-label="Decrease"
+                data-hs-input-number-decrement=""
+              >
+                &minus;
+              </button>
+              <span>{quantityCount}</span>
+              <button
+                type="button"
+                onClick={() => increaseCount()}
+                disabled={disableBtn || theCart}
+                className="size-6 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-md border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 focus:outline-none focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none"
+              >
+                +
+              </button>
             </div>
           </div>
-     
+          <div className="space-x-3 md:space-x-5">
+            <button
+              onClick={handleAddToCart}
+              className="px-9 md:px-14 py-2  text-sm lg:text-base bg-blue-500 text-white font-semibold rounded-md hover:bg-blue-600 duration-300 focus:bg-teal-600 focus:outline-none focus:ring-2 focus:ring-teal-300"
+            >
+              Add to cart
+            </button>
+
+            <Link to={"/checkout-page"}>
+              <button
+                onClick={handleAddToCart}
+                className="px-9 md:px-14 py-2 text-sm lg:text-base   font-semibold rounded-md text-blue-500 border border-blue-500 hover:text-white duration-300 hover:bg-blue-500 focus:bg-teal-600 focus:outline-none focus:ring-2 focus:ring-teal-300"
+              >
+                Buy now
+              </button>
+            </Link>
+          </div>
+        </div>
+
         {/* Quantity & cart end */}
         <div className="divider  my-2 md:my-0 lg:my-auto"></div>
         {/* Share & compare start */}
         <div className="lg:my-5 flex flex-col xl:flex-row justify-between gap-y-1 ">
-        
-            <div className="flex text-sm md:text-base lg:text-lg">
-              <button
-                onClick={handleAddToCompare}
-                className="flex items-center hover:text-[#666666] space-x-1"
-              >
-                <div>
-                  <GoGitCompare className="text-blue-500" />
-                </div>
-                <h3 className="font-medium  font_cabin">Compare</h3>
-              </button>
-              <button
-                onClick={handleAddToWishlist}
-                className="flex items-center hover:text-[#666666] pl-8 space-x-1"
-              >
-                <div>
-                  <GoHeart className="text-blue-500" />
-                </div>
-                <h3 className="font-medium  font_cabin">Add to wishlist</h3>
-              </button>
-            </div>
-          
+          <div className="flex text-sm md:text-base lg:text-lg">
+            <button
+              onClick={handleAddToCompare}
+              className="flex items-center hover:text-[#666666] space-x-1"
+            >
+              <div>
+                <GoGitCompare className="text-blue-500" />
+              </div>
+              <h3 className="font-medium  font_cabin">Compare</h3>
+            </button>
+            <button
+              onClick={handleAddToWishlist}
+              className="flex items-center hover:text-[#666666] pl-8 space-x-1"
+            >
+              <div>
+                <GoHeart className="text-blue-500" />
+              </div>
+              <h3 className="font-medium  font_cabin">Add to wishlist</h3>
+            </button>
+          </div>
 
           <div className="flex items-center">
             <h3 className="font-medium font_cabin text-sm md:text-base lg:text-lg">

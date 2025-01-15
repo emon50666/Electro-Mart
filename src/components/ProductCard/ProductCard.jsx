@@ -14,7 +14,7 @@ import useAddToWishlist from "../../Hooks/useAddToWishlist";
 import useReview from "../../Hooks/useReview";
 import useRoll from "../../Hooks/useRoll";
 
-const ProductCard = ({ product, refetch, shop }) => {
+const ProductCard = ({ product, refetch, shop,newHome }) => {
   const [role] = useRoll();
   // console.log(role);
   const { reviews } = useReview();
@@ -45,7 +45,10 @@ const ProductCard = ({ product, refetch, shop }) => {
     if (shop) {
       setTitle(product?.title.slice(0, 25));
     }
-  }, [shop, product.title]);
+    if (newHome) {
+      setTitle(product?.title.slice(0, 30));
+    }
+  }, [newHome,shop, product.title]);
 
   // Usage
   const averageRating = calculateAverageRating(allReview);
@@ -175,7 +178,7 @@ const ProductCard = ({ product, refetch, shop }) => {
                   : "w-auto"
               }`}
             >
-              {title}
+              {title}{newHome && "..."}
             </h4>
           </Link>
           <div className="flex items-center justify-between">
@@ -257,6 +260,7 @@ ProductCard.propTypes = {
   product: PropType.object,
   refetch: PropType.func,
   shop: PropType.string,
+  newHome: PropType.string,
 };
 
 export default ProductCard;

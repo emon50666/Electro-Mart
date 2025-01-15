@@ -20,7 +20,11 @@ const CartTableRow = ({ item, refetchCart, setTotal }) => {
   const product = products.find(
     (product) => product?._id === item?.mainProductId
   );
-  const [price, setPrice] = useState(parseInt(product?.price));
+  const [price, setPrice] = useState(
+    product?.discountPrice != product?.price
+      ? parseInt(product?.discountPrice)
+      : parseInt(product?.price)
+  );
 
   useEffect(() => {
     if (product?.discountPrice != product?.price) {
@@ -141,8 +145,8 @@ const CartTableRow = ({ item, refetchCart, setTotal }) => {
       <td className="flex items-center justify-center md:text-lg">
         <Link to={`/productDetails/${product?._id}`}>
           <img
-            src={product.images[0]}
-            alt={product.title}
+            src={product?.images[0]}
+            alt={product?.title}
             className="h-16 w-16 object-contain"
           />
         </Link>
