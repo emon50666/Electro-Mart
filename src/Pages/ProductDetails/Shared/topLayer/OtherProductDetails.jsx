@@ -141,7 +141,7 @@ const OtherProductDetails = ({ product }) => {
           <div className="text-xl gap-2 mb-2 lg:text-4xl text-blue-500 font-semibold flex items-center font_cabin">
             {product?.discountPrice == product?.price ? (
               <div className="flex gap-2 ">
-                <p className="font-bold text-blue-500 text-[12px] lg:text-base">
+                <p className="text-blue-500 font-semibold text-sm md-text-xl lg:text-3xl space-x-0">
                   {" "}
                   ৳ {product?.price}
                 </p>
