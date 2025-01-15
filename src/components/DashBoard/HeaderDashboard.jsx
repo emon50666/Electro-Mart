@@ -121,11 +121,11 @@ const HeaderDashboard = () => {
                 )}
                 <li>
                   <Link
-                    to={"/settings"}
+                    to={"profile"}
                     onClick={closeDropdown}
                     className="block px-4 py-2 hover:bg-blue-50 hover:text-blue-500"
                   >
-                    Settings
+                    Profile
                   </Link>
                 </li>
                 <li>

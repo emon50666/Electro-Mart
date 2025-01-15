@@ -6,9 +6,10 @@ import { MdTableRows } from "react-icons/md";
 import WishlistTable from "./WishlistTable";
 import useWishlist from "../../Hooks/useWishlist";
 import WishlistCart from "./WishlistCart";
+import Loader from "../../components/Loader/Loader";
 
 const Wishlist = () => {
-  const { theUserWishlist } = useWishlist();
+  const { theUserWishlist ,isLoading} = useWishlist();
   // console.log(theUserWishlist)
   // console.log(products)
 
@@ -17,6 +18,9 @@ const Wishlist = () => {
   const handleFormat = (formatStyle) => {
     setFormat(formatStyle);
   };
+
+  if(isLoading) return <Loader/>
+
   return (
     <div className="">
       {theUserWishlist.length > 0 && (
@@ -50,16 +54,18 @@ const Wishlist = () => {
             <div className="join border border-dotted border-blue-500 py-1 px-4 gap-6  lg:mt-5 md:mt-5 mt-2 ">
               <button
                 onClick={() => handleFormat("card")}
-                className="text-blue-500  join-item lg:text-[30px] text-sm"
+                className="text-gray-600 font-normal  join-item lg:text-[25px] text-sm"
               >
                 <FaTableCellsLarge />
               </button>
+            
               <button
                 onClick={() => handleFormat("table")}
-                className=" text-blue-500 join-item lg:text-[30px] text-sm"
+                className=" text-gray-600 join-item  lg:text-[25px] text-sm"
               >
                 <MdTableRows />
               </button>
+             
             </div>
           </div>
           {format === "table" && (

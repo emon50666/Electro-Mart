@@ -48,7 +48,7 @@ const UpdateStore = () => {
                 formData.append("upload_preset", import.meta.env.VITE_CLOUDINARY_UPLOAD_PRESET);
                 formData.append("cloud_name", "duv5fiurz");
 
-                const imageResponse = await axios.post(`https://api.cloudinary.com/v1_1/${import.meta.env.VITE_CLOUDINARY_COULD_NAME}/image/uploa`, formData);
+                const imageResponse = await axios.post(`https://api.cloudinary.com/v1_1/${import.meta.env.VITE_CLOUDINARY_COULD_NAME}/image/upload`, formData);
                 imageUrl = imageResponse.data.secure_url;
             }
 

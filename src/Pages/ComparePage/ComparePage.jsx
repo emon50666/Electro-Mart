@@ -2,9 +2,11 @@ import { Link } from "react-router-dom";
 import ComparisonTable from "./Shared/ComparisonTable";
 import useCompare from "../../Hooks/useCompare";
 import { Helmet } from "react-helmet";
+import Loader from "../../components/Loader/Loader";
 
 const ComparePage = () => {
-  const { theUserCompares } = useCompare();
+  const { theUserCompares,isLoading} = useCompare();
+  if(isLoading) return <Loader/>
 
   return (
     <div className="space-y-10 md:mb-20 lg:mb-24">
@@ -40,7 +42,7 @@ const ComparePage = () => {
           // Centering the message using flex and ensuring full height alignment
           <div className="flex items-center justify-center min-h-[50vh] mx-2 mt-4 mb-4">
             <div className="text-center">
-              <div className="bg-gradient-to-r from-gray-100 to-gray-200 border border-gray-300 text-teal-900 p-8 md:p-10 lg:p-12 rounded-xl shadow-lg max-w-lg mx-auto space-y-8">
+              <div className="bg-gradient-to-r from-gray-100 to-gray-200 border border-gray-300 text-black p-8 md:p-10 lg:p-12 rounded-xl shadow-lg max-w-lg mx-auto space-y-8">
                 <p className="text-lg md:text-3xl font-semibold">
                   Your comparison list is empty!
                 </p>

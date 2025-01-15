@@ -80,7 +80,7 @@ const Contacts = () => {
           </form>
         </div>
         <div className=" items-center  lg:mt-10">
-        <div className="bg-white px-6 py-6 rounded-lg shadow-md  ">
+        <div className="bg-white px-6 py-6   ">
         <h2 className="text-2xl xl:text-2xl 2xl:text-2xl font-semibold mb-4  ">
             Need Help?
           </h2>

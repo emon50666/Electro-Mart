@@ -8,7 +8,7 @@ import { FaLocationDot } from "react-icons/fa6";
 import useRoll from "../../Hooks/useRoll";
 
 const MenuBar = () => {
-  const { categories, isLoading } = useCategories();
+  const { categories,  } = useCategories();
   const [isOpen, setIsOpen] = useState(false);
   const [role] = useRoll();
   const [selectedCategory, setSelectedCategory] = useState("");
@@ -50,7 +50,7 @@ const MenuBar = () => {
   ];
   // console.log(role);
 
-  if (isLoading) return <Loader />;
+ 
 
   return (
     <div className="navbar hidden lg:flex bg-gradient-to-r from-blue-700 via-blue-900 to-blue-500 text-white w-full">
@@ -75,7 +75,7 @@ const MenuBar = () => {
           </button>
           {/* Dropdown Menu */}
           {isOpen && (
-            <div className="absolute lg:w-[1160px] xl:w-[1790px]  w-full top-full left-0 z-40 ml-2 xl:ml-4 bg-white shadow-lg border border-gray-200 mt-4 overflow-hidden overflow-x-hidden py-3">
+            <div className="absolute lg:w-[1160px] xl:w-[1790px]  w-full top-full left-0 z-40 xl:ml-4 bg-white shadow-lg border border-gray-200 mt-4 overflow-hidden overflow-x-hidden py-3">
               <ul className=" grid grid-cols-8 xl:grid-cols-12 gap-y-2  pt-2">
                 {categories.map(
                   (cat, idx) =>

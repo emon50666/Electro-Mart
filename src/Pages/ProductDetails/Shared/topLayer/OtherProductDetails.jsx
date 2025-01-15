@@ -1,8 +1,7 @@
 import { GoGitCompare } from "react-icons/go";
 import { GoHeart } from "react-icons/go";
 import { LuFacebook } from "react-icons/lu";
-import { FaStar, FaWhatsapp, FaXTwitter } from "react-icons/fa6";
-import { SlSocialLinkedin } from "react-icons/sl";
+import { FaLinkedinIn, FaStar, FaWhatsapp, FaXTwitter } from "react-icons/fa6";
 import { BsTelegram } from "react-icons/bs";
 import { FaRegEye } from "react-icons/fa";
 import { useState } from "react";
@@ -139,7 +138,8 @@ const OtherProductDetails = ({ product }) => {
         {/* Price & description start */}
         <div className="text-xl gap-2 mb-2 lg:text-4xl text-blue-500 font-semibold flex items-center font_cabin">
           <p>৳</p>
-          <h3> {product?.price}</h3>
+          {product?.discountPrice != product?.price ? <h3> {product?.discountPrice}</h3> : <h3> {product?.price}</h3> }
+          
         </div>
         <div className="font_cabin text-sm lg:text-base text-gray-700">
           <p>{ReactHtmlParser(product?.shortDescription)}</p>
@@ -149,30 +149,31 @@ const OtherProductDetails = ({ product }) => {
           <div className="divider my-2 md:my-0 lg:my-auto"></div>
         )}
         {/* Quantity & cart start */}
-
-        <div className="flex flex-col md:flex-row md:items-center justify-between gap-y-2">
-          <div className="py-2 px-2 inline-block bg-white border border-gray-200 rounded-lg w-1/2 md:w-1/4">
-            <div className="flex items-center justify-between gap-x-3.5">
-              <button
-                type="button"
-                onClick={() => decreaseCount()}
-                disabled={theCart}
-                className="size-6 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-md border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 focus:outline-none focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none"
-                tabIndex="-1"
-                aria-label="Decrease"
-                data-hs-input-number-decrement=""
-              >
-                &minus;
-              </button>
-              <span>{quantityCount}</span>
-              <button
-                type="button"
-                onClick={() => increaseCount()}
-                disabled={disableBtn || theCart}
-                className="size-6 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-md border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 focus:outline-none focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none"
-              >
-                +
-              </button>
+    
+          <div className="flex flex-col md:flex-row md:items-center justify-between gap-y-2">
+            <div className="py-2 px-2 inline-block bg-white border border-gray-200 rounded-lg w-1/2 md:w-1/4">
+              <div className="flex items-center justify-between gap-x-3.5">
+                <button
+                  type="button"
+                  onClick={() => decreaseCount()}
+                  disabled={theCart}
+                  className="size-6 inline-flex justify-center items-center pb-1 text-lg gap-x-2  font-medium rounded-md border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 focus:outline-none focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none"
+                  tabIndex="-1"
+                  aria-label="Decrease"
+                  data-hs-input-number-decrement=""
+                >
+                  &minus;
+                </button>
+                <span>{quantityCount}</span>
+                <button
+                  type="button"
+                  onClick={() => increaseCount()}
+                  disabled={disableBtn || theCart}
+                  className="size-6 inline-flex justify-center items-center pb-1 bg-white gap-x-2 text-lg font-medium rounded-md border border-gray-200  text-gray-800 shadow-sm hover:bg-gray-50 focus:outline-none focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none"
+                >
+                  +
+                </button>
+              </div>
             </div>
           </div>
           <div className="space-x-3 md:space-x-5">
@@ -225,19 +226,19 @@ const OtherProductDetails = ({ product }) => {
             </h3>
             <div className="flex items-center space-x-2 ml-1 lg:text-xl text-blue-500 gap-4">
               <FacebookShareButton url={shareUrl}>
-                <LuFacebook className="cursor-pointer " />
+                <LuFacebook className="cursor-pointer text-3xl bg-blue-100 rounded-full p-2  hover:bg-blue-500 hover:text-white duration-700" />
               </FacebookShareButton>
               <TwitterShareButton url={shareUrl}>
-                <FaXTwitter className="cursor-pointer" />
+                <FaXTwitter className="cursor-pointer text-3xl bg-blue-100 rounded-full p-2  hover:bg-blue-500 hover:text-white duration-700" />
               </TwitterShareButton>
               <LinkedinShareButton url={shareUrl}>
-                <SlSocialLinkedin className="cursor-pointer" />
+                <FaLinkedinIn className="cursor-pointer text-3xl bg-blue-100 rounded-full p-2  hover:bg-blue-500 hover:text-white duration-700" />
               </LinkedinShareButton>
               <TelegramShareButton url={shareUrl}>
-                <BsTelegram className="cursor-pointer" />
+                <BsTelegram className="cursor-pointer text-3xl bg-blue-100 rounded-full p-2  hover:bg-blue-500 hover:text-white duration-700" />
               </TelegramShareButton>
               <WhatsappShareButton url={shareUrl}>
-                <FaWhatsapp className="cursor-pointer" />
+                <FaWhatsapp className="cursor-pointer text-3xl bg-blue-100 rounded-full p-2  hover:bg-blue-500 hover:text-white duration-700" />
               </WhatsappShareButton>
             </div>
           </div>
@@ -245,7 +246,7 @@ const OtherProductDetails = ({ product }) => {
         {/* Share & compare end */}
       </div>
       <div className="divider my-2 md:my-0 lg:my-auto"></div>
-      <div className="flex items-center justify-center gap-x-1 mb-5 mx-2 px-2 xl:px-4 py-2  bg-slate-200 rounded-lg text-sm md:text-base">
+      <div className="flex items-center justify-center gap-x-1 mb-5 mx-2 px-2 xl:px-4 py-2  bg-blue-50 rounded-lg text-sm md:text-base">
         <FaRegEye className="mt-1 " />
         <p>{product?.view || 0} People Watching this product now!</p>
       </div>

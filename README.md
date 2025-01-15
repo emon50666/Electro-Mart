@@ -1,7 +1,7 @@
 
 # Electro Mart
 
-( Live Link ) [https://electros-mart.netlify.app/]
+( Live Link ) [https://electromart-pro.netlify.app/]
 
 Welcome to **Electro Mart** – your go-to eCommerce platform for electronic products! We provide a seamless shopping experience with a wide range of electronics at competitive prices. Whether you're looking for the latest gadgets, home appliances, or accessories, we’ve got it all!
 
@@ -15,7 +15,12 @@ Welcome to **Electro Mart** – your go-to eCommerce platform for electronic pro
 - ⭐ **Product Reviews & Ratings**: Users can leave reviews and ratings to help others make informed decisions.
 - 🛒 **Shopping Cart**: Add items to your cart and easily proceed to checkout.
 - 📦 **Order Tracking**: Keep track of your orders and view your purchase history.
+- 📦 **Create A New Store **: Anyone can open in store from Electromart in their city.
+- 📦 **Promotion Product **: If you want to promote any product, you can promote the product from our Electromart.
 - ⚙️ **Admin Panel**: Manage products, orders, and users from a dedicated admin interface.
+- ⚙️ **User Panel**: Manage user all orders, and see top selleing product.
+- ⚙️ **Seller Panel**: If someone wants to sell his product on the website then he can open a seller account for that he has to talk to the admin.
+
   
 ---
 
@@ -32,8 +37,9 @@ Welcome to **Electro Mart** – your go-to eCommerce platform for electronic pro
 - **MongoDB**: NoSQL database for storing product, user, and order data.
 
 ### **Payment Methods**:
-- **Stripe**: For handling secure payments online.
 - **Bkash, Nagad, Rocket**: Integrated local payment gateways for seamless transactions.
+- **Cash On Delivery:(COD) is a payment method where a customer pays for goods when they are delivered, instead of paying in advance.
+- 
 
 ---
 

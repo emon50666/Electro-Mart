@@ -1,169 +1,124 @@
 import Marquee from "react-fast-marquee";
 
+
 const About = () => {
   const teamMembers = [
     {
-      name: "John Doe",
-      image: "path/to/member1.jpg",
-      description:
-        "A true friend and brother, working together to achieve our common goals.",
+      name: "MD Emon Talukdar",
+      title: "Full Stack Developer",
+      bio:"Team-Leader",
+      image: "https://res.cloudinary.com/dpsgtszzi/image/upload/v1735997749/emon_rhj883.png",
     },
     {
-      name: "Jane Smith",
-      image: "path/to/member2.jpg",
-      description:
-        "A true friend and brother, working together to achieve our common goals.",
+      name: "MD Ridwanul Islam",
+      title: "Full Stack Developer",
+      bio:" Team-Leader",
+      image: "https://res.cloudinary.com/dpsgtszzi/image/upload/v1736002287/467748360_950999440461908_6032397009052311263_n_upgxkp.jpg",
     },
     {
-      name: "Michael Brown",
-      image: "path/to/member3.jpg",
-      description:
-        "A true friend and brother, working together to achieve our common goals.",
+      name: "Mohammed Rasif",
+      title: "Front-end Developer",
+      bio: "contributor",
+      image: "https://res.cloudinary.com/dpsgtszzi/image/upload/v1736002363/471898051_1797182027697229_1934842080457666092_n_msnvgy.jpg",
     },
     {
-      name: "Emily Clark",
-      image: "path/to/member4.jpg",
-      description:
-        "A true friend and brother, working together to achieve our common goals.",
+      name: "Kazi Ahammad Ullah",
+      title: "Back-end Developer",
+      bio: "contributor",
+      image: "https://res.cloudinary.com/dpsgtszzi/image/upload/v1736002970/images_kcr5fs.png",
     },
   ];
-  return (
-    <div className="bg-gray-100 py-16 ">
-      <h1 className="text-5xl text-center font-bold text-blue-700 pb-14">
-        About Us
-      </h1>
-      {/* About Section */}
-      <section data-aos="fade-up" className=" flex  mb-12">
-        <div className="flex flex-col lg:flex-row lg:items-center lg:justify-center p-6 space-y-8 lg:space-y-0 lg:space-x-8">
-          {/* Image Section */}
-          <div
-            className="lg:w-1/2 w-full flex justify-center"
-            data-aos="fade-left"
-          >
-            <img
-              src="https://res.cloudinary.com/dvubt5hiv/image/upload/v1730137730/r4fvkmgrhedjerxwyzgo.jpg"
-              alt="Our Vision"
-              className="rounded-lg shadow-lg transition-transform duration-500 ease-in-out hover:scale-105 w-full max-w-lg" // Ensures responsive image size
-            />
-          </div>
 
-          {/* Text Section */}
-          <div className="lg:w-1/2 w-full  lg:text-left">
-            <h1 className="text-3xl lg:text-4xl font-semibold text-blue-600">
-              What We Do
-            </h1>
-            <p className="mt-4 text-base lg:text-lg mb-6 text-gray-600 max-w-2xl mx-auto lg:mx-0">
-              At <strong>Electro Mart</strong>, we’re passionate about
-              delivering the best in cutting-edge electronics and gadgets. Our
-              e-commerce platform provides a seamless shopping experience,
-              offering a wide range of products from the latest smartphones and
-              laptops to home appliances and accessories. <br /> <br />
-              We carefully curate high-quality, innovative technology that
-              caters to every need—whether youre a tech enthusiast, a
-              professional, or simply looking to upgrade your devices. Our
-              mission is to bring the future of electronics to your doorstep,
-              with competitive prices, detailed product information, and
-              exceptional customer service. With a focus on customer
-              satisfaction, we aim to make shopping for electronics simple,
-              secure, and enjoyable. Explore the future with Electro Mart—where
-              technology meets convenience.
+
+
+
+
+
+  return (
+    <div className="bg-gray-100 pb-10 pt-4">
+    
+
+      <section className="bg-gray-100 py-10 px-6 ">
+      <div className="container mx-auto grid lg:grid-cols-2 gap-12">
+        {/* Left Side - About Us */}
+        <div className="bg-white border-l  border-4 border-[#4F46E5] p-8 rounded-lg shadow-lg">
+          <h2 className="text-3xl font-bold text-gray-800 mb-4">About Us</h2>
+          <p className="text-lg text-gray-600 leading-relaxed mb-4">
+            Welcome to <span className="font-semibold text-indigo-600">Electro Mart</span>, your ultimate destination for the latest and greatest in electronics! We are a premier e-commerce platform dedicated to bringing cutting-edge technology and electronic products to your doorstep. Whether you’re looking for high-performance gadgets, home appliances, or the newest tech innovations, we offer a wide range of products designed to enhance your lifestyle.
+          </p>
+          <p className="text-lg text-gray-600 leading-relaxed mb-4">
+            At Electro Mart, we are passionate about providing our customers with a seamless shopping experience. Our carefully curated selection includes top-rated brands, the best deals, and the most popular electronic products on the market. From smartphones, laptops, and gaming consoles to kitchen appliances and smart home devices, we have something for everyone.
+          </p>
+          <p className="text-lg text-gray-600 leading-relaxed">
+            Our commitment to quality and customer satisfaction is at the heart of everything we do. With a secure online shopping experience, fast shipping, and dedicated customer support, we make sure you get the products you love with the convenience you deserve.
+          </p>
+        </div>
+
+        {/* Right Side - Vision & Mission */}
+        <div className="bg-indigo-600 text-white p-8 rounded-lg shadow-lg">
+          <h2 className="text-3xl font-bold mb-4">Vision & Mission</h2>
+
+          {/* Vision */}
+          <div className="mb-8">
+            <h3 className="text-2xl font-semibold mb-2">Our Vision</h3>
+            <p className="text-lg leading-relaxed">
+              At Electro Mart, our vision is to become the leading online retailer of electronics, providing customers with an unparalleled shopping experience through innovation, convenience, and quality products. We strive to connect people with the best technology and gadgets that elevate their lives.
             </p>
           </div>
-        </div>
-      </section>
 
-      {/* Vision Section */}
-      <div className="flex flex-col lg:flex-row items-center lg:items-start justify-between px-8 py-16 bg-white">
-        {/* Text Section */}
-        <div
-          className="lg:w-1/2 w-full mb-6 lg:mb-0 lg:pr-12"
-          data-aos="fade-right" // AOS animation for text
-        >
-          <h2 className="text-4xl font-bold mb-4 text-blue-700">Our Vision</h2>
-          <p className="text-lg text-gray-600 mb-6">
-            At <strong>Electro Mart</strong>, we envision a world where
-            technology is not just a luxury but an essential tool accessible to
-            everyone. Our goal is to bridge the gap between technological
-            advancements and the everyday consumer by making cutting-edge
-            electronics affordable and within reach.
-          </p>
-          <p className="text-lg text-gray-600 mb-6">
-            We are also committed to sustainability, ensuring that our products
-            are sourced ethically and produced with minimal environmental
-            impact. Our mission is to foster community engagement by partnering
-            with local organizations and investing in eco-friendly initiatives
-            to make a positive impact on the planet.
-          </p>
-          <p className="text-lg text-gray-600">
-            By focusing on innovation, affordability, and sustainability, we aim
-            to build a future where technology empowers and improves lives
-            globally, creating a more connected and sustainable world.
-          </p>
-        </div>
-
-        {/* Image Section */}
-        <div
-          className="lg:w-1/2 w-full flex justify-center"
-          data-aos="fade-left"
-        >
-          <img
-            src="https://res.cloudinary.com/dvubt5hiv/image/upload/v1730137730/xynuwmkuilo6om7c0ykk.jpg"
-            alt="Our Vision"
-            className="rounded-lg shadow-lg transition-transform duration-500 ease-in-out hover:scale-105" // Hover effect and animation
-          />
+          {/* Mission */}
+          <div>
+            <h3 className="text-2xl font-semibold mb-2">Our Mission</h3>
+            <p className="text-lg leading-relaxed">
+              Our mission is to provide customers with a wide selection of the latest and most reliable electronic products at competitive prices. We aim to offer exceptional customer service, ensuring that each shopping experience is smooth and enjoyable. Through our commitment to excellence, we aim to create long-lasting relationships with our customers and become their go-to destination for all things electronics.
+            </p>
+          </div>
         </div>
       </div>
+    </section>
 
-      {/* Why Choose Us Section */}
-      <section
-        data-aos="fade-up"
-        className="bg-white rounded-lg shadow-lg p-8 max-w-4xl mx-auto lg:mt-10"
-      >
-        <h2 className="text-3xl font-semibold text-blue-700 text-center mb-4">
-          Why Choose Us?
-        </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-left">
-          <div>
-            <h3 className="text-xl font-semibold text-gray-700">
-              Wide Product Range
-            </h3>
-            <p className="mt-2 text-gray-600">
-              We offer everything from smartphones to smart home devices.
-            </p>
+      {/* Team Section (With Images) */}
+    
+      <div className="bg-gray-100 py-10">
+      <h2 className="text-center text-3xl font-bold text-gray-800 mb-12">
+        Meet Our Team
+      </h2>
+      <div className="container mx-auto grid gap-8  sm:grid-cols-2 lg:grid-cols-4">
+        {teamMembers.map((member, index) => (
+          <div
+            key={index}
+            className="bg-white border border-gray-200 pt-16  rounded-t-full rounded-r-3xl  shadow-sm overflow-hidden transform hover:scale-105 transition-transform duration-300"
+          >
+            
+            <div className="relative">
+              <img
+                src={member.image}
+                alt={member.name}
+                className="w-full h-48 object-cover bg-gray-100"
+              />
+              <div className="absolute inset-0 bg-black   bg-opacity-50 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300">
+                <div className="text-center">
+                  <p className="text-white text-xl font-bold">{member.name}</p>
+                  <p className="text-white text-sm">{member.title}</p>
+                 
+                </div>
+              </div>
+            </div>
+            <div className="p-4 ">
+              <p className="text-gray-800 font-bold">{member.name}</p>
+              <p className="font-semibold text-blue-500"> {member.bio} </p>
+              <p className="text-gray-600">{member.title}</p>
+
+            </div>
           </div>
-          <div>
-            <h3 className="text-xl font-semibold text-gray-700">
-              Competitive Pricing
-            </h3>
-            <p className="mt-2 text-gray-600">
-              Find the best deals on high-quality electronics.
-            </p>
-          </div>
-          <div>
-            <h3 className="text-xl font-semibold text-gray-700">
-              Fast Delivery
-            </h3>
-            <p className="mt-2 text-gray-600">
-              Your order will reach you quickly and reliably.
-            </p>
-          </div>
-          <div>
-            <h3 className="text-xl font-semibold text-gray-700">
-              Secure Shopping
-            </h3>
-            <p className="mt-2 text-gray-600">
-              We prioritize your privacy and transaction security.
-            </p>
-          </div>
-        </div>
-      </section>
+        ))}
+      </div>
+    </div>
 
       {/* all brand logo section */}
 
-      <div className="mt-10 bg-white text-4xl font-semibold py-3">
-        <h1 className="text-center lg:text-3xl md:text-3xl text-2xl text-blue-700">
-          Prepare Brand Logos
-        </h1>
+      <div className="mt-44  bg-white text-4xl font-semibold py-3">
+
         <Marquee pauseOnHover speed={50} gradient={false}>
           <div className="flex items-center gap-2 sm:gap-4">
             <span className="text-xs sm:text-sm md:text-base lg:text-lg text-gray-800 font-semibold">
@@ -294,31 +249,10 @@ const About = () => {
         </Marquee>
       </div>
 
-      {/* Team Section (With Images) */}
-      <section className="team-section py-12 mx-5 bg-gray-100">
-        <div className="container mx-auto">
-          <h2 className="text-3xl font-semibold text-blue-700 text-center mb-8">
-            Meet Our Team
-          </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-            {teamMembers.map((member, index) => (
-              <div
-                key={index}
-                className="team-member text-center bg-white p-6 rounded-lg shadow-md"
-              >
-                <img
-                  src={member.image}
-                  alt={member.name}
-                  className="w-32 h-32 mx-auto rounded-full mb-4 object-cover"
-                />
-                <h3 className="text-xl font-semibold">{member.name}</h3>
-                <p className="text-gray-500 mb-2">{member.role}</p>
-                <p className="text-gray-600 text-sm">{member.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+
+
+
+
     </div>
   );
 };

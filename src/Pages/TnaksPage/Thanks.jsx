@@ -43,7 +43,7 @@ const Thanks = () => {
 
     return (
         <div>
-           <div className="flex items-center pt-6 pb-6 px-2 justify-center lg:pt-10 lg:pb-10 bg-gray-100">
+           <div className="flex items-center min-h-screen pt-6 pb-6 px-2 justify-center lg:pt-10 lg:pb-10 bg-gray-100">
       <div className="bg-white rounded-lg shadow-lg w-[800px]">
         <div className="flex rounded-t-md bg-gradient-to-r from-[#A539D5] via-gray-100 to-violet-600 flex-col items-center">
           <AiOutlineCheckCircle className="text-white bg-green-500 rounded-full relative bottom-5 md:bottom-5 lg:bottom-7 text-6xl" />

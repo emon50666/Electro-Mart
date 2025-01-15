@@ -183,6 +183,7 @@ const CartTableRow = ({ item, refetchCart, setTotal }) => {
         <p className="flex justify-center items-center gap-x-1">
           <FaBangladeshiTakaSign />
           {calculateSubtotal(price, quantityCount)}
+       
         </p>
       </td>
       <td

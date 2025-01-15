@@ -117,10 +117,11 @@ const Navbar = () => {
           >
             <FaCartShopping className="text-lg text-blue-600" />
             {!loading && theUserCarts.length > 0 && (
-              <span className="absolute -right-1 -ml-1 -top-2 h-4 w-4 rounded-full bg-blue-500 px-1 py-0 text-[10px] text-white flex items-center justify-center">
+              <span className={`${!user ? "hidden" : 'absolute' }  -right-1 -ml-1 -top-2 h-4 w-4 rounded-full bg-blue-500 px-1 py-0 text-[10px] text-white flex items-center justify-center`}>
                 {theUserCarts.length >= 9 ? "9+" : theUserCarts.length}
               </span>
-            )}
+            )} 
+             
           </div>
           <Link
             to={"/comparePage"}

@@ -6,7 +6,7 @@ import useAuth from "./useAuth";
 const useCompare = () => {
     const { user } = useAuth();
     const axiosPublic = useAxiosPublic();
-    const { data: compares = [], refetch } = useQuery({
+    const { data: compares = [], refetch,isLoading } = useQuery({
         queryKey: ["compares"],
         queryFn: async () => {
             const result = await axiosPublic.get("/compares");
@@ -14,7 +14,7 @@ const useCompare = () => {
         },
     });
     const theUserCompares = compares.filter(compare => compare?.adderMail == user?.email)
-    return { compares, theUserCompares, refetch };
+    return { compares, theUserCompares, refetch ,isLoading};
 };
 
 export default useCompare;
