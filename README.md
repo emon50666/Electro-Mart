@@ -1,7 +1,7 @@
 
 # Electro Mart
 
-( Live Link ) [https://electromart-pro.netlify.app/]
+( Live Link ) [https://electros-mart.netlify.app/]
 
 Welcome to **Electro Mart** – your go-to eCommerce platform for electronic products! We provide a seamless shopping experience with a wide range of electronics at competitive prices. Whether you're looking for the latest gadgets, home appliances, or accessories, we’ve got it all!
 
