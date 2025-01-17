@@ -49,7 +49,7 @@ const MobileSearchBar = () => {
             type="text"
             name="search"
             placeholder="Search Category, Brand..."
-            className="border-l border-t border-b border-gray-400 pl-3  focus:outline-none pt-2 pb-2 px-2 border-dashed rounded-l-sm w-full focus:outline-dashed outline-gray-400 focus:ring-0 "
+            className="border-l border-t border-b border-gray-400 ml-3   focus:outline-none pt-2 pb-2 px-2 border-dashed rounded-l-sm w-full focus:outline-dashed outline-gray-400 focus:ring-0 "
           />
           <button className="relative right-3 bg-blue-500 rounded-l-none border-b border-gray-400 border-t-border-blue-500 flex text-white pt-[9px] pr-3 pb-[9px] pl-5 rounded-r-sm focus:outline-none focus:ring-0">
             Search
