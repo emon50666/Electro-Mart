@@ -48,10 +48,10 @@ const MobileSearchBar = () => {
           <input
             type="text"
             name="search"
-            placeholder="Search Product, Category, Brand..."
-            className="border-l border-t border-b border-blue-400 pt-2 pb-2 px-2 border-dashed rounded-l-sm w-full focus:outline-dashed outline-blue-400 focus:ring-0 ml-14 -mr-5"
+            placeholder="Search Category, Brand..."
+            className="border-l border-t border-b border-gray-400 ml-3   focus:outline-none pt-2 pb-2 px-2 border-dashed rounded-l-sm w-full focus:outline-dashed outline-gray-400 focus:ring-0 "
           />
-          <button className="relative right-12 bg-blue-500 rounded-l-none border-b border-blue-500 border-t-border-blue-500 flex text-white pt-[9px] pr-3 pb-[9px] pl-5 rounded-r-sm focus:outline-none focus:ring-0">
+          <button className="relative right-3 bg-blue-500 rounded-l-none border-b border-gray-400 border-t-border-blue-500 flex text-white pt-[9px] pr-3 pb-[9px] pl-5 rounded-r-sm focus:outline-none focus:ring-0">
             Search
           </button>
         </span>
@@ -64,7 +64,7 @@ const MobileSearchBar = () => {
           ref={searchRef} // Reference for clicking outside detection
           className="absolute top-14 left-1/2 transform mt-2 -translate-x-1/2 w-full max-h-80 bg-gray-200 shadow-lg rounded-lg overflow-auto p-4 z-50"
         >
-          <div className="grid grid-cols-2 sm:grid-cols-1 mt-auto gap-4 w-full">
+          <div className="grid grid-cols-1 md:grid-cols-2 mt-auto gap-4 w-full">
             {filteredProducts.length > 0 ? (
               filteredProducts.map((product) => (
                 <Link
