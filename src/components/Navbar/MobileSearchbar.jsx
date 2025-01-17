@@ -64,7 +64,7 @@ const MobileSearchBar = () => {
           ref={searchRef} // Reference for clicking outside detection
           className="absolute top-14 left-1/2 transform mt-2 -translate-x-1/2 w-full max-h-80 bg-gray-200 shadow-lg rounded-lg overflow-auto p-4 z-50"
         >
-          <div className="grid grid-cols-2 sm:grid-cols-1 mt-auto gap-4 w-full">
+          <div className="grid grid-cols-1 md:grid-cols-2 mt-auto gap-4 w-full">
             {filteredProducts.length > 0 ? (
               filteredProducts.map((product) => (
                 <Link
