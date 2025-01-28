@@ -94,7 +94,7 @@ const About = () => {
               <img
                 src={member.image}
                 alt={member.name}
-                className="w-full h-48 object-cover bg-gray-100"
+                className="w-full h-52 object-cover "
               />
               <div className="absolute inset-0 bg-black   bg-opacity-50 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300">
                 <div className="text-center">
@@ -117,7 +117,7 @@ const About = () => {
 
       {/* all brand logo section */}
 
-      <div className="mt-44  bg-white text-4xl font-semibold py-3">
+      <div className="  bg-white text-4xl font-semibold py-3">
 
         <Marquee pauseOnHover speed={50} gradient={false}>
           <div className="flex items-center gap-2 sm:gap-4">
