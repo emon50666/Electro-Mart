@@ -87,7 +87,7 @@ const About = () => {
         {teamMembers.map((member, index) => (
           <div
             key={index}
-            className="bg-white border border-gray-200 pt-16  rounded-t-full rounded-r-3xl  shadow-sm overflow-hidden transform hover:scale-105 transition-transform duration-300"
+            className="bg-white border border-gray-200 pt-16  rounded-xl  shadow-sm overflow-hidden transform hover:scale-105 transition-transform duration-300"
           >
             
             <div className="relative">
