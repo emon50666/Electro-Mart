@@ -3,7 +3,7 @@ import { IoAddCircleOutline } from "react-icons/io5";
 import { HiOutlineShoppingBag } from "react-icons/hi2";
 import { FaRegUser, FaStoreAlt } from "react-icons/fa";
 import { AiFillControl } from "react-icons/ai";
-import { MdDashboardCustomize } from "react-icons/md";
+import { MdDashboardCustomize, MdOutlineKeyboardArrowRight  } from "react-icons/md";
 import useOrder from "../../../Hooks/useOrder";
 import useProduct from "../../../Hooks/useProduct";
 import PropType from "prop-types";
@@ -53,11 +53,16 @@ const AdminMenu = ({ setIsSideNavOpen }) => {
               <div className="flex text-md font-semibold items-center self-center">
                 <IoAddCircleOutline />
               </div>
-              <span className="flex  relative text-[16px] w-full flex-1 flex-col items-start justify-center gap-0 overflow-hidden truncate">
-                Products
-                <span className="absolute -right-0 -ml-1 left-[69px] -top-0   h-4 w-4 rounded-full bg-orange-500 px-1 py-1 text-[10px] text-white flex items-center justify-center">
-                  {products.length}
-                </span>
+              <span className="flex   relative text-[16px] w-full flex-1 flex-col items-start justify-center gap-0 overflow-hidden truncate">
+              <p className="flex items-center group">
+  Products
+  <MdOutlineKeyboardArrowRight className="text-gray-300 text-xl left-8  relative transition-transform duration-300 group-hover:translate-x-2" />
+</p>
+
+<span className="absolute -right-0 -ml-1 left-[69px] -top-0 h-4 w-4 rounded-full bg-orange-500 text-[10px] text-white flex items-center justify-center">
+  {products.length}
+</span>
+
               </span>
             </NavLink>
 
@@ -75,7 +80,7 @@ const AdminMenu = ({ setIsSideNavOpen }) => {
                     }`
                   }
                 >
-                  Manage Product
+                  All Products
                 </NavLink>
               </li>
               <li className="">
@@ -177,7 +182,10 @@ const AdminMenu = ({ setIsSideNavOpen }) => {
                 <FaStoreAlt />
               </div>
               <p className="flex  w-full flex-1 flex-col items-start justify-center gap-0 overflow-hidden ">
-                Stores
+              <p className="flex items-center group">
+  Products
+  <MdOutlineKeyboardArrowRight className="text-gray-300 text-xl left-4  relative transition-transform duration-300 group-hover:translate-x-2" />
+</p>
               </p>
             </NavLink>
 

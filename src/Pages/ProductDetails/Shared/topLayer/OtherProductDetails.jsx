@@ -170,9 +170,9 @@ const OtherProductDetails = ({ product }) => {
             <div className="divider my-2 md:my-0 lg:my-auto"></div>
           )}
           {/* Quantity & cart start */}
-          <div className="flex flex-col md:flex-row md:items-center justify-between gap-y-2">
-            <div className="py-2 px-2 inline-block bg-white border border-gray-200 rounded-lg w-1/2 md:w-1/4">
-              <div className="flex items-center justify-between gap-x-3.5">
+          <div className="flex flex-col md:flex-row md:items-center justify-between gap-y-2 mt-3">
+            <div className="py-2   px-2 inline-block bg-white border border-gray-200 rounded-lg w-1/2 md:w-1/4">
+              <div className="flex  items-center justify-between gap-x-3.5">
                 <button
                   type="button"
                   onClick={() => decreaseCount()}
@@ -196,7 +196,7 @@ const OtherProductDetails = ({ product }) => {
               </div>
             </div>
 
-            <div className="space-x-3 md:space-x-5">
+            <div className="space-x-3  md:space-x-3">
               <button
                 onClick={handleAddToCart}
                 className="px-9 md:px-14 py-2  text-sm lg:text-base bg-blue-500 text-white font-semibold rounded-md hover:bg-blue-600 duration-300 focus:bg-teal-600 focus:outline-none focus:ring-2 focus:ring-teal-300"
@@ -218,8 +218,8 @@ const OtherProductDetails = ({ product }) => {
         {/* Quantity & cart end */}
         <div className="divider  my-2 md:my-0 lg:my-auto"></div>
         {/* Share & compare start */}
-        <div className="lg:my-5 flex flex-col xl:flex-row justify-between gap-y-1 ">
-          <div className="flex text-sm md:text-base lg:text-lg">
+        <div className="lg:my-5 flex flex-col  xl:flex-row justify-between gap-y-1 ">
+          <div className="flex text-sm md:text-base pb-2 lg:text-lg">
             <button
               onClick={handleAddToCompare}
               className="flex items-center hover:text-[#666666] space-x-1"
