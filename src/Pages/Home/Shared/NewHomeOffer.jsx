@@ -1,48 +1,33 @@
-import { useState, useEffect } from "react";
+import { useQuery } from "@tanstack/react-query";
 import Loader from "../../../components/Loader/Loader";
-import ProductCard from "../../../components/ProductCard/ProductCard";
-import useProduct from "../../../Hooks/useProduct";
+import useAxiosPublic from "../../../Hooks/useAxiosPublic";
+import HPCard from "../../../components/HomeProductCard/HPCard";
 
 const NewHomeOffer = () => {
-  const { products, refetch, isLoading } = useProduct();
-  const [visibleProducts, setVisibleProducts] = useState(5);
+  const axiosPublic = useAxiosPublic();
 
-  useEffect(() => {
-    const updateVisibleProducts = () => {
-      const screenWidth = window.innerWidth;
+  const myParams = {
+    isHot: false,
+    discountPercentage: true,
+    isNew: true,
+    limit: 2,
+  };
 
-      if (screenWidth >= 1280) {
-        // xl
-        setVisibleProducts(12);
-      } else if (screenWidth >= 1024) {
-        // lg
-        setVisibleProducts(10);
-      } else {
-        // Smaller than lg
-        setVisibleProducts(5);
-      }
-    };
-
-    // Update on load and resize
-    updateVisibleProducts();
-    window.addEventListener("resize", updateVisibleProducts);
-
-    return () => {
-      window.removeEventListener("resize", updateVisibleProducts);
-    };
-  }, []);
+  const {
+    data: newProducts = [],
+    refetch,
+    isLoading,
+  } = useQuery({
+    queryKey: ["newProducts"],
+    queryFn: async () => {
+      const result = await axiosPublic.get("/newProducts", {
+        params: myParams,
+      });
+      return result.data;
+    },
+  });
 
   if (isLoading) return <Loader />;
-
-  // Filter products based on conditions
-  const filteredProducts = products.filter(
-    (product) =>
-      product?.title.length > 20 &&
-      product?.isHot != "yes" &&
-      product?.isNew === "yes" &&
-      !product?.discountPercentage &&
-      product?.quantity > 0
-  );
 
   return (
     <div className="px-2 lg:px-8 font_open_sense">
@@ -51,9 +36,9 @@ const NewHomeOffer = () => {
       </div>
       {/* Preview cards */}
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 xl:grid-cols-6 gap-3">
-        {filteredProducts.slice(0, visibleProducts).map((product, idx) => (
+        {newProducts.map((product, idx) => (
           <div key={idx} className="snap-start flex-shrink-0 w-full sm:w-auto">
-            <ProductCard product={product} refetch={refetch} newHome={"yes"} />
+            <HPCard product={product} refetch={refetch} newHome={"yes"} />
           </div>
         ))}
       </div>

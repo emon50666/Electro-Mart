@@ -9,7 +9,7 @@ const ProductReview = ({ product }) => {
   const { reviews } = useReview()
   const allReview = reviews.filter(review => review?.mainId === product?._id )
  
-  console.log(ReactHtmlParser(product?.fullDescription));
+  // console.log(ReactHtmlParser(product?.fullDescription));
   return (
 
 

@@ -64,28 +64,16 @@ const router = createBrowserRouter([
       },
       {
         path: "/productDetails/:id",
-        element: (
-          
-            <ProductDetails />
-        
-        ),
+        element: <ProductDetails />,
         loader: () => fetch(`${import.meta.env.VITE_API_URL}/products/`),
       },
       {
         path: "/comparePage",
-        element: (
-         
-            <ComparePage />
-         
-        ),
+        element: <ComparePage />,
       },
       {
         path: "/wishlist",
-        element: (
-         
-            <Wishlist />
-          
-        ),
+        element: <Wishlist />,
       },
       {
         path: "/storesPage",
@@ -130,16 +118,16 @@ const router = createBrowserRouter([
       },
       {
         path: "manageCart",
-        element: (
-          
-            <ManageCart />
-          
-        ),
+        element: <ManageCart />,
       },
 
       {
         path: "/checkout-page",
-        element: <SecureRoute><CheckoutPage /></SecureRoute>
+        element: (
+          <SecureRoute>
+            <CheckoutPage />
+          </SecureRoute>
+        ),
       },
       {
         path: "/shop-page",
@@ -281,9 +269,9 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path:'setting',
-        element:<Setting/>
-      }
+        path: "setting",
+        element: <Setting />,
+      },
     ],
   },
 ]);
